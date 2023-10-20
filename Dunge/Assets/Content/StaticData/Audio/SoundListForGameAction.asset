@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d42a26a5238f8840b11aecf9319cc7b, type: 3}
+  m_Name: SoundListForGameAction
+  m_EditorClassIdentifier: 
+  UseItemSound: {fileID: 8300000, guid: 0c82c61d45912364ba738b4ac5c0aedc, type: 3}
+  AttackPlayerSound: {fileID: 8300000, guid: 8ec994865bd224f4aba08ccd4f95692b, type: 3}
+  AttackEnemySound: {fileID: 8300000, guid: 90bdb704d63be2c4e979310e38d6d93b, type: 3}
+  HitPlayerSound: {fileID: 8300000, guid: 0edcce274b01fe3448635a71287e156a, type: 3}
+  HitEnemySound: {fileID: 8300000, guid: 52fcc6208efbcd44aa40cde3c0b87ce8, type: 3}
+  TeleportSound: {fileID: 8300000, guid: 55cd7fea8d257194283aa3cef71a89f7, type: 3}
+  PlayerLose: {fileID: 8300000, guid: 921ebb96b1b14834089e774932a8c6c2, type: 3}
+  EnemyDeath: {fileID: 8300000, guid: 0247c0a088949dd429e7cd07bc60f754, type: 3}
+  PickUpItemSound: {fileID: 8300000, guid: 199463a9b136a354883513fed7a7f4c2, type: 3}

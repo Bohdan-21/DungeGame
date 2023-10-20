@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76b05de4ad8af04283e94db30714d5b, type: 3}
+  m_Name: SoundListForButtonAction
+  m_EditorClassIdentifier: 
+  ButtonPressSound: {fileID: 8300000, guid: 49f9a9851c4f4fe41ba7ed71ff780da9, type: 3}
+  PauseSound: {fileID: 8300000, guid: b3a7da6ab900b4146bd252cb73b4a841, type: 3}
+  UnpauseSound: {fileID: 8300000, guid: 61d968b639d56ba4e9b7174a487f4247, type: 3}

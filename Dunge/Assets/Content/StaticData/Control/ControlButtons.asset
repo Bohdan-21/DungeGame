@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5fee1bd52c55da42bc5656a13e770f9, type: 3}
+  m_Name: ControlButtons
+  m_EditorClassIdentifier: 
+  PlayerControlButtons:
+    AttackControlButtons:
+      AttackButton: 323
+    InventoryControlButtons:
+      UseFirstItemButton: 49
+      UseSecondItemButton: 50
+      UseThirdItemButton: 51
+  CameraControlButtons:
+    RotateToLeftButton: 113
+    RotateToRightButton: 101
+    ZoomInButton: 270
+    ZoomOutButton: 269
+  SystemControlButtons:
+    PauseButton: 27

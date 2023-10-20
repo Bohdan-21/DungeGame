@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3059480375635774660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8616113559089574903}
+  - component: {fileID: 4659195938407777400}
+  - component: {fileID: -228956451100537324}
+  m_Layer: 0
+  m_Name: ProjectContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8616113559089574903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059480375635774660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4659195938407777400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059480375635774660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e6589720da476459dc6dd71624b071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: -228956451100537324}
+  _installerPrefabs: []
+  _parentNewObjectsUnderContext: 0
+  _editorReflectionBakingCoverageMode: 0
+  _buildsReflectionBakingCoverageMode: 0
+  _settings:
+    _ensureDeterministicDestructionOrderOnApplicationQuit: 0
+    _displayWarningWhenResolvingDuringInstall: 1
+    _validationRootResolveMethod: 0
+    _validationErrorResponse: 0
+    _signalSettings:
+      _defaultSyncMode: 0
+      _missingHandlerDefaultResponse: 2
+      _requireStrictUnsubscribe: 0
+      _defaultAsyncTickPriority: 1
+--- !u!114 &-228956451100537324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059480375635774660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c11f9d4328706a4083b4df374476f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurtainPrefab: {fileID: 7101906623869289560, guid: e078092e35890f54f86b5f7762126cbf, type: 3}
+  SettingsUIPrefab: {fileID: 4100678517899180949, guid: 70316a76f4bd2ff4eb07b32ea1f9f502, type: 3}
+  SceneLoaderPrefab: {fileID: 3842421171574591101, guid: 0611a0e4cf7d6db4ab02f7c59ecf47b0, type: 3}
+  SoundButtonActionPlayerPrefab: {fileID: 1227733207998901204, guid: 972c2765eedceb842acace56cdcc67c9, type: 3}
+  AudioSetting: {fileID: 11400000, guid: 008e1ba1d623daa47a143188399f3ab9, type: 2}
+  SoundListForGameAction: {fileID: 11400000, guid: cb5669133904dc146b6212ffbb209575, type: 2}
+  SoundListForButtonAction: {fileID: 11400000, guid: 3e91fea9f034e224e9e21b821676b652, type: 2}
+  ControlButtons: {fileID: 11400000, guid: d5f56116a6358024fb1389fb589d0789, type: 2}
+  GameStaticData: {fileID: 11400000, guid: 9c48832bd2e80714e9fb46645556b8f8, type: 2}
+  ProjectGlobalSettings: {fileID: 11400000, guid: ad4d3c7b9ae78d240a4fb4b24ed62068, type: 2}
+  PlayerCharacterConfig: {fileID: 11400000, guid: fb9ad51464ae9584fb3fefa40208d9a1, type: 2}
+  PlayerCharacterDefaultSettings: {fileID: 11400000, guid: 2517abfc859581143aca4f75c7c514d3, type: 2}
+  EnemyStaticData: {fileID: 11400000, guid: eef021f90f1256b4cb11a8c4c9cfa215, type: 2}
