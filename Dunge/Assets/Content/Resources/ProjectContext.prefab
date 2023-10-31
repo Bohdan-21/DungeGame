@@ -77,7 +77,6 @@ MonoBehaviour:
   CurtainPrefab: {fileID: 7101906623869289560, guid: e078092e35890f54f86b5f7762126cbf, type: 3}
   SettingsUIPrefab: {fileID: 4100678517899180949, guid: 70316a76f4bd2ff4eb07b32ea1f9f502, type: 3}
   SceneLoaderPrefab: {fileID: 3842421171574591101, guid: 0611a0e4cf7d6db4ab02f7c59ecf47b0, type: 3}
-  LanguageSettingsPrefab: {fileID: 108622004802264081, guid: 8932185b86295244d888f783c5d547b6, type: 3}
   SoundButtonActionPlayerPrefab: {fileID: 1227733207998901204, guid: 972c2765eedceb842acace56cdcc67c9, type: 3}
   AudioSetting: {fileID: 11400000, guid: 008e1ba1d623daa47a143188399f3ab9, type: 2}
   SoundListForGameAction: {fileID: 11400000, guid: cb5669133904dc146b6212ffbb209575, type: 2}
@@ -88,3 +87,4 @@ MonoBehaviour:
   PlayerCharacterConfig: {fileID: 11400000, guid: fb9ad51464ae9584fb3fefa40208d9a1, type: 2}
   PlayerCharacterDefaultSettings: {fileID: 11400000, guid: 2517abfc859581143aca4f75c7c514d3, type: 2}
   EnemyStaticData: {fileID: 11400000, guid: eef021f90f1256b4cb11a8c4c9cfa215, type: 2}
+  NPCStaticData: {fileID: 11400000, guid: 4357c7234dd97a543b84caf2e674cabf, type: 2}

@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f9bc927fdbcad4ab440f05ef3c8b87, type: 3}
   m_Name: ProjectGlobalSettings
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 1035191777775609837, guid: 8913c312decda224babcdb37ea3034c2, type: 3}
-  GameCamera: {fileID: 4196711485318404590, guid: 0c24fd3a1662088488c09dae4a908e19, type: 3}
-  StartRoom: StartRoom
+  StartRoom: Village
   DungeLevels:
+  - StartRoom
   - DungeLevel1
   - DungeLevel2
   - DungeLevel3

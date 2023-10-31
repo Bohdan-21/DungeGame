@@ -10,6 +10,7 @@ using Scripts.StaticData.Audio;
 using Scripts.StaticData.Control;
 using Scripts.StaticData.EnemyStaticData;
 using Scripts.StaticData.GameStaticData;
+using Scripts.StaticData.NPCStaticData;
 using Scripts.StaticData.PlayerStaticData;
 using Scripts.StaticData.ProjectGlobalSettings;
 using Scripts.UI.Curtain;
@@ -39,6 +40,7 @@ namespace Scripts.Installer
         public PlayerCharacterDeffaultSettings PlayerCharacterDefaultSettings;
 
         public EnemyStaticData EnemyStaticData;
+        public NPCStaticData NPCStaticData;
 
 
         public override void InstallBindings()
@@ -88,6 +90,7 @@ namespace Scripts.Installer
             Container.Bind<PlayerCharacterDeffaultSettings>().FromInstance(PlayerCharacterDefaultSettings).AsSingle();
 
             Container.Bind<EnemyStaticData>().FromInstance(EnemyStaticData).AsSingle();
+            Container.Bind<NPCStaticData>().FromInstance(NPCStaticData).AsSingle();
         }
 
         private void BindSceneLoader()

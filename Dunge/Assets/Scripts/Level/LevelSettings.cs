@@ -1,4 +1,5 @@
 using Scripts.Enemy;
+using Scripts.NPC;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,5 +11,7 @@ namespace Scripts.Level
         public Transform PlayerSpawnPoint;
 
         public List<EnemySpawnPoint> EnemySpawnPoints;
+
+        public List<NPCSpawnPoint> NPCSpawnPoints;
     }
 }
