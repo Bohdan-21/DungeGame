@@ -10,7 +10,7 @@ namespace Scripts.DialogSystem.Logic
     ///это может быть обычный класс который просто отслежывает текущее состояние 
     ///диалога, и побольшей степени он является просто связующим звеном
     /// </summary>
-    public class DialogTracking : MonoBehaviour, IDialogTracking
+    public class DialogTracking : IDialogTracking
     {
         public IDialogUI _dialogUI;
         public IDialogInitializer _dialogInitializer;

@@ -25,7 +25,6 @@ namespace Scripts.Installer
         public GameObject CurtainPrefab;
         public GameObject SettingsUIPrefab;
         public GameObject SceneLoaderPrefab;
-        public GameObject LanguageSettingsPrefab;
         public GameObject SoundButtonActionPlayerPrefab;
 
         public AudioSetting AudioSetting;
@@ -114,7 +113,7 @@ namespace Scripts.Installer
 
         private void BindLanguageSettings()
         {
-            Container.Bind<ILanguageSettings>().FromComponentInNewPrefab(LanguageSettingsPrefab).AsSingle();
+            Container.Bind<ILanguageSettings>().To<LanguageSettings>().FromNew().AsSingle();
         }
 
         private void BindMainStateMachine()

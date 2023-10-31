@@ -4,10 +4,9 @@ using UnityEngine;
 
 namespace Scripts.GameLanguage
 {
-    public class LanguageSettings : MonoBehaviour, ILanguageSettings
+    public class LanguageSettings : ILanguageSettings
     {
         private Language _language = Language.RU;
-
         public Language Language { get => _language; }
     }
 }

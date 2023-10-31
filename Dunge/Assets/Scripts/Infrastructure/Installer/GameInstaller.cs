@@ -22,9 +22,6 @@ public class GameInstaller : MonoInstaller
     public LevelSettings LevelSettings;
 
     public GameObject DialogUIPrefab;
-    public GameObject DialogTrackerPrefab;
-    public GameObject DialogInitializerPrefab;
-
 
     public override void InstallBindings()
     {
@@ -44,9 +41,9 @@ public class GameInstaller : MonoInstaller
 
     private void BindDialogSystem()
     {
+        Container.Bind<IDialogTracking>().To<DialogTracking>().FromNew().AsSingle();
+        Container.Bind<IDialogInitializer>().To<DialogInitializer>().FromNew().AsSingle();
         Container.Bind<IDialogUI>().FromComponentInNewPrefab(DialogUIPrefab).AsSingle();
-        Container.Bind<IDialogTracking>().FromComponentInNewPrefab(DialogTrackerPrefab).AsSingle();
-        Container.Bind<IDialogInitializer>().FromComponentInNewPrefab(DialogInitializerPrefab).AsSingle();
     }
 
     private void BindLevelSettings()

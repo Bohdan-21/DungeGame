@@ -10,7 +10,7 @@ namespace Scripts.DialogSystem.Logic
     /// <summary>
     /// точка входа в систему диалога
     /// </summary>
-    public class DialogInitializer : MonoBehaviour, IDialogInitializer
+    public class DialogInitializer : IDialogInitializer
     {
         public ILanguageSettings _languageSettings;
         public IDialogTracking _dialogTracker;
