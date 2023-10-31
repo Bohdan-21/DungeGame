@@ -3,7 +3,7 @@ using TMPro;
 using System;
 using Scripts.DialogSystem.Structure;
 
-namespace Scripts.DialogSystem.Logic
+namespace Scripts.DialogSystem.Logic.UIController
 {
     public class ResponceVariant : MonoBehaviour
     {

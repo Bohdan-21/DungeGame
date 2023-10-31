@@ -2,6 +2,7 @@
 using Scripts.DialogSystem.Structure;
 using System;
 using UnityEngine;
+using Zenject;
 
 namespace Scripts.DialogSystem.Logic
 {
@@ -9,12 +10,19 @@ namespace Scripts.DialogSystem.Logic
     ///это может быть обычный класс который просто отслежывает текущее состояние 
     ///диалога, и побольшей степени он является просто связующим звеном
     /// </summary>
-    public class DialogTracking : MonoBehaviour
+    public class DialogTracking : MonoBehaviour, IDialogTracking
     {
-        public DialogUI dialogUI;
-        public DialogInitializer dialogInitializer;
+        public IDialogUI _dialogUI;
+        public IDialogInitializer _dialogInitializer;
 
         private DialogVariation _dialogVariation = null;
+
+        [Inject]
+        private void Construct(IDialogUI dialogUI, IDialogInitializer dialogInitializer)
+        {
+            _dialogUI = dialogUI;
+            _dialogInitializer = dialogInitializer;
+        }
 
         public void StartDialogTracking(DialogVariation dialog)
         {
@@ -27,23 +35,23 @@ namespace Scripts.DialogSystem.Logic
         {
             Dialog dialog = _dialogVariation.dialogList.dialogs[0];
 
-            dialogUI.ShowUI();
+            _dialogUI.ShowUI();
 
-            dialogUI.Show(dialog);
+            _dialogUI.Show(dialog);
         }
 
         public void DialogResponce(int codeResponce)
         {
             if (codeResponce == -1)
-                dialogInitializer.InteruptDialog();
+                _dialogInitializer.InteruptDialog();
             else
             {
                 Dialog dialog = FindDialogById(codeResponce);
 
                 if (dialog == null)
-                    dialogInitializer.InteruptDialog();
+                    _dialogInitializer.InteruptDialog();
                 else
-                    dialogUI.Show(dialog);
+                    _dialogUI.Show(dialog);
             }
         }
 
@@ -61,7 +69,7 @@ namespace Scripts.DialogSystem.Logic
         {
             _dialogVariation = null;
 
-            dialogUI.HideUI();
+            _dialogUI.HideUI();
         }
     }
 }

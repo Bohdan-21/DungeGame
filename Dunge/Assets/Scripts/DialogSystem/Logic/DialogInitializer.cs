@@ -3,30 +3,38 @@ using Scripts.GameLanguage;
 using Scripts.StaticData.Dialog;
 using System;
 using UnityEngine;
+using Zenject;
 
 namespace Scripts.DialogSystem.Logic
 {
     /// <summary>
     /// точка входа в систему диалога
     /// </summary>
-    public class DialogInitializer : MonoBehaviour
+    public class DialogInitializer : MonoBehaviour, IDialogInitializer
     {
-        public LanguageSettings languageSettings;
-        public DialogTracking dialogTracker;
+        public ILanguageSettings _languageSettings;
+        public IDialogTracking _dialogTracker;
 
         private bool _isDialogActive = false;
+
+        [Inject]
+        private void Construct(ILanguageSettings languageSettings, IDialogTracking dialogTracker)
+        {
+            _languageSettings = languageSettings;
+            _dialogTracker = dialogTracker;
+        }
 
         public void StartDialog(DialogStaticData dialogStaticData)
         {
             if (dialogStaticData != null)
             {
-                DialogVariation dialog = dialogStaticData.GetDialogVariationByCurrentLanguage(languageSettings.language);
+                DialogVariation dialog = dialogStaticData.GetDialogVariationByCurrentLanguage(_languageSettings.Language);
 
                 if (dialog != null && !_isDialogActive)
                 {
                     _isDialogActive = true;
 
-                    dialogTracker.StartDialogTracking(dialog);
+                    _dialogTracker.StartDialogTracking(dialog);
                 }
             }
         }
@@ -35,7 +43,7 @@ namespace Scripts.DialogSystem.Logic
         {
             _isDialogActive = false;
 
-            dialogTracker.EndDialogTracking();
+            _dialogTracker.EndDialogTracking();
         }
     }
 }

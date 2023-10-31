@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Events;
 using Scripts.DialogSystem.Structure;
+using Zenject;
 
 namespace Scripts.DialogSystem.Logic.UIController
 {
@@ -45,17 +46,23 @@ namespace Scripts.DialogSystem.Logic.UIController
     /// управление ответами
     /// 
     /// </summary>
-    public class DialogUI : MonoBehaviour
+    public class DialogUI : MonoBehaviour, IDialogUI
     {
         [SerializeField] private WaitingButton _waitingButton;
         [SerializeField] private TextDisplayer _textDisplayer;
         [SerializeField] private AnswerPanel _answerPanel;
 
-        public DialogTracking dialogTracker;
+        public IDialogTracking _dialogTracker;
         public GameObject RootComponent;
 
         private Dialog _dialog;
         private int _idNextDialog;
+
+        [Inject]
+        private void Construct(IDialogTracking dialogTracker)
+        {
+            _dialogTracker = dialogTracker;
+        }
 
         private void Start()
         {
@@ -119,7 +126,7 @@ namespace Scripts.DialogSystem.Logic.UIController
 
         private bool DoesHaveResponces() =>
             _dialog.responces != null && _dialog.responces.Count != 0;
-        
+
         private Speaker DetectSpeakerResponce() =>
             _dialog.responces[0].speaker;
 
@@ -173,9 +180,9 @@ namespace Scripts.DialogSystem.Logic.UIController
 
             SendResponce(_idNextDialog);
         }
-        
+
         private void SendResponce(int codeResponce) =>
-            dialogTracker.DialogResponce(codeResponce);
+            _dialogTracker.DialogResponce(codeResponce);
 
 
         public void EndDialog() =>
@@ -189,13 +196,13 @@ namespace Scripts.DialogSystem.Logic.UIController
             StopAllCoroutines();
 
             _waitingButton.DeactivateAndRemoveAllListener();
-            
+
             _textDisplayer.CleanTextComponent();
 
             _answerPanel.HideAnswerPanel();
             _answerPanel.CleanResponce();
 
             RootComponent.SetActive(false);
-        }        
+        }
     }
 }

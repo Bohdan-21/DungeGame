@@ -1,3 +1,4 @@
+using Scripts.GameLanguage;
 using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.SceneLoader;
 using Scripts.Infrastructure.StateMachine;
@@ -24,6 +25,7 @@ namespace Scripts.Installer
         public GameObject CurtainPrefab;
         public GameObject SettingsUIPrefab;
         public GameObject SceneLoaderPrefab;
+        public GameObject LanguageSettingsPrefab;
         public GameObject SoundButtonActionPlayerPrefab;
 
         public AudioSetting AudioSetting;
@@ -55,6 +57,8 @@ namespace Scripts.Installer
             BindPlayerProgress();
 
             BindSaveLoadService();
+
+            BindLanguageSettings();
 
             BindMainStateMachine();
 
@@ -106,6 +110,11 @@ namespace Scripts.Installer
         private void BindSaveLoadService()
         {
             Container.Bind<ISaveLoadService>().To<SaveLoadService>().AsSingle();
+        }
+
+        private void BindLanguageSettings()
+        {
+            Container.Bind<ILanguageSettings>().FromComponentInNewPrefab(LanguageSettingsPrefab).AsSingle();
         }
 
         private void BindMainStateMachine()

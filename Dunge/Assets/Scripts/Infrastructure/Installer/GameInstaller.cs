@@ -1,3 +1,5 @@
+using Scripts.DialogSystem.Logic;
+using Scripts.DialogSystem.Logic.UIController;
 using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.Factory;
 using Scripts.Infrastructure.StateMachine;
@@ -19,10 +21,15 @@ public class GameInstaller : MonoInstaller
 
     public LevelSettings LevelSettings;
 
+    public GameObject DialogUIPrefab;
+    public GameObject DialogTrackerPrefab;
+    public GameObject DialogInitializerPrefab;
+
 
     public override void InstallBindings()
     {
         BindGameFactory();
+        BindDialogSystem();
         BindLevelSettings();
         BindInteruptService();
         BindGameStateMachine();
@@ -33,6 +40,13 @@ public class GameInstaller : MonoInstaller
     private void BindGameFactory()
     {
         Container.Bind<IGameFactory>().To<GameFactory>().AsSingle();
+    }
+
+    private void BindDialogSystem()
+    {
+        Container.Bind<IDialogUI>().FromComponentInNewPrefab(DialogUIPrefab).AsSingle();
+        Container.Bind<IDialogTracking>().FromComponentInNewPrefab(DialogTrackerPrefab).AsSingle();
+        Container.Bind<IDialogInitializer>().FromComponentInNewPrefab(DialogInitializerPrefab).AsSingle();
     }
 
     private void BindLevelSettings()
