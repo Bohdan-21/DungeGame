@@ -392,8 +392,6 @@ MonoBehaviour:
   SoundGameActionPlayerPrefab: {fileID: 1227733207998901204, guid: 7e5197647dde2924387194939582ac78, type: 3}
   LevelSettings: {fileID: 1633252814379354844}
   DialogUIPrefab: {fileID: 2027954212575620295, guid: eddd31d393d9f6b4594c3730556d54e2, type: 3}
-  DialogTrackerPrefab: {fileID: 840397965954619658, guid: a7ff5c6b20f7f074fb7614c32b0b8de4, type: 3}
-  DialogInitializerPrefab: {fileID: 1069254158059972526, guid: 1df3f458b6bb52c4abfc31fddddf49ea, type: 3}
 --- !u!1 &306982768
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,6 +2056,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 738381791109915237, guid: ae7e16feaa61248439d8420feaaae0d9, type: 3}
+      propertyPath: IsStartLocation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 738381791109915239, guid: ae7e16feaa61248439d8420feaaae0d9, type: 3}
       propertyPath: m_Name
       value: Teleport
@@ -2078,6 +2080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSpawnPoint: {fileID: 4860676919492196786}
   EnemySpawnPoints: []
+  NPCSpawnPoints: []
 --- !u!4 &2272541397699945190 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2430983575457445797, guid: 7de98c55e1f5b8e499991f4da7e89599, type: 3}

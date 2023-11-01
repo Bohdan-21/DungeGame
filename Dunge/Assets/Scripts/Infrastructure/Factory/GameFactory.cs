@@ -76,7 +76,7 @@ namespace Scripts.Infrastructure.Factory
                 GameObject spawnedObject = _npcStaticData.GetReference(spawnPoint.NPCName);
 
                 if (spawnedObject != null)
-                    SpawnObjectAt(spawnedObject.transform.position, spawnedObject);
+                    SpawnObjectAt(spawnPoint.transform.position, spawnedObject);
             }
         }
 
@@ -91,7 +91,7 @@ namespace Scripts.Infrastructure.Factory
         {
             GameObject monster = Instantiate(prefabForSpawn);
 
-            monster.transform.position = at;
+            monster.gameObject.transform.position = at;
             return monster;
         }
 

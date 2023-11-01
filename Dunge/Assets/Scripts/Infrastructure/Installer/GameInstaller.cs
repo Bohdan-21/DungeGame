@@ -41,8 +41,8 @@ public class GameInstaller : MonoInstaller
 
     private void BindDialogSystem()
     {
-        Container.Bind<IDialogTracking>().To<DialogTracking>().FromNew().AsSingle();
-        Container.Bind<IDialogInitializer>().To<DialogInitializer>().FromNew().AsSingle();
+        Container.Bind<IDialogTracking>().To<DialogTracking>().AsSingle();
+        Container.Bind<IDialogInitializer>().To<DialogInitializer>().AsSingle();
         Container.Bind<IDialogUI>().FromComponentInNewPrefab(DialogUIPrefab).AsSingle();
     }
 
