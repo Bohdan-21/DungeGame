@@ -3,7 +3,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 
-namespace Scripts
+namespace Scripts.DialogSystem.DialogHandler
 {
     public class DialogQueueHandler : MonoBehaviour
     {
@@ -11,7 +11,7 @@ namespace Scripts
 
         public DialogStaticData GetDefaultDialog()
         {
-            if(_dialogList != null && _dialogList.Count != 0)
+            if (_dialogList != null && _dialogList.Count != 0)
             {
                 DialogStaticData dialogStaticData = _dialogList[0];
 
@@ -29,7 +29,7 @@ namespace Scripts
 
             newDialogList.Add(newDefaultDialog);
 
-            foreach(DialogStaticData data in _dialogList)
+            foreach (DialogStaticData data in _dialogList)
                 newDialogList.Add(data);
 
             _dialogList.Clear();

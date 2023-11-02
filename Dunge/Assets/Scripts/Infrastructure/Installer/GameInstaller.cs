@@ -7,6 +7,7 @@ using Scripts.Level;
 using Scripts.Services.InteruptService;
 using Scripts.StaticData.Audio;
 using Scripts.UI.GamePause;
+using Scripts.UI.Interaction;
 using System;
 using UnityEngine;
 using Zenject;
@@ -22,6 +23,7 @@ public class GameInstaller : MonoInstaller
     public LevelSettings LevelSettings;
 
     public GameObject DialogUIPrefab;
+    public GameObject InteractionPanerPrefab;
 
     public override void InstallBindings()
     {
@@ -29,6 +31,7 @@ public class GameInstaller : MonoInstaller
         BindDialogSystem();
         BindLevelSettings();
         BindInteruptService();
+        BindInteractionPanel();
         BindGameStateMachine();
         BindBackgroundAudioPlayer();
         BindSoundGameActionPlayer();
@@ -54,6 +57,11 @@ public class GameInstaller : MonoInstaller
     private void BindInteruptService()
     {
         Container.Bind<IInteruptService>().To<InteruptService>().AsSingle();
+    }
+
+    private void BindInteractionPanel()
+    {
+        Container.Bind<IInteractionPanel>().FromComponentInNewPrefab(InteractionPanerPrefab).AsSingle();
     }
 
     private void BindGameStateMachine()

@@ -5,9 +5,6 @@ using Scripts.Player;
 using Scripts.StaticData.EnemyStaticData;
 using Scripts.StaticData.GameStaticData;
 using Scripts.StaticData.NPCStaticData;
-using Scripts.StaticData.ProjectGlobalSettings;
-using Scripts.UI.DeathUI;
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -66,7 +63,7 @@ namespace Scripts.Infrastructure.Factory
         private void CreateMonster()
         {
             foreach (EnemySpawnPoint enemySpawnPoint in _levelSettings.EnemySpawnPoints)
-                CreateMonster(enemySpawnPoint.transform.position, _enemyStaticData.EnemyPrefab);
+                CreateNavMeshAgent(enemySpawnPoint.transform.position, _enemyStaticData.EnemyPrefab);
         }
 
         private void CreateNPC()
@@ -80,11 +77,11 @@ namespace Scripts.Infrastructure.Factory
             }
         }
 
-        private void CreateMonster(Vector3 at, GameObject prefabForSpawn)
+        private void CreateNavMeshAgent(Vector3 at, GameObject prefabForSpawn)
         {
-            GameObject monster = SpawnObjectAt(at, prefabForSpawn);
+            GameObject naMeshAgent = SpawnObjectAt(at, prefabForSpawn);
 
-            monster.GetComponent<NavMeshAgent>().SetDestination(at);
+            naMeshAgent.GetComponent<NavMeshAgent>().SetDestination(at);
         }
 
         private GameObject SpawnObjectAt(Vector3 at, GameObject prefabForSpawn)

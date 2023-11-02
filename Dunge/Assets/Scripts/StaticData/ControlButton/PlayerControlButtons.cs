@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Scripts.StaticData.Control
+namespace Scripts.StaticData.ControlButton
 {
     [Serializable]
     public class PlayerControlButtons
@@ -8,5 +8,7 @@ namespace Scripts.StaticData.Control
         public AttackControlButtons AttackControlButtons;
 
         public InventoryControlButtons InventoryControlButtons;
+
+        public AnotherControlButtons AnotherControlButtons;
     }
 }

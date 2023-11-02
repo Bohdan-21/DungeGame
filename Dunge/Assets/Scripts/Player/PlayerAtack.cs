@@ -2,7 +2,7 @@ using Scripts.Infrastructure.Audio;
 using Scripts.Logic;
 using Scripts.Services.InputService;
 using Scripts.Services.InteruptService;
-using Scripts.StaticData.Control;
+using Scripts.StaticData.ControlButton;
 using Scripts.StaticData.PlayerStaticData;
 using System;
 using UnityEngine;

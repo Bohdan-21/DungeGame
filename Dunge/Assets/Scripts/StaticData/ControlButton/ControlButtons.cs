@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Scripts.StaticData.Control
+namespace Scripts.StaticData.ControlButton
 {
     [CreateAssetMenu(fileName = "ControlButtons", menuName = "StaticData/ControlButtons")]
     [Serializable]

@@ -19,6 +19,8 @@ MonoBehaviour:
       UseFirstItemButton: 49
       UseSecondItemButton: 50
       UseThirdItemButton: 51
+    AnotherControlButtons:
+      InteractButton: 102
   CameraControlButtons:
     RotateToLeftButton: 113
     RotateToRightButton: 101

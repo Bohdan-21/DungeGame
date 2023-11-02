@@ -289,7 +289,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &2027954212575620289
 MonoBehaviour:
@@ -346,7 +346,6 @@ MonoBehaviour:
   _waitingButton: {fileID: 4900802451577926627}
   _textDisplayer: {fileID: 2027954212100422273}
   _answerPanel: {fileID: 3600149874090592905}
-  dialogTracker: {fileID: 0}
   RootComponent: {fileID: 2027954212575620295}
 --- !u!1 &2027954212655689342
 GameObject:

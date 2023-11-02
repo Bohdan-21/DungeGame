@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Scripts.StaticData.Control
+namespace Scripts.StaticData.ControlButton
 {
     [Serializable]
     public class CameraControlButtons

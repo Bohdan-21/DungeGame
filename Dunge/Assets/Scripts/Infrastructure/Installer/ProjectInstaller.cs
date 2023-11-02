@@ -7,7 +7,7 @@ using Scripts.Services.InputService;
 using Scripts.Services.PlayerProgressService;
 using Scripts.Services.SaveLoad;
 using Scripts.StaticData.Audio;
-using Scripts.StaticData.Control;
+using Scripts.StaticData.ControlButton;
 using Scripts.StaticData.EnemyStaticData;
 using Scripts.StaticData.GameStaticData;
 using Scripts.StaticData.NPCStaticData;

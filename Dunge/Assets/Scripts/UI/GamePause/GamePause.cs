@@ -2,7 +2,7 @@
 using Scripts.Infrastructure.StateMachine;
 using Scripts.Services.InputService;
 using Scripts.Services.InteruptService;
-using Scripts.StaticData.Control;
+using Scripts.StaticData.ControlButton;
 using Scripts.UI.Settings;
 using UnityEngine;
 using Zenject;
