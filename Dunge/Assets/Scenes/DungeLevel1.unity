@@ -4059,7 +4059,7 @@ MonoBehaviour:
   SoundList: {fileID: 11400000, guid: cb5669133904dc146b6212ffbb209575, type: 2}
   SoundGameActionPlayerPrefab: {fileID: 1227733207998901204, guid: 7e5197647dde2924387194939582ac78, type: 3}
   LevelSettings: {fileID: 8685120348168477990}
-  DialogUIPrefab: {fileID: 2027954212575620295, guid: eddd31d393d9f6b4594c3730556d54e2, type: 3}
+  DialogUIPrefab: {fileID: 3450517168409539817, guid: e5872f91ab6c49948b2acca0fb692d64, type: 3}
   InteractionPanerPrefab: {fileID: 1568130889147228358, guid: d0deb80125b76a449bee291cdaae21cf, type: 3}
 --- !u!1001 &200767405
 PrefabInstance:
