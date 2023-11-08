@@ -1524,7 +1524,7 @@ GameObject:
   - component: {fileID: 8855725862542579781}
   - component: {fileID: 1431898948093230997}
   - component: {fileID: 2129928421832028567}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: DialogInteractionObserver
   m_TagString: Untagged
   m_Icon: {fileID: 0}

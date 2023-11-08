@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d911e9c50bd3ba4699c0639a0f44c3e, type: 3}
   m_Name: EmemyStaticData
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 4570257042629010376, guid: 306309502de85ec469f9966d01317595, type: 3}
+  enemyPrefabs:
+  - enemyType: 0
+    enemyPrefabReference: {fileID: 5245733245266394951, guid: 43ac6aa115f60424681aeb85f9af66ea, type: 3}
+  - enemyType: 1
+    enemyPrefabReference: {fileID: 2564956886531280201, guid: 2ede6481678ede64fbb1731e42ff85bb, type: 3}
   AtackData:
     Damage: 10
     AttactRadius: 0.5

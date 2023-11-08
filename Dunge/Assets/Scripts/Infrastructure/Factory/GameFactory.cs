@@ -62,8 +62,15 @@ namespace Scripts.Infrastructure.Factory
 
         private void CreateMonster()
         {
+            GameObject enemyPrefab;
+
             foreach (EnemySpawnPoint enemySpawnPoint in _levelSettings.EnemySpawnPoints)
-                CreateNavMeshAgent(enemySpawnPoint.transform.position, _enemyStaticData.EnemyPrefab);
+            {
+                enemyPrefab = _enemyStaticData.GetEnemyPrefabByType(enemySpawnPoint.enemyType);
+
+                if(enemyPrefab != null)
+                    CreateNavMeshAgent(enemySpawnPoint.transform.position, enemyPrefab);
+            }
         }
 
         private void CreateNPC()

@@ -1,11 +1,11 @@
-﻿using Scripts.Infrastructure.Factory;
-using UnityEngine;
-using Zenject;
+﻿using UnityEngine;
 
 namespace Scripts.Enemy
 {
     public class EnemySpawnPoint : MonoBehaviour
     {
+        public EnemyType enemyType;
+
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
