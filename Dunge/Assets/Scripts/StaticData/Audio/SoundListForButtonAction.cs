@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Scripts.StaticData.Audio
 {
-    [CreateAssetMenu(fileName = "SoundListForButtonAction", menuName = "StaticData/SoundListForButtonAction")]
+    [CreateAssetMenu(fileName = "SoundListForButtonAction", menuName = "StaticData/Audio/SoundListForButtonAction")]
     [Serializable]
     public class SoundListForButtonAction : ScriptableObject
     {

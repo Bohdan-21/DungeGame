@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Scripts.StaticData.Audio
 {
-    [CreateAssetMenu(fileName = "AudioSettings", menuName = "StaticData/AudioSettings")]
+    [CreateAssetMenu(fileName = "AudioSettings", menuName = "StaticData/Audio/AudioSettings")]
     [Serializable]
     public class AudioSetting : ScriptableObject
     {

@@ -1,6 +1,7 @@
 ﻿using Scripts.Enemy;
 using Scripts.Player;
 using System;
+using Zenject;
 
 namespace Scripts.QuestSystem.QuestVariation
 {
@@ -11,20 +12,20 @@ namespace Scripts.QuestSystem.QuestVariation
         public int currentEnemyKill;
         
         //public CombatChannel _combatChannel;
-        public QuestChannel _questChannel;
+        private QuestChannel _questChannel;
+        
+        [Inject]
+        private void Construct(QuestChannel questChannel)
+        {
+            //_combatChannel = CombatChannel.Instance;
+            _questChannel = questChannel;
+        }
 
         private void Start()
         {
-            Construct();
-
             StartTrackingQuest();
         }
 
-        private void Construct()
-        {
-            //_combatChannel = CombatChannel.Instance;
-            _questChannel = QuestChannel.Instance;
-        }
 
         private void StartTrackingQuest()
         {

@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using Zenject;
 
 namespace Scripts.QuestSystem
 {
-    class QuestJournal : MonoBehaviour
+    class QuestJournal
     {
         public List<Quest> allQuest = new List<Quest>();
         public Quest _selectedQuest;
@@ -17,15 +18,10 @@ namespace Scripts.QuestSystem
 
         public event Action UpdateJournal;
 
-
-        private void Start()
+        [Inject]
+        private void Construct(QuestChannel questChannel)
         {
-            Construct();
-        }
-
-        private void Construct()
-        {
-            _questChannel = QuestChannel.Instance;
+            _questChannel = questChannel;
 
             _questChannel.QuestActivateEvent += QuestActivateEvent;
             _questChannel.QuestCompleteEvent += QuestCompleteEvent;

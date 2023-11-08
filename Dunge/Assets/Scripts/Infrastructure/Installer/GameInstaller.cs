@@ -4,9 +4,13 @@ using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.Factory;
 using Scripts.Infrastructure.StateMachine;
 using Scripts.Level;
+using Scripts.QuestSystem;
 using Scripts.Services.InteruptService;
 using Scripts.StaticData.Audio;
-using Scripts.UI.GamePause;
+using Scripts.StaticData.Audio.Setup;
+using Scripts.StaticData.Dialog;
+using Scripts.StaticData.QuestStaticData;
+using Scripts.StaticData.QuestStaticData.Setup;
 using Scripts.UI.Interaction;
 using System;
 using UnityEngine;
@@ -14,27 +18,21 @@ using Zenject;
 
 public class GameInstaller : MonoInstaller
 {
-    public PlayList PlayList;
-    public GameObject BackgroundAudioPlayer;
-
-    public SoundListForGameAction SoundList;
-    public GameObject SoundGameActionPlayerPrefab;
+    public AudioSetupForGame audioSetupForGame;
+    public DialogSetupSystem dialogSetupSystem;
+    public QuestSetup questSetup;
 
     public LevelSettings LevelSettings;
 
-    public GameObject DialogUIPrefab;
-    public GameObject InteractionPanerPrefab;
-
     public override void InstallBindings()
     {
+        BindAudioSetup();
         BindGameFactory();
-        BindDialogSystem();
+        BindDialogSetup();
+        BindQuestSystem();
         BindLevelSettings();
         BindInteruptService();
-        BindInteractionPanel();
         BindGameStateMachine();
-        BindBackgroundAudioPlayer();
-        BindSoundGameActionPlayer();
     }
 
     private void BindGameFactory()
@@ -42,11 +40,21 @@ public class GameInstaller : MonoInstaller
         Container.Bind<IGameFactory>().To<GameFactory>().AsSingle();
     }
 
-    private void BindDialogSystem()
+    private void BindDialogSetup()
     {
         Container.Bind<IDialogTracking>().To<DialogTracking>().AsSingle();
         Container.Bind<IDialogInitializer>().To<DialogInitializer>().AsSingle();
-        Container.Bind<IDialogUI>().FromComponentInNewPrefab(DialogUIPrefab).AsSingle();
+        Container.Bind<IDialogUI>().FromComponentInNewPrefab(dialogSetupSystem.DialogUIPrefab).AsSingle();
+        Container.Bind<IInteractionPanel>().FromComponentInNewPrefab(dialogSetupSystem.InteractionPanerPrefab).AsSingle();
+    }
+
+    private void BindQuestSystem()
+    {
+        Container.Bind<QuestJournal>().AsSingle();
+        Container.Bind<QuestChannel>().AsSingle();
+        Container.Bind<QuestMachine>().AsSingle();
+        Container.Bind<QuestList>().FromInstance(questSetup.questList).AsSingle();
+        Container.Bind<IQuestJournalUI>().FromComponentInNewPrefab(questSetup.questJournalUI).AsSingle();
     }
 
     private void BindLevelSettings()
@@ -57,11 +65,6 @@ public class GameInstaller : MonoInstaller
     private void BindInteruptService()
     {
         Container.Bind<IInteruptService>().To<InteruptService>().AsSingle();
-    }
-
-    private void BindInteractionPanel()
-    {
-        Container.Bind<IInteractionPanel>().FromComponentInNewPrefab(InteractionPanerPrefab).AsSingle();
     }
 
     private void BindGameStateMachine()
@@ -75,15 +78,21 @@ public class GameInstaller : MonoInstaller
         Container.Bind<WinState>().AsSingle();
     }
 
+    private void BindAudioSetup()
+    {
+        BindBackgroundAudioPlayer();
+        BindSoundGameActionPlayer();
+    }
+
     private void BindBackgroundAudioPlayer()
     {
-        Container.Bind<PlayList>().FromInstance(PlayList).AsSingle();
-        Container.Bind<IBackgroundAudioPlayer>().FromComponentInNewPrefab(BackgroundAudioPlayer).AsSingle();
+        Container.Bind<PlayList>().FromInstance(audioSetupForGame.playList).AsSingle();
+        Container.Bind<IBackgroundAudioPlayer>().FromComponentInNewPrefab(audioSetupForGame.BackgroundAudioPlayer).AsSingle();
     }
 
     private void BindSoundGameActionPlayer()
     {
-        Container.Bind<SoundListForGameAction>().FromInstance(SoundList).AsSingle();
-        Container.Bind<ISoundsGameActionPlayer>().FromComponentInNewPrefab(SoundGameActionPlayerPrefab).AsSingle();
+        Container.Bind<SoundListForGameAction>().FromInstance(audioSetupForGame.SoundList).AsSingle();
+        Container.Bind<ISoundsGameActionPlayer>().FromComponentInNewPrefab(audioSetupForGame.SoundGameActionPlayerPrefab).AsSingle();
     }
 }

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e613ff5e1e550848b028d0f34ff745b, type: 3}
+  m_Name: DialogSetupSystem
+  m_EditorClassIdentifier: 
+  DialogUIPrefab: {fileID: 3450517168409539817, guid: e5872f91ab6c49948b2acca0fb692d64, type: 3}
+  InteractionPanerPrefab: {fileID: 1568130889147228358, guid: d0deb80125b76a449bee291cdaae21cf, type: 3}

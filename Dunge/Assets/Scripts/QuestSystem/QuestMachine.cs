@@ -1,25 +1,27 @@
 ﻿using Scripts.QuestSystem.QuestVariation;
-using Scripts.StaticData.QuestData;
+using Scripts.StaticData.QuestStaticData;
 using UnityEngine;
+using Zenject;
 
-namespace Assets.Scripts.QuestSystem
+namespace Scripts.QuestSystem
 {
-    class QuestMachine : MonoBehaviour
+    class QuestMachine
     {
-        public static QuestMachine Instance;
+        private QuestList _questList;
+        private DiContainer _diContainer;
 
-        public QuestList questList;
-
-        private void Awake()
+        [Inject]
+        private void Construct(QuestList questList, DiContainer diContainer)
         {
-            Instance = this;
+            _questList = questList;
+            _diContainer = diContainer;
         }
 
         public void ActivateQuest(int id)
         {
-            Quest quest = questList.GetQuestById(id);
+            Quest quest = _questList.GetQuestById(id);
 
-            Instantiate(quest);
+            _diContainer.InstantiatePrefab(quest.gameObject);
         }
     }
 }

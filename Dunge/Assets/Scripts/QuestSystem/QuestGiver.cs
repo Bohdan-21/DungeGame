@@ -1,19 +1,20 @@
-﻿using Assets.Scripts.QuestSystem;
+﻿using Scripts.QuestSystem;
 using UnityEngine;
+using Zenject;
 
 namespace Scripts.QuestSystem
 {
     class QuestGiver : MonoBehaviour
     {
         public KeyCode key;
-
-        public QuestMachine _questMachine;
-        
         public int questId;
 
-        private void Start()
+        private QuestMachine _questMachine;
+        
+        [Inject]
+        private void Construct(QuestMachine questMachine)
         {
-            _questMachine = QuestMachine.Instance;
+            _questMachine = questMachine;
         }
 
         private void Update()

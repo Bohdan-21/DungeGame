@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb972edaf387e584b87c5b34dce1f7f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSetupForMainMenu: {fileID: 11400000, guid: cba98a9aaf677c54ebf27b68da16a1eb, type: 2}
   PlayList: {fileID: 11400000, guid: 8fda60b9a791c86428e6065fd70e0733, type: 2}
   MainMenuPrefab: {fileID: 4332406424499562983, guid: cedb668f65cdcf9458bb259fe1a219ba, type: 3}
   BackGroundAudioPlayer: {fileID: 1227733207998901204, guid: f55d91ad1b5fec240a8678ba4dde8f77, type: 3}

@@ -4,19 +4,11 @@ using Scripts.QuestSystem.QuestVariation;
 
 namespace Scripts.QuestSystem
 {
-    public class QuestChannel : MonoBehaviour
+    public class QuestChannel
     {
-        public static QuestChannel Instance;
-
-
         public event Action<Quest> QuestCompleteEvent;
         public event Action<Quest> QuestRefreshEvent;
         public event Action<Quest> QuestActivateEvent;
-
-        private void Awake()
-        {
-            Instance = this;
-        }
 
         public void CompleteQuest(Quest quest)
         {

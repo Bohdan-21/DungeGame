@@ -5,25 +5,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using Zenject;
 
 namespace Scripts.QuestSystem
 {
-    class QuestJournalUI : MonoBehaviour
+
+    class QuestJournalUI : MonoBehaviour, IQuestJournalUI
     {
         public KeyCode QuestJournalUIButton;
-
-        public QuestJournal _questJournal;
 
         public GameObject RootComponent;
         public GameObject QuestItemListPrefab;
         public Transform Content;
         private bool _isShow;
-
+        private QuestJournal _questJournal;
+        private DiContainer _diContainer;
         private List<GameObject> _spawnedQuestList = new List<GameObject>();
 
-        private void Start()
+
+        [Inject]
+        private void Construct(QuestJournal questJournal, DiContainer diContainer)
         {
-            Hide();
+            _questJournal = questJournal;
+            _diContainer = diContainer;
         }
 
         private void Update()
@@ -37,7 +41,7 @@ namespace Scripts.QuestSystem
             }
         }
 
-        private void Show()
+        public void Show()
         {
             RootComponent.SetActive(true);
 
@@ -45,28 +49,35 @@ namespace Scripts.QuestSystem
 
             SpawnAllAvailableQuest();
 
-            ShowSelectedQuest();
+            //ShowSelectedQuest();
         }
 
-        private void Hide()
+        public void Hide()
         {
             RootComponent.SetActive(false);
 
             _isShow = false;
 
-            DestroyAllSpawnedQuest();
+            //DestroyAllSpawnedQuest();
         }
 
         private void SpawnAllAvailableQuest()
         {
-            throw new NotImplementedException();
+            foreach(Quest quest in _questJournal.allQuest)
+            {
+                GameObject questItem = _diContainer.InstantiatePrefab(QuestItemListPrefab);
+                
+                questItem.GetComponent<QuestDisplayer>().Initialize(quest);
+
+                questItem.transform.parent = Content;
+            }
         }
 
         private void DestroyAllSpawnedQuest()
         {
             throw new NotImplementedException();
         }
-        
+
         private void ShowSelectedQuest()
         {
             throw new NotImplementedException();

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Scripts.StaticData.Dialog
 {
-    [CreateAssetMenu(fileName = "DialogStaticData", menuName = "StaticData/DialogStaticData")]
+    [CreateAssetMenu(fileName = "DialogStaticData", menuName = "StaticData/Dialog/DialogStaticData")]
     public class DialogStaticData : ScriptableObject
     {
         public bool ShowOneTime = false;

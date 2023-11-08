@@ -4057,6 +4057,7 @@ MonoBehaviour:
   LevelSettings: {fileID: 8685120348168477990}
   DialogUIPrefab: {fileID: 3450517168409539817, guid: e5872f91ab6c49948b2acca0fb692d64, type: 3}
   InteractionPanerPrefab: {fileID: 1568130889147228358, guid: d0deb80125b76a449bee291cdaae21cf, type: 3}
+  _gameStaticData: {fileID: 11400000, guid: 9c48832bd2e80714e9fb46645556b8f8, type: 2}
 --- !u!1001 &200767405
 PrefabInstance:
   m_ObjectHideFlags: 0

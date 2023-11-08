@@ -1,8 +1,6 @@
 ﻿using Scripts.DialogSystem.Structure;
 using Scripts.GameLanguage;
 using Scripts.StaticData.Dialog;
-using System;
-using UnityEngine;
 using Zenject;
 
 namespace Scripts.DialogSystem.Logic
@@ -12,9 +10,8 @@ namespace Scripts.DialogSystem.Logic
     /// </summary>
     public class DialogInitializer : IDialogInitializer
     {
-        public ILanguageSettings _languageSettings;
-        public IDialogTracking _dialogTracker;
-
+        private ILanguageSettings _languageSettings;
+        private IDialogTracking _dialogTracker;
         private bool _isDialogActive = false;
 
         [Inject]

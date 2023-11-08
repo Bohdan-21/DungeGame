@@ -33,7 +33,7 @@ namespace Scripts.Infrastructure.Factory
         {
             CreatePlayer();
             CreateGameCamera();
-            CreateUI();
+            CreateGUI();
             CreateMonster();
             CreateNPC();
         }
@@ -51,7 +51,7 @@ namespace Scripts.Infrastructure.Factory
         private void CreateGameCamera() =>
             Instantiate(_gameStaticData.GameCamera);
 
-        private void CreateUI()
+        private void CreateGUI()
         {
             Instantiate(_gameStaticData.GUI);
 

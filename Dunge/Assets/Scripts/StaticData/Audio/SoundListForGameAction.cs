@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Scripts.StaticData.Audio
 {
-    [CreateAssetMenu(fileName = "SoundListForGameAction", menuName = "StaticData/SoundListForGameAction")]
+    [CreateAssetMenu(fileName = "SoundListForGameAction", menuName = "StaticData/Audio/SoundListForGameAction")]
     [Serializable]
     public class SoundListForGameAction : ScriptableObject
     {

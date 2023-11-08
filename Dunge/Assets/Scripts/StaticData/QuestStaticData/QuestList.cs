@@ -6,11 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Scripts.StaticData.QuestData
+namespace Scripts.StaticData.QuestStaticData
 {
     [CreateAssetMenu(fileName = "QuestList", menuName = "StaticData/QuestSystem/QuestList")]
     [Serializable]
-    class QuestList : ScriptableObject
+    public class QuestList : ScriptableObject
     {
         [SerializeField] private List<Quest> questList;
 
