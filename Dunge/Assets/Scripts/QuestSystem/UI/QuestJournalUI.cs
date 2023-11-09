@@ -1,33 +1,34 @@
 ﻿using Scripts.QuestSystem.QuestVariation;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
-namespace Scripts.QuestSystem
+namespace Scripts.QuestSystem.UI
 {
 
     class QuestJournalUI : MonoBehaviour, IQuestJournalUI
     {
-        public KeyCode QuestJournalUIButton;
+        [SerializeField] private KeyCode QuestJournalUIButton;
 
-        public GameObject RootComponent;
-        public GameObject QuestItemListPrefab;
-        public Transform Content;
+        [SerializeField] private GameObject RootComponent;
+        [SerializeField] private GameObject QuestItemListPrefab;
+        [SerializeField] private Transform Content;
+        
         private bool _isShow;
         private QuestJournal _questJournal;
-        private DiContainer _diContainer;
         private List<GameObject> _spawnedQuestList = new List<GameObject>();
 
 
         [Inject]
-        private void Construct(QuestJournal questJournal, DiContainer diContainer)
+        private void Construct(QuestJournal questJournal)
         {
             _questJournal = questJournal;
-            _diContainer = diContainer;
+        }
+
+        private void Start()
+        {
+            Hide();
         }
 
         private void Update()
@@ -47,9 +48,9 @@ namespace Scripts.QuestSystem
 
             _isShow = true;
 
-            SpawnAllAvailableQuest();
-
             //ShowSelectedQuest();
+
+            SpawnAllAvailableQuest();
         }
 
         public void Hide()
@@ -58,24 +59,7 @@ namespace Scripts.QuestSystem
 
             _isShow = false;
 
-            //DestroyAllSpawnedQuest();
-        }
-
-        private void SpawnAllAvailableQuest()
-        {
-            foreach(Quest quest in _questJournal.allQuest)
-            {
-                GameObject questItem = _diContainer.InstantiatePrefab(QuestItemListPrefab);
-                
-                questItem.GetComponent<QuestDisplayer>().Initialize(quest);
-
-                questItem.transform.parent = Content;
-            }
-        }
-
-        private void DestroyAllSpawnedQuest()
-        {
-            throw new NotImplementedException();
+            DestroyAllSpawnedQuest();
         }
 
         private void ShowSelectedQuest()
@@ -83,6 +67,23 @@ namespace Scripts.QuestSystem
             throw new NotImplementedException();
         }
 
+        private void SpawnAllAvailableQuest()
+        {
+            foreach (Quest quest in _questJournal.AllQuest)
+            {
+                GameObject questItem = Instantiate(QuestItemListPrefab, Content);
+
+                questItem.GetComponent<QuestDisplayer>().Initialize(quest);
+            }
+        }
+
+        private void DestroyAllSpawnedQuest()
+        {
+            foreach (GameObject listItem in _spawnedQuestList)
+                Destroy(listItem);
+
+            _spawnedQuestList.Clear();
+        }
 
 
     }

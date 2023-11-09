@@ -543,7 +543,7 @@ RectTransform:
   m_Father: {fileID: 3381342874647650228}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -583,9 +583,9 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 800, y: 100}
-  m_Spacing: {x: 0, y: 0}
+  m_Spacing: {x: 0, y: 10}
   m_Constraint: 0
-  m_ConstraintCount: 2
+  m_ConstraintCount: 1
 --- !u!1 &3381342873531558089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,7 +2012,7 @@ GameObject:
   - component: {fileID: 3381342874970455199}
   - component: {fileID: 3381342874970455196}
   - component: {fileID: 3381342874970455197}
-  - component: {fileID: 3381342874970455185}
+  - component: {fileID: 4867257904661117217}
   m_Layer: 5
   m_Name: QuestJournalUI
   m_TagString: Untagged
@@ -2102,7 +2102,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3381342874970455185
+--- !u!114 &4867257904661117217
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2111,11 +2111,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3381342874970455195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a53b185d24fa39e4a80223c81a273ba8, type: 3}
+  m_Script: {fileID: 11500000, guid: 398bf66a50f0d0a4a810974ac8d39bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestJournalUIButton: 112
-  _questJournal: {fileID: 0}
+  QuestJournalUIButton: 101
   RootComponent: {fileID: 3381342873531558089}
   QuestItemListPrefab: {fileID: 1377525054413283470, guid: 07f3401fcd811e04b9869661f2aa2dd8, type: 3}
   Content: {fileID: 3381342873526231062}

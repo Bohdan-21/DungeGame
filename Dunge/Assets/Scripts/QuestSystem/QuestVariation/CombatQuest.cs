@@ -1,55 +1,61 @@
 ﻿using Scripts.Enemy;
 using Scripts.Player;
+using Scripts.QuestSystem.Channel;
 using System;
+using UnityEngine;
 using Zenject;
 
 namespace Scripts.QuestSystem.QuestVariation
 {
     public class CombatQuest : Quest
     {
-        public EnemyType EnemyToKill;
-        public int amountEnemyToKill;
-        public int currentEnemyKill;
+        [SerializeField] private EnemyType EnemyToKill;
+        [SerializeField] private int amountEnemyToKill;
+        [SerializeField] private int currentEnemyKill;
         
-        //public CombatChannel _combatChannel;
-        private QuestChannel _questChannel;
-        
+        private CombatChannel _combatChannel;
+
         [Inject]
-        private void Construct(QuestChannel questChannel)
+        private void Construct(QuestChannel questChannel, CombatChannel combatChannel)
         {
-            //_combatChannel = CombatChannel.Instance;
             _questChannel = questChannel;
+            _combatChannel = combatChannel;
         }
 
         private void Start()
         {
-            StartTrackingQuest();
+            AlertForCreatedQuest();
         }
 
+        public override void StartTrackingQuest() => 
+            _combatChannel.KillEvent += TrackingKillEvent;
 
-        private void StartTrackingQuest()
-        {
-            _questChannel.ActivateQuest(this);
-
-            //_combatChannel.KillEvent += TrackingKillEvent;
-        }
+        public override void StopTrackingQuest() => 
+            _combatChannel.KillEvent -= TrackingKillEvent;
 
         private void TrackingKillEvent(EnemyType enemyType)
         {
             if (enemyType != EnemyToKill)
                 return;
             if (currentEnemyKill < amountEnemyToKill)
-            {
-                currentEnemyKill++;
-                _questChannel.RefreshQuest(this);
-            }
-            if(currentEnemyKill >= amountEnemyToKill)
-            {
-                _questChannel.CompleteQuest(this);
-                //_combatChannel.KillEvent -= TrackingKillEvent;
+                RefreshQuestProgress();
+            if (currentEnemyKill >= amountEnemyToKill)
+                QuestComplete();
+        }
 
-                Destroy(this.gameObject);
-            }
+        protected override void RefreshQuestProgress()
+        {
+            currentEnemyKill++;
+            _questChannel.RefreshQuest(this);
+        }
+
+        protected override void QuestComplete()
+        {
+            _questChannel.CompleteQuest(this);
+
+            StopTrackingQuest();
+
+            Destroy(this.gameObject);
         }
 
         public override string ToString()

@@ -1388,6 +1388,7 @@ GameObject:
   - component: {fileID: 7697620999567033896}
   - component: {fileID: 3646759482612270872}
   - component: {fileID: 8191426525136900200}
+  - component: {fileID: -3519109362914597339}
   m_Layer: 11
   m_Name: Barbarian
   m_TagString: Untagged
@@ -1587,6 +1588,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.1794448, y: 2.1207721, z: 1.2914618}
   m_Center: {x: 0, y: 1.2748955, z: 0}
+--- !u!114 &-3519109362914597339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4570257042629010376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbd0ef4a14846184fb8198d9355b92f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyType: 3
+  _enemyDeath: {fileID: 3646759482612270872}
 --- !u!1 &4978503622070508248
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2475889047366822874}
   - component: {fileID: 2475889047366822875}
   m_Layer: 0
-  m_Name: SpawnPointThirdEnemy
+  m_Name: SpawnPointForBarbarian
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c8a90a839307b488bfbe01da281a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 2
+  enemyType: 3

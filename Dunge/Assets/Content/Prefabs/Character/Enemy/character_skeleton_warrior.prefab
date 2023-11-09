@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 6223439371697342749}
   - component: {fileID: 3855464479928340920}
   - component: {fileID: 6084998459297137129}
+  - component: {fileID: -1552554980770255997}
   m_Layer: 11
   m_Name: character_skeleton_warrior
   m_TagString: Untagged
@@ -498,6 +499,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.1794448, y: 2.1207721, z: 1.2914618}
   m_Center: {x: 0, y: 1.2748955, z: 0}
+--- !u!114 &-1552554980770255997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2564956886531280201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbd0ef4a14846184fb8198d9355b92f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyType: 1
+  _enemyDeath: {fileID: 3855464479928340920}
 --- !u!1 &4439653360830448117
 GameObject:
   m_ObjectHideFlags: 0

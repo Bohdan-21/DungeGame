@@ -8,7 +8,7 @@ namespace Scripts.QuestSystem
     {
         public event Action<Quest> QuestCompleteEvent;
         public event Action<Quest> QuestRefreshEvent;
-        public event Action<Quest> QuestActivateEvent;
+        public event Action<Quest> QuestCreatedEvent;
 
         public void CompleteQuest(Quest quest)
         {
@@ -22,7 +22,7 @@ namespace Scripts.QuestSystem
 
         public void ActivateQuest(Quest quest)
         {
-            QuestActivateEvent?.Invoke(quest);
+            QuestCreatedEvent?.Invoke(quest);
         }
     }
 }

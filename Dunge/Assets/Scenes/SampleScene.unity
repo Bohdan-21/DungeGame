@@ -603,22 +603,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3381342874647650228, guid: bfe8d64567684ae42a2d077aa2cd5c89, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3381342874647650228, guid: bfe8d64567684ae42a2d077aa2cd5c89, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3381342874647650228, guid: bfe8d64567684ae42a2d077aa2cd5c89, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3381342874970455185, guid: bfe8d64567684ae42a2d077aa2cd5c89, type: 3}
-      propertyPath: _questJournal
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3381342874970455195, guid: bfe8d64567684ae42a2d077aa2cd5c89, type: 3}
       propertyPath: m_Name
       value: QuestJournalUI

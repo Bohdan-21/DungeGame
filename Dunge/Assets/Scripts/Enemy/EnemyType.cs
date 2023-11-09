@@ -2,9 +2,9 @@
 {
     public enum EnemyType
     {
-        FirstEnemy,
-        SecondEnemy,
-        ThirdEnemy,
-        FourthEnemy
+        SkeletArcher,
+        SkeletWarrior,
+        SkeletWizard,
+        Barbarian
     }
 }

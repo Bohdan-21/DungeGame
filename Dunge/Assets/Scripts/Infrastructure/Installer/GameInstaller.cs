@@ -5,6 +5,7 @@ using Scripts.Infrastructure.Factory;
 using Scripts.Infrastructure.StateMachine;
 using Scripts.Level;
 using Scripts.QuestSystem;
+using Scripts.QuestSystem.UI;
 using Scripts.Services.InteruptService;
 using Scripts.StaticData.Audio;
 using Scripts.StaticData.Audio.Setup;

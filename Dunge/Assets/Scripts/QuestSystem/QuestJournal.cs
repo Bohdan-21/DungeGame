@@ -11,51 +11,45 @@ namespace Scripts.QuestSystem
 {
     class QuestJournal
     {
-        public List<Quest> allQuest = new List<Quest>();
-        public Quest _selectedQuest;
+        private List<Quest> _allQuest = new List<Quest>();
+        private Quest _selectedQuest = null;
 
-        public QuestChannel _questChannel;
+        private QuestChannel _questChannel;
 
-        public event Action UpdateJournal;
+        public Quest SelectedQuest { get => _selectedQuest; }
+        public List<Quest> AllQuest { get => _allQuest; }
+
+        public event Action UpdateSelectedQuest;
 
         [Inject]
         private void Construct(QuestChannel questChannel)
         {
             _questChannel = questChannel;
 
-            _questChannel.QuestActivateEvent += QuestActivateEvent;
+            _questChannel.QuestCreatedEvent += QuesCreatedEvent;
             _questChannel.QuestCompleteEvent += QuestCompleteEvent;
             _questChannel.QuestRefreshEvent += QuestRefreshEvent;
         }
 
-        private void QuestRefreshEvent(Quest quest)
-        {
-            Debug.Log("Refresh quest:" + quest.ToString());
-        }
+        private void QuesCreatedEvent(Quest quest) => 
+            _allQuest.Add(quest);
 
         private void QuestCompleteEvent(Quest quest)
         {
-            allQuest.Remove(quest);
+            _allQuest.Remove(quest);
 
-            if (allQuest.Count > 0)
-                SetDefaultQuest();
+            if (_selectedQuest == quest)
+                _selectedQuest = null;
         }
 
-        private void QuestActivateEvent(Quest quest)
-        {
-            allQuest.Add(quest);
-            
-            SetDefaultQuest();
-        }
+        private void QuestRefreshEvent(Quest quest) => 
+            UpdateSelectedQuest?.Invoke();
 
-        private void SetDefaultQuest()
-        {
-            _selectedQuest = allQuest[0];
-        }
 
-        private void InvokeUpdateJournal()
-        {
-            UpdateJournal?.Invoke();
-        }
+
+
+
+
+
     }
 }
