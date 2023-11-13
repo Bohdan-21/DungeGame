@@ -1,25 +1,19 @@
-﻿using Scripts.QuestSystem.QuestVariation;
-using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 namespace Scripts.QuestSystem.UI
 {
-
-    class QuestJournalUI : MonoBehaviour, IQuestJournalUI
+    public class QuestJournalUI : MonoBehaviour, IQuestJournalUI
     {
         [SerializeField] private KeyCode QuestJournalUIButton;
 
         [SerializeField] private GameObject RootComponent;
-        [SerializeField] private GameObject QuestItemListPrefab;
-        [SerializeField] private Transform Content;
+        [SerializeField] private QuestListSpawner _questListSpawner;
+        [SerializeField] private DisplayInfoByActiveQuest _displayInfoByActiveQuest;
         
         private bool _isShow;
         private QuestJournal _questJournal;
-        private List<GameObject> _spawnedQuestList = new List<GameObject>();
-
-
+        
         [Inject]
         private void Construct(QuestJournal questJournal)
         {
@@ -48,9 +42,9 @@ namespace Scripts.QuestSystem.UI
 
             _isShow = true;
 
-            //ShowSelectedQuest();
+            _displayInfoByActiveQuest.ShowActiveQuest();
 
-            SpawnAllAvailableQuest();
+            _questListSpawner.Show();
         }
 
         public void Hide()
@@ -59,32 +53,7 @@ namespace Scripts.QuestSystem.UI
 
             _isShow = false;
 
-            DestroyAllSpawnedQuest();
+            _questListSpawner.Hide();
         }
-
-        private void ShowSelectedQuest()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void SpawnAllAvailableQuest()
-        {
-            foreach (Quest quest in _questJournal.AllQuest)
-            {
-                GameObject questItem = Instantiate(QuestItemListPrefab, Content);
-
-                questItem.GetComponent<QuestDisplayer>().Initialize(quest);
-            }
-        }
-
-        private void DestroyAllSpawnedQuest()
-        {
-            foreach (GameObject listItem in _spawnedQuestList)
-                Destroy(listItem);
-
-            _spawnedQuestList.Clear();
-        }
-
-
     }
 }

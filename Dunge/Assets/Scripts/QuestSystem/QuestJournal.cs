@@ -12,14 +12,14 @@ namespace Scripts.QuestSystem
     class QuestJournal
     {
         private List<Quest> _allQuest = new List<Quest>();
-        private Quest _selectedQuest = null;
+        private Quest _activeQuest = null;
 
         private QuestChannel _questChannel;
 
-        public Quest SelectedQuest { get => _selectedQuest; }
+        public Quest ActiveQuest { get => _activeQuest; }
         public List<Quest> AllQuest { get => _allQuest; }
 
-        public event Action UpdateSelectedQuest;
+        public event Action UpdateProgressActiveQuest;
 
         [Inject]
         private void Construct(QuestChannel questChannel)
@@ -31,6 +31,25 @@ namespace Scripts.QuestSystem
             _questChannel.QuestRefreshEvent += QuestRefreshEvent;
         }
 
+        public void UpdateActiveQuest(Quest newQuest)
+        {
+            StopTrackingActiveQuest();
+            StartTrackingNewActiveQuest(newQuest);
+            QuestRefreshEvent(newQuest);
+        }
+
+        private void StopTrackingActiveQuest()
+        {
+            if (_activeQuest != null)
+                _activeQuest.StopTrackingQuest();
+        }
+
+        private void StartTrackingNewActiveQuest(Quest newQuest)
+        {
+            _activeQuest = newQuest;
+            _activeQuest.StartTrackingQuest();
+        }
+
         private void QuesCreatedEvent(Quest quest) => 
             _allQuest.Add(quest);
 
@@ -38,18 +57,11 @@ namespace Scripts.QuestSystem
         {
             _allQuest.Remove(quest);
 
-            if (_selectedQuest == quest)
-                _selectedQuest = null;
+            if (_activeQuest == quest)
+                _activeQuest = null;
         }
 
         private void QuestRefreshEvent(Quest quest) => 
-            UpdateSelectedQuest?.Invoke();
-
-
-
-
-
-
-
+            UpdateProgressActiveQuest?.Invoke();
     }
 }

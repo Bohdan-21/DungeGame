@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 3381342873374292032}
   - component: {fileID: 3381342873374292034}
   - component: {fileID: 3381342873374292035}
+  - component: {fileID: 4671552689745222414}
   m_Layer: 5
   m_Name: SelectedQuestBackground
   m_TagString: Untagged
@@ -310,6 +311,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4671552689745222414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3381342873374292033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d3b4ced8bb23d4891e3a5e9600141e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nameActiveQuest: {fileID: 3381342874957193426}
 --- !u!1 &3381342873424910780
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +335,7 @@ GameObject:
   - component: {fileID: 3381342873424910783}
   - component: {fileID: 3381342873424910769}
   - component: {fileID: 3381342873424910782}
+  - component: {fileID: 6344735409158272746}
   m_Layer: 5
   m_Name: DescriptionQuestBackground
   m_TagString: Untagged
@@ -388,6 +403,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6344735409158272746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3381342873424910780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb4ea3b6a6313994f86489fe45f37249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _questName: {fileID: 3381342874193219989}
+  _questDescription: {fileID: 3381342874230573530}
 --- !u!1 &3381342873442928810
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,6 +429,7 @@ GameObject:
   - component: {fileID: 3381342873442928814}
   - component: {fileID: 3381342873442928815}
   - component: {fileID: 3381342873442928812}
+  - component: {fileID: 6366621891969712182}
   m_Layer: 5
   m_Name: SetAsActiveQuest
   m_TagString: Untagged
@@ -509,7 +539,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3381342873442928815}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6366621891969712182}
+        m_TargetAssemblyTypeName: Scripts.QuestSystem.UI.SetNewActiveQuest, Assembly-CSharp
+        m_MethodName: ClickToSetNewActiveQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6366621891969712182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3381342873442928810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ef5f5a9366bfb41ac89be66d7ec164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _setButton: {fileID: 3381342873442928812}
+  _displayInfoByActiveQuest: {fileID: 4671552689745222414}
 --- !u!1 &3381342873526231063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,7 +1933,7 @@ GameObject:
   - component: {fileID: 3381342874957193429}
   - component: {fileID: 3381342874957193426}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ActiveQuestText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2013,6 +2069,8 @@ GameObject:
   - component: {fileID: 3381342874970455196}
   - component: {fileID: 3381342874970455197}
   - component: {fileID: 4867257904661117217}
+  - component: {fileID: 6853754957055728435}
+  - component: {fileID: 7926375217078528388}
   m_Layer: 5
   m_Name: QuestJournalUI
   m_TagString: Untagged
@@ -2114,7 +2172,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398bf66a50f0d0a4a810974ac8d39bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestJournalUIButton: 101
+  QuestJournalUIButton: 112
   RootComponent: {fileID: 3381342873531558089}
+  _questListSpawner: {fileID: 6853754957055728435}
+  _displayInfoByActiveQuest: {fileID: 4671552689745222414}
+--- !u!114 &6853754957055728435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3381342874970455195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 067afb265b6e8e347b48322490ca06d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   QuestItemListPrefab: {fileID: 1377525054413283470, guid: 07f3401fcd811e04b9869661f2aa2dd8, type: 3}
   Content: {fileID: 3381342873526231062}
+  _setSelectedQuest: {fileID: 7926375217078528388}
+--- !u!114 &7926375217078528388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3381342874970455195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf11111851cb61342871df664073418c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _displayInfoByQuest: {fileID: 6344735409158272746}
+  _setNewActiveQuest: {fileID: 6366621891969712182}

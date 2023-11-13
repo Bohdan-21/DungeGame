@@ -12,11 +12,18 @@ namespace Scripts.QuestSystem.UI
         private Quest _quest;
         public TextMeshProUGUI text;
 
-        public void Initialize(Quest quest)
+        private Action<Quest> _callback;
+
+        public void Initialize(Quest quest, Action<Quest> callback)
         {
             _quest = quest;
 
             text.text = quest.nameQuest;
+
+            _callback = callback;
         }
+
+        public void ClickToSelect() => 
+            _callback.Invoke(_quest);
     }
 }

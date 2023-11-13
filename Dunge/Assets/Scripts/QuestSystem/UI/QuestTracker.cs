@@ -17,10 +17,10 @@ namespace Scripts.QuestSystem.UI
             _questJournal = questJournal;
 
         private void Start() => 
-            _questJournal.UpdateSelectedQuest += UpdateSelectedQuest;
+            _questJournal.UpdateProgressActiveQuest += UpdateSelectedQuest;
 
         private void OnDestroy() => 
-            _questJournal.UpdateSelectedQuest -= UpdateSelectedQuest;
+            _questJournal.UpdateProgressActiveQuest -= UpdateSelectedQuest;
 
         private void UpdateSelectedQuest()
         {

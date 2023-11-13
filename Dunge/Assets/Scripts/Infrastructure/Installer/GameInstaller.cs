@@ -5,6 +5,7 @@ using Scripts.Infrastructure.Factory;
 using Scripts.Infrastructure.StateMachine;
 using Scripts.Level;
 using Scripts.QuestSystem;
+using Scripts.QuestSystem.Channel;
 using Scripts.QuestSystem.UI;
 using Scripts.Services.InteruptService;
 using Scripts.StaticData.Audio;
@@ -29,8 +30,8 @@ public class GameInstaller : MonoInstaller
     {
         BindAudioSetup();
         BindGameFactory();
-        BindDialogSetup();
         BindQuestSystem();
+        BindDialogSetup();
         BindLevelSettings();
         BindInteruptService();
         BindGameStateMachine();
@@ -51,11 +52,13 @@ public class GameInstaller : MonoInstaller
 
     private void BindQuestSystem()
     {
-        Container.Bind<QuestJournal>().AsSingle();
-        Container.Bind<QuestChannel>().AsSingle();
-        Container.Bind<QuestMachine>().AsSingle();
+        Container.Bind<QuestJournal>().FromNew().AsSingle();
+        Container.Bind<QuestMachine>().FromNew().AsSingle();
         Container.Bind<QuestList>().FromInstance(questSetup.questList).AsSingle();
-        Container.Bind<IQuestJournalUI>().FromComponentInNewPrefab(questSetup.questJournalUI).AsSingle();
+        Container.Bind<IQuestJournalUI>().FromComponentInNewPrefab(questSetup.questJournalUI).AsSingle().NonLazy();
+
+        Container.Bind<QuestChannel>().FromNew().AsSingle();
+        Container.Bind<CombatChannel>().FromNew().AsSingle();
     }
 
     private void BindLevelSettings()
