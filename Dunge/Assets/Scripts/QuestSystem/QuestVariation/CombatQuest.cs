@@ -1,6 +1,8 @@
-﻿using Scripts.Enemy;
+﻿using Scripts.Data.SaveData;
+using Scripts.Enemy;
 using Scripts.Player;
 using Scripts.QuestSystem.Channel;
+using Scripts.Services.PlayerProgressService;
 using System;
 using UnityEngine;
 using Zenject;
@@ -18,10 +20,11 @@ namespace Scripts.QuestSystem.QuestVariation
         public override string Progress { get => "Progress: " + currentEnemyKill.ToString() + "/" + amountEnemyToKill.ToString(); }
 
         [Inject]
-        private void Construct(QuestChannel questChannel, CombatChannel combatChannel)
+        private void Construct(QuestChannel questChannel, CombatChannel combatChannel, IPlayerProgressService playerProgressService)
         {
             _questChannel = questChannel;
             _combatChannel = combatChannel;
+            playerProgressService.AddProgressUpdater(this);
         }
 
         private void Start()
@@ -63,6 +66,13 @@ namespace Scripts.QuestSystem.QuestVariation
         public override string ToString()
         {
             return "Kill enemy:" + currentEnemyKill.ToString() + "/" + amountEnemyToKill.ToString();
+        }
+
+        public override void LoadProgress(PlayerProgress playerProgress) { }
+
+        public override void UpdateProgress(PlayerProgress playerProgress)
+        {
+            playerProgress.ActiveQuestList.IndexQuestList.Add(questId);
         }
     }
 }

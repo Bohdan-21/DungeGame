@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questList: {fileID: 11400000, guid: e951e862010367d45bbe961c58d4c0d3, type: 2}
   questJournalUI: {fileID: 3381342874970455195, guid: bfe8d64567684ae42a2d077aa2cd5c89, type: 3}
+  questTrackerUI: {fileID: 1439051100846956699, guid: 8c88bb2954c65f04c8185fe53d051f99, type: 3}

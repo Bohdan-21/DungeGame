@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Scripts.Data.SaveData;
+using Scripts.Services.PlayerProgressService;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -6,7 +8,7 @@ using UnityEngine;
 
 namespace Scripts.QuestSystem.QuestVariation
 {
-    public abstract class Quest : MonoBehaviour
+    public abstract class Quest : MonoBehaviour, IPlayerProgressUpdater
     {
         public int questId;
         public string nameQuest;
@@ -30,5 +32,15 @@ namespace Scripts.QuestSystem.QuestVariation
         protected virtual void RefreshQuestProgress() { }
 
         protected virtual void QuestComplete() { }
+
+        public virtual void LoadProgress(PlayerProgress playerProgress)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual void UpdateProgress(PlayerProgress playerProgress)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
