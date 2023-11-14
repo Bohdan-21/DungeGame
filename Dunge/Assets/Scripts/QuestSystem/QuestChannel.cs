@@ -7,7 +7,7 @@ namespace Scripts.QuestSystem
     public class QuestChannel
     {
         public event Action<Quest> QuestCompleteEvent;
-        public event Action<Quest> QuestRefreshEvent;
+        public event Action QuestRefreshEvent;
         public event Action<Quest> QuestCreatedEvent;
 
         public void CompleteQuest(Quest quest)
@@ -15,9 +15,9 @@ namespace Scripts.QuestSystem
             QuestCompleteEvent?.Invoke(quest);
         }
 
-        public void RefreshQuest(Quest quest)
+        public void RefreshActiveQuest()
         {
-            QuestRefreshEvent?.Invoke(quest);
+            QuestRefreshEvent?.Invoke();
         }
 
         public void ActivateQuest(Quest quest)

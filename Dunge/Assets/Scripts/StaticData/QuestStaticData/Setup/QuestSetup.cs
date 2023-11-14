@@ -7,5 +7,6 @@ namespace Scripts.StaticData.QuestStaticData.Setup
     {
         public QuestList questList;
         public GameObject questJournalUI;
+        public GameObject questTrackerUI;
     }
 }

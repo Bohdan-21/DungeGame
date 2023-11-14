@@ -19,7 +19,8 @@ namespace Scripts.QuestSystem
         public Quest ActiveQuest { get => _activeQuest; }
         public List<Quest> AllQuest { get => _allQuest; }
 
-        public event Action UpdateProgressActiveQuest;
+        public event Action RefreshActiveQuestEvent;
+        public event Action ActiveQuestCompleteEvent;
 
         [Inject]
         private void Construct(QuestChannel questChannel)
@@ -28,14 +29,14 @@ namespace Scripts.QuestSystem
 
             _questChannel.QuestCreatedEvent += QuesCreatedEvent;
             _questChannel.QuestCompleteEvent += QuestCompleteEvent;
-            _questChannel.QuestRefreshEvent += QuestRefreshEvent;
+            _questChannel.QuestRefreshEvent += RefreshActiveQuest;
         }
 
         public void UpdateActiveQuest(Quest newQuest)
         {
             StopTrackingActiveQuest();
             StartTrackingNewActiveQuest(newQuest);
-            QuestRefreshEvent(newQuest);
+            RefreshActiveQuest();
         }
 
         private void StopTrackingActiveQuest()
@@ -59,9 +60,18 @@ namespace Scripts.QuestSystem
 
             if (_activeQuest == quest)
                 _activeQuest = null;
+
+            ActiveQuestComplete();
         }
 
-        private void QuestRefreshEvent(Quest quest) => 
-            UpdateProgressActiveQuest?.Invoke();
+        private void RefreshActiveQuest()
+        {
+            RefreshActiveQuestEvent?.Invoke();
+        }
+
+        private void ActiveQuestComplete()
+        {
+            ActiveQuestCompleteEvent?.Invoke();
+        }
     }
 }

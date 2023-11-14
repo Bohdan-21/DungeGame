@@ -8,8 +8,6 @@ namespace Scripts.QuestSystem.UI
         [SerializeField] private DisplayInfoByQuest _displayInfoByQuest;
         [SerializeField] private SetNewActiveQuest _setNewActiveQuest;
 
-        private Quest _currentQuest = null;
-
         private void Start() => 
             ResetSelectedQuest();
 

@@ -16,6 +16,8 @@ namespace Scripts.QuestSystem.QuestVariation
 
         protected QuestChannel _questChannel;
 
+        public virtual string Progress { get; }
+
         protected virtual void AlertForCreatedQuest() 
         {
             _questChannel.ActivateQuest(this);

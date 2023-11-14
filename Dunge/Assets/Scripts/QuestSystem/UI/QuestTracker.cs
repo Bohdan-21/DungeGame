@@ -1,30 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
+using TMPro;
+using Scripts.QuestSystem.QuestVariation;
 
 namespace Scripts.QuestSystem.UI
 {
-    class QuestTracker : MonoBehaviour
+    public class QuestTracker : MonoBehaviour, IQuestTracker
     {
+        [SerializeField] private TextMeshProUGUI _questName;
+        [SerializeField] private TextMeshProUGUI _questProgress;
+
         private QuestJournal _questJournal;
 
         [Inject]
-        private void Construct(QuestJournal questJournal) => 
-            _questJournal = questJournal;
-
-        private void Start() => 
-            _questJournal.UpdateProgressActiveQuest += UpdateSelectedQuest;
-
-        private void OnDestroy() => 
-            _questJournal.UpdateProgressActiveQuest -= UpdateSelectedQuest;
-
-        private void UpdateSelectedQuest()
+        private void Construct(QuestJournal questJournal)
         {
-            throw new NotImplementedException();
+            _questJournal = questJournal;
+        }
+
+        private void Start()
+        {
+            ActiveQuestComplete();
+
+            _questJournal.RefreshActiveQuestEvent += UpdateActiveQuest;
+            _questJournal.ActiveQuestCompleteEvent += ActiveQuestComplete;
+        }
+
+        private void OnDestroy()
+        {
+            _questJournal.RefreshActiveQuestEvent -= UpdateActiveQuest;
+            _questJournal.ActiveQuestCompleteEvent -= ActiveQuestComplete;
+        }
+
+        private void UpdateActiveQuest()
+        {
+            _questName.text = _questJournal.ActiveQuest.nameQuest;
+            _questProgress.text = _questJournal.ActiveQuest.Progress;
+        }
+
+        private void ActiveQuestComplete()
+        {
+            _questName.text = "Not Active Quest";
+            _questProgress.text = "";
         }
     }
 }

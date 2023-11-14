@@ -15,6 +15,8 @@ namespace Scripts.QuestSystem.QuestVariation
         
         private CombatChannel _combatChannel;
 
+        public override string Progress { get => "Progress: " + currentEnemyKill.ToString() + "/" + amountEnemyToKill.ToString(); }
+
         [Inject]
         private void Construct(QuestChannel questChannel, CombatChannel combatChannel)
         {
@@ -46,7 +48,7 @@ namespace Scripts.QuestSystem.QuestVariation
         protected override void RefreshQuestProgress()
         {
             currentEnemyKill++;
-            _questChannel.RefreshQuest(this);
+            _questChannel.RefreshActiveQuest();
         }
 
         protected override void QuestComplete()

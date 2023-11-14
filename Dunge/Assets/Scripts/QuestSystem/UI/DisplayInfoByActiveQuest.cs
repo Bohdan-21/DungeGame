@@ -20,6 +20,8 @@ namespace Scripts.QuestSystem.UI
         {
             if (_questJournal.ActiveQuest != null)
                 _nameActiveQuest.text = _questJournal.ActiveQuest.ToString();
+            else 
+                _nameActiveQuest.text = "";
         }
 
         public void UpdateActiveQuest(Quest newActiveQuest)

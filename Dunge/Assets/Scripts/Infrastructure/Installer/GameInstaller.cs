@@ -14,8 +14,6 @@ using Scripts.StaticData.Dialog;
 using Scripts.StaticData.QuestStaticData;
 using Scripts.StaticData.QuestStaticData.Setup;
 using Scripts.UI.Interaction;
-using System;
-using UnityEngine;
 using Zenject;
 
 public class GameInstaller : MonoInstaller
@@ -56,6 +54,7 @@ public class GameInstaller : MonoInstaller
         Container.Bind<QuestMachine>().FromNew().AsSingle();
         Container.Bind<QuestList>().FromInstance(questSetup.questList).AsSingle();
         Container.Bind<IQuestJournalUI>().FromComponentInNewPrefab(questSetup.questJournalUI).AsSingle().NonLazy();
+        Container.Bind<IQuestTracker>().FromComponentInNewPrefab(questSetup.questTrackerUI).AsSingle().NonLazy();
 
         Container.Bind<QuestChannel>().FromNew().AsSingle();
         Container.Bind<CombatChannel>().FromNew().AsSingle();

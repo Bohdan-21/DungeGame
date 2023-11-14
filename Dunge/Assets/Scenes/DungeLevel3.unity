@@ -6725,14 +6725,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b695daf12cc031542a675606f0491402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayList: {fileID: 11400000, guid: 52ca65f22cad9ec4e8c39b9c20bfc01d, type: 2}
-  BackgroundAudioPlayer: {fileID: 1227733207998901204, guid: f55d91ad1b5fec240a8678ba4dde8f77, type: 3}
-  SoundList: {fileID: 11400000, guid: cb5669133904dc146b6212ffbb209575, type: 2}
-  SoundGameActionPlayerPrefab: {fileID: 1227733207998901204, guid: 7e5197647dde2924387194939582ac78, type: 3}
+  audioSetupForGame: {fileID: 11400000, guid: 1bcf065aebe364943a27740619a12ac4, type: 2}
+  dialogSetupSystem: {fileID: 11400000, guid: 1a32fafad4a9bf546885c483cae2e38f, type: 2}
+  questSetup: {fileID: 11400000, guid: 763e9e8446d06674f868134ed9abaf9a, type: 2}
   LevelSettings: {fileID: 8685120348168477990}
-  DialogUIPrefab: {fileID: 3450517168409539817, guid: e5872f91ab6c49948b2acca0fb692d64, type: 3}
-  InteractionPanerPrefab: {fileID: 1568130889147228358, guid: d0deb80125b76a449bee291cdaae21cf, type: 3}
-  _gameStaticData: {fileID: 11400000, guid: 9c48832bd2e80714e9fb46645556b8f8, type: 2}
 --- !u!1001 &200767405
 PrefabInstance:
   m_ObjectHideFlags: 0
