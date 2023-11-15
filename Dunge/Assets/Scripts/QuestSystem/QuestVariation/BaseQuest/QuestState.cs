@@ -1,4 +1,4 @@
-﻿namespace Scripts.QuestSystem.QuestVariation
+﻿namespace Scripts.QuestSystem.QuestVariation.BaseQuest
 {
     public enum QuestState
     {

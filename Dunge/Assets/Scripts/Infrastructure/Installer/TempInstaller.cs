@@ -20,7 +20,7 @@ namespace Scripts.QuestSystem
         private void BindQuestSystem()
         {
             Container.Bind<QuestJournal>().AsSingle();
-            Container.Bind<QuestMachine>().AsSingle();
+            Container.Bind<QuestFactory>().AsSingle();
             Container.Bind<QuestList>().FromInstance(questSetup.questList).AsSingle();
             Container.Bind<IQuestJournalUI>().FromComponentInNewPrefab(questSetup.questJournalUI).AsSingle();
         }

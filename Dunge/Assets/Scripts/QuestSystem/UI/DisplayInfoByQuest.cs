@@ -1,6 +1,6 @@
-﻿using Scripts.QuestSystem.QuestVariation;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
+using Scripts.QuestSystem.QuestVariation.BaseQuest;
 
 namespace Scripts.QuestSystem.UI
 {
@@ -11,7 +11,7 @@ namespace Scripts.QuestSystem.UI
 
         public void ShowInfo(Quest quest)
         {
-            _questName.text = quest.nameQuest;
+            _questName.text = quest.QuestData.NameQuest;
             _questDescription.text = quest.ToString();
         }
 

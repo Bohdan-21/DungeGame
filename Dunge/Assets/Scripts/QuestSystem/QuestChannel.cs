@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-using Scripts.QuestSystem.QuestVariation;
+using Scripts.QuestSystem.QuestVariation.BaseQuest;
 
 namespace Scripts.QuestSystem
 {

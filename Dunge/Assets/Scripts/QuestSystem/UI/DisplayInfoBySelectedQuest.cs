@@ -1,4 +1,4 @@
-﻿using Scripts.QuestSystem.QuestVariation;
+﻿using Scripts.QuestSystem.QuestVariation.BaseQuest;
 using UnityEngine;
 
 namespace Scripts.QuestSystem.UI

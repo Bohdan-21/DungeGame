@@ -1,4 +1,4 @@
-﻿using Scripts.QuestSystem.QuestVariation;
+﻿using Scripts.QuestSystem.QuestVariation.BaseQuest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace Scripts.StaticData.QuestStaticData
         public Quest GetQuestById(int id)
         {
             foreach (Quest quest in questList)
-                if (quest.questId == id)
+                if (quest.QuestData.ID == id)
                     return quest;
             return null;
         }

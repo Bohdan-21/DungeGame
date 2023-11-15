@@ -9,10 +9,10 @@ namespace Scripts.QuestSystem
         public KeyCode key;
         public int questId;
 
-        private QuestMachine _questMachine;
+        private QuestFactory _questMachine;
         
         [Inject]
-        private void Construct(QuestMachine questMachine)
+        private void Construct(QuestFactory questMachine)
         {
             _questMachine = questMachine;
         }
@@ -23,7 +23,7 @@ namespace Scripts.QuestSystem
             {
                 questId = Random.Range(1, 6);
 
-                _questMachine.ActivateQuest(questId);
+                _questMachine.SpawnNewQuestByID(questId);
             }
         }
     }

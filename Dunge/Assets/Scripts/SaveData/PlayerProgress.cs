@@ -28,5 +28,11 @@ namespace Scripts.Data.SaveData
 
             ActiveQuestList = new ActiveQuestList();
         }
+
+        public void ClearAllData()
+        {
+            Inventory.Clear();
+            ActiveQuestList.Clear();
+        }
     }
 }

@@ -44,13 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2803bc357296e4043878c402aef48cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameQuest: Kill 10 First Enemy
   questId: 1
-  questState: 0
+  nameQuest: Kill 10 First Enemy
   requirements: []
   rewards: []
+  _combatQuestData:
+    ID: 1
+    NameQuest: Kill 10 First Enemy
+    Requirements: []
+    Rewards: []
+    EnemyType: 0
+    AmountEnemyToKill: 10
+    CurrentEnemyKill: 0
   EnemyToKill: 0
   amountEnemyToKill: 10
   currentEnemyKill: 0
-  _combatChannel: {fileID: 0}
-  _questChannel: {fileID: 0}

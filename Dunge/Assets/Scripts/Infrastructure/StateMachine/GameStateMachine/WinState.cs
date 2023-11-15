@@ -29,6 +29,8 @@ namespace Scripts.Infrastructure.StateMachine
 
         private void UpdateProgress()
         {
+            _progressService.PlayerProgress.ClearAllData();
+
             foreach (IPlayerProgressUpdater progressUpdater in _progressService.ProgressUpdaters)
                 progressUpdater.UpdateProgress(_progressService.PlayerProgress);
         }

@@ -1,4 +1,4 @@
-﻿using Scripts.QuestSystem.QuestVariation;
+﻿using Scripts.QuestSystem.QuestVariation.Data;
 using System;
 using System.Collections.Generic;
 
@@ -7,11 +7,16 @@ namespace Scripts.Data.SaveData
     [Serializable]
     public class ActiveQuestList
     {
-        public List<int> IndexQuestList = new List<int>();
+        public List<QuestData> QuestDataList = new List<QuestData>();
 
         public ActiveQuestList()
         {
-            IndexQuestList = new List<int>();
+            QuestDataList = new List<QuestData>();
+        }
+
+        public void Clear()
+        {
+            QuestDataList.Clear();
         }
     }
 }

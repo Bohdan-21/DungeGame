@@ -83,8 +83,6 @@ namespace Scripts.Player
 
         public void UpdateProgress(PlayerProgress playerProgress)
         {
-            playerProgress.Inventory.Clear();
-
             foreach(KeyValuePair<TypeItem, int> value in _storage)
             {
                 playerProgress.Inventory.StorageTypeItem.Add(value.Key);

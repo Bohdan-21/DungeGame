@@ -1,4 +1,4 @@
-﻿using Scripts.QuestSystem.QuestVariation;
+﻿using Scripts.QuestSystem.QuestVariation.BaseQuest;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,8 +1,8 @@
-﻿using Scripts.QuestSystem.QuestVariation;
-using System;
+﻿using System;
 using UnityEngine;
 using Zenject;
 using TMPro;
+using Scripts.QuestSystem.QuestVariation.BaseQuest;
 
 namespace Scripts.QuestSystem.UI
 {

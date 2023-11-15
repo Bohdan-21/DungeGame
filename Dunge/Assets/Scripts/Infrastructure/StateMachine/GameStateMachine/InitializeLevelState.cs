@@ -1,4 +1,5 @@
 ﻿using Scripts.Infrastructure.Factory;
+using Scripts.QuestSystem;
 using Scripts.Services.PlayerProgressService;
 
 namespace Scripts.Infrastructure.StateMachine
@@ -8,13 +9,15 @@ namespace Scripts.Infrastructure.StateMachine
         private GameStateMachine _levelStateMachine;
         private IGameFactory _gameFactory;
         private readonly IPlayerProgressService _playerProgressService;
+        private readonly QuestFactory _questFactory;
 
         public InitializeLevelState(GameStateMachine levelStateMachine, IGameFactory gameFactory, 
-            IPlayerProgressService playerProgressService)
+            IPlayerProgressService playerProgressService, QuestFactory questFactory)
         {
             _levelStateMachine = levelStateMachine;
             _gameFactory = gameFactory;
             _playerProgressService = playerProgressService;
+            _questFactory = questFactory;
         }
 
         public void Enter()
@@ -24,6 +27,10 @@ namespace Scripts.Infrastructure.StateMachine
             _gameFactory.CreateLevel();
 
             InformProgressReader();
+
+            //---------------------------
+            _questFactory.RespawnSavedQuest();
+            //---------------------------
 
             _levelStateMachine.Enter<GameLoopState>();
         }

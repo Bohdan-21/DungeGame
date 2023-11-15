@@ -24,6 +24,8 @@ namespace Scripts.Services.SaveLoad
 
         public void SaveProgress()
         {
+            CleanAllPlayerProgress();
+
             foreach (IPlayerProgressUpdater progressUpdater in _playerProgressService.ProgressUpdaters)
                 progressUpdater.UpdateProgress(_playerProgressService.PlayerProgress);
 
@@ -34,6 +36,11 @@ namespace Scripts.Services.SaveLoad
         public PlayerProgress LoadProgress()
         {
             return PlayerPrefs.GetString(Key).FromJson<PlayerProgress>();
+        }
+
+        private void CleanAllPlayerProgress()
+        {
+            _playerProgressService.PlayerProgress.ClearAllData();
         }
     }
 }

@@ -1,9 +1,9 @@
-using Scripts.QuestSystem.QuestVariation;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Scripts.QuestSystem.QuestVariation.BaseQuest;
 
 namespace Scripts.QuestSystem.UI
 {
@@ -18,7 +18,7 @@ namespace Scripts.QuestSystem.UI
         {
             _quest = quest;
 
-            text.text = quest.nameQuest;
+            text.text = quest.QuestData.NameQuest;
 
             _callback = callback;
         }

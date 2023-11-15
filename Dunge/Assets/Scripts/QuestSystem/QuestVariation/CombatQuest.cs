@@ -2,22 +2,25 @@
 using Scripts.Enemy;
 using Scripts.Player;
 using Scripts.QuestSystem.Channel;
+using Scripts.QuestSystem.QuestVariation.BaseQuest;
+using Scripts.QuestSystem.QuestVariation.Data;
 using Scripts.Services.PlayerProgressService;
-using System;
 using UnityEngine;
 using Zenject;
 
 namespace Scripts.QuestSystem.QuestVariation
 {
+
     public class CombatQuest : Quest
     {
-        [SerializeField] private EnemyType EnemyToKill;
-        [SerializeField] private int amountEnemyToKill;
-        [SerializeField] private int currentEnemyKill;
+        [SerializeField] private CombatQuestData _combatQuestData;
         
         private CombatChannel _combatChannel;
 
-        public override string Progress { get => "Progress: " + currentEnemyKill.ToString() + "/" + amountEnemyToKill.ToString(); }
+        public override string Progress { get => "Progress: " + _combatQuestData.CurrentEnemyKill.ToString() + "/" 
+                + _combatQuestData.AmountEnemyToKill.ToString(); }
+
+        public override QuestData QuestData { get => _combatQuestData; }
 
         [Inject]
         private void Construct(QuestChannel questChannel, CombatChannel combatChannel, IPlayerProgressService playerProgressService)
@@ -32,25 +35,38 @@ namespace Scripts.QuestSystem.QuestVariation
             AlertForCreatedQuest();
         }
 
+
+        public override void InitializeQuestData(QuestData questData)
+        {
+            if (questData is CombatQuestData combatQuestData)
+            {
+                _combatQuestData.EnemyType = combatQuestData.EnemyType;
+                _combatQuestData.AmountEnemyToKill = combatQuestData.AmountEnemyToKill;
+                _combatQuestData.CurrentEnemyKill = combatQuestData.CurrentEnemyKill;
+            }
+        }
+
+
         public override void StartTrackingQuest() => 
             _combatChannel.KillEvent += TrackingKillEvent;
 
         public override void StopTrackingQuest() => 
             _combatChannel.KillEvent -= TrackingKillEvent;
 
+
         private void TrackingKillEvent(EnemyType enemyType)
         {
-            if (enemyType != EnemyToKill)
+            if (enemyType != _combatQuestData.EnemyType)
                 return;
-            if (currentEnemyKill < amountEnemyToKill)
+            if (_combatQuestData.CurrentEnemyKill < _combatQuestData.AmountEnemyToKill)
                 RefreshQuestProgress();
-            if (currentEnemyKill >= amountEnemyToKill)
+            if (_combatQuestData.CurrentEnemyKill >= _combatQuestData.AmountEnemyToKill)
                 QuestComplete();
         }
 
         protected override void RefreshQuestProgress()
         {
-            currentEnemyKill++;
+            _combatQuestData.CurrentEnemyKill++;
             _questChannel.RefreshActiveQuest();
         }
 
@@ -63,16 +79,19 @@ namespace Scripts.QuestSystem.QuestVariation
             Destroy(this.gameObject);
         }
 
-        public override string ToString()
-        {
-            return "Kill enemy:" + currentEnemyKill.ToString() + "/" + amountEnemyToKill.ToString();
-        }
+
 
         public override void LoadProgress(PlayerProgress playerProgress) { }
 
         public override void UpdateProgress(PlayerProgress playerProgress)
         {
-            playerProgress.ActiveQuestList.IndexQuestList.Add(questId);
+            playerProgress.ActiveQuestList.QuestDataList.Add(_combatQuestData);
+        }
+        
+
+        public override string ToString()
+        {
+            return "Kill enemy:" + _combatQuestData.CurrentEnemyKill.ToString() + "/" + _combatQuestData.AmountEnemyToKill.ToString();
         }
     }
 }

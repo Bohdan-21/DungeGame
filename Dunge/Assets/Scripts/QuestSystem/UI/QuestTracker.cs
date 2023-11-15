@@ -37,7 +37,7 @@ namespace Scripts.QuestSystem.UI
 
         private void UpdateActiveQuest()
         {
-            _questName.text = _questJournal.ActiveQuest.nameQuest;
+            _questName.text = _questJournal.ActiveQuest.QuestData.NameQuest;
             _questProgress.text = _questJournal.ActiveQuest.Progress;
         }
 
