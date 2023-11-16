@@ -17,9 +17,6 @@ namespace Scripts.QuestSystem.QuestVariation.BaseQuest
         public virtual string Progress { get; }
 
 
-        public virtual void InitializeQuestData(QuestData questData) =>
-            throw new NotImplementedException();
-
         public virtual void StartTrackingQuest() =>
             throw new NotImplementedException();
 

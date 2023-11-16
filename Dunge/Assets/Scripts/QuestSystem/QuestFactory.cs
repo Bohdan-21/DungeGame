@@ -27,11 +27,9 @@ namespace Scripts.QuestSystem
 
         public void RespawnSavedQuest()
         {
-            foreach (QuestData questData in _playerProgressService.PlayerProgress.ActiveQuestList.QuestDataList)
+            foreach (int id in _playerProgressService.PlayerProgress.ActiveQuestList.QuestDataList)
             {
-                GameObject spawnedQuest = SpawnNewQuest(questData.ID);
-
-                InitializeSpawnedQuest(spawnedQuest, questData);
+                SpawnNewQuest(id);
             }
         }
 
@@ -40,11 +38,6 @@ namespace Scripts.QuestSystem
             Quest quest = GetQuestById(id);
 
             return _diContainer.InstantiatePrefab(quest.gameObject);
-        }
-
-        private void InitializeSpawnedQuest(GameObject spawnedQuest, QuestData questData)
-        {
-            spawnedQuest.GetComponent<Quest>().InitializeQuestData(questData);
         }
 
         private Quest GetQuestById(int id) =>

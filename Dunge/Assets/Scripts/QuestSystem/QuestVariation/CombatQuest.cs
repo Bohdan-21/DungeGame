@@ -36,17 +36,6 @@ namespace Scripts.QuestSystem.QuestVariation
         }
 
 
-        public override void InitializeQuestData(QuestData questData)
-        {
-            if (questData is CombatQuestData combatQuestData)
-            {
-                _combatQuestData.EnemyType = combatQuestData.EnemyType;
-                _combatQuestData.AmountEnemyToKill = combatQuestData.AmountEnemyToKill;
-                _combatQuestData.CurrentEnemyKill = combatQuestData.CurrentEnemyKill;
-            }
-        }
-
-
         public override void StartTrackingQuest() => 
             _combatChannel.KillEvent += TrackingKillEvent;
 
@@ -85,7 +74,7 @@ namespace Scripts.QuestSystem.QuestVariation
 
         public override void UpdateProgress(PlayerProgress playerProgress)
         {
-            playerProgress.ActiveQuestList.QuestDataList.Add(_combatQuestData);
+            playerProgress.ActiveQuestList.QuestDataList.Add(_combatQuestData.ID);
         }
         
 

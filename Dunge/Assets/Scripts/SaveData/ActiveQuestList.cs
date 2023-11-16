@@ -7,11 +7,11 @@ namespace Scripts.Data.SaveData
     [Serializable]
     public class ActiveQuestList
     {
-        public List<QuestData> QuestDataList = new List<QuestData>();
+        public List<int> QuestDataList = new List<int>();
 
         public ActiveQuestList()
         {
-            QuestDataList = new List<QuestData>();
+            QuestDataList = new List<int>();
         }
 
         public void Clear()
