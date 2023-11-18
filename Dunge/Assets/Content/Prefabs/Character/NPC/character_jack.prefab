@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 4091785071087546078}
   - component: {fileID: -2238604767620195254}
   - component: {fileID: 6944604676259036960}
+  - component: {fileID: -5266067529430766897}
   m_Layer: 13
   m_Name: character_jack
   m_TagString: Untagged
@@ -239,6 +240,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-5266067529430766897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477016123438983120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f0e9f03dd8c914d9c8d1b0b6b514d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogQueueHandler: {fileID: 4091785071087546078}
+  _npcType: 2
 --- !u!1 &851967682526470107
 GameObject:
   m_ObjectHideFlags: 0

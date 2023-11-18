@@ -1,6 +1,6 @@
 ﻿using Scripts.Enemy;
 using Scripts.Level;
-using Scripts.NPC;
+using Scripts.NPC.Spawn;
 using Scripts.Player;
 using Scripts.StaticData.EnemyStaticData;
 using Scripts.StaticData.GameStaticData;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Scripts.NPC
+namespace Scripts.NPC.Spawn
 {
     public class NPCSpawnPoint : MonoBehaviour
     {

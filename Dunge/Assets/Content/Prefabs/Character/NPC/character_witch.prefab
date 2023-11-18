@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: -7865697355420196947}
   - component: {fileID: 8674493271433383983}
   - component: {fileID: -3960142915412774225}
+  - component: {fileID: 2019910759231480776}
   m_Layer: 13
   m_Name: character_witch
   m_TagString: Untagged
@@ -241,6 +242,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2019910759231480776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4730316780727692706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f0e9f03dd8c914d9c8d1b0b6b514d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogQueueHandler: {fileID: -7865697355420196947}
+  _npcType: 3
 --- !u!1 &6091290667770421724
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,9 +11,7 @@ namespace Scripts.QuestSystem.Channel
     {
         public event Action<EnemyType> KillEvent;
 
-        public void InvokeKillEvent(EnemyType enemyType)
-        {
+        public void InvokeKillEvent(EnemyType enemyType) => 
             KillEvent?.Invoke(enemyType);
-        }        
     }
 }

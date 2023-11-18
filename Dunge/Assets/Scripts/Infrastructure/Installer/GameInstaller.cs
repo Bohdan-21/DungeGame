@@ -58,6 +58,7 @@ public class GameInstaller : MonoInstaller
 
         Container.Bind<QuestChannel>().FromNew().AsSingle();
         Container.Bind<CombatChannel>().FromNew().AsSingle();
+        Container.Bind<DialogChannel>().FromNew().AsSingle();
     }
 
     private void BindLevelSettings()

@@ -10,7 +10,6 @@ using Zenject;
 
 namespace Scripts.QuestSystem.QuestVariation
 {
-
     public class CombatQuest : Quest
     {
         [SerializeField] private CombatQuestData _combatQuestData;

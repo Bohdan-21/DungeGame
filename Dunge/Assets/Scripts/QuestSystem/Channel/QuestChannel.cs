@@ -2,7 +2,7 @@
 using UnityEngine;
 using Scripts.QuestSystem.QuestVariation.BaseQuest;
 
-namespace Scripts.QuestSystem
+namespace Scripts.QuestSystem.Channel
 {
     public class QuestChannel
     {
@@ -10,19 +10,13 @@ namespace Scripts.QuestSystem
         public event Action QuestRefreshEvent;
         public event Action<Quest> QuestCreatedEvent;
 
-        public void CompleteQuest(Quest quest)
-        {
+        public void CompleteQuest(Quest quest) => 
             QuestCompleteEvent?.Invoke(quest);
-        }
 
-        public void RefreshActiveQuest()
-        {
+        public void RefreshActiveQuest() => 
             QuestRefreshEvent?.Invoke();
-        }
 
-        public void ActivateQuest(Quest quest)
-        {
+        public void ActivateQuest(Quest quest) => 
             QuestCreatedEvent?.Invoke(quest);
-        }
     }
 }

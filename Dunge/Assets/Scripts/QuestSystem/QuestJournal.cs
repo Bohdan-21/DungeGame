@@ -1,4 +1,5 @@
-﻿using Scripts.QuestSystem.QuestVariation.BaseQuest;
+﻿using Scripts.QuestSystem.Channel;
+using Scripts.QuestSystem.QuestVariation.BaseQuest;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,5 +1,5 @@
 using Scripts.Enemy;
-using Scripts.NPC;
+using Scripts.NPC.Spawn;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

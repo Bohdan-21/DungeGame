@@ -9,6 +9,8 @@ namespace Scripts.DialogSystem.DialogHandler
     {
         [SerializeField] private List<DialogStaticData> _dialogList = new List<DialogStaticData>();
 
+        public event Action SpeakEvent;
+
         public DialogStaticData GetDefaultDialog()
         {
             if (_dialogList != null && _dialogList.Count != 0)
@@ -17,6 +19,8 @@ namespace Scripts.DialogSystem.DialogHandler
 
                 if (dialogStaticData.ShowOneTime)
                     _dialogList.RemoveAt(0);
+
+                SpeakEvent?.Invoke();
 
                 return dialogStaticData;
             }

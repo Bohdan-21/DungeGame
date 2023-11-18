@@ -1323,6 +1323,7 @@ GameObject:
   - component: {fileID: 6225867220707457322}
   - component: {fileID: 6330727926415160225}
   - component: {fileID: 7928526763571369891}
+  - component: {fileID: 9088200363781386123}
   m_Layer: 13
   m_Name: Headman
   m_TagString: Untagged
@@ -1415,6 +1416,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9088200363781386123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4570257042629010376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f0e9f03dd8c914d9c8d1b0b6b514d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogQueueHandler: {fileID: 6225867220707457322}
+  _npcType: 0
 --- !u!1 &4978503622070508248
 GameObject:
   m_ObjectHideFlags: 0
