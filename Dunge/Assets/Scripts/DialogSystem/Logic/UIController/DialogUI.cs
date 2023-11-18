@@ -3,8 +3,8 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Events;
-using Scripts.DialogSystem.Structure;
 using Zenject;
+using Scripts.StaticData.Dialog;
 
 namespace Scripts.DialogSystem.Logic.UIController
 {
@@ -56,7 +56,7 @@ namespace Scripts.DialogSystem.Logic.UIController
         public GameObject RootComponent;
 
         private Dialog _dialog;
-        private int _idNextDialog;
+        private int _cacheResponceId;
 
         [Inject]
         private void Construct(IDialogTracking dialogTracker)
@@ -80,7 +80,7 @@ namespace Scripts.DialogSystem.Logic.UIController
 
         private void InitializeValue(Dialog dialog)
         {
-            _idNextDialog = -1;
+            _cacheResponceId = -1;
 
             _dialog = dialog;
         }
@@ -94,7 +94,7 @@ namespace Scripts.DialogSystem.Logic.UIController
 
         private IEnumerator ShowDialog()
         {
-            yield return DisplayText(_dialog.speaker.ToString(), _dialog.text);
+            yield return DisplayText(_dialog.speakerDialog.ToString(), _dialog.text);
 
             _waitingButton.ActivateAndAddListener(callback: PrepareResponce);
         }
@@ -113,11 +113,11 @@ namespace Scripts.DialogSystem.Logic.UIController
 
             if (DoesHaveResponces())
             {
-                Speaker speaker = DetectSpeakerResponce();
+                Speaker speakerResponce = DetectSpeakerResponce();
 
-                if (speaker == Speaker.NPC)
+                if (speakerResponce == Speaker.NPC)
                     SelectRandomResponce();
-                else if (speaker == Speaker.Player)
+                else if (speakerResponce == Speaker.Player)
                     DisplayResponce();
             }
             else
@@ -128,7 +128,7 @@ namespace Scripts.DialogSystem.Logic.UIController
             _dialog.responces != null && _dialog.responces.Count != 0;
 
         private Speaker DetectSpeakerResponce() =>
-            _dialog.responces[0].speaker;
+            _dialog.speakerResponce;
 
 
         private void SelectRandomResponce()
@@ -158,17 +158,17 @@ namespace Scripts.DialogSystem.Logic.UIController
 
         private void DisplaySelectedResponce(Responce responce)
         {
-            TakeIdNextDialog(responce);
+            CacheResponceId(responce);
 
             StartCoroutine(DisplayResponceText(responce));
         }
 
-        private void TakeIdNextDialog(Responce responce) =>
-            _idNextDialog = responce.nextDialogId;
+        private void CacheResponceId(Responce responce) =>
+            _cacheResponceId = responce.id;
 
         private IEnumerator DisplayResponceText(Responce responce)
         {
-            yield return DisplayText(responce.speaker.ToString(), responce.text);
+            yield return DisplayText(_dialog.speakerResponce.ToString(), responce.text);
 
             _waitingButton.ActivateAndAddListener(callback: SendResponce);
         }
@@ -178,11 +178,11 @@ namespace Scripts.DialogSystem.Logic.UIController
         {
             _waitingButton.DeactivateAndRemoveAllListener();
 
-            SendResponce(_idNextDialog);
+            SendResponce(_cacheResponceId);
         }
 
-        private void SendResponce(int codeResponce) =>
-            _dialogTracker.DialogResponce(codeResponce);
+        private void SendResponce(int responceId) =>
+            _dialogTracker.DialogResponce(responceId);
 
 
         public void EndDialog() =>

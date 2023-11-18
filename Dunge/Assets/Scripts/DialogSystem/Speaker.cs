@@ -1,4 +1,4 @@
-﻿namespace Scripts.DialogSystem.Structure
+﻿namespace Scripts.DialogSystem
 {
     public enum Speaker
     {

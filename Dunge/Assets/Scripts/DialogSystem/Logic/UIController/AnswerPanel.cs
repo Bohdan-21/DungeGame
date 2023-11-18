@@ -1,4 +1,4 @@
-﻿using Scripts.DialogSystem.Structure;
+﻿using Scripts.StaticData.Dialog;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

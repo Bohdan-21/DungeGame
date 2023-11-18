@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Scripts.DialogSystem.Structure
+namespace Scripts.StaticData.Dialog
 {
     [Serializable]
     public class DialogList

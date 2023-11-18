@@ -10,7 +10,7 @@ using Scripts.QuestSystem.UI;
 using Scripts.Services.InteruptService;
 using Scripts.StaticData.Audio;
 using Scripts.StaticData.Audio.Setup;
-using Scripts.StaticData.Dialog;
+using Scripts.StaticData.Dialog.Setup;
 using Scripts.StaticData.QuestStaticData;
 using Scripts.StaticData.QuestStaticData.Setup;
 using Scripts.UI.Interaction;

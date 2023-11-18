@@ -1,6 +1,6 @@
 ﻿namespace Scripts.NPC
 {
-    public enum NPCName
+    public enum NPCType
     {
         Headman,
         Wizard,

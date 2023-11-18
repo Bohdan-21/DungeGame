@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Scripts.DialogSystem;
+using System;
 
-namespace Scripts.DialogSystem.Structure
+namespace Scripts.StaticData.Dialog
 {
     [Serializable]
     public class Responce
     {
         public int id;
-        public Speaker speaker;
         public string text;
+        public int questId = -1;
         public int nextDialogId;
     }
 }

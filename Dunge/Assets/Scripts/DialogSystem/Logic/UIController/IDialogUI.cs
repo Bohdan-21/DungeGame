@@ -1,4 +1,4 @@
-﻿using Scripts.DialogSystem.Structure;
+﻿using Scripts.StaticData.Dialog;
 
 namespace Scripts.DialogSystem.Logic.UIController
 {

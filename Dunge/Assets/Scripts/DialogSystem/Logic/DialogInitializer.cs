@@ -1,5 +1,4 @@
-﻿using Scripts.DialogSystem.Structure;
-using Scripts.GameLanguage;
+﻿using Scripts.GameLanguage;
 using Scripts.StaticData.Dialog;
 using Zenject;
 

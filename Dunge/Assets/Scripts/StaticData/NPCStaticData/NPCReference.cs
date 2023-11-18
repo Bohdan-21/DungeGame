@@ -7,7 +7,7 @@ namespace Scripts.StaticData.NPCStaticData
     [Serializable]
     public class NPCReference
     {
-        public NPCName NPCName;
+        public NPCType NPCName;
         public GameObject Reference;
     }
 }

@@ -9,7 +9,7 @@ namespace Scripts.StaticData.NPCStaticData
     {
         [SerializeField] private List<NPCReference> NPCReferences;
 
-        public GameObject GetReference(NPCName name)
+        public GameObject GetReference(NPCType name)
         {
             foreach (NPCReference reference in NPCReferences)
                 if (reference.NPCName == name)

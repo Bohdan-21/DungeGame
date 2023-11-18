@@ -4,7 +4,7 @@ namespace Scripts.NPC
 {
     public class NPCSpawnPoint : MonoBehaviour
     {
-        public NPCName NPCName;
+        public NPCType NPCName;
 
         private void OnDrawGizmos()
         {

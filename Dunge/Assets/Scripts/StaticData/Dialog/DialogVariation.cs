@@ -1,7 +1,7 @@
 ﻿using System;
 using Scripts.GameLanguage;
 
-namespace Scripts.DialogSystem.Structure
+namespace Scripts.StaticData.Dialog
 {
     [Serializable]
     public class DialogVariation
