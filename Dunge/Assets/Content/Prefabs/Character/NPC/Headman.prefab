@@ -1379,7 +1379,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogList:
-  - {fileID: 11400000, guid: f940a85550fabfe46aa52eebaafbeac5, type: 2}
+  - {fileID: 11400000, guid: 559f7c5837161c34e92c13031d641b12, type: 2}
+  - {fileID: 11400000, guid: 345c8e6d85f6dad418a3df1e3767c099, type: 2}
 --- !u!54 &6330727926415160225
 Rigidbody:
   m_ObjectHideFlags: 0
