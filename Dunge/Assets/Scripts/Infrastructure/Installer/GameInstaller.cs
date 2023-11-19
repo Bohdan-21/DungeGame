@@ -14,6 +14,8 @@ using Scripts.StaticData.Dialog.Setup;
 using Scripts.StaticData.QuestStaticData;
 using Scripts.StaticData.QuestStaticData.Setup;
 using Scripts.UI.Interaction;
+using Scripts.UI.NameLocation;
+using UnityEngine;
 using Zenject;
 
 public class GameInstaller : MonoInstaller
@@ -22,10 +24,14 @@ public class GameInstaller : MonoInstaller
     public DialogSetupSystem dialogSetupSystem;
     public QuestSetup questSetup;
 
+    public GameObject LocationNameUI;
+
     public LevelSettings LevelSettings;
 
     public override void InstallBindings()
     {
+        Container.Bind<INameLocationUI>().FromComponentInNewPrefab(LocationNameUI).AsSingle().NonLazy();
+
         BindAudioSetup();
         BindGameFactory();
         BindQuestSystem();
