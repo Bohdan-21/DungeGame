@@ -1,5 +1,6 @@
 ﻿using Scripts.Data.SaveData;
 using Scripts.Enemy;
+using Scripts.Extension;
 using Scripts.Player;
 using Scripts.QuestSystem.Channel;
 using Scripts.QuestSystem.QuestVariation.BaseQuest;
@@ -73,7 +74,7 @@ namespace Scripts.QuestSystem.QuestVariation
 
         public override void UpdateProgress(PlayerProgress playerProgress)
         {
-            playerProgress.ActiveQuestList.QuestDataList.Add(_combatQuestData.ID);
+            playerProgress.ActiveQuestList.QuestDataList.Add(_combatQuestData);
         }
         
 

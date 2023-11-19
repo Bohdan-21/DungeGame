@@ -1,4 +1,5 @@
 ﻿using Scripts.Data.SaveData;
+using Scripts.Extension;
 using Scripts.NPC;
 using Scripts.QuestSystem.Channel;
 using Scripts.QuestSystem.QuestVariation.BaseQuest;
@@ -55,7 +56,7 @@ namespace Scripts.QuestSystem.QuestVariation
 
         public override void UpdateProgress(PlayerProgress playerProgress)
         {
-            playerProgress.ActiveQuestList.QuestDataList.Add(_speakQuestData.ID);
+            playerProgress.ActiveQuestList.QuestDataList.Add(_speakQuestData);
         }
     }
 }

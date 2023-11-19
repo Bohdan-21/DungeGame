@@ -1,17 +1,18 @@
 ﻿using Scripts.QuestSystem.QuestVariation.Data;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Scripts.Data.SaveData
 {
     [Serializable]
     public class ActiveQuestList
     {
-        public List<int> QuestDataList = new List<int>();
+        public List<QuestData> QuestDataList = new List<QuestData>();
 
         public ActiveQuestList()
         {
-            QuestDataList = new List<int>();
+            QuestDataList = new List<QuestData>();
         }
 
         public void Clear()

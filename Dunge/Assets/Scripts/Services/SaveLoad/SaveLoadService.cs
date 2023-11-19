@@ -31,18 +31,45 @@ namespace Scripts.Services.SaveLoad
             foreach (IPlayerProgressUpdater progressUpdater in _playerProgressService.ProgressUpdaters)
                 progressUpdater.UpdateProgress(_playerProgressService.PlayerProgress);
 
-            PlayerPrefs.SetString(Key, _playerProgressService.PlayerProgress.ToJson());
-            PlayerPrefs.Save();
+            BinarySerializer.Serialize(_playerProgressService.PlayerProgress, "/data.dat");
+
+            /*PlayerPrefs.SetString(Key, _playerProgressService.PlayerProgress.ToJson());
+            PlayerPrefs.Save();*/
         }
 
         public PlayerProgress LoadProgress()
         {
-            return PlayerPrefs.GetString(Key).FromJson<PlayerProgress>();
+            return BinarySerializer.Deserialize<PlayerProgress>("/data.dat");
+            //return PlayerPrefs.GetString(Key).FromJson<PlayerProgress>();
         }
 
         private void CleanAllPlayerProgress()
         {
             _playerProgressService.PlayerProgress.ClearAllData();
+        }
+    }
+
+    public static class BinarySerializer
+    {
+        public static void Serialize(object data, string fileName)
+        {
+            using (FileStream stream = new FileStream("E:" + fileName, FileMode.OpenOrCreate))
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                bf.Serialize(stream, data);
+            }
+        }
+
+        public static T Deserialize<T>(string fileName)
+        {
+            using (FileStream stream = new FileStream("E:" + fileName, FileMode.Open))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+
+                T data = (T) formatter.Deserialize(stream);
+
+                return data;
+            }
         }
     }
 }

@@ -40,6 +40,11 @@ namespace Scripts.QuestSystem.QuestVariation.BaseQuest
         public virtual void LoadProgress(PlayerProgress playerProgress) =>
             throw new NotImplementedException();
 
+        public virtual void InitializeQuestData(QuestData questData)
+        {
+            throw new NotImplementedException();
+        }
+
         public virtual void UpdateProgress(PlayerProgress playerProgress) =>
             throw new NotImplementedException();
     }

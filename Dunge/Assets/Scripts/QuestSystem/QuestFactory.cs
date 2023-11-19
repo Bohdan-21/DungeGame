@@ -1,4 +1,5 @@
-﻿using Scripts.QuestSystem.QuestVariation.BaseQuest;
+﻿using Scripts.Data.SaveData;
+using Scripts.QuestSystem.QuestVariation.BaseQuest;
 using Scripts.QuestSystem.QuestVariation.Data;
 using Scripts.Services.PlayerProgressService;
 using Scripts.StaticData.QuestStaticData;
@@ -27,9 +28,11 @@ namespace Scripts.QuestSystem
 
         public void RespawnSavedQuest()
         {
-            foreach (int id in _playerProgressService.PlayerProgress.ActiveQuestList.QuestDataList)
+            foreach (QuestData questData in _playerProgressService.PlayerProgress.ActiveQuestList.QuestDataList)
             {
-                SpawnNewQuest(id);
+                GameObject gameObject = SpawnNewQuest(questData.ID);
+
+                gameObject.GetComponent<Quest>().InitializeQuestData(questData);
             }
         }
 
