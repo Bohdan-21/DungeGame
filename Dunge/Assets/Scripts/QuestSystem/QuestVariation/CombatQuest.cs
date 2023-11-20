@@ -23,11 +23,10 @@ namespace Scripts.QuestSystem.QuestVariation
         public override QuestData QuestData { get => _combatQuestData; }
 
         [Inject]
-        private void Construct(QuestChannel questChannel, CombatChannel combatChannel, IPlayerProgressService playerProgressService)
+        private void Construct(QuestChannel questChannel, CombatChannel combatChannel)
         {
             _questChannel = questChannel;
             _combatChannel = combatChannel;
-            playerProgressService.AddProgressUpdater(this);
         }
 
         private void Start()
@@ -69,18 +68,15 @@ namespace Scripts.QuestSystem.QuestVariation
         }
 
 
-
-        public override void LoadProgress(PlayerProgress playerProgress) { }
-
-        public override void UpdateProgress(PlayerProgress playerProgress)
-        {
-            playerProgress.ActiveQuestList.QuestDataList.Add(_combatQuestData);
-        }
-        
-
         public override string ToString()
         {
             return "Kill enemy:" + _combatQuestData.CurrentEnemyKill.ToString() + "/" + _combatQuestData.AmountEnemyToKill.ToString();
+        }
+
+        public override void InitializeQuestData(QuestData questData)
+        {
+            if (questData is CombatQuestData combatData)
+                _combatQuestData = combatData;
         }
     }
 }

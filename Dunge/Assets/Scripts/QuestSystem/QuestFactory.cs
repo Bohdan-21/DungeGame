@@ -28,11 +28,28 @@ namespace Scripts.QuestSystem
 
         public void RespawnSavedQuest()
         {
+            RespawnActiveQuest();
+            RespawnNotActiveList();
+        }
+
+        private void RespawnActiveQuest()
+        {
+            if (_playerProgressService.PlayerProgress.ActiveQuestList.ActiveQuest == null) return;
+
+            QuestData questDataActiveQuest = _playerProgressService.PlayerProgress.ActiveQuestList.ActiveQuest;
+
+            GameObject activeQuest = SpawnNewQuest(questDataActiveQuest.ID);
+
+            activeQuest.GetComponent<Quest>().InitializeQuestData(questDataActiveQuest);
+        }
+
+        private void RespawnNotActiveList()
+        {
             foreach (QuestData questData in _playerProgressService.PlayerProgress.ActiveQuestList.QuestDataList)
             {
-                GameObject gameObject = SpawnNewQuest(questData.ID);
+                GameObject unactiveQuest = SpawnNewQuest(questData.ID);
 
-                gameObject.GetComponent<Quest>().InitializeQuestData(questData);
+                unactiveQuest.GetComponent<Quest>().InitializeQuestData(questData);
             }
         }
 

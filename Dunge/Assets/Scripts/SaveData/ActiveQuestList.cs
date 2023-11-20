@@ -1,4 +1,5 @@
-﻿using Scripts.QuestSystem.QuestVariation.Data;
+﻿using Scripts.QuestSystem.QuestVariation.BaseQuest;
+using Scripts.QuestSystem.QuestVariation.Data;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ namespace Scripts.Data.SaveData
     [Serializable]
     public class ActiveQuestList
     {
+        public QuestData ActiveQuest;
         public List<QuestData> QuestDataList = new List<QuestData>();
 
         public ActiveQuestList()
@@ -17,6 +19,7 @@ namespace Scripts.Data.SaveData
 
         public void Clear()
         {
+            ActiveQuest = null;
             QuestDataList.Clear();
         }
     }

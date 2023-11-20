@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Scripts.QuestSystem.QuestVariation.BaseQuest
 {
 
-    public abstract class Quest : MonoBehaviour, IPlayerProgressUpdater
+    public abstract class Quest : MonoBehaviour
     {
         protected QuestChannel _questChannel;
 
@@ -37,15 +37,6 @@ namespace Scripts.QuestSystem.QuestVariation.BaseQuest
             throw new NotImplementedException();
 
 
-        public virtual void LoadProgress(PlayerProgress playerProgress) =>
-            throw new NotImplementedException();
-
-        public virtual void InitializeQuestData(QuestData questData)
-        {
-            throw new NotImplementedException();
-        }
-
-        public virtual void UpdateProgress(PlayerProgress playerProgress) =>
-            throw new NotImplementedException();
+        public abstract void InitializeQuestData(QuestData questData);
     }
 }

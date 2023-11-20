@@ -31,8 +31,7 @@ namespace Scripts.Infrastructure.StateMachine
         {
             _progressService.PlayerProgress.ClearAllData();
 
-            foreach (IPlayerProgressUpdater progressUpdater in _progressService.ProgressUpdaters)
-                progressUpdater.UpdateProgress(_progressService.PlayerProgress);
+            _progressService.AlertAllToUpdateData();
         }
 
         public void Exit()

@@ -10,7 +10,7 @@ using Zenject;
 
 namespace Scripts.Player
 {
-    public class PlayerInventory : MonoBehaviour, IPlayerProgressUpdater
+    public class PlayerInventory : MonoBehaviour, IPlayerProgressLoader
     {
         public Dictionary<TypeItem, int> _storage { get; private set; } = new Dictionary<TypeItem, int>();
         public event Action UpdateInventory;

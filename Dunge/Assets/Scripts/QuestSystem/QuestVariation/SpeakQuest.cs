@@ -22,11 +22,10 @@ namespace Scripts.QuestSystem.QuestVariation
         public override QuestData QuestData { get => _speakQuestData; }
 
         [Inject]
-        private void Construct(QuestChannel questChannel, DialogChannel dialogChannel, IPlayerProgressService playerProgressService)
+        private void Construct(QuestChannel questChannel, DialogChannel dialogChannel)
         {
             _questChannel = questChannel;
             _dialogChannel = dialogChannel;
-            _playerProgressService = playerProgressService;
         }
 
         private void Start() => 
@@ -54,9 +53,10 @@ namespace Scripts.QuestSystem.QuestVariation
             Destroy(this.gameObject);
         }
 
-        public override void UpdateProgress(PlayerProgress playerProgress)
+        public override void InitializeQuestData(QuestData questData)
         {
-            playerProgress.ActiveQuestList.QuestDataList.Add(_speakQuestData);
+            if (questData is SpeakQuestData speakData)
+                _speakQuestData = speakData;
         }
     }
 }

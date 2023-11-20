@@ -19,6 +19,21 @@ namespace Scripts.Services.PlayerProgressService
             ProgressUpdaters.Add(progressUpdater);
         }
 
+        public void AlertAllLoadData()
+        {
+            foreach(IPlayerProgressUpdater updater in ProgressUpdaters)
+            {
+                if (updater is IPlayerProgressLoader loader)
+                    loader.LoadProgress(PlayerProgress);
+            }
+        }
+
+        public void AlertAllToUpdateData()
+        {
+            foreach (IPlayerProgressUpdater updater in ProgressUpdaters)
+                updater.UpdateProgress(PlayerProgress);
+        }
+
         public void Cleanup()
         {
             ProgressUpdaters.Clear();

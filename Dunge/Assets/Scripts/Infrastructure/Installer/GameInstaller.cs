@@ -56,9 +56,9 @@ public class GameInstaller : MonoInstaller
 
     private void BindQuestSystem()
     {
-        Container.Bind<QuestJournal>().FromNew().AsSingle();
         Container.Bind<QuestFactory>().FromNew().AsSingle();
         Container.Bind<QuestList>().FromInstance(questSetup.questList).AsSingle();
+        Container.Bind<IQuestJournal>().FromComponentInNewPrefab(questSetup.questJournal).AsSingle();
         Container.Bind<IQuestJournalUI>().FromComponentInNewPrefab(questSetup.questJournalUI).AsSingle().NonLazy();
         Container.Bind<IQuestTracker>().FromComponentInNewPrefab(questSetup.questTrackerUI).AsSingle().NonLazy();
 

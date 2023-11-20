@@ -9,6 +9,8 @@ namespace Scripts.Services.PlayerProgressService
         List<IPlayerProgressUpdater> ProgressUpdaters { get; }
 
         void AddProgressUpdater(IPlayerProgressUpdater progressUpdater);
+        void AlertAllLoadData();
         void Cleanup();
+        void AlertAllToUpdateData();
     }
 }

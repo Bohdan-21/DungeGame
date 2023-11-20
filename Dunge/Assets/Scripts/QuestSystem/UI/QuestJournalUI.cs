@@ -12,10 +12,10 @@ namespace Scripts.QuestSystem.UI
         [SerializeField] private DisplayInfoByActiveQuest _displayInfoByActiveQuest;
         
         private bool _isShow;
-        private QuestJournal _questJournal;
+        private IQuestJournal _questJournal;
         
         [Inject]
-        private void Construct(QuestJournal questJournal)
+        private void Construct(IQuestJournal questJournal)
         {
             _questJournal = questJournal;
         }

@@ -26,19 +26,18 @@ namespace Scripts.Infrastructure.StateMachine
 
             _gameFactory.CreateLevel();
 
-            InformProgressReader();
-
-            //---------------------------
-            _questFactory.RespawnSavedQuest();
-            //---------------------------
+            LoadDataFromPlayerProgress();
 
             _levelStateMachine.Enter<GameLoopState>();
         }
 
-        private void InformProgressReader()
+        private void LoadDataFromPlayerProgress()
         {
-            foreach (IPlayerProgressUpdater progressUpdater in _playerProgressService.ProgressUpdaters)
-                progressUpdater.LoadProgress(_playerProgressService.PlayerProgress);
+            _playerProgressService.AlertAllLoadData();
+
+            //---------------------------
+            _questFactory.RespawnSavedQuest();
+            //---------------------------
         }
 
         public void Exit()

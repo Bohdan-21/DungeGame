@@ -13,10 +13,10 @@ namespace Scripts.QuestSystem.UI
         [SerializeField] private DisplayInfoBySelectedQuest _setSelectedQuest;
 
         private List<QuestDisplayer> _spawnedQuestList = new List<QuestDisplayer>();
-        private QuestJournal _questJournal;
+        private IQuestJournal _questJournal;
 
         [Inject]
-        private void Construct(QuestJournal questJournal) => 
+        private void Construct(IQuestJournal questJournal) => 
             _questJournal = questJournal;
 
         public void Show() => 

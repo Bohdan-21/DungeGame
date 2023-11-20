@@ -11,7 +11,7 @@ using Zenject;
 
 namespace Scripts.Player
 {
-    public class PlayerHealth : MonoBehaviour, IPlayerProgressUpdater, IHealth
+    public class PlayerHealth : MonoBehaviour, IPlayerProgressLoader, IHealth
     {
         [SerializeField] private PlayerAnimator PlayerAnimator;
         private ISoundsGameActionPlayer _soundPlayer;
