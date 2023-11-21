@@ -5,7 +5,7 @@ using UnityEngine;
 using TMPro;
 using Scripts.QuestSystem.QuestVariation.BaseQuest;
 
-namespace Scripts.QuestSystem.UI
+namespace Scripts.QuestSystem.UI.QuestItemDisplayer
 {
     public class QuestDisplayer : MonoBehaviour
     {
@@ -23,7 +23,7 @@ namespace Scripts.QuestSystem.UI
             _callback = callback;
         }
 
-        public void ClickToSelect() => 
+        public void ClickToSelect() =>
             _callback.Invoke(_quest);
     }
 }

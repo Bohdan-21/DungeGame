@@ -1,5 +1,5 @@
 ﻿using Scripts.DialogSystem.Logic.UIController;
-using Scripts.QuestSystem;
+using Scripts.QuestSystem.Factory;
 using Scripts.StaticData.Dialog;
 using System;
 using UnityEngine;

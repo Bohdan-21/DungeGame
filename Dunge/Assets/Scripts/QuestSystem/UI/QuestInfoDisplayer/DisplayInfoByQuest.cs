@@ -2,7 +2,7 @@
 using TMPro;
 using Scripts.QuestSystem.QuestVariation.BaseQuest;
 
-namespace Scripts.QuestSystem.UI
+namespace Scripts.QuestSystem.UI.QuestInfoDisplayer
 {
     public class DisplayInfoByQuest : MonoBehaviour
     {

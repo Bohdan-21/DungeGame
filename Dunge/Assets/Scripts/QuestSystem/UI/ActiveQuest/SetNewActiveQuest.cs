@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Scripts.QuestSystem.UI
+namespace Scripts.QuestSystem.UI.ActiveQuest
 {
     public class SetNewActiveQuest : MonoBehaviour
     {

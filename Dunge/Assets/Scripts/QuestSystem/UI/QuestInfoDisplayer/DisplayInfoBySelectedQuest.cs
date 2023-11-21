@@ -1,14 +1,15 @@
 ﻿using Scripts.QuestSystem.QuestVariation.BaseQuest;
+using Scripts.QuestSystem.UI.ActiveQuest;
 using UnityEngine;
 
-namespace Scripts.QuestSystem.UI
+namespace Scripts.QuestSystem.UI.QuestInfoDisplayer
 {
     public class DisplayInfoBySelectedQuest : MonoBehaviour
     {
         [SerializeField] private DisplayInfoByQuest _displayInfoByQuest;
         [SerializeField] private SetNewActiveQuest _setNewActiveQuest;
 
-        private void Start() => 
+        private void Start() =>
             ResetSelectedQuest();
 
         public void SetNewSelectedQuest(Quest quest)

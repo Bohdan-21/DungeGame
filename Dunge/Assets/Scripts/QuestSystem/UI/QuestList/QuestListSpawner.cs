@@ -1,10 +1,13 @@
-﻿using Scripts.QuestSystem.QuestVariation.BaseQuest;
+﻿using Scripts.QuestSystem.Journal;
+using Scripts.QuestSystem.QuestVariation.BaseQuest;
+using Scripts.QuestSystem.UI.QuestInfoDisplayer;
+using Scripts.QuestSystem.UI.QuestItemDisplayer;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace Scripts.QuestSystem.UI
+namespace Scripts.QuestSystem.UI.QuestList
 {
     public class QuestListSpawner : MonoBehaviour
     {
@@ -16,10 +19,10 @@ namespace Scripts.QuestSystem.UI
         private IQuestJournal _questJournal;
 
         [Inject]
-        private void Construct(IQuestJournal questJournal) => 
+        private void Construct(IQuestJournal questJournal) =>
             _questJournal = questJournal;
 
-        public void Show() => 
+        public void Show() =>
             SpawnAllActiveQuest();
 
         public void Hide()
@@ -49,7 +52,7 @@ namespace Scripts.QuestSystem.UI
             _spawnedQuestList.Clear();
         }
 
-        private void SelectedQuest(Quest quest) => 
+        private void SelectedQuest(Quest quest) =>
             _setSelectedQuest.SetNewSelectedQuest(quest);
     }
 }

@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using Scripts.QuestSystem.Journal;
+using Scripts.QuestSystem.UI.ActiveQuest;
+using Scripts.QuestSystem.UI.QuestList;
+using UnityEngine;
 using Zenject;
 
-namespace Scripts.QuestSystem.UI
+namespace Scripts.QuestSystem.UI.QuestJournal
 {
     public class QuestJournalUI : MonoBehaviour, IQuestJournalUI
     {
@@ -10,10 +13,10 @@ namespace Scripts.QuestSystem.UI
         [SerializeField] private GameObject RootComponent;
         [SerializeField] private QuestListSpawner _questListSpawner;
         [SerializeField] private DisplayInfoByActiveQuest _displayInfoByActiveQuest;
-        
+
         private bool _isShow;
         private IQuestJournal _questJournal;
-        
+
         [Inject]
         private void Construct(IQuestJournal questJournal)
         {

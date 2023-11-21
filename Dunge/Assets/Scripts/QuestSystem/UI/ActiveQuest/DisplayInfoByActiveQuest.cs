@@ -3,8 +3,9 @@ using UnityEngine;
 using Zenject;
 using TMPro;
 using Scripts.QuestSystem.QuestVariation.BaseQuest;
+using Scripts.QuestSystem.Journal;
 
-namespace Scripts.QuestSystem.UI
+namespace Scripts.QuestSystem.UI.ActiveQuest
 {
     public class DisplayInfoByActiveQuest : MonoBehaviour
     {
@@ -13,14 +14,14 @@ namespace Scripts.QuestSystem.UI
         private IQuestJournal _questJournal;
 
         [Inject]
-        private void Construct(IQuestJournal questJournal) => 
+        private void Construct(IQuestJournal questJournal) =>
             _questJournal = questJournal;
 
         public void ShowActiveQuest()
         {
             if (_questJournal.ActiveQuest != null)
                 _nameActiveQuest.text = _questJournal.ActiveQuest.ToString();
-            else 
+            else
                 _nameActiveQuest.text = "";
         }
 

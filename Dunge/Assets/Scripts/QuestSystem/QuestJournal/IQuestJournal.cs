@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Scripts.QuestSystem
+namespace Scripts.QuestSystem.Journal
 {
     interface IQuestJournal
     {

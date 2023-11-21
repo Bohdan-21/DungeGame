@@ -1,4 +1,4 @@
-﻿namespace Scripts.QuestSystem.UI
+﻿namespace Scripts.QuestSystem.UI.QuestJournal
 {
     interface IQuestJournalUI
     {

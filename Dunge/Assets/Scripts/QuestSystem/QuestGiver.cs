@@ -1,4 +1,4 @@
-﻿using Scripts.QuestSystem;
+﻿using Scripts.QuestSystem.Factory;
 using UnityEngine;
 using Zenject;
 

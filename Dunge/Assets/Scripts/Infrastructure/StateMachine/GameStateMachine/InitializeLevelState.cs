@@ -1,5 +1,5 @@
 ﻿using Scripts.Infrastructure.Factory;
-using Scripts.QuestSystem;
+using Scripts.QuestSystem.Factory;
 using Scripts.Services.PlayerProgressService;
 
 namespace Scripts.Infrastructure.StateMachine

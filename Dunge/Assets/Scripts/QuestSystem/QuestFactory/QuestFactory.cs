@@ -7,7 +7,7 @@ using System;
 using UnityEngine;
 using Zenject;
 
-namespace Scripts.QuestSystem
+namespace Scripts.QuestSystem.Factory
 {
     public class QuestFactory
     {

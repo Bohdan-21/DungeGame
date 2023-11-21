@@ -5,8 +5,9 @@ using UnityEngine;
 using Zenject;
 using TMPro;
 using Scripts.QuestSystem.QuestVariation;
+using Scripts.QuestSystem.Journal;
 
-namespace Scripts.QuestSystem.UI
+namespace Scripts.QuestSystem.UI.Tracker
 {
     public class QuestTracker : MonoBehaviour, IQuestTracker
     {

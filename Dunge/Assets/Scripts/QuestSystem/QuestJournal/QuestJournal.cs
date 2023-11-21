@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
-namespace Scripts.QuestSystem
+namespace Scripts.QuestSystem.Journal
 {
     class QuestJournal : MonoBehaviour, IPlayerProgressUpdater, IQuestJournal
     {
