@@ -26,6 +26,8 @@ namespace Scripts.QuestSystem.UI.QuestJournal
         private void Start()
         {
             Hide();
+
+            _questJournal.QuestJournalRefreshEvent += QuestJournalRefresh;
         }
 
         private void Update()
@@ -57,6 +59,15 @@ namespace Scripts.QuestSystem.UI.QuestJournal
             _isShow = false;
 
             _questListSpawner.Hide();
+        }
+
+        private void QuestJournalRefresh()
+        {
+            if(_isShow)
+            {
+                Hide();
+                Show();
+            }
         }
     }
 }

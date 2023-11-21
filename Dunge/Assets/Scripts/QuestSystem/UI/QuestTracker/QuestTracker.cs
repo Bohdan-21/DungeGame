@@ -6,6 +6,7 @@ using Zenject;
 using TMPro;
 using Scripts.QuestSystem.QuestVariation;
 using Scripts.QuestSystem.Journal;
+using Scripts.QuestSystem.QuestVariation.BaseQuest;
 
 namespace Scripts.QuestSystem.UI.Tracker
 {
@@ -24,25 +25,33 @@ namespace Scripts.QuestSystem.UI.Tracker
 
         private void Start()
         {
-            ActiveQuestComplete();
+            SetDefaultDataForActiveQuest();
 
-            _questJournal.RefreshActiveQuestEvent += UpdateActiveQuest;
-            _questJournal.ActiveQuestCompleteEvent += ActiveQuestComplete;
+            _questJournal.QuestJournalRefreshEvent += QuestJournalRefreshEvent;
         }
 
         private void OnDestroy()
         {
-            _questJournal.RefreshActiveQuestEvent -= UpdateActiveQuest;
-            _questJournal.ActiveQuestCompleteEvent -= ActiveQuestComplete;
+            _questJournal.QuestJournalRefreshEvent -= QuestJournalRefreshEvent;
         }
 
-        private void UpdateActiveQuest()
+        private void QuestJournalRefreshEvent()
         {
-            _questName.text = _questJournal.ActiveQuest.QuestData.NameQuest;
-            _questProgress.text = _questJournal.ActiveQuest.Progress;
+            Quest activeQuest = _questJournal.ActiveQuest;
+
+            if (activeQuest != null)
+                SetNewDataForActiveQuest(activeQuest);
+            else
+                SetDefaultDataForActiveQuest();
         }
 
-        private void ActiveQuestComplete()
+        private void SetNewDataForActiveQuest(Quest activeQuest)
+        {
+            _questName.text = activeQuest.QuestData.NameQuest;
+            _questProgress.text = activeQuest.Progress;
+        }
+
+        private void SetDefaultDataForActiveQuest()
         {
             _questName.text = "Not Active Quest";
             _questProgress.text = "";

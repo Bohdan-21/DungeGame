@@ -9,8 +9,7 @@ namespace Scripts.QuestSystem.Journal
         Quest ActiveQuest { get; }
         List<Quest> AllQuest { get; }
 
-        event Action ActiveQuestCompleteEvent;
-        event Action RefreshActiveQuestEvent;
+        event Action QuestJournalRefreshEvent;
 
         void UpdateActiveQuest(Quest newQuest);
     }

@@ -4,9 +4,6 @@ using Scripts.QuestSystem.QuestVariation.BaseQuest;
 using Scripts.Services.PlayerProgressService;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
@@ -23,8 +20,7 @@ namespace Scripts.QuestSystem.Journal
         public Quest ActiveQuest { get => _activeQuest; }
         public List<Quest> AllQuest { get => _allQuest; }
 
-        public event Action RefreshActiveQuestEvent;
-        public event Action ActiveQuestCompleteEvent;
+        public event Action QuestJournalRefreshEvent;
 
         [Inject]
         private void Construct(QuestChannel questChannel, IPlayerProgressService playerProgressService)
@@ -34,7 +30,7 @@ namespace Scripts.QuestSystem.Journal
 
             _questChannel.QuestCreatedEvent += QuesCreatedEvent;
             _questChannel.QuestCompleteEvent += QuestCompleteEvent;
-            _questChannel.QuestRefreshEvent += RefreshActiveQuest;
+            _questChannel.QuestRefreshEvent += QuestJournalRefresh;
         }
 
         private void Start()
@@ -46,7 +42,7 @@ namespace Scripts.QuestSystem.Journal
         {
             StopTrackingActiveQuest();
             StartTrackingNewActiveQuest(newQuest);
-            RefreshActiveQuest();
+            QuestJournalRefresh();
         }
 
         private void StopTrackingActiveQuest()
@@ -74,6 +70,8 @@ namespace Scripts.QuestSystem.Journal
             }
             else
                 _allQuest.Add(quest);
+
+            QuestJournalRefresh();
         }
 
         private void QuestCompleteEvent(Quest quest)
@@ -83,18 +81,11 @@ namespace Scripts.QuestSystem.Journal
             if (_activeQuest == quest)
                 _activeQuest = null;
 
-            ActiveQuestComplete();
+            QuestJournalRefresh();
         }
 
-        private void RefreshActiveQuest()
-        {
-            RefreshActiveQuestEvent?.Invoke();
-        }
-
-        private void ActiveQuestComplete()
-        {
-            ActiveQuestCompleteEvent?.Invoke();
-        }
+        private void QuestJournalRefresh() => 
+            QuestJournalRefreshEvent?.Invoke();
 
         public void UpdateProgress(PlayerProgress playerProgress)
         {
