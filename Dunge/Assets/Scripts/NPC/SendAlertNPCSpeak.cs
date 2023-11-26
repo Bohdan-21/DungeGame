@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using Zenject;
-using Scripts.QuestSystem.Channel;
 using Scripts.NPC;
+using Scripts.GameSystem.DialogSystem.DialogHandler;
+using Scripts.GameSystem.QuestSystem.Channel;
 
 namespace Scripts.DialogSystem.DialogHandler
 {

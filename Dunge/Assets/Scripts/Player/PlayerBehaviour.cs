@@ -1,4 +1,5 @@
-﻿using Scripts.Level;
+﻿using Scripts.GameSystem.ExperienceSystem.Player;
+using Scripts.Level;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace Scripts.Player
 {
     class PlayerBehaviour : MonoBehaviour
     {
+        public PlayerExperience Experience;
         public PlayerInventory Inventory;
         public PlayerHealth Health;
         public PlayerDeath Death;

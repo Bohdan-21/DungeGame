@@ -1,8 +1,6 @@
-﻿using Scripts.QuestSystem.QuestVariation.BaseQuest;
-using Scripts.QuestSystem.QuestVariation.Data;
+﻿using Scripts.GameSystem.QuestSystem.QuestVariation.Data;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Scripts.Data.SaveData
 {

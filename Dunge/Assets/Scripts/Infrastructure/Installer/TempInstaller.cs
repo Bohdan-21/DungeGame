@@ -1,7 +1,7 @@
-﻿using Scripts.QuestSystem.Channel;
-using Scripts.QuestSystem.Factory;
-using Scripts.QuestSystem.Journal;
-using Scripts.QuestSystem.UI.QuestJournal;
+﻿using Scripts.GameSystem.QuestSystem.Channel;
+using Scripts.GameSystem.QuestSystem.Factory;
+using Scripts.GameSystem.QuestSystem.Journal;
+using Scripts.GameSystem.QuestSystem.UI.QuestJournal;
 using Scripts.StaticData.QuestStaticData;
 using Scripts.StaticData.QuestStaticData.Setup;
 using System;

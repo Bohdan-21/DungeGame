@@ -1,4 +1,4 @@
-﻿using Scripts.QuestSystem.Channel;
+﻿using Scripts.GameSystem.QuestSystem.Channel;
 using System;
 using UnityEngine;
 using Zenject;

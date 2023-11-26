@@ -1,4 +1,4 @@
-﻿using Scripts.DialogSystem;
+﻿using Scripts.GameSystem.DialogSystem;
 using System;
 using System.Collections.Generic;
 

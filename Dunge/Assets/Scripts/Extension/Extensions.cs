@@ -1,9 +1,4 @@
-﻿using Scripts.Data.SaveData;
-using Scripts.QuestSystem.QuestVariation;
-using Scripts.QuestSystem.QuestVariation.BaseQuest;
-using Scripts.QuestSystem.QuestVariation.Data;
-using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Scripts.Extension
 {
