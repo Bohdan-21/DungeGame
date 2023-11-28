@@ -1,3 +1,5 @@
+using Scripts.GameSystem.StatsSystem.Handler;
+using Scripts.GameSystem.StatsSystem.Type;
 using Scripts.Infrastructure.Audio;
 using Scripts.Services.InputService;
 using Scripts.Services.InteruptService;
@@ -13,6 +15,8 @@ namespace Scripts.Player
     {
         public CharacterController CharacterController;
         public PlayerAnimator PlayerAnimator;
+        [SerializeField] private PlayerStatsHandler _statsHandler;
+
         private Camera _camera;
 
         private IInputService _inputService;
@@ -22,13 +26,10 @@ namespace Scripts.Player
         private bool _isInterupt;
 
         [Inject]
-        private void Construct(IInputService inputService, PlayerCharacterConfig config, 
-            IInteruptService interuptService)
+        private void Construct(IInputService inputService, IInteruptService interuptService)
         {
             _inputService = inputService;
             _interuptService = interuptService;
-
-            _walkSpeed = config.WalkSpeed;
         }
 
         private void Start()
@@ -37,12 +38,20 @@ namespace Scripts.Player
             _isInterupt = false;
 
             _interuptService.AddInteruptHandler(this);
+            _statsHandler.UpdateStatsEvent += UpdateStats;
+
+            UpdateStats();
         }
 
         private void OnDestroy()
         {
             _interuptService.RemoveInteruptHandler(this);
+            _statsHandler.UpdateStatsEvent -= UpdateStats;
         }
+
+
+        private void UpdateStats() => 
+            _walkSpeed = _statsHandler.GetStatDataByType(TypeStat.Speed).GetCurrentValue();
 
 
         private void Update()

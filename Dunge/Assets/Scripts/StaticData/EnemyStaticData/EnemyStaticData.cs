@@ -14,7 +14,7 @@ namespace Scripts.StaticData.EnemyStaticData
 
         public AtackData AtackData;
 
-        public State Health;
+        public PlayerState Health;
 
         public GameObject GetEnemyPrefabByType(EnemyType enemyType)
         {

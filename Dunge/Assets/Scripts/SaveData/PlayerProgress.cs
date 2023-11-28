@@ -9,7 +9,7 @@ namespace Scripts.SaveData
     public class PlayerProgress
     {
         public LevelData LevelData;
-        public State State;
+        public PlayerState State;
         public Inventory Inventory;
         public SkillTreeData SkillTreeData;
         public ExperienceData ExperienceData;
@@ -20,7 +20,7 @@ namespace Scripts.SaveData
         public PlayerProgress()
         {
             LevelData = new LevelData();
-            State = new State();
+            State = new PlayerState();
             Inventory = new Inventory();
             SkillTreeData = new SkillTreeData();
             ExperienceData = new ExperienceData();
@@ -28,12 +28,12 @@ namespace Scripts.SaveData
             ActiveQuestList = new ActiveQuestList();
         }
 
-        public PlayerProgress(LevelData levelData, State state, Inventory inventory, SkillTreeData skillTreeData,
+        public PlayerProgress(LevelData levelData, PlayerState state, Inventory inventory, SkillTreeData skillTreeData,
                               PlayerStatsContainer playerStatsContainer, ExperienceData experienceData)
         {
             LevelData = new LevelData(levelData.CurrentDungeLevel, levelData.MaxReachedDungeLevel);
 
-            State = new State(state.CurrentHP, state.MaxHP);
+            State = new PlayerState(state.CurrentHP, state.MaxHP);
 
             Inventory = new Inventory(inventory);
 

@@ -12,7 +12,7 @@ namespace Scripts.StaticData.PlayerStaticData
     public class PlayerCharacterDeffaultSettings : ScriptableObject
     {
         public LevelData LevelData;
-        public State State;
+        public PlayerState State;
         public Inventory Inventory;
         public SkillTreeData SkillTreeData;
         public ExperienceData ExperienceData;

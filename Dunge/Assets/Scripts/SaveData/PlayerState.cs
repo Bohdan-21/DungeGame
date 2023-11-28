@@ -4,17 +4,15 @@ using UnityEngine;
 namespace Scripts.SaveData
 {
     [Serializable]
-    public class State
+    public class PlayerState
     {
-        [Range(1, 100)]
         public int CurrentHP;
 
-        [Range(1, 100)]
         public int MaxHP;
 
-        public State() : this(100, 100) { }
+        public PlayerState() : this(100, 100) { }
 
-        public State(int currentHP, int maxHP)
+        public PlayerState(int currentHP, int maxHP)
         {
             CurrentHP = currentHP;
             MaxHP = maxHP;

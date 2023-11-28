@@ -28,5 +28,8 @@ namespace Scripts.SaveData.Stats
 
         public void RecalculateCurrentValue(float boost) =>
             currentValue = baseValue + boost;
+
+        public float GetCurrentValue() =>
+            currentValue;
     }
 }

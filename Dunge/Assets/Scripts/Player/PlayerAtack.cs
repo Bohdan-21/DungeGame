@@ -1,3 +1,5 @@
+using Scripts.GameSystem.StatsSystem.Handler;
+using Scripts.GameSystem.StatsSystem.Type;
 using Scripts.Infrastructure.Audio;
 using Scripts.Logic;
 using Scripts.Services.InputService;
@@ -14,7 +16,8 @@ namespace Scripts.Player
     {
         private KeyCode AttackButton;
 
-        public PlayerAnimator PlayerAnimator;
+        [SerializeField] private PlayerAnimator PlayerAnimator;
+        [SerializeField] private PlayerStatsHandler _statsHandler;
 
         private Collider[] _hits = new Collider[3];
         private IInputService _inputService;
@@ -23,8 +26,8 @@ namespace Scripts.Player
 
         private bool _isInterupt;
         private int _layerMask;
-        private int _damage = 20;
         private float _attackRadius = 1;
+        private int _damage;
 
         [Inject]
         private void Construct(IInputService inputService, IInteruptService interuptService, PlayerCharacterConfig config,
@@ -34,7 +37,6 @@ namespace Scripts.Player
             _interuptService = interuptService;
             _soundPlayer = soundPlayer;
 
-            _damage = config.Damage;
             _attackRadius = config.AttackRadius;
 
             AttackButton = controlButtons.PlayerControlButtons.AttackControlButtons.AttackButton;
@@ -49,9 +51,17 @@ namespace Scripts.Player
             _interuptService.AddInteruptHandler(this);
         }
 
+        private void Start()
+        {
+            UpdateStats();
+
+            _statsHandler.UpdateStatsEvent += UpdateStats;
+        }
+
         private void OnDestroy()
         {
             _interuptService.RemoveInteruptHandler(this);
+            _statsHandler.UpdateStatsEvent -= UpdateStats;
         }
 
 
@@ -83,7 +93,6 @@ namespace Scripts.Player
             }
         }
 
-
         private void EndAttack()
         {
 
@@ -104,5 +113,8 @@ namespace Scripts.Player
 
         public void Continue() =>
             _isInterupt = false;
+
+        private void UpdateStats() => 
+            _damage = (int)_statsHandler.GetStatDataByType(TypeStat.Damage).GetCurrentValue();
     }
 }

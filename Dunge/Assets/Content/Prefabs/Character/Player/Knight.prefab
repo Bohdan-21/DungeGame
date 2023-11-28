@@ -448,6 +448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterController: {fileID: 4750217481742948329}
   PlayerAnimator: {fileID: 2114323991174259918}
+  _statsHandler: {fileID: 7251982876157547732}
 --- !u!114 &3925449661760590967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,6 +462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerAnimator: {fileID: 2114323991174259918}
+  _statsHandler: {fileID: 7251982876157547732}
 --- !u!114 &4316278951418922656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,6 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerAnimator: {fileID: 2114323991174259918}
+  _statsHandler: {fileID: 7251982876157547732}
 --- !u!114 &-8657678887426120790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,10 +610,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcdf7e6a88a67c741856093c23437f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 0
-  currentExp: 0
-  expNeedForLevelUp: 600
-  numberForMultiplyForUpdateExpNeedForLevelUp: 1.1
+  _experienceData:
+    currentLevel: 0
+    currentExp: 0
+    expNeedForLevelUp: 0
+    numberForMultiplyForUpdateExpNeedForLevelUp: 0
 --- !u!114 &7793511994437043054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,7 +646,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skillTreeData: {fileID: 7793511994437043054}
-  _playerStats: []
+  _playerStatsContainer:
+    PlayerStats: []
 --- !u!1 &1126853751888244286
 GameObject:
   m_ObjectHideFlags: 0
