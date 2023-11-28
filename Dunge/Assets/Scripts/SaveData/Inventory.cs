@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Scripts.Data.SaveData
+namespace Scripts.SaveData
 {
     [Serializable]
     public class Inventory//словарь нужно как то сериализовать

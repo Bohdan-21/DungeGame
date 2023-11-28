@@ -1,9 +1,7 @@
-﻿using Scripts.Data.SaveData;
-using Scripts.GameSystem.QuestSystem.QuestVariation.BaseQuest;
+﻿using Scripts.GameSystem.QuestSystem.QuestVariation.BaseQuest;
 using Scripts.GameSystem.QuestSystem.QuestVariation.Data;
 using Scripts.Services.PlayerProgressService;
 using Scripts.StaticData.QuestStaticData;
-using System;
 using UnityEngine;
 using Zenject;
 

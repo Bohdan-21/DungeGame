@@ -1,4 +1,4 @@
-﻿using Scripts.Data.SaveData;
+﻿using Scripts.SaveData;
 using System;
 using System.Collections.Generic;
 using System.Linq;

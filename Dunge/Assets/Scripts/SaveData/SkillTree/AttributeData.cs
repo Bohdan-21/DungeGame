@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace Scripts.GameSystem.SkillTreeSystem.Data
+namespace Scripts.SaveData.SkillTree
 {
     [Serializable]
     public class AttributeData

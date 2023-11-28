@@ -1,8 +1,8 @@
-using Scripts.Data.SaveData;
-using Scripts.GameSystem.SkillTreeSystem.Logic;
+using Scripts.SaveData;
+using Scripts.SaveData.Experience;
+using Scripts.SaveData.SkillTree;
+using Scripts.SaveData.Stats;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Scripts.StaticData.PlayerStaticData
@@ -15,5 +15,7 @@ namespace Scripts.StaticData.PlayerStaticData
         public State State;
         public Inventory Inventory;
         public SkillTreeData SkillTreeData;
+        public ExperienceData ExperienceData;
+        public PlayerStatsContainer PlayerStatsContainer;
     }
 }

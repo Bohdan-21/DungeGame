@@ -1,7 +1,9 @@
-using Scripts.GameSystem.SkillTreeSystem.Logic;
+using Scripts.SaveData.Experience;
+using Scripts.SaveData.SkillTree;
+using Scripts.SaveData.Stats;
 using System;
 
-namespace Scripts.Data.SaveData
+namespace Scripts.SaveData
 {
     [Serializable]
     public class PlayerProgress
@@ -10,6 +12,9 @@ namespace Scripts.Data.SaveData
         public State State;
         public Inventory Inventory;
         public SkillTreeData SkillTreeData;
+        public ExperienceData ExperienceData;
+        public PlayerStatsContainer PlayerStatsContainer;
+
         public ActiveQuestList ActiveQuestList;
 
         public PlayerProgress()
@@ -18,10 +23,13 @@ namespace Scripts.Data.SaveData
             State = new State();
             Inventory = new Inventory();
             SkillTreeData = new SkillTreeData();
+            ExperienceData = new ExperienceData();
+            PlayerStatsContainer = new PlayerStatsContainer();
             ActiveQuestList = new ActiveQuestList();
         }
 
-        public PlayerProgress(LevelData levelData, State state, Inventory inventory, SkillTreeData skillTreeData)
+        public PlayerProgress(LevelData levelData, State state, Inventory inventory, SkillTreeData skillTreeData,
+                              PlayerStatsContainer playerStatsContainer, ExperienceData experienceData)
         {
             LevelData = new LevelData(levelData.CurrentDungeLevel, levelData.MaxReachedDungeLevel);
 
@@ -30,6 +38,10 @@ namespace Scripts.Data.SaveData
             Inventory = new Inventory(inventory);
 
             SkillTreeData = new SkillTreeData(skillTreeData);
+
+            ExperienceData = new ExperienceData(experienceData);
+
+            PlayerStatsContainer = new PlayerStatsContainer(playerStatsContainer);
 
             ActiveQuestList = new ActiveQuestList();
         }

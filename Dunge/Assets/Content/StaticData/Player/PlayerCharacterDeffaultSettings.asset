@@ -86,3 +86,34 @@ MonoBehaviour:
       Boost: 5
     SkillPointForUpgrate: 0
     AttributePointForUpgrate: 0
+  ExperienceData:
+    currentLevel: 0
+    currentExp: 0
+    expNeedForLevelUp: 600
+    numberForMultiplyForUpdateExpNeedForLevelUp: 1.1
+  PlayerStatsContainer:
+    PlayerStats:
+    - typeStat: 0
+      baseValue: 100
+      currentValue: 0
+    - typeStat: 1
+      baseValue: 0
+      currentValue: 0
+    - typeStat: 2
+      baseValue: 10
+      currentValue: 0
+    - typeStat: 3
+      baseValue: 0
+      currentValue: 0
+    - typeStat: 4
+      baseValue: 20
+      currentValue: 0
+    - typeStat: 6
+      baseValue: 0
+      currentValue: 0
+    - typeStat: 7
+      baseValue: 0
+      currentValue: 0
+    - typeStat: 8
+      baseValue: 10
+      currentValue: 0

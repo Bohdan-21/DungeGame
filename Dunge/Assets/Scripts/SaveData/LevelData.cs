@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Scripts.Data.SaveData
+namespace Scripts.SaveData
 {
     [Serializable]
     public class LevelData

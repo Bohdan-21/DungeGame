@@ -1,7 +1,5 @@
-﻿using Scripts.Data.SaveData;
-using Scripts.GameSystem.QuestSystem.Channel;
+﻿using Scripts.GameSystem.QuestSystem.Channel;
 using Scripts.GameSystem.QuestSystem.QuestVariation.Data;
-using Scripts.Services.PlayerProgressService;
 using System;
 using UnityEngine;
 

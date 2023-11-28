@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Scripts.GameSystem.SkillTreeSystem.Data
+namespace Scripts.SaveData.SkillTree
 {
     [Serializable]
     public class SkillData

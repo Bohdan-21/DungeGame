@@ -1,6 +1,6 @@
-﻿using Scripts.GameSystem.ExperienceSystem.Player;
-using Scripts.GameSystem.SkillTreeSystem.Logic;
-using Scripts.GameSystem.StatsSystem.Logic;
+﻿using Scripts.GameSystem.ExperienceSystem.Handler;
+using Scripts.GameSystem.SkillTreeSystem.Handler;
+using Scripts.GameSystem.StatsSystem.Handler;
 using Scripts.Level;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace Scripts.Player
     class PlayerBehaviour : MonoBehaviour
     {
         public SkillTreeHandler SkillTreeHandler;
-        public PlayerExperience Experience;
+        public PlayerExperienceHandler Experience;
         public PlayerInventory Inventory;
         public PlayerHealth Health;
         public PlayerStatsHandler Stats;

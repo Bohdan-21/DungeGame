@@ -1,8 +1,6 @@
-﻿using Scripts.Data.SaveData;
-using Scripts.Infrastructure.StateMachine;
+﻿using Scripts.SaveData;
 using Scripts.Services.PlayerProgressService;
 using Scripts.StaticData.PlayerStaticData;
-using System;
 
 namespace Scripts.Infrastructure.StateMachine.MenuStateMachine
 {
@@ -34,10 +32,12 @@ namespace Scripts.Infrastructure.StateMachine.MenuStateMachine
 
         private void CreateNewPlayerProgress()
         {
-            _playerProgressService.PlayerProgress = new PlayerProgress(_playerCharacterDeffaultSettings.LevelData, 
+            _playerProgressService.PlayerProgress = new PlayerProgress(_playerCharacterDeffaultSettings.LevelData,
                                                                        _playerCharacterDeffaultSettings.State,
                                                                        _playerCharacterDeffaultSettings.Inventory,
-                                                                       _playerCharacterDeffaultSettings.SkillTreeData);
+                                                                       _playerCharacterDeffaultSettings.SkillTreeData,
+                                                                       _playerCharacterDeffaultSettings.PlayerStatsContainer,
+                                                                       _playerCharacterDeffaultSettings.ExperienceData);
         }
     }
 }

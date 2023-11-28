@@ -1,17 +1,19 @@
-﻿using Scripts.GameSystem.SkillTreeSystem.Data;
-using Scripts.GameSystem.SkillTreeSystem.Logic;
+﻿using Scripts.GameSystem.SkillTreeSystem.Handler;
 using Scripts.GameSystem.SkillTreeSystem.Type;
-using Scripts.GameSystem.StatsSystem.Data;
 using Scripts.GameSystem.StatsSystem.Type;
+using Scripts.SaveData;
+using Scripts.SaveData.SkillTree;
+using Scripts.SaveData.Stats;
+using Scripts.Services.PlayerProgressService;
 using Scripts.Stats.Data;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace Scripts.GameSystem.StatsSystem.Logic
+namespace Scripts.GameSystem.StatsSystem.Handler
 {
-    public class PlayerStatsHandler : MonoBehaviour
+    public class PlayerStatsHandler : MonoBehaviour, IPlayerProgressLoader
     {
         public static PlayerStatsHandler Instance;
 
@@ -24,9 +26,10 @@ namespace Scripts.GameSystem.StatsSystem.Logic
 
 
         [Inject]
-        private void Construct(ListEnumLinksFromStatToAttribute staticDataEnumLinks)
+        private void Construct(ListEnumLinksFromStatToAttribute staticDataEnumLinks, IPlayerProgressService playerProgressService)
         {
             _staticDataEnumLinks = staticDataEnumLinks;
+            playerProgressService.AddProgressUpdater(this);
         }
 
         private void Awake()
@@ -74,5 +77,15 @@ namespace Scripts.GameSystem.StatsSystem.Logic
 
         private AttributeData FindAttribute(AttributeType attributeType) =>
             _skillTreeData.GetAttributeDataByType(attributeType);
+
+        public void LoadProgress(PlayerProgress playerProgress)
+        {
+            _playerStatsContainer = new PlayerStatsContainer(playerProgress.PlayerStatsContainer);
+        }
+
+        public void UpdateProgress(PlayerProgress playerProgress)
+        {
+            playerProgress.PlayerStatsContainer = new PlayerStatsContainer(_playerStatsContainer);
+        }
     }
 }

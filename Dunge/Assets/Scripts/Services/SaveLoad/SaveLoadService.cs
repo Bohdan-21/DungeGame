@@ -1,6 +1,6 @@
-﻿using Scripts.Data.SaveData;
-using Scripts.Extension;
+﻿using Scripts.Extension;
 using Scripts.Infrastructure.Factory;
+using Scripts.SaveData;
 using Scripts.Services.PlayerProgressService;
 using System;
 using System.Collections.Generic;

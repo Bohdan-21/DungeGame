@@ -1,4 +1,4 @@
-﻿using Scripts.Data.SaveData;
+﻿using Scripts.SaveData;
 
 namespace Scripts.Services.SaveLoad
 {

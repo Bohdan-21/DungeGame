@@ -1,4 +1,4 @@
-﻿using Scripts.Data.SaveData;
+﻿using Scripts.SaveData;
 using Scripts.Services.PlayerProgressService;
 using Scripts.Services.SaveLoad;
 using Scripts.StaticData.PlayerStaticData;
@@ -34,7 +34,9 @@ namespace Scripts.Infrastructure.StateMachine.MenuStateMachine
             return new PlayerProgress(_playerCharacterDeffaultSettings.LevelData,
                                       _playerCharacterDeffaultSettings.State,
                                       _playerCharacterDeffaultSettings.Inventory,
-                                      _playerCharacterDeffaultSettings.SkillTreeData);
+                                      _playerCharacterDeffaultSettings.SkillTreeData,
+                                      _playerCharacterDeffaultSettings.PlayerStatsContainer,
+                                      _playerCharacterDeffaultSettings.ExperienceData);
         }
 
         public void Exit()

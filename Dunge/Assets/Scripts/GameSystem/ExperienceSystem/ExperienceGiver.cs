@@ -1,4 +1,4 @@
-﻿using Scripts.GameSystem.ExperienceSystem.Player;
+﻿using Scripts.GameSystem.ExperienceSystem.Handler;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace Scripts.GameSystem.ExperienceSystem
         {
             if (Input.GetKeyDown(KeyCode.X))
             {
-                PlayerExperience.Instance.AddExperience(expForGive);
+                PlayerExperienceHandler.Instance.AddExperience(expForGive);
             }
         }
     }

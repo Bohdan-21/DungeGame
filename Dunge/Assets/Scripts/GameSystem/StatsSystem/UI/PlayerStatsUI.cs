@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using Scripts.GameSystem.StatsSystem.Logic;
 using Zenject;
 using Scripts.Player;
+using Scripts.GameSystem.StatsSystem.Handler;
 
 namespace Scripts.GameSystem.StatsSystem.UI
 {

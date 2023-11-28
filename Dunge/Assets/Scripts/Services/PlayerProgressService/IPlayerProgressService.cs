@@ -1,4 +1,4 @@
-﻿using Scripts.Data.SaveData;
+﻿using Scripts.SaveData;
 using System.Collections.Generic;
 
 namespace Scripts.Services.PlayerProgressService

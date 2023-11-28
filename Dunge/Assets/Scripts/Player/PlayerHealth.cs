@@ -1,7 +1,7 @@
-using Scripts.Data.SaveData;
 using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.StateMachine;
 using Scripts.Logic;
+using Scripts.SaveData;
 using Scripts.Services.PlayerProgressService;
 using System;
 using System.Collections;

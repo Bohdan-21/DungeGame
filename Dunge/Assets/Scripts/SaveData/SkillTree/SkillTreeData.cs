@@ -1,8 +1,7 @@
-﻿using Scripts.GameSystem.SkillTreeSystem.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace Scripts.GameSystem.SkillTreeSystem.Logic
+namespace Scripts.SaveData.SkillTree
 {
     //TODO:возможно нужно будет добавить очистку
     [Serializable]

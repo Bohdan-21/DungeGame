@@ -1,4 +1,4 @@
-﻿using Scripts.GameSystem.SkillTreeSystem.Logic;
+﻿using Scripts.SaveData.SkillTree;
 using UnityEngine;
 
 namespace Scripts.SkillTree.Logic
