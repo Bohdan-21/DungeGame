@@ -8,7 +8,7 @@ namespace Scripts.GameSystem.SkillTreeSystem.Data
     public class AttributeData
     {
         public AttributeType AttributeType;
-        public SkillType baseSkillType;
+        public SkillType BaseSkillType;
 
         [Header("Level Data")]
         public int AttributeLevel = 0;
@@ -17,10 +17,26 @@ namespace Scripts.GameSystem.SkillTreeSystem.Data
         [Header("Boost")]
         public float Boost = 0.5f;
 
+        public AttributeData()
+        {
+            AttributeType = AttributeType.NONE;
+            BaseSkillType = SkillType.Strength;
+            AttributeLevel = MaxAttributeLevel = 0;
+            Boost = 0;
+        }
+
+        public AttributeData(AttributeData attributeData)
+        {
+            AttributeType = attributeData.AttributeType;
+            BaseSkillType = attributeData.BaseSkillType;
+            AttributeLevel = attributeData.AttributeLevel;
+            MaxAttributeLevel = attributeData.MaxAttributeLevel;
+            Boost = attributeData.Boost;
+        }
 
         public AttributeType GetAttributeType() => AttributeType;
 
-        public SkillType GetBaseSkillType() => baseSkillType;
+        public SkillType GetBaseSkillType() => BaseSkillType;
 
         public int GetAttributeLevel() => AttributeLevel;
 

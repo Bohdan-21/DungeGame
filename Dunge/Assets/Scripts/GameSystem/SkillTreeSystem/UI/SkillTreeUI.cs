@@ -1,14 +1,17 @@
 ﻿using Scripts.GameSystem.SkillTreeSystem.Logic;
 using Scripts.GameSystem.SkillTreeSystem.UI.Spawner;
+using Scripts.Player;
 using System;
 using UnityEngine;
+using Zenject;
 
 namespace Scripts.GameSystem.SkillTreeSystem.UI
 {
     public class SkillTreeUI : MonoBehaviour
     {
-        public SkillTreeHandler _skillTreeData;
         public KeyCode keyCode;
+
+        [SerializeField] private SkillTreeHandler _skillTreeHandler;
 
         [SerializeField] private GameObject RootComponentSkillTreeUI;
         [SerializeField] private PointDisplayer _pointDisplayer;
@@ -17,9 +20,14 @@ namespace Scripts.GameSystem.SkillTreeSystem.UI
 
         private bool _isShow = true;
 
+        [Inject]
+        private void Construct(PlayerBehaviour playerBehaviour)
+        {
+            _skillTreeHandler = playerBehaviour.SkillTreeHandler;
+        }
+
         private void Start()
         {
-            _skillTreeData = SkillTreeHandler.Instance;
             Hide();
         }
 
@@ -34,17 +42,16 @@ namespace Scripts.GameSystem.SkillTreeSystem.UI
             }
         }
 
-
         private void Show()
         {
             _isShow = true;
 
             RootComponentSkillTreeUI.SetActive(_isShow);
 
-            _pointDisplayer.ShowSkillPoint(_skillTreeData.GetCountSkillPoint(), _skillTreeData.GetCountAttributePoint());
+            _pointDisplayer.ShowSkillPoint(_skillTreeHandler.GetCountSkillPoint(), _skillTreeHandler.GetCountAttributePoint());
 
-            _skillSpawner.SpawnSkillCards(_skillTreeData, RefreshUI);
-            _attributeSpawner.SpawnAttributeCards(_skillTreeData, RefreshUI);
+            _skillSpawner.SpawnSkillCards(_skillTreeHandler, RefreshUI);
+            _attributeSpawner.SpawnAttributeCards(_skillTreeHandler, RefreshUI);
         }
 
         private void Hide()

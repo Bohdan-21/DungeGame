@@ -1,4 +1,6 @@
 ﻿using Scripts.GameSystem.ExperienceSystem.Player;
+using Scripts.GameSystem.SkillTreeSystem.Logic;
+using Scripts.GameSystem.StatsSystem.Logic;
 using Scripts.Level;
 using System;
 using System.Collections.Generic;
@@ -12,9 +14,11 @@ namespace Scripts.Player
 {
     class PlayerBehaviour : MonoBehaviour
     {
+        public SkillTreeHandler SkillTreeHandler;
         public PlayerExperience Experience;
         public PlayerInventory Inventory;
         public PlayerHealth Health;
+        public PlayerStatsHandler Stats;
         public PlayerDeath Death;
 
         [Inject]

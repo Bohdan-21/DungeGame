@@ -33,7 +33,8 @@ namespace Scripts.Infrastructure.StateMachine.MenuStateMachine
         {
             return new PlayerProgress(_playerCharacterDeffaultSettings.LevelData,
                                       _playerCharacterDeffaultSettings.State,
-                                      _playerCharacterDeffaultSettings.Inventory);
+                                      _playerCharacterDeffaultSettings.Inventory,
+                                      _playerCharacterDeffaultSettings.SkillTreeData);
         }
 
         public void Exit()

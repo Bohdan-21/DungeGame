@@ -16,5 +16,9 @@ namespace Scripts.StaticData.GameStaticData
         public GameObject PlayerPrefab;
 
         public GameObject DeathVFX;
+
+        public GameObject SkillTreeUI;
+
+        public GameObject PlayerStatsUI;
     }
 }

@@ -15,6 +15,7 @@ using Scripts.StaticData.Audio.Setup;
 using Scripts.StaticData.Dialog.Setup;
 using Scripts.StaticData.QuestStaticData;
 using Scripts.StaticData.QuestStaticData.Setup;
+using Scripts.Stats.Data;
 using Scripts.UI.Interaction;
 using Scripts.UI.NameLocation;
 using UnityEngine;
@@ -30,30 +31,42 @@ public class GameInstaller : MonoInstaller
 
     public LevelSettings LevelSettings;
 
+    public ListEnumLinksFromStatToAttribute staticDataForSkillTree;
+
     public override void InstallBindings()
     {
-        Container.Bind<INameLocationUI>().FromComponentInNewPrefab(LocationNameUI).AsSingle().NonLazy();
-
         BindAudioSetup();
         BindGameFactory();
         BindQuestSystem();
         BindDialogSetup();
+        BindNameLocation();
         BindLevelSettings();
         BindInteruptService();
         BindGameStateMachine();
+        BindStaticDataForSkillTree();
+    }
+
+    private void BindAudioSetup()
+    {
+        BindBackgroundAudioPlayer();
+        BindSoundGameActionPlayer();
+    }
+
+    private void BindBackgroundAudioPlayer()
+    {
+        Container.Bind<PlayList>().FromInstance(audioSetupForGame.playList).AsSingle();
+        Container.Bind<IBackgroundAudioPlayer>().FromComponentInNewPrefab(audioSetupForGame.BackgroundAudioPlayer).AsSingle();
+    }
+
+    private void BindSoundGameActionPlayer()
+    {
+        Container.Bind<SoundListForGameAction>().FromInstance(audioSetupForGame.SoundList).AsSingle();
+        Container.Bind<ISoundsGameActionPlayer>().FromComponentInNewPrefab(audioSetupForGame.SoundGameActionPlayerPrefab).AsSingle();
     }
 
     private void BindGameFactory()
     {
         Container.Bind<IGameFactory>().To<GameFactory>().AsSingle();
-    }
-
-    private void BindDialogSetup()
-    {
-        Container.Bind<IDialogTracking>().To<DialogTracking>().AsSingle();
-        Container.Bind<IDialogInitializer>().To<DialogInitializer>().AsSingle();
-        Container.Bind<IDialogUI>().FromComponentInNewPrefab(dialogSetupSystem.DialogUIPrefab).AsSingle();
-        Container.Bind<IInteractionPanel>().FromComponentInNewPrefab(dialogSetupSystem.InteractionPanerPrefab).AsSingle();
     }
 
     private void BindQuestSystem()
@@ -67,6 +80,19 @@ public class GameInstaller : MonoInstaller
         Container.Bind<QuestChannel>().FromNew().AsSingle();
         Container.Bind<CombatChannel>().FromNew().AsSingle();
         Container.Bind<DialogChannel>().FromNew().AsSingle();
+    }
+
+    private void BindDialogSetup()
+    {
+        Container.Bind<IDialogTracking>().To<DialogTracking>().AsSingle();
+        Container.Bind<IDialogInitializer>().To<DialogInitializer>().AsSingle();
+        Container.Bind<IDialogUI>().FromComponentInNewPrefab(dialogSetupSystem.DialogUIPrefab).AsSingle();
+        Container.Bind<IInteractionPanel>().FromComponentInNewPrefab(dialogSetupSystem.InteractionPanerPrefab).AsSingle();
+    }
+
+    private void BindNameLocation()
+    {
+        Container.Bind<INameLocationUI>().FromComponentInNewPrefab(LocationNameUI).AsSingle().NonLazy();
     }
 
     private void BindLevelSettings()
@@ -90,21 +116,8 @@ public class GameInstaller : MonoInstaller
         Container.Bind<WinState>().AsSingle();
     }
 
-    private void BindAudioSetup()
+    private void BindStaticDataForSkillTree()
     {
-        BindBackgroundAudioPlayer();
-        BindSoundGameActionPlayer();
-    }
-
-    private void BindBackgroundAudioPlayer()
-    {
-        Container.Bind<PlayList>().FromInstance(audioSetupForGame.playList).AsSingle();
-        Container.Bind<IBackgroundAudioPlayer>().FromComponentInNewPrefab(audioSetupForGame.BackgroundAudioPlayer).AsSingle();
-    }
-
-    private void BindSoundGameActionPlayer()
-    {
-        Container.Bind<SoundListForGameAction>().FromInstance(audioSetupForGame.SoundList).AsSingle();
-        Container.Bind<ISoundsGameActionPlayer>().FromComponentInNewPrefab(audioSetupForGame.SoundGameActionPlayerPrefab).AsSingle();
+        Container.Bind<ListEnumLinksFromStatToAttribute>().FromInstance(staticDataForSkillTree).AsSingle();
     }
 }

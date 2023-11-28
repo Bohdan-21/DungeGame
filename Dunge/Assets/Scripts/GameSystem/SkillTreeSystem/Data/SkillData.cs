@@ -18,6 +18,22 @@ namespace Scripts.GameSystem.SkillTreeSystem.Data
         [Header("Boost Data")]
         public float Boost = 0;
 
+        public SkillData()
+        {
+            SkillType = SkillType.Strength;
+            SkillLevel = MaxSkillLevel = LevelMultiplierTreshold = 0;
+            Boost = 0;
+        }
+
+        public SkillData(SkillData skillData)
+        {
+            SkillType = skillData.SkillType;
+            SkillLevel = skillData.SkillLevel;
+            MaxSkillLevel = skillData.MaxSkillLevel;
+            LevelMultiplierTreshold = skillData.LevelMultiplierTreshold;
+            Boost = skillData.Boost;
+        }
+
         public SkillType GetSkillType() => SkillType;
 
         public int GetSkillLevel() => SkillLevel;

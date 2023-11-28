@@ -1,4 +1,5 @@
 using Scripts.Data.SaveData;
+using Scripts.GameSystem.SkillTreeSystem.Logic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,5 +14,6 @@ namespace Scripts.StaticData.PlayerStaticData
         public LevelData LevelData;
         public State State;
         public Inventory Inventory;
+        public SkillTreeData SkillTreeData;
     }
 }

@@ -12,7 +12,7 @@ namespace Scripts.GameSystem.StatsSystem.UI
 
         private List<GameObject> _spawnedCard = new List<GameObject>();
 
-        public void SpawnCard(PlayerStats cardData)
+        public void SpawnCard(PlayerStatsHandler cardData)
         {
             foreach (StatData statData in cardData)
             {

@@ -4055,6 +4055,7 @@ MonoBehaviour:
   questSetup: {fileID: 11400000, guid: 763e9e8446d06674f868134ed9abaf9a, type: 2}
   LocationNameUI: {fileID: 2850048649309516018, guid: 577afe1f7b651f0438d4e114d3b012db, type: 3}
   LevelSettings: {fileID: 8685120348168477990}
+  staticDataForSkillTree: {fileID: 11400000, guid: 75cfa9cba9d52e846a2bb62a23468e4f, type: 2}
 --- !u!1001 &200767405
 PrefabInstance:
   m_ObjectHideFlags: 0

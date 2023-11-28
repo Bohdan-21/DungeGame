@@ -1,26 +1,37 @@
 ﻿using UnityEngine;
 using Scripts.GameSystem.StatsSystem.Logic;
+using Zenject;
+using Scripts.Player;
 
 namespace Scripts.GameSystem.StatsSystem.UI
 {
     class PlayerStatsUI : MonoBehaviour
     {
         [SerializeField] private StatCardSpawner _statCardSpawner;
+        [SerializeField] private PlayerStatsHandler _playerStats;
 
-        private PlayerStats _playerStats;
         private bool _isShow = false;
 
         public GameObject RootComponent;
         public KeyCode keyCode;
 
 
+        [Inject]
+        private void Construct(PlayerBehaviour playerBehaviour)
+        {
+            _playerStats = playerBehaviour.Stats;
+        }
+
         private void Start()
         {
             Hide();
 
-            _playerStats = PlayerStats.Instance;
+            _playerStats.UpdateStatsEvent += UpdateStats;
+        }
 
-            PlayerStats.Instance.UpdateStatsEvent += UpdateStats;
+        private void OnDestroy()
+        {
+            _playerStats.UpdateStatsEvent -= UpdateStats;            
         }
 
         private void Update()

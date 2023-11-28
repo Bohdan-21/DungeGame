@@ -11,14 +11,14 @@ using Zenject;
 
 namespace Scripts.GameSystem.StatsSystem.Logic
 {
-    public class PlayerStats : MonoBehaviour
+    public class PlayerStatsHandler : MonoBehaviour
     {
-        public static PlayerStats Instance;
+        public static PlayerStatsHandler Instance;
 
-        private SkillTreeHandler _skillTreeData;
+        [SerializeField] private SkillTreeHandler _skillTreeData;
+        [SerializeField] private PlayerStatsContainer _playerStatsContainer;
+
         private ListEnumLinksFromStatToAttribute _staticDataEnumLinks;
-
-        [SerializeField] private List<StatData> _playerStats;
 
         public event Action UpdateStatsEvent;
 
@@ -36,8 +36,6 @@ namespace Scripts.GameSystem.StatsSystem.Logic
 
         private void Start()
         {
-            _skillTreeData = SkillTreeHandler.Instance;
-
             _skillTreeData.UpgrateAttributeLevelEvent += RecalculateValueForAttribute;
 
             RecalculateValueForAttribute();
@@ -45,13 +43,13 @@ namespace Scripts.GameSystem.StatsSystem.Logic
 
         public IEnumerator<StatData> GetEnumerator()
         {
-            foreach (StatData statData in _playerStats)
+            foreach (StatData statData in _playerStatsContainer.PlayerStats)
                 yield return statData;
         }
 
         public StatData GetStatDataByType(TypeStat typeStat)
         {
-            foreach (StatData statData in _playerStats)
+            foreach (StatData statData in _playerStatsContainer.PlayerStats)
                 if (statData.typeStat == typeStat)
                     return statData;
             return null;
@@ -59,7 +57,7 @@ namespace Scripts.GameSystem.StatsSystem.Logic
 
         private void RecalculateValueForAttribute()
         {
-            foreach (StatData statData in _playerStats)
+            foreach (StatData statData in _playerStatsContainer.PlayerStats)
             {
                 AttributeType attributeType = _staticDataEnumLinks.GetAttributeType(statData.typeStat);
 

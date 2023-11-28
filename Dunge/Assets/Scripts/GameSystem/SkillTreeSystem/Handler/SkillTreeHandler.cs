@@ -1,28 +1,36 @@
-﻿using Scripts.GameSystem.ExperienceSystem.Player;
+﻿using Scripts.Data.SaveData;
+using Scripts.GameSystem.ExperienceSystem.Player;
 using Scripts.GameSystem.SkillTreeSystem.Data;
 using Scripts.GameSystem.SkillTreeSystem.Type;
+using Scripts.Services.PlayerProgressService;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace Scripts.GameSystem.SkillTreeSystem.Logic
 {
-    public class SkillTreeHandler : MonoBehaviour
+    public class SkillTreeHandler : MonoBehaviour, IPlayerProgressLoader
     {
+        [SerializeField] private PlayerExperience _playerExperience;
         [SerializeField] private SkillTreeData _skillTreeData;
-
-        public static SkillTreeHandler Instance;
 
         public event Action UpgrateAttributeLevelEvent;
 
-        private void Awake()
+        [Inject]
+        private void Construct(IPlayerProgressService playerProgressService)
         {
-            Instance = this;
-        }
+            playerProgressService.AddProgressUpdater(this);
+        }   
 
         private void Start()
         {
-            PlayerExperience.Instance.PlayerLevelUpEvent += PlayerLevelUp;
+            _playerExperience.PlayerLevelUpEvent += PlayerLevelUp;
+        }
+
+        private void OnDestroy()
+        {
+            _playerExperience.PlayerLevelUpEvent -= PlayerLevelUp;
         }
 
 
@@ -123,5 +131,11 @@ namespace Scripts.GameSystem.SkillTreeSystem.Logic
                 UpgrateAttributeLevelEvent?.Invoke();
             }
         }
+
+        public void LoadProgress(PlayerProgress playerProgress) => 
+            _skillTreeData = new SkillTreeData(playerProgress.SkillTreeData);
+
+        public void UpdateProgress(PlayerProgress playerProgress) => 
+            playerProgress.SkillTreeData = new SkillTreeData(_skillTreeData);
     }
 }

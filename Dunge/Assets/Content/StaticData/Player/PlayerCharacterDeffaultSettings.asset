@@ -21,3 +21,68 @@ MonoBehaviour:
   Inventory:
     StorageCountItem: 000000000000000000000000
     StorageTypeItem: 010000000200000003000000
+  SkillTreeData:
+    skills:
+    - SkillType: 0
+      SkillLevel: 0
+      MaxSkillLevel: 20
+      LevelMultiplierTreshold: 2
+      Boost: 0
+    - SkillType: 1
+      SkillLevel: 0
+      MaxSkillLevel: 20
+      LevelMultiplierTreshold: 2
+      Boost: 0
+    - SkillType: 2
+      SkillLevel: 0
+      MaxSkillLevel: 20
+      LevelMultiplierTreshold: 2
+      Boost: 0
+    - SkillType: 3
+      SkillLevel: 0
+      MaxSkillLevel: 20
+      LevelMultiplierTreshold: 2
+      Boost: 0
+    attributes:
+    - AttributeType: 0
+      BaseSkillType: 0
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 5
+    - AttributeType: 1
+      BaseSkillType: 0
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 5
+    - AttributeType: 2
+      BaseSkillType: 1
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 5
+    - AttributeType: 3
+      BaseSkillType: 1
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 5
+    - AttributeType: 4
+      BaseSkillType: 2
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 5
+    - AttributeType: 5
+      BaseSkillType: 2
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 10
+    - AttributeType: 6
+      BaseSkillType: 3
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 5
+    - AttributeType: 7
+      BaseSkillType: 3
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 5
+    SkillPointForUpgrate: 0
+    AttributePointForUpgrate: 0

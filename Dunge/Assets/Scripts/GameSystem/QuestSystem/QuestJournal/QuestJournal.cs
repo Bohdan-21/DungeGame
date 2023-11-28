@@ -89,7 +89,10 @@ namespace Scripts.GameSystem.QuestSystem.Journal
 
         public void UpdateProgress(PlayerProgress playerProgress)
         {
-            playerProgress.ActiveQuestList.ActiveQuest = _activeQuest.QuestData;
+            if (_activeQuest != null)
+                playerProgress.ActiveQuestList.ActiveQuest = _activeQuest.QuestData;
+            else
+                playerProgress.ActiveQuestList.ActiveQuest = null;
 
             foreach (Quest quest in _allQuest)
                 playerProgress.ActiveQuestList.QuestDataList.Add(quest.QuestData);

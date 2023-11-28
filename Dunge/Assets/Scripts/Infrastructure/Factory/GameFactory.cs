@@ -58,6 +58,10 @@ namespace Scripts.Infrastructure.Factory
             Instantiate(_gameStaticData.DeathUI);
 
             Instantiate(_gameStaticData.GamePause);
+
+            Instantiate(_gameStaticData.SkillTreeUI);
+
+            Instantiate(_gameStaticData.PlayerStatsUI);
         }
 
         private void CreateMonster()
