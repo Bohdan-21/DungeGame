@@ -3,20 +3,20 @@
 namespace Scripts.SaveData.Experience
 {
     [Serializable]
-    public class ExperienceData
+    public class PlayerExperienceData
     {
         public int currentLevel;
         public int currentExp;
         public int expNeedForLevelUp;
         public float numberForMultiplyForUpdateExpNeedForLevelUp;
 
-        public ExperienceData()
+        public PlayerExperienceData()
         {
             currentLevel = currentExp = expNeedForLevelUp = 0;
             numberForMultiplyForUpdateExpNeedForLevelUp = 0;
         }
 
-        public ExperienceData(ExperienceData experienceData)
+        public PlayerExperienceData(PlayerExperienceData experienceData)
         {
             currentLevel = experienceData.currentLevel;
             currentExp = experienceData.currentExp;

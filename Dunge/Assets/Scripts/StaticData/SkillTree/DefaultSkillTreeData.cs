@@ -6,6 +6,6 @@ namespace Scripts.SkillTree.Logic
     [CreateAssetMenu(fileName = "DefaultSkillTreeData", menuName = "StaticData/SkillTreeData/DefaultSkillTreeData")]
     public class DefaultSkillTreeData : ScriptableObject
     {
-        public SkillTreeData skillTreeData;
+        public PlayerSkillTreeData skillTreeData;
     }
 }

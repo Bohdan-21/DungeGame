@@ -472,6 +472,9 @@ GameObject:
   - component: {fileID: 4903856245565440530}
   - component: {fileID: 4903856245565440529}
   - component: {fileID: -3733729437912253585}
+  - component: {fileID: 2996440383500613364}
+  - component: {fileID: -8779261209613540450}
+  - component: {fileID: 8742405195395053306}
   m_Layer: 11
   m_Name: character_skeleton_archer
   m_TagString: Untagged
@@ -737,6 +740,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyType: 0
   _enemyDeath: {fileID: 4903856245565440530}
+--- !u!114 &2996440383500613364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245733245266394951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f200df2b1c2fb44b3921ced50a8a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyExperienceData:
+    _currentLevel: 0
+    _highestLimitForLevel: 0
+--- !u!114 &-8779261209613540450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245733245266394951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f672c35161cd64c86d557ec1c5b9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyExperienceHandler: {fileID: 2996440383500613364}
+  _enemySkillTreeData:
+    attributes: []
+--- !u!114 &8742405195395053306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245733245266394951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e32427c3c81f05b46882d2aee2cac1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemySkillTreeHandler: {fileID: -8779261209613540450}
+  _enemyStatsContainer:
+    Stats: []
 --- !u!1 &5316729157126546760
 GameObject:
   m_ObjectHideFlags: 0

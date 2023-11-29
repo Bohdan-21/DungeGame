@@ -14,8 +14,8 @@ namespace Scripts.StaticData.PlayerStaticData
         public LevelData LevelData;
         public PlayerState State;
         public Inventory Inventory;
-        public SkillTreeData SkillTreeData;
-        public ExperienceData ExperienceData;
-        public PlayerStatsContainer PlayerStatsContainer;
+        public PlayerSkillTreeData SkillTreeData;
+        public PlayerExperienceData ExperienceData;
+        public StatsContainer PlayerStatsContainer;
     }
 }

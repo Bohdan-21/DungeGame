@@ -14,7 +14,7 @@ namespace Scripts.GameSystem.SkillTreeSystem.UI.Spawner
 
         private List<GameObject> _attributeCards = new List<GameObject>();
 
-        public void SpawnAttributeCards(SkillTreeHandler skillTreeData, Action RefreshEvent)
+        public void SpawnAttributeCards(PlayerSkillTreeHandler skillTreeData, Action RefreshEvent)
         {
             GameObject card;
 

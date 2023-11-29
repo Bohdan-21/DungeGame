@@ -52,6 +52,10 @@ namespace Scripts.GameMechanic.Teleport
             _gameStateMachine.Enter<WinState>();
         }
 
+
+        /// <summary>
+        /// TODO: recheck this
+        /// </summary>
         private void UpdateDungeLevel()
         {
             if (!IsStartLocation)

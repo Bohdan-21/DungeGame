@@ -1389,6 +1389,9 @@ GameObject:
   - component: {fileID: 3646759482612270872}
   - component: {fileID: 8191426525136900200}
   - component: {fileID: -3519109362914597339}
+  - component: {fileID: 5451691286423832039}
+  - component: {fileID: 2795485061644116338}
+  - component: {fileID: -50060053391985303}
   m_Layer: 11
   m_Name: Barbarian
   m_TagString: Untagged
@@ -1602,6 +1605,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyType: 3
   _enemyDeath: {fileID: 3646759482612270872}
+--- !u!114 &5451691286423832039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4570257042629010376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f200df2b1c2fb44b3921ced50a8a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyExperienceData:
+    _currentLevel: 0
+    _highestLimitForLevel: 0
+--- !u!114 &2795485061644116338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4570257042629010376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f672c35161cd64c86d557ec1c5b9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyExperienceHandler: {fileID: 5451691286423832039}
+  _enemySkillTreeData:
+    attributes: []
+--- !u!114 &-50060053391985303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4570257042629010376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e32427c3c81f05b46882d2aee2cac1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemySkillTreeHandler: {fileID: 2795485061644116338}
+  _enemyStatsContainer:
+    Stats: []
 --- !u!1 &4978503622070508248
 GameObject:
   m_ObjectHideFlags: 0

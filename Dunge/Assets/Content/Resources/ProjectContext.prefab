@@ -87,4 +87,5 @@ MonoBehaviour:
   PlayerCharacterConfig: {fileID: 11400000, guid: fb9ad51464ae9584fb3fefa40208d9a1, type: 2}
   PlayerCharacterDefaultSettings: {fileID: 11400000, guid: 2517abfc859581143aca4f75c7c514d3, type: 2}
   EnemyStaticData: {fileID: 11400000, guid: eef021f90f1256b4cb11a8c4c9cfa215, type: 2}
+  EnemyCharacterDeffaultSettings: {fileID: 11400000, guid: 12416c8ddac86c740aec5a0c6044d741, type: 2}
   NPCStaticData: {fileID: 11400000, guid: 4357c7234dd97a543b84caf2e674cabf, type: 2}

@@ -10,10 +10,10 @@ using Zenject;
 
 namespace Scripts.GameSystem.SkillTreeSystem.Handler
 {
-    public class SkillTreeHandler : MonoBehaviour, IPlayerProgressLoader
+    public class PlayerSkillTreeHandler : MonoBehaviour, IPlayerProgressLoader
     {
         [SerializeField] private PlayerExperienceHandler _playerExperience;
-        [SerializeField] private SkillTreeData _skillTreeData;
+        [SerializeField] private PlayerSkillTreeData _skillTreeData;
 
         public event Action UpgrateAttributeLevelEvent;
 
@@ -25,12 +25,12 @@ namespace Scripts.GameSystem.SkillTreeSystem.Handler
 
         private void Start()
         {
-            _playerExperience.PlayerLevelUpEvent += PlayerLevelUp;
+            _playerExperience.LevelUpEvent += PlayerLevelUp;
         }
 
         private void OnDestroy()
         {
-            _playerExperience.PlayerLevelUpEvent -= PlayerLevelUp;
+            _playerExperience.LevelUpEvent -= PlayerLevelUp;
         }
 
 
@@ -133,9 +133,9 @@ namespace Scripts.GameSystem.SkillTreeSystem.Handler
         }
 
         public void LoadProgress(PlayerProgress playerProgress) =>
-            _skillTreeData = new SkillTreeData(playerProgress.SkillTreeData);
+            _skillTreeData = new PlayerSkillTreeData(playerProgress.SkillTreeData);
 
         public void UpdateProgress(PlayerProgress playerProgress) =>
-            playerProgress.SkillTreeData = new SkillTreeData(_skillTreeData);
+            playerProgress.SkillTreeData = new PlayerSkillTreeData(_skillTreeData);
     }
 }

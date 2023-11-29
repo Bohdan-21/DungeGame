@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 6938020302638326640}
   - component: {fileID: 6527269230052745049}
   - component: {fileID: 4826398563692861759}
-  - component: {fileID: 7793511994437043054}
+  - component: {fileID: 7078366531059548582}
   - component: {fileID: 7251982876157547732}
   m_Layer: 10
   m_Name: Knight
@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c38abe7aeb9eb941b96bb598e8fa111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillTreeHandler: {fileID: 7793511994437043054}
+  SkillTreeHandler: {fileID: 7078366531059548582}
   Experience: {fileID: 4826398563692861759}
   Inventory: {fileID: -2749102604555245186}
   Health: {fileID: 4316278951418922656}
@@ -615,7 +615,7 @@ MonoBehaviour:
     currentExp: 0
     expNeedForLevelUp: 0
     numberForMultiplyForUpdateExpNeedForLevelUp: 0
---- !u!114 &7793511994437043054
+--- !u!114 &7078366531059548582
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -624,7 +624,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1035191777775609837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 432242530084c4e4bb23a34c02d7d9e2, type: 3}
+  m_Script: {fileID: 11500000, guid: e7be9631c7af1a54fbfb2dbb0bb38b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playerExperience: {fileID: 4826398563692861759}
@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b45e894e37d3caa49804da55a5dc5dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillTreeData: {fileID: 7793511994437043054}
+  _skillTreeData: {fileID: 7078366531059548582}
   _playerStatsContainer:
     PlayerStats: []
 --- !u!1 &1126853751888244286

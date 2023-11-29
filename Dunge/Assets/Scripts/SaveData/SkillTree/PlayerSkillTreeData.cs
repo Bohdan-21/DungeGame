@@ -5,7 +5,7 @@ namespace Scripts.SaveData.SkillTree
 {
     //TODO:возможно нужно будет добавить очистку
     [Serializable]
-    public class SkillTreeData
+    public class PlayerSkillTreeData
     {
         public List<SkillData> skills;
         public List<AttributeData> attributes;
@@ -13,7 +13,7 @@ namespace Scripts.SaveData.SkillTree
         public int SkillPointForUpgrate = 0;
         public int AttributePointForUpgrate = 0;
 
-        public SkillTreeData()
+        public PlayerSkillTreeData()
         {
             skills = new List<SkillData>();
             attributes = new List<AttributeData>();
@@ -21,7 +21,7 @@ namespace Scripts.SaveData.SkillTree
             SkillPointForUpgrate = AttributePointForUpgrate = 0;
         }
 
-        public SkillTreeData(SkillTreeData skillTreeData)
+        public PlayerSkillTreeData(PlayerSkillTreeData skillTreeData)
         {
             skills = new List<SkillData>();
 

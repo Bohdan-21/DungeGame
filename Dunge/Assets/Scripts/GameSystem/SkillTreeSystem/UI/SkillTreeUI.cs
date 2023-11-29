@@ -11,7 +11,7 @@ namespace Scripts.GameSystem.SkillTreeSystem.UI
     {
         public KeyCode keyCode;
 
-        [SerializeField] private SkillTreeHandler _skillTreeHandler;
+        [SerializeField] private PlayerSkillTreeHandler _skillTreeHandler;
 
         [SerializeField] private GameObject RootComponentSkillTreeUI;
         [SerializeField] private PointDisplayer _pointDisplayer;

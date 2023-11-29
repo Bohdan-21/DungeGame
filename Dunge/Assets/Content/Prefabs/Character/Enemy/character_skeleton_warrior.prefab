@@ -250,6 +250,9 @@ GameObject:
   - component: {fileID: 3855464479928340920}
   - component: {fileID: 6084998459297137129}
   - component: {fileID: -1552554980770255997}
+  - component: {fileID: -2395955413696558282}
+  - component: {fileID: -4720372062882815322}
+  - component: {fileID: -1441933535164921249}
   m_Layer: 11
   m_Name: character_skeleton_warrior
   m_TagString: Untagged
@@ -513,6 +516,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyType: 1
   _enemyDeath: {fileID: 3855464479928340920}
+--- !u!114 &-2395955413696558282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2564956886531280201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f200df2b1c2fb44b3921ced50a8a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyExperienceData:
+    _currentLevel: 0
+    _highestLimitForLevel: 0
+--- !u!114 &-4720372062882815322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2564956886531280201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f672c35161cd64c86d557ec1c5b9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyExperienceHandler: {fileID: -2395955413696558282}
+  _enemySkillTreeData:
+    attributes: []
+--- !u!114 &-1441933535164921249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2564956886531280201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e32427c3c81f05b46882d2aee2cac1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemySkillTreeHandler: {fileID: -4720372062882815322}
+  _enemyStatsContainer:
+    Stats: []
 --- !u!1 &4439653360830448117
 GameObject:
   m_ObjectHideFlags: 0

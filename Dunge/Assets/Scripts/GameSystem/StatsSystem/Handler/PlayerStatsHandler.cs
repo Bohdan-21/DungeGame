@@ -17,8 +17,8 @@ namespace Scripts.GameSystem.StatsSystem.Handler
     {
         public static PlayerStatsHandler Instance;
 
-        [SerializeField] private SkillTreeHandler _skillTreeData;
-        [SerializeField] private PlayerStatsContainer _playerStatsContainer;
+        [SerializeField] private PlayerSkillTreeHandler _skillTreeData;
+        [SerializeField] private StatsContainer _playerStatsContainer;
 
         private ListEnumLinksFromStatToAttribute _staticDataEnumLinks;
 
@@ -46,13 +46,13 @@ namespace Scripts.GameSystem.StatsSystem.Handler
 
         public IEnumerator<StatData> GetEnumerator()
         {
-            foreach (StatData statData in _playerStatsContainer.PlayerStats)
+            foreach (StatData statData in _playerStatsContainer.Stats)
                 yield return statData;
         }
 
         public StatData GetStatDataByType(TypeStat typeStat)
         {
-            foreach (StatData statData in _playerStatsContainer.PlayerStats)
+            foreach (StatData statData in _playerStatsContainer.Stats)
                 if (statData.typeStat == typeStat)
                     return statData;
             return null;
@@ -60,7 +60,7 @@ namespace Scripts.GameSystem.StatsSystem.Handler
 
         private void RecalculateValueForAttribute()
         {
-            foreach (StatData statData in _playerStatsContainer.PlayerStats)
+            foreach (StatData statData in _playerStatsContainer.Stats)
             {
                 AttributeType attributeType = _staticDataEnumLinks.GetAttributeType(statData.typeStat);
 
@@ -80,12 +80,12 @@ namespace Scripts.GameSystem.StatsSystem.Handler
 
         public void LoadProgress(PlayerProgress playerProgress)
         {
-            _playerStatsContainer = new PlayerStatsContainer(playerProgress.PlayerStatsContainer);
+            _playerStatsContainer = new StatsContainer(playerProgress.PlayerStatsContainer);
         }
 
         public void UpdateProgress(PlayerProgress playerProgress)
         {
-            playerProgress.PlayerStatsContainer = new PlayerStatsContainer(_playerStatsContainer);
+            playerProgress.PlayerStatsContainer = new StatsContainer(_playerStatsContainer);
         }
     }
 }

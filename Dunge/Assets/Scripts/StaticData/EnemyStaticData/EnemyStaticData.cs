@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Scripts.StaticData.EnemyStaticData
 {
-    [CreateAssetMenu(fileName = "EmemyStaticData", menuName = "StaticData/EnemyStaticData")]
+    [CreateAssetMenu(fileName = "EmemyStaticData", menuName = "StaticData/Enemy/EnemyStaticData")]
     public class EnemyStaticData : ScriptableObject
     {
         [SerializeField] private List<EnemyPrefab> enemyPrefabs;

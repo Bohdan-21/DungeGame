@@ -11,9 +11,9 @@ namespace Scripts.SaveData
         public LevelData LevelData;
         public PlayerState State;
         public Inventory Inventory;
-        public SkillTreeData SkillTreeData;
-        public ExperienceData ExperienceData;
-        public PlayerStatsContainer PlayerStatsContainer;
+        public PlayerSkillTreeData SkillTreeData;
+        public PlayerExperienceData ExperienceData;
+        public StatsContainer PlayerStatsContainer;
 
         public ActiveQuestList ActiveQuestList;
 
@@ -22,14 +22,14 @@ namespace Scripts.SaveData
             LevelData = new LevelData();
             State = new PlayerState();
             Inventory = new Inventory();
-            SkillTreeData = new SkillTreeData();
-            ExperienceData = new ExperienceData();
-            PlayerStatsContainer = new PlayerStatsContainer();
+            SkillTreeData = new PlayerSkillTreeData();
+            ExperienceData = new PlayerExperienceData();
+            PlayerStatsContainer = new StatsContainer();
             ActiveQuestList = new ActiveQuestList();
         }
 
-        public PlayerProgress(LevelData levelData, PlayerState state, Inventory inventory, SkillTreeData skillTreeData,
-                              PlayerStatsContainer playerStatsContainer, ExperienceData experienceData)
+        public PlayerProgress(LevelData levelData, PlayerState state, Inventory inventory, PlayerSkillTreeData skillTreeData,
+                              StatsContainer playerStatsContainer, PlayerExperienceData experienceData)
         {
             LevelData = new LevelData(levelData.CurrentDungeLevel, levelData.MaxReachedDungeLevel);
 
@@ -37,11 +37,11 @@ namespace Scripts.SaveData
 
             Inventory = new Inventory(inventory);
 
-            SkillTreeData = new SkillTreeData(skillTreeData);
+            SkillTreeData = new PlayerSkillTreeData(skillTreeData);
 
-            ExperienceData = new ExperienceData(experienceData);
+            ExperienceData = new PlayerExperienceData(experienceData);
 
-            PlayerStatsContainer = new PlayerStatsContainer(playerStatsContainer);
+            PlayerStatsContainer = new StatsContainer(playerStatsContainer);
 
             ActiveQuestList = new ActiveQuestList();
         }

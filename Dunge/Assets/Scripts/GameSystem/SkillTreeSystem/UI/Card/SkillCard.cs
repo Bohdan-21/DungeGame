@@ -15,10 +15,10 @@ namespace Scripts.GameSystem.SkillTreeSystem.UI.Card
         [SerializeField] private Button SkillLevelUpButton;
 
         private SkillType _skillType;
-        private SkillTreeHandler _skillTreeData;
+        private PlayerSkillTreeHandler _skillTreeData;
         private Action _refreshEvent;
 
-        public void Initialize(SkillData skillData, SkillTreeHandler skillTreeData, Action refreshEvent)
+        public void Initialize(SkillData skillData, PlayerSkillTreeHandler skillTreeData, Action refreshEvent)
         {
             _skillType = skillData.GetSkillType();
             _skillTreeData = skillTreeData;

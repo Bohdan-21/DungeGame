@@ -40,6 +40,8 @@ namespace Scripts.Installer
         public PlayerCharacterDeffaultSettings PlayerCharacterDefaultSettings;
 
         public EnemyStaticData EnemyStaticData;
+        public EnemyCharacterDeffaultSettings EnemyCharacterDeffaultSettings;
+
         public NPCStaticData NPCStaticData;
 
 
@@ -90,6 +92,8 @@ namespace Scripts.Installer
             Container.Bind<PlayerCharacterDeffaultSettings>().FromInstance(PlayerCharacterDefaultSettings).AsSingle();
 
             Container.Bind<EnemyStaticData>().FromInstance(EnemyStaticData).AsSingle();
+            Container.Bind<EnemyCharacterDeffaultSettings>().FromInstance(EnemyCharacterDeffaultSettings).AsSingle();
+
             Container.Bind<NPCStaticData>().FromInstance(NPCStaticData).AsSingle();
         }
 

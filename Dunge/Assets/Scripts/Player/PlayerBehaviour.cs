@@ -14,7 +14,7 @@ namespace Scripts.Player
 {
     class PlayerBehaviour : MonoBehaviour
     {
-        public SkillTreeHandler SkillTreeHandler;
+        public PlayerSkillTreeHandler SkillTreeHandler;
         public PlayerExperienceHandler Experience;
         public PlayerInventory Inventory;
         public PlayerHealth Health;

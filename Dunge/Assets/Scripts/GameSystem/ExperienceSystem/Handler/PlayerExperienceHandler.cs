@@ -11,11 +11,11 @@ namespace Scripts.GameSystem.ExperienceSystem.Handler
 {
     public class PlayerExperienceHandler : MonoBehaviour, IPlayerProgressLoader
     {
-        [SerializeField] private ExperienceData _experienceData;
+        [SerializeField] private PlayerExperienceData _experienceData;
 
         public static PlayerExperienceHandler Instance;
 
-        public event Action PlayerLevelUpEvent;
+        public event Action LevelUpEvent;
 
         private CombatChannel _combatChannel;
 
@@ -76,17 +76,17 @@ namespace Scripts.GameSystem.ExperienceSystem.Handler
             _experienceData.currentExp = 0;
             _experienceData.expNeedForLevelUp = (int)(_experienceData.expNeedForLevelUp * _experienceData.numberForMultiplyForUpdateExpNeedForLevelUp);
             Debug.Log("Level up");
-            PlayerLevelUpEvent?.Invoke();
+            LevelUpEvent?.Invoke();
         }
 
         public void LoadProgress(PlayerProgress playerProgress)
         {
-            _experienceData = new ExperienceData(playerProgress.ExperienceData);
+            _experienceData = new PlayerExperienceData(playerProgress.ExperienceData);
         }
 
         public void UpdateProgress(PlayerProgress playerProgress)
         {
-            playerProgress.ExperienceData = new ExperienceData(_experienceData);
+            playerProgress.ExperienceData = new PlayerExperienceData(_experienceData);
         }
     }
 }
