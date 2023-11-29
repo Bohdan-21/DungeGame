@@ -1,4 +1,6 @@
-﻿using Scripts.SaveData;
+﻿using Scripts.Enemy;
+using Scripts.GameSystem.QuestSystem.Channel;
+using Scripts.SaveData;
 using Scripts.SaveData.Experience;
 using Scripts.Services.PlayerProgressService;
 using System;
@@ -15,15 +17,29 @@ namespace Scripts.GameSystem.ExperienceSystem.Handler
 
         public event Action PlayerLevelUpEvent;
 
+        private CombatChannel _combatChannel;
+
         [Inject]
-        private void Construct(IPlayerProgressService playerProgressService)
+        private void Construct(IPlayerProgressService playerProgressService, CombatChannel combatChannel)
         {
             playerProgressService.AddProgressUpdater(this);
+            _combatChannel = combatChannel;
         }
 
         private void Awake()
         {
             Instance = this;
+        }
+
+        private void Start() =>
+            _combatChannel.KillEvent += KillEvet;
+
+        private void OnDestroy() =>
+            _combatChannel.KillEvent -= KillEvet;
+
+        private void KillEvet(EnemyType enemyType)
+        {
+            AddExperience(50);
         }
 
         public void AddExperience(int experience)
