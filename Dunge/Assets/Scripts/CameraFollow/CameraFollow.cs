@@ -21,6 +21,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float _distance;
     [SerializeField] private float _maxDistance;
     [SerializeField] private float _minDistance;
+    [SerializeField] private float _timeForLerp = 0.15f;
 
     private Transform _target;
     private IInputService _inputService;
@@ -59,8 +60,8 @@ public class CameraFollow : MonoBehaviour
         Vector3 position = rotation * new Vector3(0, 0, -_distance) + FollowingPointPosition();
 
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime);
-        transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, _timeForLerp);
+        transform.position = Vector3.Lerp(transform.position, position, _timeForLerp);
     }
 
     private Vector3 FollowingPointPosition()

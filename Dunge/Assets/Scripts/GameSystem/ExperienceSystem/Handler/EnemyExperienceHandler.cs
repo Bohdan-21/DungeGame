@@ -26,6 +26,9 @@ namespace Scripts.GameSystem.ExperienceSystem.Handler
             UpLevel();
         }
 
+        public int GetCurrentLevel() => 
+            _enemyExperienceData.GetCurrentLevel();
+
         private void UpLevel()
         {
             for (int i = 0; i < _enemyExperienceData.GetCurrentLevel(); i++)

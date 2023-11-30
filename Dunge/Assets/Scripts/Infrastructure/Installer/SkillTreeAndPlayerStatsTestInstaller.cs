@@ -1,5 +1,5 @@
 using Scripts.SkillTree.Logic;
-using Scripts.Stats.Data;
+using Scripts.StaticData.EnumLinks;
 using System;
 using UnityEngine;
 using Zenject;

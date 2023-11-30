@@ -6,5 +6,7 @@
         Agility,
         Intelligence,
         Charisma,
+
+        NONE,
     }
 }

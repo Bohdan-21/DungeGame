@@ -92,7 +92,7 @@ MonoBehaviour:
     expNeedForLevelUp: 600
     numberForMultiplyForUpdateExpNeedForLevelUp: 1.1
   PlayerStatsContainer:
-    PlayerStats:
+    Stats:
     - typeStat: 0
       baseValue: 100
       currentValue: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
       baseValue: 0
       currentValue: 0
     - typeStat: 2
-      baseValue: 5
+      baseValue: 8
       currentValue: 0
     - typeStat: 3
       baseValue: 0

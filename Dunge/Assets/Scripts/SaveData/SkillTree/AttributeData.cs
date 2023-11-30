@@ -8,7 +8,6 @@ namespace Scripts.SaveData.SkillTree
     public class AttributeData
     {
         public AttributeType AttributeType;
-        public SkillType BaseSkillType;
 
         [Header("Level Data")]
         public int AttributeLevel = 0;
@@ -20,7 +19,6 @@ namespace Scripts.SaveData.SkillTree
         public AttributeData()
         {
             AttributeType = AttributeType.NONE;
-            BaseSkillType = SkillType.Strength;
             AttributeLevel = MaxAttributeLevel = 0;
             Boost = 0;
         }
@@ -28,15 +26,12 @@ namespace Scripts.SaveData.SkillTree
         public AttributeData(AttributeData attributeData)
         {
             AttributeType = attributeData.AttributeType;
-            BaseSkillType = attributeData.BaseSkillType;
             AttributeLevel = attributeData.AttributeLevel;
             MaxAttributeLevel = attributeData.MaxAttributeLevel;
             Boost = attributeData.Boost;
         }
 
         public AttributeType GetAttributeType() => AttributeType;
-
-        public SkillType GetBaseSkillType() => BaseSkillType;
 
         public int GetAttributeLevel() => AttributeLevel;
 

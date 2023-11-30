@@ -3,7 +3,7 @@ using Scripts.GameSystem.StatsSystem.Type;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Scripts.Stats.Data
+namespace Scripts.StaticData.EnumLinks
 {
     [CreateAssetMenu(fileName = "EnumLinksFromStatToAttribute", menuName = "StaticData/EnumLinks/FromStatToAttribute")]
     public class ListEnumLinksFromStatToAttribute : ScriptableObject
@@ -12,7 +12,7 @@ namespace Scripts.Stats.Data
 
         public AttributeType GetAttributeType(TypeStat typeStat)
         {
-            foreach(EnumLinkFromStatToAttribute enumLink in _enumLinks)
+            foreach (EnumLinkFromStatToAttribute enumLink in _enumLinks)
             {
                 if (enumLink.typeStat == typeStat)
                     return enumLink.attributeType;

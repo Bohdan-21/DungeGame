@@ -3,6 +3,7 @@ using Scripts.GameSystem.SkillTreeSystem.Type;
 using Scripts.SaveData;
 using Scripts.SaveData.SkillTree;
 using Scripts.Services.PlayerProgressService;
+using Scripts.StaticData.EnumLinks;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,13 +15,16 @@ namespace Scripts.GameSystem.SkillTreeSystem.Handler
     {
         [SerializeField] private PlayerExperienceHandler _playerExperience;
         [SerializeField] private PlayerSkillTreeData _skillTreeData;
+        
+        private ListEnumLinksFromAttributeToSkill _enumLinks;
 
         public event Action UpgrateAttributeLevelEvent;
 
         [Inject]
-        private void Construct(IPlayerProgressService playerProgressService)
+        private void Construct(IPlayerProgressService playerProgressService, ListEnumLinksFromAttributeToSkill enumLinks)
         {
             playerProgressService.AddProgressUpdater(this);
+            _enumLinks = enumLinks;
         }
 
         private void Start()
@@ -80,7 +84,7 @@ namespace Scripts.GameSystem.SkillTreeSystem.Handler
 
         private bool CanUpgrateAttribute(AttributeData attributeData)
         {
-            SkillData skillData = GetSkillDataByType(attributeData.GetBaseSkillType());
+            SkillData skillData = GetSkillDataByType(_enumLinks.GetSkillType(attributeData.GetAttributeType()));
 
             if (skillData != null)
                 if (skillData.CanUpgrateAttribute(attributeData) && _skillTreeData.AttributePointForUpgrate > 0)

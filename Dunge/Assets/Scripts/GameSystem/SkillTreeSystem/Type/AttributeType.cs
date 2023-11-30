@@ -11,8 +11,6 @@
         Merchant,
         Lucky,
 
-        CriticalThinking,
-
         NONE,
     }
 }

@@ -1,9 +1,10 @@
 ﻿using Scripts.GameSystem.SkillTreeSystem.Handler;
 using Scripts.GameSystem.SkillTreeSystem.Type;
+using Scripts.GameSystem.StatsSystem.Type;
 using Scripts.SaveData.SkillTree;
 using Scripts.SaveData.Stats;
 using Scripts.StaticData.EnemyStaticData;
-using Scripts.Stats.Data;
+using Scripts.StaticData.EnumLinks;
 using System;
 using UnityEngine;
 using Zenject;
@@ -35,6 +36,14 @@ namespace Scripts.GameSystem.StatsSystem.Handler
         private void OnDestroy()
         {
             _enemySkillTreeHandler.UpdateAttributeLevelEvent += UpdateAttributeLevelEvent;
+        }
+
+        public StatData GetStatDataByType(TypeStat typeStat)
+        {
+            foreach (StatData statData in _enemyStatsContainer.Stats)
+                if (statData.typeStat == typeStat)
+                    return statData;
+            return null;
         }
 
         private void UpdateAttributeLevelEvent()

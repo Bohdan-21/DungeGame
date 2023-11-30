@@ -1,3 +1,5 @@
+using Scripts.GameSystem.StatsSystem.Handler;
+using Scripts.GameSystem.StatsSystem.Type;
 using Scripts.Infrastructure.Audio;
 using Scripts.Logic;
 using Scripts.Player;
@@ -14,6 +16,8 @@ namespace Scripts.Enemy
     public class EnemyAttack : MonoBehaviour
     {
         private const float MinimalVelocity = 0.1f;
+
+        [SerializeField] private EnemyStatsHandler _enemyStatsHandler;
 
         public EnemyAnimator Animator;
         public NavMeshAgent Agent;
@@ -49,9 +53,19 @@ namespace Scripts.Enemy
 
         private void Awake()
         {
+            _enemyStatsHandler.UpdateStatsEvent += UpdateStats;
+
             _layerMask = 1 << LayerMask.NameToLayer("Player");
             _currentCoolDownTime = 0;
             _isAttacking = false;
+        }
+
+        private void OnDestroy() => 
+            _enemyStatsHandler.UpdateStatsEvent -= UpdateStats;
+
+        private void UpdateStats()
+        {
+            _damage = (int)_enemyStatsHandler.GetStatDataByType(TypeStat.Damage).GetCurrentValue();
         }
 
         private void Start()

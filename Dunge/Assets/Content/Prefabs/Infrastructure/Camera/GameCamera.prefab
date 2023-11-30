@@ -104,3 +104,4 @@ MonoBehaviour:
   _distance: 15
   _maxDistance: 25
   _minDistance: 8
+  _timeForLerp: 0.15

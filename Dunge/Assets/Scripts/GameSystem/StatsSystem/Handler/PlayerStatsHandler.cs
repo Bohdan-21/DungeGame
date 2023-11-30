@@ -5,7 +5,7 @@ using Scripts.SaveData;
 using Scripts.SaveData.SkillTree;
 using Scripts.SaveData.Stats;
 using Scripts.Services.PlayerProgressService;
-using Scripts.Stats.Data;
+using Scripts.StaticData.EnumLinks;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

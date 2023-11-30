@@ -9,6 +9,7 @@ using Scripts.Services.SaveLoad;
 using Scripts.StaticData.Audio;
 using Scripts.StaticData.ControlButton;
 using Scripts.StaticData.EnemyStaticData;
+using Scripts.StaticData.EnumLinks;
 using Scripts.StaticData.GameStaticData;
 using Scripts.StaticData.NPCStaticData;
 using Scripts.StaticData.PlayerStaticData;
@@ -41,6 +42,9 @@ namespace Scripts.Installer
 
         public EnemyStaticData EnemyStaticData;
         public EnemyCharacterDeffaultSettings EnemyCharacterDeffaultSettings;
+
+        public ListEnumLinksFromStatToAttribute staticDataFromStatToAtrribute;
+        public ListEnumLinksFromAttributeToSkill staticDataFromAttributeToSkill;
 
         public NPCStaticData NPCStaticData;
 
@@ -93,6 +97,9 @@ namespace Scripts.Installer
 
             Container.Bind<EnemyStaticData>().FromInstance(EnemyStaticData).AsSingle();
             Container.Bind<EnemyCharacterDeffaultSettings>().FromInstance(EnemyCharacterDeffaultSettings).AsSingle();
+
+            Container.Bind<ListEnumLinksFromStatToAttribute>().FromInstance(staticDataFromStatToAtrribute).AsSingle();
+            Container.Bind<ListEnumLinksFromAttributeToSkill>().FromInstance(staticDataFromAttributeToSkill).AsSingle();
 
             Container.Bind<NPCStaticData>().FromInstance(NPCStaticData).AsSingle();
         }

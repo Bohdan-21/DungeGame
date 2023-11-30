@@ -13,9 +13,9 @@ using Scripts.Services.InteruptService;
 using Scripts.StaticData.Audio;
 using Scripts.StaticData.Audio.Setup;
 using Scripts.StaticData.Dialog.Setup;
+using Scripts.StaticData.EnumLinks;
 using Scripts.StaticData.QuestStaticData;
 using Scripts.StaticData.QuestStaticData.Setup;
-using Scripts.Stats.Data;
 using Scripts.UI.Interaction;
 using Scripts.UI.NameLocation;
 using UnityEngine;
@@ -31,8 +31,7 @@ public class GameInstaller : MonoInstaller
 
     public LevelSettings LevelSettings;
 
-    public ListEnumLinksFromStatToAttribute staticDataForSkillTree;
-
+    
     public override void InstallBindings()
     {
         BindAudioSetup();
@@ -43,7 +42,6 @@ public class GameInstaller : MonoInstaller
         BindLevelSettings();
         BindInteruptService();
         BindGameStateMachine();
-        BindStaticDataForSkillTree();
     }
 
     private void BindAudioSetup()
@@ -114,10 +112,5 @@ public class GameInstaller : MonoInstaller
         Container.Bind<DeathState>().AsSingle();
         Container.Bind<QuitState>().AsSingle();
         Container.Bind<WinState>().AsSingle();
-    }
-
-    private void BindStaticDataForSkillTree()
-    {
-        Container.Bind<ListEnumLinksFromStatToAttribute>().FromInstance(staticDataForSkillTree).AsSingle();
     }
 }
