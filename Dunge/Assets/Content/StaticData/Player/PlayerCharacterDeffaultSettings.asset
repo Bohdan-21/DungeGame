@@ -45,42 +45,34 @@ MonoBehaviour:
       Boost: 0
     attributes:
     - AttributeType: 0
-      BaseSkillType: 0
       AttributeLevel: 0
       MaxAttributeLevel: 10
       Boost: 3
     - AttributeType: 1
-      BaseSkillType: 0
       AttributeLevel: 0
       MaxAttributeLevel: 10
       Boost: 5
     - AttributeType: 2
-      BaseSkillType: 1
       AttributeLevel: 0
       MaxAttributeLevel: 10
-      Boost: 2
+      Boost: 1
     - AttributeType: 3
-      BaseSkillType: 1
       AttributeLevel: 0
       MaxAttributeLevel: 10
       Boost: 5
     - AttributeType: 4
-      BaseSkillType: 2
       AttributeLevel: 0
       MaxAttributeLevel: 10
       Boost: 10
     - AttributeType: 5
-      BaseSkillType: 2
       AttributeLevel: 0
       MaxAttributeLevel: 10
       Boost: 10
     - AttributeType: 6
-      BaseSkillType: 3
       AttributeLevel: 0
       MaxAttributeLevel: 10
       Boost: 5
     - AttributeType: 7
-      BaseSkillType: 3
       AttributeLevel: 0
       MaxAttributeLevel: 10
       Boost: 5

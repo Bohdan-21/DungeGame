@@ -62,6 +62,8 @@ namespace Scripts.Infrastructure.Factory
             Instantiate(_gameStaticData.SkillTreeUI);
 
             Instantiate(_gameStaticData.PlayerStatsUI);
+
+            Instantiate(_gameStaticData.PlayerExperienceTrackerUI);
         }
 
         private void CreateMonster()

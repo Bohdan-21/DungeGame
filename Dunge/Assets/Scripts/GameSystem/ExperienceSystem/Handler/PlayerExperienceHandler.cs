@@ -16,6 +16,7 @@ namespace Scripts.GameSystem.ExperienceSystem.Handler
         public static PlayerExperienceHandler Instance;
 
         public event Action LevelUpEvent;
+        public event Action UpdateExperienceEvent;
 
         private CombatChannel _combatChannel;
 
@@ -47,7 +48,10 @@ namespace Scripts.GameSystem.ExperienceSystem.Handler
             int maxAddedExperience = HowMuchExperienceCanAdd(experience);
 
             if (experience == maxAddedExperience)
+            {
                 _experienceData.currentExp += experience;
+                UpdateExperienceEvent?.Invoke();
+            }
             else
             {
                 experience -= maxAddedExperience;
@@ -59,6 +63,15 @@ namespace Scripts.GameSystem.ExperienceSystem.Handler
                 AddExperience(experience);
             }
         }
+
+        public int GetCurrentLevel() =>
+            _experienceData.currentLevel;
+
+        public int GetCurrentExperience() =>
+            _experienceData.currentExp;
+
+        public int GetExperienceNeedForLevelUp() =>
+            _experienceData.expNeedForLevelUp;
 
         private int HowMuchExperienceCanAdd(int experience)
         {

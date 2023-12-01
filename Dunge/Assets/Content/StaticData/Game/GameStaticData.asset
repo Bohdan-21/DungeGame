@@ -20,3 +20,4 @@ MonoBehaviour:
   DeathVFX: {fileID: 1183539586510176119, guid: 1574aef2a29acb44ea1384259a9b9a4a, type: 3}
   SkillTreeUI: {fileID: 6130911435908548123, guid: 7bc078210154d7243ae0ba0b97fa51e5, type: 3}
   PlayerStatsUI: {fileID: 113371788048130855, guid: 96edbfb976084e84a8164871c6767071, type: 3}
+  PlayerExperienceTrackerUI: {fileID: 2565927429772731819, guid: 7a515548d843ee1478b8c5b0c85f4954, type: 3}
