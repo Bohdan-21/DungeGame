@@ -54,7 +54,7 @@ namespace Scripts.GameSystem.StatsSystem.UI
             _statCardSpawner.SpawnCard(_playerStats);
         }
 
-        private void Hide()
+        public void Hide()
         {
             _isShow = false;
 

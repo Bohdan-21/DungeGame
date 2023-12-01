@@ -54,7 +54,7 @@ namespace Scripts.GameSystem.SkillTreeSystem.UI
             _attributeSpawner.SpawnAttributeCards(_skillTreeHandler, RefreshUI);
         }
 
-        private void Hide()
+        public void Hide()
         {
             _isShow = false;
 
