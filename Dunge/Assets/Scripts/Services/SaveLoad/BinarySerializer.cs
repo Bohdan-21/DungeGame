@@ -1,16 +1,18 @@
 ﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine;
 
 namespace Scripts.Services.SaveLoad
 {
     public static class BinarySerializer
     {
-        private const string PathForSaveFile = "E:\\Unity proj\\Project 16 Dunge Game\\Saves\\";
+        private static string PathForSaveFile = Application.persistentDataPath;
 
         public static void Serialize(object data, string fileName)
         {
             using (FileStream stream = new FileStream(PathForSaveFile + fileName, FileMode.OpenOrCreate))
             {
+                Debug.Log(PathForSaveFile);
                 BinaryFormatter bf = new BinaryFormatter();
                 bf.Serialize(stream, data);
             }

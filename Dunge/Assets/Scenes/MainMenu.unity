@@ -201,9 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSetupForMainMenu: {fileID: 11400000, guid: cba98a9aaf677c54ebf27b68da16a1eb, type: 2}
-  PlayList: {fileID: 11400000, guid: 8fda60b9a791c86428e6065fd70e0733, type: 2}
   MainMenuPrefab: {fileID: 4332406424499562983, guid: cedb668f65cdcf9458bb259fe1a219ba, type: 3}
-  BackGroundAudioPlayer: {fileID: 1227733207998901204, guid: f55d91ad1b5fec240a8678ba4dde8f77, type: 3}
   LicenseUI: {fileID: 9016013540333870639, guid: 1bc09b9a3f501334483bf2031bb76dfb, type: 3}
 --- !u!1 &1877869659
 GameObject:

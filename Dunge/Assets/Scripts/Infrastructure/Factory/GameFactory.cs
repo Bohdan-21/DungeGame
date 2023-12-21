@@ -72,7 +72,8 @@ namespace Scripts.Infrastructure.Factory
 
             foreach (EnemySpawnPoint enemySpawnPoint in _levelSettings.EnemySpawnPoints)
             {
-                enemyPrefab = _enemyStaticData.GetEnemyPrefabByType(enemySpawnPoint.enemyType);
+                //TODO:fix this
+                enemyPrefab = _enemyStaticData.GetEnemyPrefabByType(/*enemySpawnPoint.enemyType*/EnemyType.Barbarian);
 
                 if(enemyPrefab != null)
                     CreateNavMeshAgent(enemySpawnPoint.transform.position, enemyPrefab);
