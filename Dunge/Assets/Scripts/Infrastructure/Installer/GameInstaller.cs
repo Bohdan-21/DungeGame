@@ -5,6 +5,8 @@ using Scripts.GameSystem.QuestSystem.Factory;
 using Scripts.GameSystem.QuestSystem.Journal;
 using Scripts.GameSystem.QuestSystem.UI.QuestJournal;
 using Scripts.GameSystem.QuestSystem.UI.Tracker;
+using Scripts.GameSystem.TraidingSystem.TraidingSystem.Logic;
+using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
 using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.Factory;
 using Scripts.Infrastructure.StateMachine;
@@ -18,6 +20,7 @@ using Scripts.StaticData.QuestStaticData;
 using Scripts.StaticData.QuestStaticData.Setup;
 using Scripts.UI.Interaction;
 using Scripts.UI.NameLocation;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -26,6 +29,8 @@ public class GameInstaller : MonoInstaller
     public AudioSetupForGame audioSetupForGame;
     public DialogSetupSystem dialogSetupSystem;
     public QuestSetup questSetup;
+
+    public GameObject TradingSystemUI;
 
     public GameObject LocationNameUI;
 
@@ -38,6 +43,7 @@ public class GameInstaller : MonoInstaller
         BindGameFactory();
         BindQuestSystem();
         BindDialogSetup();
+        BindTradingSystem();
         BindNameLocation();
         BindLevelSettings();
         BindInteruptService();
@@ -86,6 +92,12 @@ public class GameInstaller : MonoInstaller
         Container.Bind<IDialogInitializer>().To<DialogInitializer>().AsSingle();
         Container.Bind<IDialogUI>().FromComponentInNewPrefab(dialogSetupSystem.DialogUIPrefab).AsSingle();
         Container.Bind<IInteractionPanel>().FromComponentInNewPrefab(dialogSetupSystem.InteractionPanerPrefab).AsSingle();
+    }
+
+    private void BindTradingSystem()
+    {
+        Container.Bind<TradingOperation>().FromNew().AsSingle().NonLazy();
+        Container.Bind<ITraiderUI>().FromComponentInNewPrefab(TradingSystemUI).AsSingle().NonLazy();
     }
 
     private void BindNameLocation()
