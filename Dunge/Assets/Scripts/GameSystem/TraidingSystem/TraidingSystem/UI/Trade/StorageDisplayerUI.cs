@@ -1,4 +1,5 @@
-﻿using Scripts.SaveData.Storage;
+﻿using Scripts.GameMechanic.Item;
+using Scripts.SaveData.Storage;
 using Scripts.TradingStaticData.PriceData;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,9 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade
         [SerializeField] private Transform Content;
 
         private List<GameObject> _spawnedCards = new List<GameObject>();
-        private Action<ItemType> _whenUserSelectCardCallback;
+        private Action<TypeItem> _whenUserSelectCardCallback;
 
-        public void SetCallback(Action<ItemType> whenUserSelectCardCallback) => 
+        public void SetCallback(Action<TypeItem> whenUserSelectCardCallback) => 
             _whenUserSelectCardCallback = whenUserSelectCardCallback;
 
         public void SpawnStorageElement(Storage storage)
@@ -43,7 +44,7 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade
             _spawnedCards.Clear();
         }
 
-        private void UserSelectCard(ItemType itemType) =>
-            _whenUserSelectCardCallback?.Invoke(itemType);
+        private void UserSelectCard(TypeItem typeItem) =>
+            _whenUserSelectCardCallback?.Invoke(typeItem);
     }
 }

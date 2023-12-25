@@ -1,17 +1,18 @@
-﻿using Scripts.SaveData.Storage;
+﻿using Scripts.GameMechanic.Item;
+using Scripts.SaveData.Storage;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Logic
 {
     public struct TradeCommand
     {
-        public ItemType ItemType;
+        public TypeItem typeItem;
         public int Count;
         public int TotalPrice;
         public TypeTradeOperation TypeTradeOperation;
 
-        public TradeCommand(ItemType itemType, int count, int totalPrice, TypeTradeOperation typeTradeOperation)
+        public TradeCommand(TypeItem typeItem, int count, int totalPrice, TypeTradeOperation typeTradeOperation)
         {
-            ItemType = itemType;
+            this.typeItem = typeItem;
             Count = count;
             TotalPrice = totalPrice;
             TypeTradeOperation = typeTradeOperation;

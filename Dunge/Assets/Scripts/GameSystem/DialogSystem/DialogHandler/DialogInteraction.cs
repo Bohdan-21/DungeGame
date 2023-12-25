@@ -51,7 +51,8 @@ namespace Scripts.GameSystem.DialogSystem.DialogHandler
             {
                 _dialogQueueHandler = other.gameObject.GetComponent<DialogQueueHandler>();
 
-                _interactionPanel.Show();
+                if(_dialogQueueHandler != null)
+                    _interactionPanel.Show();
             }
         }
 

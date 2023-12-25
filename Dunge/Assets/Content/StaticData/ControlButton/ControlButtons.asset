@@ -28,3 +28,4 @@ MonoBehaviour:
     ZoomOutButton: 269
   SystemControlButtons:
     PauseButton: 27
+  TradeButton: 108

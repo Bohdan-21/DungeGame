@@ -4,6 +4,7 @@ using TMPro;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
 using Scripts.TradingStaticData.PriceData;
 using System;
+using Scripts.GameMechanic.Item;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell
 {
@@ -20,17 +21,17 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell
 
         [SerializeField] private PriceStaticData _priceData;
 
-        public void Show(MerchantType merchantType, ItemType itemType, int buyerMoney, int salesmanMoney)
+        public void Show(MerchantType merchantType, TypeItem typeItem, int buyerMoney, int salesmanMoney)
         {
-            ShowItemData(itemType);
+            ShowItemData(typeItem);
             ShowTypeOperation(merchantType);
             ShowtBalance(buyerMoney, salesmanMoney);
         }
 
-        private void ShowItemData(ItemType itemType)
+        private void ShowItemData(TypeItem typeItem)
         {
-            _itemTypeText.text = itemType.ToString();
-            _itemPriceText.text = _priceData.GetItemPrice(itemType).ToString();
+            _itemTypeText.text = typeItem.ToString();
+            _itemPriceText.text = _priceData.GetItemPrice(typeItem).ToString();
         }
 
         private void ShowTypeOperation(MerchantType merchantType)

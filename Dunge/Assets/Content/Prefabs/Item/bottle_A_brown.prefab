@@ -111,3 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TypeItem: 1
+  ItemCountData:
+    itemType: 1
+    count: 1

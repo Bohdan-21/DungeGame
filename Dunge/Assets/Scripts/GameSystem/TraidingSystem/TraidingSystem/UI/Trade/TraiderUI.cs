@@ -1,4 +1,5 @@
-﻿using Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler;
+﻿using Scripts.GameMechanic.Item;
+using Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.Logic;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell;
 using Scripts.SaveData.Storage;
@@ -37,9 +38,9 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade
             _buySellUI.SendTradeComandEvent -= SendTradeCommand;
 
 
-        private void UserSelectItem(MerchantType storageType, ItemType itemType)
+        private void UserSelectItem(MerchantType storageType, TypeItem typeItem)
         {
-            _buySellUI.Show(storageType, itemType, _buyerHandler, _salesmanHandler);
+            _buySellUI.Show(storageType, typeItem, _buyerHandler, _salesmanHandler);
         }
 
         private void SendTradeCommand(TradeCommand tradeCommand)

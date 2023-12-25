@@ -4,6 +4,7 @@ using UnityEngine;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.Logic;
+using Scripts.GameMechanic.Item;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell
 {
@@ -17,7 +18,7 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell
         private ITradingHandler _buyerHandler;
         private ITradingHandler _salesmanHandler;
         private MerchantType _merchantType;
-        private ItemType _itemType;
+        private TypeItem _typeItem;
 
         public event Action<TradeCommand> SendTradeComandEvent;
 
@@ -35,11 +36,11 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell
             _commandCreator.CreateTradeCommandEvent -= SendTradeComand;
         }
 
-        public void Show(MerchantType merchantType, ItemType itemType, ITradingHandler buyer, ITradingHandler salesman)
+        public void Show(MerchantType merchantType, TypeItem typeItem, ITradingHandler buyer, ITradingHandler salesman)
         {
             gameObject.SetActive(true);
 
-            CacheData(buyer, salesman, merchantType, itemType);
+            CacheData(buyer, salesman, merchantType, typeItem);
 
             ShowStaticData();
             ShowDynamicData();
@@ -53,21 +54,21 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell
         }
 
 
-        private void CacheData(ITradingHandler buyer, ITradingHandler salesman, MerchantType merchantType, ItemType itemType)
+        private void CacheData(ITradingHandler buyer, ITradingHandler salesman, MerchantType merchantType, TypeItem typeItem)
         {
             _salesmanHandler = salesman;
             _buyerHandler = buyer;
             _merchantType = merchantType;
-            _itemType = itemType;
+            _typeItem = typeItem;
         }
 
         private void ShowStaticData() => 
-            _staticData.Show(_merchantType, _itemType, _buyerHandler.GetBalance().GetCurrentBalance(), 
+            _staticData.Show(_merchantType, _typeItem, _buyerHandler.GetBalance().GetCurrentBalance(), 
                                                        _salesmanHandler.GetBalance().GetCurrentBalance());
 
         private void ShowDynamicData()
         {
-            _dynamicData.Show(_countSelector.CurrentCountSelected, _itemType, _merchantType);
+            _dynamicData.Show(_countSelector.CurrentCountSelected, _typeItem, _merchantType);
         }
 
         private void ConfigurateCountSelector()
@@ -75,9 +76,9 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell
             ItemCount item;
 
             if (_merchantType == MerchantType.Buyer)
-                item = _buyerHandler.GetStorage().GetItem(_itemType);
+                item = _buyerHandler.GetStorage().GetItem(_typeItem);
             else
-                item = _salesmanHandler.GetStorage().GetItem(_itemType);
+                item = _salesmanHandler.GetStorage().GetItem(_typeItem);
 
             _countSelector.ConfigurateCountSelector(0, item.GetItemCount());
         }
@@ -91,7 +92,7 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell
             else
                 currentMoney = _buyerHandler.GetBalance().GetCurrentBalance();
 
-            _commandCreator.ConfigurateCreator(_itemType, _countSelector.CurrentCountSelected, _merchantType, currentMoney);
+            _commandCreator.ConfigurateCreator(_typeItem, _countSelector.CurrentCountSelected, _merchantType, currentMoney);
         }
 
 

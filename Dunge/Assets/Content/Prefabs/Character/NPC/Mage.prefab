@@ -1465,10 +1465,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4723308674682009338}
   - component: {fileID: 8853242326712328747}
-  - component: {fileID: -5032373791987556767}
   - component: {fileID: -6742503615376998004}
   - component: {fileID: 1102947066064057920}
-  - component: {fileID: 5841872706462637724}
+  - component: {fileID: 4723108538842488289}
   m_Layer: 13
   m_Name: Mage
   m_TagString: Untagged
@@ -1511,21 +1510,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.5, z: 1}
   m_Center: {x: 0, y: 1.25, z: 0}
---- !u!114 &-5032373791987556767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5388346511425891392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf3096ba0c8d5b545a79ecfce32b7fdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dialogList:
-  - {fileID: 11400000, guid: 3d5d8a6fe421a4145a14742a63e047c2, type: 2}
-  - {fileID: 11400000, guid: 85efe7713b2c46544a077c2a913e3c40, type: 2}
 --- !u!54 &-6742503615376998004
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1562,7 +1546,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5841872706462637724
+--- !u!114 &4723108538842488289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1571,11 +1555,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5388346511425891392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f0e9f03dd8c914d9c8d1b0b6b514d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 701272de4f1fa2041aed11b04f793b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogQueueHandler: {fileID: -5032373791987556767}
-  _npcType: 1
+  _storage:
+    items: []
+  _balance:
+    _currentMoney: 0
+  _availableGoods: {fileID: 11400000, guid: 1e0b74e3819f352408e258ab251db568, type: 2}
+  _delayTimeForUpdateGoods: 60
+  _leftTime: 0
+  _timeForWait: 1
+  _maxMoneyInStoreBalance: 300
 --- !u!1 &5420537838106338707
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,4 @@
-﻿using Scripts.SaveData.Storage;
+﻿using Scripts.GameMechanic.Item;
 using System;
 
 namespace Scripts.StaticData.HealingStaticData
@@ -6,7 +6,7 @@ namespace Scripts.StaticData.HealingStaticData
     [Serializable]
     public class ItemData
     {
-        public ItemType ItemType;
+        public TypeItem TypeItem;
         public int HealingPoint;
     }
 }

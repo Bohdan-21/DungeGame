@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.Logic;
 using Scripts.TradingStaticData.PriceData;
+using Scripts.GameMechanic.Item;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell
 {
@@ -16,17 +17,17 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell
 
         private int _totalPrice;
         private int _currentCountSelected;
-        private ItemType _itemType;
+        private TypeItem _typeItem;
         private MerchantType _merchantType;
 
         public event Action<TradeCommand> CreateTradeCommandEvent;
 
-        public void ConfigurateCreator(ItemType itemType, int currentCountSelected, MerchantType merchantType, int currentBalance)
+        public void ConfigurateCreator(TypeItem typeItem, int currentCountSelected, MerchantType merchantType, int currentBalance)
         {
-            _itemType = itemType;
+            _typeItem = typeItem;
             _currentCountSelected = currentCountSelected;
             _merchantType = merchantType;
-            _totalPrice = currentCountSelected * _priceData.GetItemPrice(itemType);
+            _totalPrice = currentCountSelected * _priceData.GetItemPrice(typeItem);
 
             ConfigurateButton(currentBalance);
         }
@@ -40,7 +41,7 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell
             else
                 tradeOperation = TypeTradeOperation.BuyItemFromStore;
 
-            CreateTradeCommandEvent?.Invoke(new TradeCommand(_itemType, _currentCountSelected, _totalPrice, tradeOperation));
+            CreateTradeCommandEvent?.Invoke(new TradeCommand(_typeItem, _currentCountSelected, _totalPrice, tradeOperation));
         }
 
         private void ConfigurateButton(int currentBalance)

@@ -1,8 +1,5 @@
-﻿using Scripts.SaveData.Storage;
+﻿using Scripts.GameMechanic.Item;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Scripts.StaticData.HealingStaticData
@@ -12,10 +9,10 @@ namespace Scripts.StaticData.HealingStaticData
     {
         [SerializeField] private List<ItemData> itemsData;
 
-        public int GetCountHealingPoints(ItemType itemType)
+        public int GetCountHealingPoints(TypeItem typeItem)
         {
             foreach (ItemData itemData in itemsData)
-                if (itemData.ItemType == itemType)
+                if (itemData.TypeItem == typeItem)
                     return itemData.HealingPoint;
             return 0;
         }

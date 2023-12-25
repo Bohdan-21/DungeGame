@@ -1,16 +1,13 @@
-﻿using Scripts.Player;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Scripts.SaveData.Storage;
 using UnityEngine;
 
 namespace Scripts.GameMechanic.Item
 {
     public class Item : MonoBehaviour
     {
+        //TODO: remove enum
         public TypeItem TypeItem;
+        public ItemCountData ItemCountData;
 
         public void PickUp()
         {

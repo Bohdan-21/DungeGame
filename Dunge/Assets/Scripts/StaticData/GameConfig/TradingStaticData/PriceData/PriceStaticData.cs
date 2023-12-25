@@ -1,4 +1,5 @@
-﻿using Scripts.SaveData.Storage;
+﻿using Scripts.GameMechanic.Item;
+using Scripts.SaveData.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Scripts.TradingStaticData.PriceData
     {
         [SerializeField] private List<ItemPriceData> pricesData;
 
-        public int GetItemPrice(ItemType itemType)
+        public int GetItemPrice(TypeItem itemType)
         {
             foreach (ItemPriceData itemData in pricesData)
                 if (itemData.ItemType == itemType)

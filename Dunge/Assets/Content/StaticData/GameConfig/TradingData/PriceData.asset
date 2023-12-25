@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PriceData
   m_EditorClassIdentifier: 
   pricesData:
-  - ItemType: 0
-    Price: 15
   - ItemType: 1
-    Price: 21
+    Price: 15
   - ItemType: 2
+    Price: 21
+  - ItemType: 3
     Price: 28

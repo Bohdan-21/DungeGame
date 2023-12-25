@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: AvailableGoodsForStore
   m_EditorClassIdentifier: 
   _goodsData:
-  - ItemType: 0
+  - TypeItem: 1
     MaxCount: 30
-  - ItemType: 1
+  - TypeItem: 2
     MaxCount: 15
-  - ItemType: 2
+  - TypeItem: 3
     MaxCount: 5

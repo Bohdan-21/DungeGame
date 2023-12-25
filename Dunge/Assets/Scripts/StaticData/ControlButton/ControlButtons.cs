@@ -16,5 +16,7 @@ namespace Scripts.StaticData.ControlButton
         public CameraControlButtons CameraControlButtons;
 
         public SystemControlButtons SystemControlButtons;
+
+        public KeyCode TradeButton;
     }
 }

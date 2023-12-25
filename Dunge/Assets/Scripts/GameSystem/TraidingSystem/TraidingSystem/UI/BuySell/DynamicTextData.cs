@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
 using Scripts.TradingStaticData.PriceData;
+using Scripts.GameMechanic.Item;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell
 {
@@ -14,9 +15,9 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell
 
         [SerializeField] private PriceStaticData _priceData;
 
-        public void Show(int countSelectedItem, ItemType itemType, MerchantType merchantType)
+        public void Show(int countSelectedItem, TypeItem typeItem, MerchantType merchantType)
         {
-            int totalPrice = _priceData.GetItemPrice(itemType) * countSelectedItem;
+            int totalPrice = _priceData.GetItemPrice(typeItem) * countSelectedItem;
 
             _itemCountSelectedText.text = countSelectedItem.ToString();
 

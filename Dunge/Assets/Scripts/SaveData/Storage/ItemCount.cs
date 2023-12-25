@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Scripts.GameMechanic.Item;
+using System;
 using UnityEngine;
 
 namespace Scripts.SaveData.Storage
@@ -6,13 +7,11 @@ namespace Scripts.SaveData.Storage
     [Serializable]
     public class ItemCount
     {
-        [SerializeField] private ItemType _itemType;
-        [SerializeField] private int _count;
+        [SerializeField] private ItemCountData _itemCountData;
 
-        public ItemCount(ItemType itemType, int count)
+        public ItemCount(TypeItem itemType, int count)
         {
-            _itemType = itemType;
-            _count = count;
+            _itemCountData = new ItemCountData(itemType, count);
         }
 
         /// <summary>
@@ -21,29 +20,29 @@ namespace Scripts.SaveData.Storage
         /// <param name="itemCount"></param>
         public ItemCount(ItemCount itemCount)
         {
-            _itemType = itemCount._itemType;
-            _count = itemCount._count;
+            _itemCountData.TypeItem = itemCount._itemCountData.TypeItem;
+            _itemCountData.Count = itemCount._itemCountData.Count;
         }
 
-        public ItemType GetItemType() =>
-            _itemType;
+        public TypeItem GetItemType() =>
+            _itemCountData.TypeItem;
 
         public int GetItemCount() =>
-            _count;
+            _itemCountData.Count;
 
-        public bool IsEqual(ItemType itemType) =>
-            _itemType == itemType;
+        public bool IsEqual(TypeItem itemType) =>
+            _itemCountData.TypeItem == itemType;
 
         public bool IsEnough(int count) =>
-            _count >= count;
+            _itemCountData.Count >= count;
 
         public void Add(int count) =>
-            _count += count;
+            _itemCountData.Count += count;
 
         public void Reset(int count) =>
-            _count = count;
+            _itemCountData.Count = count;
 
         public void Take(int count) =>
-            _count -= count;
+            _itemCountData.Count -= count;
     }
 }

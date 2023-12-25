@@ -2,6 +2,7 @@
 using System;
 using UnityEngine;
 using TMPro;
+using Scripts.GameMechanic.Item;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade
 {
@@ -11,10 +12,10 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade
         [SerializeField] private TextMeshProUGUI _itemCountText;
         [SerializeField] private TextMeshProUGUI _itemPriceText;
 
-        private Action<ItemType> _whenUserSelectCardCallback;
-        private ItemType _itemType;
+        private Action<TypeItem> _whenUserSelectCardCallback;
+        private TypeItem _itemType;
 
-        public void Initialize(ItemCount item, int price, Action<ItemType> whenUserSelectCardCallback)
+        public void Initialize(ItemCount item, int price, Action<TypeItem> whenUserSelectCardCallback)
         {
             _itemType = item.GetItemType();
 

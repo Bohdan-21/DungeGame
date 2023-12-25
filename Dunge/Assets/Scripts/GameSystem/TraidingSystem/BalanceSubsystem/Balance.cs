@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Scripts.TraidingSystem.BalanceSubsystem
+namespace Scripts.GameSystem.TraidingSystem.BalanceSubsystem
 {
     [Serializable]
     public class Balance

@@ -7,7 +7,6 @@ namespace Scripts.Player
     {
         [SerializeField] private Storage _storage;
 
-
         public Storage GetStorage() =>
             _storage;
     }

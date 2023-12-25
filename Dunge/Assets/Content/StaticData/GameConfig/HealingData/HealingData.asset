@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: HealingData
   m_EditorClassIdentifier: 
   itemsData:
-  - ItemType: 0
+  - TypeItem: 1
     HealingPoint: 10
-  - ItemType: 0
+  - TypeItem: 2
     HealingPoint: 25
-  - ItemType: 0
+  - TypeItem: 3
     HealingPoint: 50

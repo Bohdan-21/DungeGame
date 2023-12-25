@@ -3,6 +3,7 @@ using TMPro;
 using System;
 using Scripts.SaveData.Storage;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler;
+using Scripts.GameMechanic.Item;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade
 {
@@ -12,13 +13,13 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade
         [SerializeField] private TextMeshProUGUI _currentMoneyText;
         [SerializeField] private MerchantType _merchantType;
 
-        private Action<MerchantType, ItemType> _whenUserSelectCardCallback;
+        private Action<MerchantType, TypeItem> _whenUserSelectCardCallback;
         private ITradingHandler _tradingHandler;
 
         private void Start() => 
             _storageDisplayer.SetCallback(UserSelectItem);
 
-        public void SetCallback(Action<MerchantType, ItemType> whenUserSelectCardCallback) => 
+        public void SetCallback(Action<MerchantType, TypeItem> whenUserSelectCardCallback) => 
             _whenUserSelectCardCallback = whenUserSelectCardCallback;
 
         public void Show(ITradingHandler tradingHandler)
@@ -45,7 +46,7 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade
         private void ShowBalance() => 
             _currentMoneyText.text = _tradingHandler.GetBalance().GetCurrentBalance().ToString();
 
-        private void UserSelectItem(ItemType itemType) => 
-            _whenUserSelectCardCallback.Invoke(_merchantType, itemType);
+        private void UserSelectItem(TypeItem typeItem) => 
+            _whenUserSelectCardCallback.Invoke(_merchantType, typeItem);
     }
 }

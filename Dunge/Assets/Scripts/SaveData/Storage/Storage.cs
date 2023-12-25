@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Scripts.GameMechanic.Item;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,10 +31,10 @@ namespace Scripts.SaveData.Storage
                 yield return item;
         }
 
-        public ItemCount GetItem(ItemType itemType) =>
+        public ItemCount GetItem(TypeItem itemType) =>
             Contains(itemType);
 
-        public void AddItem(ItemType itemType, int count)
+        public void AddItem(TypeItem itemType, int count)
         {
             ItemCount item = Contains(itemType);
 
@@ -43,7 +44,7 @@ namespace Scripts.SaveData.Storage
                 CreateItem(itemType, count);
         }
         
-        public void ResetItemCount(ItemType itemType, int count)
+        public void ResetItemCount(TypeItem itemType, int count)
         {
             ItemCount item = Contains(itemType);
 
@@ -53,7 +54,7 @@ namespace Scripts.SaveData.Storage
                 CreateItem(itemType, count);
         }
 
-        public bool TryTakeItem(ItemType itemType, int count)
+        public bool TryTakeItem(TypeItem itemType, int count)
         {
             ItemCount item = Contains(itemType);
 
@@ -68,7 +69,7 @@ namespace Scripts.SaveData.Storage
                 return false;
         }
 
-        private ItemCount Contains(ItemType itemType)
+        private ItemCount Contains(TypeItem itemType)
         {
             foreach (ItemCount item in items)
                 if (item.IsEqual(itemType))
@@ -76,7 +77,7 @@ namespace Scripts.SaveData.Storage
             return null;
         }
 
-        private void CreateItem(ItemType itemType, int count) =>
+        private void CreateItem(TypeItem itemType, int count) =>
             items.Add(new ItemCount(itemType, count));
 
         private void AddCountToItem(ItemCount item, int count) =>

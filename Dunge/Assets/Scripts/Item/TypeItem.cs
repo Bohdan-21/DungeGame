@@ -4,6 +4,8 @@
     {
         SMALL = 1,
         MIDDLE = 2,
-        LARGE = 3
+        LARGE = 3,
+
+        NONE
     }
 }

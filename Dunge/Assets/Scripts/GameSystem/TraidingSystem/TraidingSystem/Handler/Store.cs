@@ -1,6 +1,6 @@
-﻿using Scripts.SaveData.Storage;
+﻿using Scripts.GameSystem.TraidingSystem.BalanceSubsystem;
+using Scripts.SaveData.Storage;
 using Scripts.StaticData.GameConfig.TradingStaticData.GoodForSaleData;
-using Scripts.TraidingSystem.BalanceSubsystem;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -51,7 +51,7 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler
                 countGood = UnityEngine.Random.Range(0, availableGood.MaxCount);
 
                 if(countGood != 0)
-                    _storage.ResetItemCount(availableGood.ItemType, countGood);
+                    _storage.ResetItemCount(availableGood.TypeItem, countGood);
             }
         }
 
