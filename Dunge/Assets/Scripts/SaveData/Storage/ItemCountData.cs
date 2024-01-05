@@ -1,7 +1,7 @@
 ﻿using Scripts.GameMechanic.ItemSystem;
 using System;
 
-namespace Scripts.SaveData.Storage
+namespace Scripts.SaveData.StorageData
 {
     [Serializable]
     public class ItemCountData

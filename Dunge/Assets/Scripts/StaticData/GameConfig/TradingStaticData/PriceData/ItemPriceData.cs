@@ -1,5 +1,5 @@
 ﻿using Scripts.GameMechanic.ItemSystem;
-using Scripts.SaveData.Storage;
+using Scripts.SaveData.StorageData;
 using System;
 
 namespace Scripts.TradingStaticData.PriceData

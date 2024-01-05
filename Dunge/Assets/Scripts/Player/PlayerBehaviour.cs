@@ -19,7 +19,7 @@ namespace Scripts.Player
         public PlayerHealth Health;
         public PlayerStatsHandler Stats;
         public PlayerDeath Death;
-        public Inventory Inventory;
+        public PlayerInventory Inventory;
 
         [Inject]
         private void Construct(LevelSettings levelSettings)

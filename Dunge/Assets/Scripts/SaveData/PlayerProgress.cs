@@ -1,6 +1,7 @@
 using Scripts.SaveData.Experience;
 using Scripts.SaveData.SkillTree;
 using Scripts.SaveData.Stats;
+using Scripts.SaveData.StorageData;
 using System;
 
 namespace Scripts.SaveData
@@ -10,7 +11,7 @@ namespace Scripts.SaveData
     {
         public LevelData LevelData;
         public PlayerState State;
-        public Inventory Inventory;
+        public Storage Storage;
         public PlayerSkillTreeData SkillTreeData;
         public PlayerExperienceData ExperienceData;
         public StatsContainer PlayerStatsContainer;
@@ -21,21 +22,21 @@ namespace Scripts.SaveData
         {
             LevelData = new LevelData();
             State = new PlayerState();
-            Inventory = new Inventory();
+            Storage = new Storage();
             SkillTreeData = new PlayerSkillTreeData();
             ExperienceData = new PlayerExperienceData();
             PlayerStatsContainer = new StatsContainer();
             ActiveQuestList = new ActiveQuestList();
         }
 
-        public PlayerProgress(LevelData levelData, PlayerState state, Inventory inventory, PlayerSkillTreeData skillTreeData,
+        public PlayerProgress(LevelData levelData, PlayerState state, Storage storage, PlayerSkillTreeData skillTreeData,
                               StatsContainer playerStatsContainer, PlayerExperienceData experienceData)
         {
             LevelData = new LevelData(levelData.CurrentDungeLevel, levelData.MaxReachedDungeLevel);
 
             State = new PlayerState(state.CurrentHP, state.MaxHP);
 
-            Inventory = new Inventory(inventory);
+            Storage = new Storage(storage);
 
             SkillTreeData = new PlayerSkillTreeData(skillTreeData);
 
@@ -48,7 +49,7 @@ namespace Scripts.SaveData
 
         public void ClearAllData()
         {
-            Inventory.Clear();
+            Storage.ClearData();
             ActiveQuestList.Clear();
         }
     }

@@ -1,5 +1,5 @@
 ﻿using Scripts.GameSystem.TraidingSystem.BalanceSubsystem;
-using Scripts.SaveData.Storage;
+using Scripts.SaveData.StorageData;
 using Scripts.StaticData.GameConfig.TradingStaticData.GoodForSaleData;
 using System;
 using System.Collections;

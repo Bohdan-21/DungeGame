@@ -24,7 +24,7 @@ namespace Scripts.Player
         
         public List<ItemUpdater> ItemUpdaters;
         
-        private Inventory _inventory;
+        private PlayerInventory _inventory;
         private IInputService _inputService;
         private IInteruptService _interuptService;
 

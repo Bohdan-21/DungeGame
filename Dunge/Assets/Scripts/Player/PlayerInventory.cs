@@ -1,10 +1,12 @@
 ﻿using Scripts.GameMechanic.ItemSystem;
 using Scripts.Infrastructure.Audio;
-using Scripts.Logic;
 using Scripts.SaveData;
+using Scripts.SaveData.StorageData;
 using Scripts.Services.PlayerProgressService;
+using Scripts.StaticData.ItemStaticData;
+using Scripts.StaticData.ItemStaticData.Interface;
+using Scripts.StaticData.ItemStaticData.Item;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -12,84 +14,67 @@ namespace Scripts.Player
 {
     public class PlayerInventory : MonoBehaviour, IPlayerProgressLoader
     {
-        public Dictionary<TypeItem, int> _storage { get; private set; } = new Dictionary<TypeItem, int>();
+        [SerializeField] private PlayerBehaviour _playerBehaviour;
+        [SerializeField] private Storage _storage;
+
+        private ISoundsGameActionPlayer _soundPlayer;
+        private ItemCollection _itemCollection;
+
         public event Action UpdateInventory;
 
-        private PlayerHealth Health;
-        private ISoundsGameActionPlayer _soundPlayer;
-
-        private HealBehaviour healing = new HealBehaviour();
-
         [Inject]
-        private void Construct(PlayerBehaviour player, IPlayerProgressService progressService, 
-                               ISoundsGameActionPlayer soundPlayer)
+        private void Construct(ISoundsGameActionPlayer soundPlayer, ItemCollection itemCollection, 
+                               IPlayerProgressService progressService)
         {
-            Health = player.Health;
             _soundPlayer = soundPlayer;
+            _itemCollection = itemCollection;
 
             progressService.AddProgressUpdater(this);
         }
 
-        public void AddItem(ItemMarker item)
+        public Storage GetStorage() =>
+            _storage;
+
+        public int GetItemCount(TypeItem typeItem)
         {
-            if (_storage.TryGetValue(item.TypeItem, out int count))
-                _storage[item.TypeItem] = count + 1;
-            else
-                return;
+            ItemCount itemCount = _storage.GetItem(typeItem);
 
-            item.PickUp();
-
-            UpdateInventory?.Invoke();
-        }
-
-        public void Use(TypeItem item)
-        {
-            if (_storage.TryGetValue(item, out int count))
-            {
-                if (count == 0)
-                    return;
-
-                _storage[item] = count - 1;
-                healing.Healing(item, Health);
-                
-                PlaySound();
-
-                UpdateInventory?.Invoke();
-            }
-        }
-
-        private void PlaySound() => 
-            _soundPlayer.PlayUseItemSound();
-
-        public int GetCount(TypeItem item)
-        {
-            if (_storage.TryGetValue(item, out int count))
-                return count;
+            if (itemCount != null)
+                return itemCount.GetItemCount();
             return 0;
         }
 
-        public void LoadProgress(PlayerProgress playerProgress)
+        public void AddItem(ItemMarker itemMarker)
         {
-            for(int i = 0; i < playerProgress.Inventory.StorageTypeItem.Count; i++)
-            {
-                TypeItem typeItem = playerProgress.Inventory.StorageTypeItem[i];
-                int count = playerProgress.Inventory.StorageCountItem[i];
+            _storage.AddItem(itemMarker.TypeItem, 1);
 
-                _storage.Add(typeItem, count);
-            }
+            itemMarker.PickUp();
 
             UpdateInventory?.Invoke();
         }
 
-        public void UpdateProgress(PlayerProgress playerProgress)
+        public void Use(TypeItem itemType)
         {
-            foreach(KeyValuePair<TypeItem, int> value in _storage)
-            {
-                playerProgress.Inventory.StorageTypeItem.Add(value.Key);
-                playerProgress.Inventory.StorageCountItem.Add(value.Value);
-            }
+            ItemData itemData = _itemCollection.GetItem(itemType);
 
-            Debug.Log("Данные инвентаря записаны");
+            if(itemData != null && itemData is IUsing usingItem)
+            {
+                if (_storage.TryTakeItem(itemType, 1))
+                {
+                    usingItem.Use(_playerBehaviour);
+
+                    UpdateInventory?.Invoke();
+                }
+            }
         }
+
+        private void PlaySound() =>
+            _soundPlayer.PlayUseItemSound();
+
+        public void LoadProgress(PlayerProgress playerProgress) => 
+            _storage = new Storage(playerProgress.Storage);
+
+        public void UpdateProgress(PlayerProgress playerProgress) => 
+            playerProgress.Storage = new Storage(_storage);
     }
 }

@@ -13,7 +13,7 @@ namespace Scripts.Player
     class PlayerPickUpItem : MonoBehaviour
     {
         public CharacterController CharacterController;
-        public Inventory Inventory;
+        public PlayerInventory Inventory;
 
         private Collider[] _findItems = new Collider[5];
         private ISoundsGameActionPlayer _soundPlayer;

@@ -1,4 +1,4 @@
-﻿using Scripts.SaveData.Storage;
+﻿using Scripts.SaveData.StorageData;
 using UnityEngine;
 
 namespace Scripts.GameMechanic.ItemSystem

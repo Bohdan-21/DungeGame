@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Scripts.SaveData.Storage
+namespace Scripts.SaveData.StorageData
 {
     [Serializable]
     public class Storage
@@ -15,12 +15,17 @@ namespace Scripts.SaveData.Storage
         /// For Save/Load System
         /// </summary>
         /// <param name="storage"></param>
-        public Storage(Storage storage)
-        {
-            //TODO: хреново, будет слишком много утечки памяти, при условии что сменяется игровая сцена
-            //или же лоадится новая сессия без выключения игры
-            items = new List<ItemCount>();
 
+        public Storage()
+        {
+            if (items != null)
+                ClearData();
+            else
+                items = new List<ItemCount>();
+        }
+
+        public Storage(Storage storage) : this()
+        {
             foreach (ItemCount item in storage.items)
                 items.Add(new ItemCount(item));
         }
@@ -96,5 +101,8 @@ namespace Scripts.SaveData.Storage
             if (item.GetItemCount() == 0)
                 items.Remove(item);
         }
+
+        public void ClearData() => 
+            items.Clear();
     }
 }

@@ -380,14 +380,13 @@ GameObject:
   - component: {fileID: 1729433257534310736}
   - component: {fileID: 7575478608611545754}
   - component: {fileID: 5235661718528761994}
-  - component: {fileID: -2749102604555245186}
   - component: {fileID: 6938020302638326640}
   - component: {fileID: 6527269230052745049}
   - component: {fileID: 4826398563692861759}
   - component: {fileID: 7078366531059548582}
   - component: {fileID: 7251982876157547732}
   - component: {fileID: 215397816088012381}
-  - component: {fileID: 3739717203950560792}
+  - component: {fileID: 6525228412005272768}
   m_Layer: 10
   m_Name: Knight
   m_TagString: Player
@@ -557,19 +556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterController: {fileID: 4750217481742948329}
-  Inventory: {fileID: 3739717203950560792}
---- !u!114 &-2749102604555245186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1035191777775609837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3999716aeee9eb44e99cdea6bf56a6b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  Inventory: {fileID: 0}
 --- !u!114 &6938020302638326640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,7 +574,7 @@ MonoBehaviour:
   Health: {fileID: 4316278951418922656}
   Stats: {fileID: 7251982876157547732}
   Death: {fileID: -8657678887426120790}
-  Inventory: {fileID: 3739717203950560792}
+  Inventory: {fileID: 6525228412005272768}
 --- !u!114 &6527269230052745049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,11 +651,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _storeObserver: {fileID: 8122468235632385423}
-  _inventory: {fileID: 3739717203950560792}
+  _inventory: {fileID: 6525228412005272768}
   _balance:
     _currentMoney: 0
   _store: {fileID: 0}
---- !u!114 &3739717203950560792
+--- !u!114 &6525228412005272768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -677,7 +664,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1035191777775609837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beb62b3d5945dae4099ba45238cec7d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 3999716aeee9eb44e99cdea6bf56a6b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playerBehaviour: {fileID: 6938020302638326640}

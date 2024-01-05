@@ -1,5 +1,5 @@
 ﻿using Scripts.GameMechanic.ItemSystem;
-using Scripts.SaveData.Storage;
+using Scripts.SaveData.StorageData;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Logic
 {

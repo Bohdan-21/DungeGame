@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace Scripts.SaveData.Storage
+namespace Scripts.SaveData.StorageData
 {
     [Serializable]
     public class ItemCount
@@ -14,14 +14,10 @@ namespace Scripts.SaveData.Storage
             _itemCountData = new ItemCountData(itemType, count);
         }
 
-        /// <summary>
-        /// For Save/Load System
-        /// </summary>
-        /// <param name="itemCount"></param>
         public ItemCount(ItemCount itemCount)
         {
-            _itemCountData.TypeItem = itemCount._itemCountData.TypeItem;
-            _itemCountData.Count = itemCount._itemCountData.Count;
+            _itemCountData = new ItemCountData(itemCount._itemCountData.TypeItem,
+                                               itemCount._itemCountData.Count);
         }
 
         public TypeItem GetItemType() =>

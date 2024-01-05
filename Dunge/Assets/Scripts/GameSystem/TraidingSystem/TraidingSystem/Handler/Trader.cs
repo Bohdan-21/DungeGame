@@ -2,7 +2,7 @@
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
 using Scripts.Logic;
 using Scripts.Player;
-using Scripts.SaveData.Storage;
+using Scripts.SaveData.StorageData;
 using Scripts.Services.InputService;
 using Scripts.StaticData.ControlButton;
 using Scripts.UI.Interaction;
@@ -17,7 +17,7 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler
 
         [SerializeField] private TriggerObserver _storeObserver;
 
-        [SerializeField] private Inventory _inventory;
+        [SerializeField] private PlayerInventory _inventory;
         [SerializeField] private Balance _balance;
 
         [SerializeField] private Store _store;

@@ -1,4 +1,4 @@
-﻿using Scripts.SaveData.Storage;
+﻿using Scripts.SaveData.StorageData;
 using UnityEngine;
 using TMPro;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
