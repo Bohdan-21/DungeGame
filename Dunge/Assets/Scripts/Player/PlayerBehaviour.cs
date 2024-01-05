@@ -16,10 +16,10 @@ namespace Scripts.Player
     {
         public PlayerSkillTreeHandler SkillTreeHandler;
         public PlayerExperienceHandler Experience;
-        public PlayerInventory Inventory;
         public PlayerHealth Health;
         public PlayerStatsHandler Stats;
         public PlayerDeath Death;
+        public Inventory Inventory;
 
         [Inject]
         private void Construct(LevelSettings levelSettings)

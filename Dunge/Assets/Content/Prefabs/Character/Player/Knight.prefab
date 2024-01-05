@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterController: {fileID: 4750217481742948329}
-  Inventory: {fileID: -2749102604555245186}
+  Inventory: {fileID: 3739717203950560792}
 --- !u!114 &-2749102604555245186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,10 +584,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillTreeHandler: {fileID: 7078366531059548582}
   Experience: {fileID: 4826398563692861759}
-  Inventory: {fileID: -2749102604555245186}
   Health: {fileID: 4316278951418922656}
   Stats: {fileID: 7251982876157547732}
   Death: {fileID: -8657678887426120790}
+  Inventory: {fileID: 3739717203950560792}
 --- !u!114 &6527269230052745049
 MonoBehaviour:
   m_ObjectHideFlags: 0

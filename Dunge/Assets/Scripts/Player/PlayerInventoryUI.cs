@@ -18,23 +18,23 @@ namespace Scripts.Player
         private KeyCode UseSecondItemButton;
         private KeyCode UseThirdItemButton;
 
-        private const string NameSmallHealth = "SMALL";
-        private const string NameMiddleHealth = "MIDDLE";
-        private const string NameLargeHealth = "LARGE";
+        private const string NameSmallHealth = "SMALL_HEAL";
+        private const string NameMiddleHealth = "MIDDLE_HEAL";
+        private const string NameLargeHealth = "LARGE_HEAL";
         
         public List<ItemUpdater> ItemUpdaters;
         
-        private PlayerInventory Inventory;
+        private Inventory _inventory;
         private IInputService _inputService;
         private IInteruptService _interuptService;
 
         private bool _isInterupt;
         
         [Inject]
-        private void Construct(PlayerBehaviour player, IInputService inputService, IInteruptService interuptService,
+        private void Construct(PlayerBehaviour playerBehaviour, IInputService inputService, IInteruptService interuptService,
                                ControlButtons controlButtons)
         {
-            Inventory = player.Inventory;
+            _inventory = playerBehaviour.Inventory;
             _inputService = inputService;
             _interuptService = interuptService;
 
@@ -47,7 +47,7 @@ namespace Scripts.Player
         {
             _isInterupt = false;
 
-            Inventory.UpdateInventory += InventoryUpdateUI;
+            _inventory.UpdateInventory += InventoryUpdateUI;
             _interuptService.AddInteruptHandler(this);
 
             InventoryUpdateUI();
@@ -55,7 +55,7 @@ namespace Scripts.Player
 
         private void OnDestroy()
         {
-            Inventory.UpdateInventory -= InventoryUpdateUI;
+            _inventory.UpdateInventory -= InventoryUpdateUI;
 
             _interuptService.RemoveInteruptHandler(this);
         }
@@ -77,17 +77,17 @@ namespace Scripts.Player
                 return;
 
             if (value == TypeItem.SMALL_HEAL.ToString())
-                Inventory.Use(TypeItem.SMALL_HEAL);
+                _inventory.Use(TypeItem.SMALL_HEAL);
             else if (value == TypeItem.MIDDLE_HEAL.ToString()) 
-                Inventory.Use(TypeItem.MIDDLE_HEAL);
+                _inventory.Use(TypeItem.MIDDLE_HEAL);
             else if (value == TypeItem.LARGE_HEAL.ToString())
-                Inventory.Use(TypeItem.LARGE_HEAL);
+                _inventory.Use(TypeItem.LARGE_HEAL);
         }
 
         private void InventoryUpdateUI()
         {
             foreach(ItemUpdater itemUpdater in ItemUpdaters)
-                itemUpdater.UpdateCount(Inventory.GetCount(itemUpdater.TypeItem));
+                itemUpdater.UpdateCount(_inventory.GetItemCount(itemUpdater.TypeItem));
         }
 
         public void Interupt() =>

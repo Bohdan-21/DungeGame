@@ -133,7 +133,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: LARGE
+          m_StringArgument: LARGE_HEAL
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &753367216373604370
@@ -283,7 +283,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MIDDLE
+          m_StringArgument: MIDDLE_HEAL
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &5443987390571877697
@@ -1432,7 +1432,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SMALL
+          m_StringArgument: SMALL_HEAL
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &821834741590963780

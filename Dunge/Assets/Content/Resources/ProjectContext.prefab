@@ -91,3 +91,4 @@ MonoBehaviour:
   staticDataFromStatToAtrribute: {fileID: 11400000, guid: 75cfa9cba9d52e846a2bb62a23468e4f, type: 2}
   staticDataFromAttributeToSkill: {fileID: 11400000, guid: 240dcab26386e544f8c76148006f75a1, type: 2}
   NPCStaticData: {fileID: 11400000, guid: 4357c7234dd97a543b84caf2e674cabf, type: 2}
+  ItemsStaticData: {fileID: 11400000, guid: 10c7f18aa59ce054a9e5d072a45ce02e, type: 2}

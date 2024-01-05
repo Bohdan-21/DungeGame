@@ -11,6 +11,7 @@ using Scripts.StaticData.ControlButton;
 using Scripts.StaticData.EnemyStaticData;
 using Scripts.StaticData.EnumLinks;
 using Scripts.StaticData.GameStaticData;
+using Scripts.StaticData.ItemStaticData;
 using Scripts.StaticData.NPCStaticData;
 using Scripts.StaticData.PlayerStaticData;
 using Scripts.StaticData.ProjectGlobalSettings;
@@ -48,6 +49,7 @@ namespace Scripts.Installer
 
         public NPCStaticData NPCStaticData;
 
+        public ItemCollection ItemsStaticData;
 
         public override void InstallBindings()
         {
@@ -102,6 +104,8 @@ namespace Scripts.Installer
             Container.Bind<ListEnumLinksFromAttributeToSkill>().FromInstance(staticDataFromAttributeToSkill).AsSingle();
 
             Container.Bind<NPCStaticData>().FromInstance(NPCStaticData).AsSingle();
+
+            Container.Bind<ItemCollection>().FromInstance(ItemsStaticData).AsSingle();
         }
 
         private void BindSceneLoader()
