@@ -1,4 +1,4 @@
-﻿using Scripts.GameMechanic.Item;
+﻿using Scripts.GameMechanic.ItemSystem;
 using Scripts.Infrastructure.Audio;
 using Scripts.Logic;
 using Scripts.SaveData;
@@ -30,7 +30,7 @@ namespace Scripts.Player
             progressService.AddProgressUpdater(this);
         }
 
-        public void AddItem(Item item)
+        public void AddItem(ItemMarker item)
         {
             if (_storage.TryGetValue(item.TypeItem, out int count))
                 _storage[item.TypeItem] = count + 1;

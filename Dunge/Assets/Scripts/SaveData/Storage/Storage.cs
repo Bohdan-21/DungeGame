@@ -1,4 +1,4 @@
-﻿using Scripts.GameMechanic.Item;
+﻿using Scripts.GameMechanic.ItemSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;

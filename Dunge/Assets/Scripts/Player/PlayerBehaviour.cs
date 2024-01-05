@@ -12,7 +12,7 @@ using Zenject;
 
 namespace Scripts.Player
 {
-    class PlayerBehaviour : MonoBehaviour
+    public class PlayerBehaviour : MonoBehaviour
     {
         public PlayerSkillTreeHandler SkillTreeHandler;
         public PlayerExperienceHandler Experience;

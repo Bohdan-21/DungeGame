@@ -1,4 +1,4 @@
-﻿using Scripts.GameMechanic.Item;
+﻿using Scripts.GameMechanic.ItemSystem;
 using System;
 using System.Collections.Generic;
 
@@ -14,14 +14,14 @@ namespace Scripts.SaveData
 
         public Inventory()
         {
-            StorageTypeItem = new List<TypeItem>() { TypeItem.SMALL, TypeItem.MIDDLE, TypeItem.LARGE };
+            StorageTypeItem = new List<TypeItem>() { TypeItem.SMALL_HEAL, TypeItem.MIDDLE_HEAL, TypeItem.LARGE_HEAL };
             StorageCountItem = new List<int>() { 0, 0, 0 };
 
             Storage = new Dictionary<TypeItem, int>();
 
-            Storage.Add(TypeItem.SMALL, 0);
-            Storage.Add(TypeItem.MIDDLE, 0);
-            Storage.Add(TypeItem.LARGE, 0);
+            Storage.Add(TypeItem.SMALL_HEAL, 0);
+            Storage.Add(TypeItem.MIDDLE_HEAL, 0);
+            Storage.Add(TypeItem.LARGE_HEAL, 0);
         }
 
         public Inventory(Inventory inventory)

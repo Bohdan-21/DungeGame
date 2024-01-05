@@ -1,4 +1,4 @@
-﻿using Scripts.GameMechanic.Item;
+﻿using Scripts.GameMechanic.ItemSystem;
 using Scripts.Infrastructure.Audio;
 using System;
 using System.Collections.Generic;
@@ -46,7 +46,7 @@ namespace Scripts.Player
         {
             for (int i = 0; i < itemAmount; i++)
             {
-                Item item = _findItems[i].GetComponent<Item>();
+                ItemMarker item = _findItems[i].GetComponent<ItemMarker>();
 
                 Inventory.AddItem(item);
                 PlaySound();

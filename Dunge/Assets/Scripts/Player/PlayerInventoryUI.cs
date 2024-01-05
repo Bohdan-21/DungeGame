@@ -1,4 +1,4 @@
-﻿using Scripts.GameMechanic.Item;
+﻿using Scripts.GameMechanic.ItemSystem;
 using Scripts.Services.InputService;
 using Scripts.Services.InteruptService;
 using Scripts.StaticData.ControlButton;
@@ -76,12 +76,12 @@ namespace Scripts.Player
             if (_isInterupt)
                 return;
 
-            if (value == TypeItem.SMALL.ToString())
-                Inventory.Use(TypeItem.SMALL);
-            else if (value == TypeItem.MIDDLE.ToString()) 
-                Inventory.Use(TypeItem.MIDDLE);
-            else if (value == TypeItem.LARGE.ToString())
-                Inventory.Use(TypeItem.LARGE);
+            if (value == TypeItem.SMALL_HEAL.ToString())
+                Inventory.Use(TypeItem.SMALL_HEAL);
+            else if (value == TypeItem.MIDDLE_HEAL.ToString()) 
+                Inventory.Use(TypeItem.MIDDLE_HEAL);
+            else if (value == TypeItem.LARGE_HEAL.ToString())
+                Inventory.Use(TypeItem.LARGE_HEAL);
         }
 
         private void InventoryUpdateUI()

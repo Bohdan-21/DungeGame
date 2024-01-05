@@ -3,7 +3,7 @@ using TMPro;
 using System;
 using Scripts.SaveData.Storage;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler;
-using Scripts.GameMechanic.Item;
+using Scripts.GameMechanic.ItemSystem;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade
 {

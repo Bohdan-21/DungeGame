@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 using TMPro;
-using Scripts.GameMechanic.Item;
+using Scripts.GameMechanic.ItemSystem;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade
 {

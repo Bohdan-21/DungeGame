@@ -1,13 +1,11 @@
 ﻿using Scripts.SaveData.Storage;
 using UnityEngine;
 
-namespace Scripts.GameMechanic.Item
+namespace Scripts.GameMechanic.ItemSystem
 {
-    public class Item : MonoBehaviour
+    public class ItemMarker : MonoBehaviour
     {
-        //TODO: remove enum
         public TypeItem TypeItem;
-        public ItemCountData ItemCountData;
 
         public void PickUp()
         {

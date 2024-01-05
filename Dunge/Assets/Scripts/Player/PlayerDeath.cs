@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Scripts.Player
 {
-    class PlayerDeath : MonoBehaviour
+    public class PlayerDeath : MonoBehaviour
     {
         [SerializeField] PlayerAnimator PlayerAnimator;
         [SerializeField] PlayerHealth PlayerHealth;

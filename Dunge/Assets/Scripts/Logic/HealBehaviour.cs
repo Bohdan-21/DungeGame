@@ -1,4 +1,4 @@
-﻿using Scripts.GameMechanic.Item;
+﻿using Scripts.GameMechanic.ItemSystem;
 using Scripts.Player;
 
 namespace Scripts.Logic
@@ -9,13 +9,13 @@ namespace Scripts.Logic
         {
             switch (typeItem)
             {
-                case TypeItem.SMALL:
+                case TypeItem.SMALL_HEAL:
                     health.Heal(25);
                     break;
-                case TypeItem.MIDDLE:
+                case TypeItem.MIDDLE_HEAL:
                     health.Heal(50);
                     break;
-                case TypeItem.LARGE:
+                case TypeItem.LARGE_HEAL:
                     health.Heal(100);
                     break;
             }

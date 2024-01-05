@@ -1,4 +1,4 @@
-﻿using Scripts.GameMechanic.Item;
+﻿using Scripts.GameMechanic.ItemSystem;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.Logic;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell;

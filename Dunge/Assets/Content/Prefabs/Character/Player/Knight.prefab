@@ -666,7 +666,7 @@ MonoBehaviour:
   _storeObserver: {fileID: 8122468235632385423}
   _inventory: {fileID: 3739717203950560792}
   _balance:
-    _currentMoney: 1000
+    _currentMoney: 0
   _store: {fileID: 0}
 --- !u!114 &3739717203950560792
 MonoBehaviour:
@@ -680,6 +680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beb62b3d5945dae4099ba45238cec7d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerBehaviour: {fileID: 6938020302638326640}
   _storage:
     items: []
 --- !u!1 &1126853751888244286
