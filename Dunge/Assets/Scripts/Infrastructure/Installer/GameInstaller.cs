@@ -18,6 +18,7 @@ using Scripts.StaticData.Dialog.Setup;
 using Scripts.StaticData.EnumLinks;
 using Scripts.StaticData.QuestStaticData;
 using Scripts.StaticData.QuestStaticData.Setup;
+using Scripts.UI.GameUI.UIHandler;
 using Scripts.UI.Interaction;
 using Scripts.UI.NameLocation;
 using System;
@@ -39,6 +40,7 @@ public class GameInstaller : MonoInstaller
     
     public override void InstallBindings()
     {
+        BindUIHandler();
         BindAudioSetup();
         BindGameFactory();
         BindQuestSystem();
@@ -48,6 +50,11 @@ public class GameInstaller : MonoInstaller
         BindLevelSettings();
         BindInteruptService();
         BindGameStateMachine();
+    }
+
+    private void BindUIHandler()
+    {
+        Container.Bind<GUIHandler>().FromNew().AsSingle();
     }
 
     private void BindAudioSetup()

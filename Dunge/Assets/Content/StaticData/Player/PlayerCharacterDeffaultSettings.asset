@@ -18,9 +18,17 @@ MonoBehaviour:
   State:
     CurrentHP: 100
     MaxHP: 100
-  Inventory:
-    StorageCountItem: 000000000000000000000000
-    StorageTypeItem: 010000000200000003000000
+  Storage:
+    items:
+    - _itemCountData:
+        TypeItem: 1
+        Count: 5
+    - _itemCountData:
+        TypeItem: 2
+        Count: 2
+    - _itemCountData:
+        TypeItem: 3
+        Count: 1
   SkillTreeData:
     skills:
     - SkillType: 0

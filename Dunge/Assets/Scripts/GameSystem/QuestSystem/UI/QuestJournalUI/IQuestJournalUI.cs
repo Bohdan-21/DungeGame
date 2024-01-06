@@ -1,6 +1,8 @@
-﻿namespace Scripts.GameSystem.QuestSystem.UI.QuestJournal
+﻿using Scripts.UI.GameUI.UIHandler;
+
+namespace Scripts.GameSystem.QuestSystem.UI.QuestJournal
 {
-    interface IQuestJournalUI
+    interface IQuestJournalUI : UIMarker
     {
         void Hide();
         void Show();
