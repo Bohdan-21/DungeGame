@@ -1,0 +1,15 @@
+//даннный класс является прототипом обработчика взаимодействий, который на вход получает список
+//типов взаимодействия и когда пользователь нажимает на кнопку для взаимодействия он должен используя 
+//вспомогательный UI компонент отобразить список доступных игроку взаимодействий, или же активировать
+//взаимодействия если все доступный один тип взаимодействия.
+public class InteractionHandler
+{
+	private Dictionry<Type, ISystemHandler> _systemHandlers;
+	
+	[Inject]
+	private void Construct(traidingSystem, dialogSystem)  {}
+	
+	public void AddTypeInteraction(typeInteraction)	{}
+	
+	public void RemoveTypeInteraction(typeInteraction)	{}	
+}
