@@ -1,8 +1,5 @@
-﻿using Scripts.GameSystem.TraidingSystem.BalanceSubsystem;
-using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
+﻿using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
 using Scripts.Logic;
-using Scripts.Player;
-using Scripts.SaveData.StorageData;
 using Scripts.Services.InputService;
 using Scripts.StaticData.ControlButton;
 using Scripts.UI.Interaction;
@@ -11,15 +8,13 @@ using Zenject;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler
 {
-    public class TradingInteraction : MonoBehaviour, ITradingHandler
+    public class TradingInteraction : MonoBehaviour
     {
         private const string NPCLayerName = "NPC";
 
         [SerializeField] private TriggerObserver _storeObserver;
 
-        [SerializeField] private PlayerInventory _inventory;
-        [SerializeField] private Balance _balance;
-
+        [SerializeField] private Trader _trader;
         [SerializeField] private Store _store;
 
         private IInteractionPanel _interactionPanel;
@@ -72,13 +67,6 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler
         }
 
 
-
-        public Storage GetStorage() =>
-            _inventory.GetStorage();
-
-        public Balance GetBalance() =>
-            _balance;
-
         private void Update()
         {
             if (_inputService.IsPress(_interactionButton) && _store != null)
@@ -86,7 +74,7 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler
                 _isShow = !_isShow;
 
                 if (_isShow)
-                    _traiderUI.Show(this, _store);
+                    _traiderUI.Show(_trader, _store);
                 else
                     _traiderUI.Hide();
             }
