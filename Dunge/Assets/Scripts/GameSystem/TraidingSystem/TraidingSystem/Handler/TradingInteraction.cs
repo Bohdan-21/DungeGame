@@ -11,7 +11,7 @@ using Zenject;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler
 {
-    public class Trader : MonoBehaviour, ITradingHandler
+    public class TradingInteraction : MonoBehaviour, ITradingHandler
     {
         private const string NPCLayerName = "NPC";
 
