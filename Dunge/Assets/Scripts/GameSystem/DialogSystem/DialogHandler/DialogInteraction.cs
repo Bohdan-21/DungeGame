@@ -70,8 +70,8 @@ namespace Scripts.GameSystem.DialogSystem.DialogHandler
         {
             if (_dialogQueueHandler != null)
             {
-                //if (_inputService.IsPress(InteractionButton))
-                //    _dialogController.StartDialog(_dialogQueueHandler.GetDefaultDialog());
+                if (_inputService.IsPress(InteractionButton))
+                    _dialogController.StartDialog(_dialogQueueHandler.GetDefaultDialog());
             }
         }
     }
