@@ -40,7 +40,7 @@ public class GameInstaller : MonoInstaller
     
     public override void InstallBindings()
     {
-        BindUIHandler();
+        //BindUIHandler();
         BindAudioSetup();
         BindGameFactory();
         BindQuestSystem();
@@ -54,7 +54,7 @@ public class GameInstaller : MonoInstaller
 
     private void BindUIHandler()
     {
-        Container.Bind<GUIHandler>().FromNew().AsSingle();
+        Container.Bind(typeof(GUIHandler), typeof(ITickable)).To<GUIHandler>().FromNew().AsSingle();
     }
 
     private void BindAudioSetup()

@@ -1,16 +1,13 @@
 ﻿using Scripts.GameSystem.DialogSystem.Logic.UIController;
 using Scripts.GameSystem.QuestSystem.UI.QuestJournal;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
+using UnityEngine;
 using Zenject;
 
 namespace Scripts.UI.GameUI.UIHandler
 {
-    public class GUIHandler
+    public class GUIHandler : ITickable
     {
-        
-
-
-
 
 
         [Inject]
@@ -19,5 +16,9 @@ namespace Scripts.UI.GameUI.UIHandler
 
         }
 
+        public void Tick()
+        {
+            
+        }
     }
 }
