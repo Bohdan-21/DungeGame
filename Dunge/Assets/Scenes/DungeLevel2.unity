@@ -6264,7 +6264,7 @@ MonoBehaviour:
   audioSetupForGame: {fileID: 11400000, guid: 1bcf065aebe364943a27740619a12ac4, type: 2}
   dialogSetupSystem: {fileID: 11400000, guid: 1a32fafad4a9bf546885c483cae2e38f, type: 2}
   questSetup: {fileID: 11400000, guid: 763e9e8446d06674f868134ed9abaf9a, type: 2}
-  TradingSystemUI: {fileID: 1314281256353565283, guid: 4f5316b4c4fde9f43a808bc2e4466002, type: 3}
+  TradingSystemUI: {fileID: 7647462791770371591, guid: fe7f28bb314c8f44fb75314860a7fb13, type: 3}
   LocationNameUI: {fileID: 2850048649309516018, guid: 577afe1f7b651f0438d4e114d3b012db, type: 3}
   LevelSettings: {fileID: 8685120348168477990}
 --- !u!1001 &200767405
