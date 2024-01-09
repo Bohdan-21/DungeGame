@@ -64,6 +64,8 @@ namespace Scripts.Infrastructure.Factory
             Instantiate(_gameStaticData.PlayerStatsUI);
 
             Instantiate(_gameStaticData.PlayerExperienceTrackerUI);
+
+            Instantiate(_gameStaticData.PlayerBalanceUI);
         }
 
         private void CreateMonster()

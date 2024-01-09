@@ -1,6 +1,7 @@
 ﻿using Scripts.GameSystem.ExperienceSystem.Handler;
 using Scripts.GameSystem.SkillTreeSystem.Handler;
 using Scripts.GameSystem.StatsSystem.Handler;
+using Scripts.GameSystem.TraidingSystem.BalanceSubsystem.Handler;
 using Scripts.Level;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace Scripts.Player
         public PlayerHealth Health;
         public PlayerStatsHandler Stats;
         public PlayerDeath Death;
+        public PlayerBalance Balance;
         public PlayerInventory Inventory;
 
         [Inject]

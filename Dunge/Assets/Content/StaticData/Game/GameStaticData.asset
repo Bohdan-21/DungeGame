@@ -21,3 +21,4 @@ MonoBehaviour:
   SkillTreeUI: {fileID: 6130911435908548123, guid: 7bc078210154d7243ae0ba0b97fa51e5, type: 3}
   PlayerStatsUI: {fileID: 113371788048130855, guid: 96edbfb976084e84a8164871c6767071, type: 3}
   PlayerExperienceTrackerUI: {fileID: 2565927429772731819, guid: 7a515548d843ee1478b8c5b0c85f4954, type: 3}
+  PlayerBalanceUI: {fileID: 8105876634196308735, guid: 28b550b483b10c84db1c29968ae3839d, type: 3}

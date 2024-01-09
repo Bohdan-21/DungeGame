@@ -22,5 +22,7 @@ namespace Scripts.StaticData.GameStaticData
         public GameObject PlayerStatsUI;
 
         public GameObject PlayerExperienceTrackerUI;
+
+        public GameObject PlayerBalanceUI;
     }
 }

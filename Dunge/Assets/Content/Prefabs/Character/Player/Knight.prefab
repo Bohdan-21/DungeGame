@@ -576,6 +576,7 @@ MonoBehaviour:
   Health: {fileID: 4316278951418922656}
   Stats: {fileID: 7251982876157547732}
   Death: {fileID: -8657678887426120790}
+  Balance: {fileID: 6357488984022323064}
   Inventory: {fileID: 6525228412005272768}
 --- !u!114 &6527269230052745049
 MonoBehaviour:

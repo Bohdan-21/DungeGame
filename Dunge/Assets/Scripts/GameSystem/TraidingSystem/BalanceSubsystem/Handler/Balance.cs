@@ -12,10 +12,10 @@ namespace Scripts.GameSystem.TraidingSystem.BalanceSubsystem.Handler
     {
         [SerializeField] protected MoneyData _moneyData;
 
-        public void Reimburse(int money) =>
+        public virtual void Reimburse(int money) =>
             _moneyData.currentMoney += money;
 
-        public void Pay(int money) =>
+        public virtual void Pay(int money) =>
             _moneyData.currentMoney -= money;
 
         public bool CanPay(int money) =>
