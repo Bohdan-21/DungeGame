@@ -1468,6 +1468,7 @@ GameObject:
   - component: {fileID: -6742503615376998004}
   - component: {fileID: 1102947066064057920}
   - component: {fileID: 4723108538842488289}
+  - component: {fileID: 8193002352828075601}
   m_Layer: 13
   m_Name: Mage
   m_TagString: Untagged
@@ -1560,13 +1561,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _storage:
     items: []
-  _balance:
-    _currentMoney: 0
+  _balance: {fileID: 8193002352828075601}
   _availableGoods: {fileID: 11400000, guid: 1e0b74e3819f352408e258ab251db568, type: 2}
   _delayTimeForUpdateGoods: 60
   _leftTime: 0
   _timeForWait: 1
   _maxMoneyInStoreBalance: 300
+--- !u!114 &8193002352828075601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5388346511425891392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91807bae5202cf24c879f56d89f9b211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneyData:
+    currentMoney: 0
 --- !u!1 &5420537838106338707
 GameObject:
   m_ObjectHideFlags: 0

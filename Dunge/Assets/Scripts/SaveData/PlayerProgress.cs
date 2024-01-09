@@ -1,4 +1,5 @@
 using Scripts.SaveData.Experience;
+using Scripts.SaveData.Money;
 using Scripts.SaveData.SkillTree;
 using Scripts.SaveData.Stats;
 using Scripts.SaveData.StorageData;
@@ -11,6 +12,7 @@ namespace Scripts.SaveData
     {
         public LevelData LevelData;
         public PlayerState State;
+        public MoneyData PlayerMoney;
         public Storage Storage;
         public PlayerSkillTreeData SkillTreeData;
         public PlayerExperienceData ExperienceData;
@@ -22,6 +24,7 @@ namespace Scripts.SaveData
         {
             LevelData = new LevelData();
             State = new PlayerState();
+            PlayerMoney = new MoneyData();
             Storage = new Storage();
             SkillTreeData = new PlayerSkillTreeData();
             ExperienceData = new PlayerExperienceData();
@@ -29,12 +32,14 @@ namespace Scripts.SaveData
             ActiveQuestList = new ActiveQuestList();
         }
 
-        public PlayerProgress(LevelData levelData, PlayerState state, Storage storage, PlayerSkillTreeData skillTreeData,
+        public PlayerProgress(LevelData levelData, PlayerState state, MoneyData playerMoney, Storage storage, PlayerSkillTreeData skillTreeData,
                               StatsContainer playerStatsContainer, PlayerExperienceData experienceData)
         {
             LevelData = new LevelData(levelData.CurrentDungeLevel, levelData.MaxReachedDungeLevel);
 
             State = new PlayerState(state.CurrentHP, state.MaxHP);
+
+            PlayerMoney = new MoneyData(playerMoney);
 
             Storage = new Storage(storage);
 

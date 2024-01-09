@@ -34,6 +34,7 @@ namespace Scripts.Infrastructure.StateMachine.MenuStateMachine
         {
             _playerProgressService.PlayerProgress = new PlayerProgress(_playerCharacterDeffaultSettings.LevelData,
                                                                        _playerCharacterDeffaultSettings.State,
+                                                                       _playerCharacterDeffaultSettings.PlayerMoney,
                                                                        _playerCharacterDeffaultSettings.Storage,
                                                                        _playerCharacterDeffaultSettings.SkillTreeData,
                                                                        _playerCharacterDeffaultSettings.PlayerStatsContainer,

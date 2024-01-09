@@ -18,6 +18,8 @@ MonoBehaviour:
   State:
     CurrentHP: 100
     MaxHP: 100
+  PlayerMoney:
+    currentMoney: 0
   Storage:
     items:
     - _itemCountData:

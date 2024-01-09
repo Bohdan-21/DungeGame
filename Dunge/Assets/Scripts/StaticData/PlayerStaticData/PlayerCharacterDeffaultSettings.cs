@@ -1,5 +1,6 @@
 using Scripts.SaveData;
 using Scripts.SaveData.Experience;
+using Scripts.SaveData.Money;
 using Scripts.SaveData.SkillTree;
 using Scripts.SaveData.Stats;
 using Scripts.SaveData.StorageData;
@@ -14,6 +15,7 @@ namespace Scripts.StaticData.PlayerStaticData
     {
         public LevelData LevelData;
         public PlayerState State;
+        public MoneyData PlayerMoney;
         public Storage Storage;
         public PlayerSkillTreeData SkillTreeData;
         public PlayerExperienceData ExperienceData;
