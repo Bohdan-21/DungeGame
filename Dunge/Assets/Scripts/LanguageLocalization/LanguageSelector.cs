@@ -1,0 +1,29 @@
+﻿using Scripts.LanguageLocalization;
+using Scripts.LanguageLocalization.Service;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
+using Zenject;
+
+namespace Assets.Scripts.LanguageLocalization
+{
+    class LanguageSelector : MonoBehaviour
+    {
+        private ILanguageSettings _languageSettings;
+
+        [Inject]
+        private void Construct(ILanguageSettings languageSettings) =>
+            _languageSettings = languageSettings;
+
+        public void UpdateLanguage(string language)
+        {
+            if (language == Language.RU.ToString())
+                _languageSettings.UpdateLanguage(Language.RU);
+            else if (language == Language.ENG.ToString())
+                _languageSettings.UpdateLanguage(Language.ENG);
+        }
+    }
+}

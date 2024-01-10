@@ -1,4 +1,3 @@
-using Scripts.GameLanguage;
 using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.SceneLoader;
 using Scripts.Infrastructure.StateMachine;
@@ -20,6 +19,7 @@ using Scripts.UI.Settings;
 using System;
 using UnityEngine;
 using Zenject;
+using Scripts.LanguageLocalization.Service;
 
 namespace Scripts.Installer
 {

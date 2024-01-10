@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 318335657334799602}
   - component: {fileID: 1725438841352043141}
   - component: {fileID: 637106100984769565}
+  - component: {fileID: 1651544443422739656}
   m_Layer: 5
   m_Name: BackgroundForPanelName (1)
   m_TagString: Untagged
@@ -231,6 +232,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1651544443422739656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2405761620221952256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74fa584317134d4492c60b5b52f2ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textForLocalization: {fileID: 4033700456410798637}
+  _localizationData:
+    _localizations:
+    - language: 0
+      text: "\u0410\u0442\u0440\u0438\u0431\u0443\u0442\u044B"
+    - language: 1
+      text: Attribute
 --- !u!1 &4033700456286297745
 GameObject:
   m_ObjectHideFlags: 0
@@ -2621,6 +2641,7 @@ GameObject:
   - component: {fileID: 5970406760371404841}
   - component: {fileID: 7139347183082867168}
   - component: {fileID: 3716751313868181749}
+  - component: {fileID: 5456000602078448504}
   m_Layer: 5
   m_Name: BackgroundForCountSkillPoint
   m_TagString: Untagged
@@ -2688,6 +2709,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5456000602078448504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5931597456076212722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74fa584317134d4492c60b5b52f2ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textForLocalization: {fileID: 4033700457610916271}
+  _localizationData:
+    _localizations:
+    - language: 0
+      text: "\u041E\u0447\u043A\u0438 \u0425\u0430\u0440\u0430\u043A\u0442\u0435\u0440\u0438\u0441\u0442\u0438\u043A:"
+    - language: 1
+      text: 'SKILL Point:'
 --- !u!1 &7909558766489586687
 GameObject:
   m_ObjectHideFlags: 0
@@ -2969,6 +3009,7 @@ GameObject:
   - component: {fileID: 7909558766710390296}
   - component: {fileID: 7909558766710390302}
   - component: {fileID: 7909558766710390297}
+  - component: {fileID: 9045152469756840649}
   m_Layer: 5
   m_Name: NeedExperienceForLevelUpLabel
   m_TagString: Untagged
@@ -3093,6 +3134,25 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &9045152469756840649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7909558766710390299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74fa584317134d4492c60b5b52f2ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textForLocalization: {fileID: 7909558766710390297}
+  _localizationData:
+    _localizations:
+    - language: 0
+      text: "\u041D\u0443\u0436\u043D\u043E \u041E\u043F\u044B\u0442\u0430:"
+    - language: 1
+      text: 'Need Experience: '
 --- !u!1 &7909558766781605208
 GameObject:
   m_ObjectHideFlags: 0
@@ -3186,6 +3246,7 @@ GameObject:
   - component: {fileID: 7909558766815342866}
   - component: {fileID: 7909558766815342864}
   - component: {fileID: 7909558766815342867}
+  - component: {fileID: 7019484351592575375}
   m_Layer: 5
   m_Name: CurrentLevelLabel
   m_TagString: Untagged
@@ -3310,6 +3371,25 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7019484351592575375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7909558766815342861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74fa584317134d4492c60b5b52f2ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textForLocalization: {fileID: 7909558766815342867}
+  _localizationData:
+    _localizations:
+    - language: 0
+      text: "\u0422\u0435\u043A\u0443\u0449\u0438\u0439 \u0423\u0440\u043E\u0432\u0435\u043D\u044C:"
+    - language: 1
+      text: 'Current Level:'
 --- !u!1 &7909558766854679139
 GameObject:
   m_ObjectHideFlags: 0
@@ -3456,6 +3536,7 @@ GameObject:
   - component: {fileID: 7909558767329497720}
   - component: {fileID: 7909558767329497726}
   - component: {fileID: 7909558767329497721}
+  - component: {fileID: 1044931096638305535}
   m_Layer: 5
   m_Name: CurrentPlayerExperienceLabel
   m_TagString: Untagged
@@ -3580,6 +3661,25 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1044931096638305535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7909558767329497723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74fa584317134d4492c60b5b52f2ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textForLocalization: {fileID: 7909558767329497721}
+  _localizationData:
+    _localizations:
+    - language: 0
+      text: "\u0422\u0435\u043A\u0443\u0449\u0438\u0439 \u041E\u043F\u044B\u0442:"
+    - language: 1
+      text: 'Current Experience:'
 --- !u!1 &7909558767391385316
 GameObject:
   m_ObjectHideFlags: 0
@@ -3591,6 +3691,7 @@ GameObject:
   - component: {fileID: 7909558767391385317}
   - component: {fileID: 7909558767391385323}
   - component: {fileID: 7909558767391385322}
+  - component: {fileID: 1744216857599830967}
   m_Layer: 5
   m_Name: BackgroundForLabel
   m_TagString: Untagged
@@ -3657,6 +3758,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1744216857599830967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7909558767391385316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74fa584317134d4492c60b5b52f2ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textForLocalization: {fileID: 7909558766489586685}
+  _localizationData:
+    _localizations:
+    - language: 0
+      text: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C \u0418\u0433\u0440\u043E\u043A\u0430"
+    - language: 1
+      text: Player Level
 --- !u!1 &7909558767396329692
 GameObject:
   m_ObjectHideFlags: 0
@@ -3898,6 +4018,7 @@ GameObject:
   - component: {fileID: 6406035896737577353}
   - component: {fileID: 255796605556253529}
   - component: {fileID: 7035284357251161235}
+  - component: {fileID: 43788681196749599}
   m_Layer: 5
   m_Name: BackgroundForCountSkillPoint (1)
   m_TagString: Untagged
@@ -3965,6 +4086,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &43788681196749599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8540567278849618644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74fa584317134d4492c60b5b52f2ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textForLocalization: {fileID: 4033700457763648048}
+  _localizationData:
+    _localizations:
+    - language: 0
+      text: "\u041E\u0447\u043A\u0438 \u0410\u0442\u0440\u0438\u0431\u0443\u0442\u043E\u0432:"
+    - language: 1
+      text: 'Attribute point:'
 --- !u!1 &8663674830847316259
 GameObject:
   m_ObjectHideFlags: 0
@@ -3976,6 +4116,7 @@ GameObject:
   - component: {fileID: 8329601167884497049}
   - component: {fileID: 3980032350894791709}
   - component: {fileID: 7796840909847767710}
+  - component: {fileID: 2247742764700306297}
   m_Layer: 5
   m_Name: BackgroundForPanelName
   m_TagString: Untagged
@@ -4042,3 +4183,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2247742764700306297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8663674830847316259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74fa584317134d4492c60b5b52f2ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textForLocalization: {fileID: 4033700458129384402}
+  _localizationData:
+    _localizations:
+    - language: 0
+      text: "\u0425\u0410\u0420\u0410\u041A\u0422\u0415\u0420\u0418\u0421\u0422\u0418\u041A\u0418"
+    - language: 1
+      text: SKILL

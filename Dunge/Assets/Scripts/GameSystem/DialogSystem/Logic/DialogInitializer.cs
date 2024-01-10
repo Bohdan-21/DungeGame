@@ -1,4 +1,4 @@
-﻿using Scripts.GameLanguage;
+﻿using Scripts.LanguageLocalization.Service;
 using Scripts.StaticData.Dialog;
 using Zenject;
 

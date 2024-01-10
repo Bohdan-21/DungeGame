@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 1568130889216166565}
   - component: {fileID: 1568130889216166571}
   - component: {fileID: 1568130889216166564}
+  - component: {fileID: 2938820036603297544}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -326,3 +327,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2938820036603297544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568130889216166566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74fa584317134d4492c60b5b52f2ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textForLocalization: {fileID: 1568130888139701123}
+  _localizationData:
+    _localizations:
+    - language: 0
+      text: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 F"
+    - language: 1
+      text: Press F

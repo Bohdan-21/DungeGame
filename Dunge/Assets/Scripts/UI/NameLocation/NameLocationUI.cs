@@ -1,10 +1,10 @@
 using UnityEngine;
 using Zenject;
 using TMPro;
-using Scripts.GameLanguage;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
+using Scripts.LanguageLocalization.Service;
 
 namespace Scripts.UI.NameLocation
 {

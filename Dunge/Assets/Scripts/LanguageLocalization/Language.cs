@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace Scripts.GameLanguage
+namespace Scripts.LanguageLocalization
 {
     [Serializable]
     public enum Language
     {
         RU,
-        EN,
+        ENG,
         DE
     }
 }

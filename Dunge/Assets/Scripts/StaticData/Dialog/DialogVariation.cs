@@ -1,5 +1,5 @@
 ﻿using System;
-using Scripts.GameLanguage;
+using Scripts.LanguageLocalization;
 
 namespace Scripts.StaticData.Dialog
 {

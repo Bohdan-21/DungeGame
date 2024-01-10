@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8041639601866473198}
   - component: {fileID: 3473383967951132845}
   - component: {fileID: 5214179072026016342}
+  - component: {fileID: 7431851979492106275}
   m_Layer: 5
   m_Name: Save&Exit
   m_TagString: Untagged
@@ -134,6 +135,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7431851979492106275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092252980422520670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74fa584317134d4492c60b5b52f2ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textForLocalization: {fileID: 5065467515174908909}
+  _localizationData:
+    _localizations:
+    - language: 0
+      text: "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0438 \u0432\u044B\u0439\u0442\u0438"
+    - language: 1
+      text: Save & Exit
 --- !u!1 &2811842248479378700
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,6 +630,7 @@ GameObject:
   - component: {fileID: 4076294450907563944}
   - component: {fileID: 998844300550906959}
   - component: {fileID: 6891968934433635808}
+  - component: {fileID: 7031530775078371576}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -732,6 +753,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7031530775078371576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7891575177146684952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74fa584317134d4492c60b5b52f2ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textForLocalization: {fileID: 7695310901177773888}
+  _localizationData:
+    _localizations:
+    - language: 0
+      text: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+    - language: 1
+      text: Continue
 --- !u!1 &8486518663323049452
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,6 +919,7 @@ GameObject:
   - component: {fileID: 2972117025148557696}
   - component: {fileID: 5017191528475117465}
   - component: {fileID: 4111835120511414330}
+  - component: {fileID: 4308969184376668476}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -1001,3 +1042,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4308969184376668476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9159679889541003874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74fa584317134d4492c60b5b52f2ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textForLocalization: {fileID: 1665422017054648586}
+  _localizationData:
+    _localizations:
+    - language: 0
+      text: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
+    - language: 1
+      text: Settings

@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 4198885428898384564}
   - component: {fileID: 4198885428898384565}
   - component: {fileID: 4198885428898384566}
+  - component: {fileID: 7031138864909396186}
   m_Layer: 5
   m_Name: Repeat
   m_TagString: Untagged
@@ -210,6 +211,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7031138864909396186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4198885428898384584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74fa584317134d4492c60b5b52f2ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textForLocalization: {fileID: 4198885430131066472}
+  _localizationData:
+    _localizations:
+    - language: 0
+      text: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u044C"
+    - language: 1
+      text: Repeat
 --- !u!1 &4198885430131066474
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +376,7 @@ GameObject:
   - component: {fileID: 4198885430609616208}
   - component: {fileID: 4198885430609616222}
   - component: {fileID: 4198885430609616223}
+  - component: {fileID: 4258552571262787680}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -480,6 +501,25 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4258552571262787680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4198885430609616209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74fa584317134d4492c60b5b52f2ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textForLocalization: {fileID: 4198885430609616223}
+  _localizationData:
+    _localizations:
+    - language: 0
+      text: "\u041F\u041E\u041C\u0415\u0420"
+    - language: 1
+      text: YOU DIE
 --- !u!1 &4198885430683389802
 GameObject:
   m_ObjectHideFlags: 0

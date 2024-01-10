@@ -1,4 +1,4 @@
-using Scripts.GameLanguage;
+using Scripts.LanguageLocalization;
 using System.Collections.Generic;
 using UnityEngine;
 
