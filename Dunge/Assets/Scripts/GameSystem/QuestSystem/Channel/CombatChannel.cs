@@ -9,9 +9,9 @@ namespace Scripts.GameSystem.QuestSystem.Channel
 {
     class CombatChannel
     {
-        public event Action<EnemyType> KillEvent;
+        public event Action<EnemyType, int> KillEvent;
 
-        public void InvokeKillEvent(EnemyType enemyType) =>
-            KillEvent?.Invoke(enemyType);
+        public void InvokeKillEvent(EnemyType enemyType, int levelKilledMonster) =>
+            KillEvent?.Invoke(enemyType, levelKilledMonster);
     }
 }

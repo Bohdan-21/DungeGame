@@ -1,5 +1,5 @@
-﻿using Scripts.GameSystem.QuestSystem.Channel;
-using System;
+﻿using Scripts.GameSystem.ExperienceSystem.Handler;
+using Scripts.GameSystem.QuestSystem.Channel;
 using UnityEngine;
 using Zenject;
 
@@ -9,6 +9,7 @@ namespace Scripts.Enemy
     {
         [SerializeField] private EnemyType _enemyType;
         [SerializeField] private EnemyDeath _enemyDeath;
+        [SerializeField] private EnemyExperienceHandler _enemyExperience;
 
         private CombatChannel _combatChannel;
 
@@ -23,6 +24,6 @@ namespace Scripts.Enemy
             _enemyDeath.EnemyDie -= EnemyDie;
 
         private void EnemyDie() => 
-            _combatChannel.InvokeKillEvent(_enemyType);
+            _combatChannel.InvokeKillEvent(_enemyType, _enemyExperience.GetCurrentLevel());
     }
 }

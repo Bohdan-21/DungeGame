@@ -3,6 +3,7 @@ using Scripts.GameSystem.QuestSystem.Channel;
 using Scripts.SaveData;
 using Scripts.SaveData.Experience;
 using Scripts.Services.PlayerProgressService;
+using Scripts.StaticData.GameStaticData;
 using System;
 using UnityEngine;
 using Zenject;
@@ -18,12 +19,15 @@ namespace Scripts.GameSystem.ExperienceSystem.Handler
         public event Action LevelUpEvent;
         public event Action UpdateExperienceEvent;
 
+        private ExperienceForKilledMonster _experienceForKilledMonster;
         private CombatChannel _combatChannel;
 
         [Inject]
-        private void Construct(IPlayerProgressService playerProgressService, CombatChannel combatChannel)
+        private void Construct(IPlayerProgressService playerProgressService, ExperienceForKilledMonster experienceForKilledMonster,
+                               CombatChannel combatChannel)
         {
             playerProgressService.AddProgressUpdater(this);
+            _experienceForKilledMonster = experienceForKilledMonster;
             _combatChannel = combatChannel;
         }
 
@@ -38,9 +42,11 @@ namespace Scripts.GameSystem.ExperienceSystem.Handler
         private void OnDestroy() =>
             _combatChannel.KillEvent -= KillEvet;
 
-        private void KillEvet(EnemyType enemyType)
+        private void KillEvet(EnemyType enemyType, int levelKilledMonster)
         {
-            AddExperience(50);
+            int experience = _experienceForKilledMonster.GetExperience(enemyType, levelKilledMonster);
+
+            AddExperience(experience);
         }
 
         public void AddExperience(int experience)
@@ -88,18 +94,14 @@ namespace Scripts.GameSystem.ExperienceSystem.Handler
             _experienceData.currentLevel++;
             _experienceData.currentExp = 0;
             _experienceData.expNeedForLevelUp = (int)(_experienceData.expNeedForLevelUp * _experienceData.numberForMultiplyForUpdateExpNeedForLevelUp);
-            Debug.Log("Level up");
+            
             LevelUpEvent?.Invoke();
         }
 
-        public void LoadProgress(PlayerProgress playerProgress)
-        {
+        public void LoadProgress(PlayerProgress playerProgress) => 
             _experienceData = new PlayerExperienceData(playerProgress.ExperienceData);
-        }
 
-        public void UpdateProgress(PlayerProgress playerProgress)
-        {
+        public void UpdateProgress(PlayerProgress playerProgress) => 
             playerProgress.ExperienceData = new PlayerExperienceData(_experienceData);
-        }
     }
 }

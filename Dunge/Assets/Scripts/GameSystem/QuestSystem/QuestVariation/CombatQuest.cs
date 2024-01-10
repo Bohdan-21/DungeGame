@@ -41,7 +41,7 @@ namespace Scripts.GameSystem.QuestSystem.QuestVariation
             _combatChannel.KillEvent -= TrackingKillEvent;
 
 
-        private void TrackingKillEvent(EnemyType enemyType)
+        private void TrackingKillEvent(EnemyType enemyType, int levelKilledMonster)
         {
             if (enemyType != _combatQuestData.EnemyType)
                 return;

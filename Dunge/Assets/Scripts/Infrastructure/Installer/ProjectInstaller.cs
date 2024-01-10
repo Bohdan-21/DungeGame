@@ -51,6 +51,8 @@ namespace Scripts.Installer
 
         public ItemCollection ItemsStaticData;
 
+        public ExperienceForKilledMonster ExperienceForKilledMonster;
+
         public override void InstallBindings()
         {
             BindInput();
@@ -106,6 +108,8 @@ namespace Scripts.Installer
             Container.Bind<NPCStaticData>().FromInstance(NPCStaticData).AsSingle();
 
             Container.Bind<ItemCollection>().FromInstance(ItemsStaticData).AsSingle();
+
+            Container.Bind<ExperienceForKilledMonster>().FromInstance(ExperienceForKilledMonster).AsSingle();
         }
 
         private void BindSceneLoader()

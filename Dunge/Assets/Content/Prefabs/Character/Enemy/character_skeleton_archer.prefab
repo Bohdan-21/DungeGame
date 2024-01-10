@@ -743,6 +743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyType: 0
   _enemyDeath: {fileID: 4903856245565440530}
+  _enemyExperience: {fileID: 2996440383500613364}
 --- !u!114 &2996440383500613364
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1608,6 +1608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyType: 3
   _enemyDeath: {fileID: 3646759482612270872}
+  _enemyExperience: {fileID: 5451691286423832039}
 --- !u!114 &5451691286423832039
 MonoBehaviour:
   m_ObjectHideFlags: 0
