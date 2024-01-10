@@ -9,4 +9,5 @@ namespace Scripts.GameLanguage
         private Language _language = Language.RU;
         public Language Language { get => _language; }
     }
+    public class test { }
 }
