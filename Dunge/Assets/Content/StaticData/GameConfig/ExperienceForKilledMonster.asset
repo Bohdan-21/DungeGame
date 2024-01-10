@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e499612468ff5ac429ce15ab7d3a2239, type: 3}
   m_Name: ExperienceForKilledMonster
   m_EditorClassIdentifier: 
-  _experienceDataForKilledMonsters: []
+  _experienceDataForKilledMonsters:
+  - EnemyType: 0
+    ExperienceForBaseLevel: 30
+    ExperienceForEachNextLevel: 5
+  - EnemyType: 1
+    ExperienceForBaseLevel: 40
+    ExperienceForEachNextLevel: 6
+  - EnemyType: 2
+    ExperienceForBaseLevel: 75
+    ExperienceForEachNextLevel: 10
+  - EnemyType: 3
+    ExperienceForBaseLevel: 50
+    ExperienceForEachNextLevel: 7

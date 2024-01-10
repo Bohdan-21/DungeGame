@@ -2,17 +2,17 @@
 using Scripts.Player;
 using UnityEngine;
 using Zenject;
-using UnityEngine.UI;
 using TMPro;
-using System;
 
 namespace Assets.Scripts.GameSystem.ExperienceSystem.UI
 {
-    class ExperienceUI : MonoBehaviour
+    class PlayerExperienceTextUI : MonoBehaviour
     {
         [SerializeField] private PlayerExperienceHandler _playerExperienceHandler;
+
         [SerializeField] private TextMeshProUGUI _currentLevelText;
-        [SerializeField] private Image _currentExperienceImage;
+        [SerializeField] private TextMeshProUGUI _currentExperienceText;
+        [SerializeField] private TextMeshProUGUI _experienceNeedForLevelUpText;
 
         [Inject]
         private void Construct(PlayerBehaviour playerBehaviour) => 
@@ -29,19 +29,9 @@ namespace Assets.Scripts.GameSystem.ExperienceSystem.UI
 
         private void UpdateExperience()
         {
-            UpdateLevel();
-            UpdateProgressExperience();
-        }
-
-        private void UpdateLevel()
-        {
             _currentLevelText.text = _playerExperienceHandler.GetCurrentLevel().ToString();
-        }
-
-        private void UpdateProgressExperience()
-        {
-            _currentExperienceImage.fillAmount = (float)_playerExperienceHandler.GetCurrentExperience() /
-                                                 (float)_playerExperienceHandler.GetExperienceNeedForLevelUp();
+            _currentExperienceText.text = _playerExperienceHandler.GetCurrentExperience().ToString();
+            _experienceNeedForLevelUpText.text = _playerExperienceHandler.GetExperienceNeedForLevelUp().ToString();
         }
     }
 }
