@@ -47,7 +47,7 @@ namespace Scripts.Player
         {
             _isInterupt = false;
 
-            _inventory.UpdateInventory += InventoryUpdateUI;
+            _inventory.UpdateInventoryEvent += InventoryUpdateUI;
             _interuptService.AddInteruptHandler(this);
 
             InventoryUpdateUI();
@@ -55,7 +55,7 @@ namespace Scripts.Player
 
         private void OnDestroy()
         {
-            _inventory.UpdateInventory -= InventoryUpdateUI;
+            _inventory.UpdateInventoryEvent -= InventoryUpdateUI;
 
             _interuptService.RemoveInteruptHandler(this);
         }

@@ -1,7 +1,7 @@
 ﻿using Scripts.GameMechanic.ItemSystem;
 using Scripts.Infrastructure.Audio;
 using Scripts.SaveData;
-using Scripts.SaveData.StorageData;
+using Scripts.SaveData.Storage;
 using Scripts.Services.PlayerProgressService;
 using Scripts.StaticData.ItemStaticData;
 using Scripts.StaticData.ItemStaticData.Interface;
@@ -15,12 +15,12 @@ namespace Scripts.Player
     public class PlayerInventory : MonoBehaviour, IPlayerProgressLoader
     {
         [SerializeField] private PlayerBehaviour _playerBehaviour;
-        [SerializeField] private Storage _storage;
+        [SerializeField] private StorageHandler _storageHandler;
 
         private ISoundsGameActionPlayer _soundPlayer;
         private ItemCollection _itemCollection;
 
-        public event Action UpdateInventory;
+        public event Action UpdateInventoryEvent;
 
         [Inject]
         private void Construct(ISoundsGameActionPlayer soundPlayer, ItemCollection itemCollection, 
@@ -32,12 +32,19 @@ namespace Scripts.Player
             progressService.AddProgressUpdater(this);
         }
 
-        public Storage GetStorage() =>
-            _storage;
+        private void Start() => 
+            _storageHandler.UpdateStorageDataEvent += UpdateStorageData;
+
+        private void OnDestroy() => 
+            _storageHandler.UpdateStorageDataEvent -= UpdateStorageData;
+
+
+        public StorageHandler GetStorage() =>
+            _storageHandler;
 
         public int GetItemCount(TypeItem typeItem)
         {
-            ItemCount itemCount = _storage.GetItem(typeItem);
+            ItemCount itemCount = _storageHandler.GetItem(typeItem);
 
             if (itemCount != null)
                 return itemCount.GetItemCount();
@@ -46,11 +53,11 @@ namespace Scripts.Player
 
         public void AddItem(ItemMarker itemMarker)
         {
-            _storage.AddItem(itemMarker.TypeItem, 1);
+            _storageHandler.AddItem(itemMarker.TypeItem, 1);
 
             itemMarker.PickUp();
 
-            UpdateInventory?.Invoke();
+            UpdateInventoryEvent?.Invoke();
         }
 
         public void Use(TypeItem itemType)
@@ -59,11 +66,11 @@ namespace Scripts.Player
 
             if(itemData != null && itemData is IUsing usingItem)
             {
-                if (_storage.TryTakeItem(itemType, 1))
+                if (_storageHandler.TryTakeItem(itemType, 1))
                 {
                     usingItem.Use(_playerBehaviour);
 
-                    UpdateInventory?.Invoke();
+                    UpdateInventoryEvent?.Invoke();
                 }
             }
         }
@@ -71,10 +78,13 @@ namespace Scripts.Player
         private void PlaySound() =>
             _soundPlayer.PlayUseItemSound();
 
+        private void UpdateStorageData() => 
+            UpdateInventoryEvent?.Invoke();
+
         public void LoadProgress(PlayerProgress playerProgress) => 
-            _storage = new Storage(playerProgress.Storage);
+            _storageHandler = new StorageHandler(playerProgress.StorageData);
 
         public void UpdateProgress(PlayerProgress playerProgress) => 
-            playerProgress.Storage = new Storage(_storage);
+            playerProgress.StorageData = new StorageData(_storageHandler.GetStorageData());
     }
 }

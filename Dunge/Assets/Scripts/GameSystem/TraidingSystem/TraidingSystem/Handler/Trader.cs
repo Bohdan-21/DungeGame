@@ -1,7 +1,7 @@
 ﻿using Scripts.GameSystem.TraidingSystem.BalanceSubsystem.Handler;
 using Scripts.Player;
 using Scripts.SaveData.Money;
-using Scripts.SaveData.StorageData;
+using Scripts.SaveData.Storage;
 using UnityEngine;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler
@@ -11,7 +11,7 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler
         [SerializeField] private PlayerInventory _inventory;
         [SerializeField] private Balance _balance;
 
-        public Storage GetStorage() =>
+        public StorageHandler GetStorage() =>
             _inventory.GetStorage();
 
         public Balance GetBalance() =>

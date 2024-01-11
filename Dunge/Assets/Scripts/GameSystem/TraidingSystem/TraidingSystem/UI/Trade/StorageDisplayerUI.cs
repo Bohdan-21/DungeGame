@@ -1,5 +1,5 @@
 ﻿using Scripts.GameMechanic.ItemSystem;
-using Scripts.SaveData.StorageData;
+using Scripts.SaveData.Storage;
 using Scripts.TradingStaticData.PriceData;
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade
         public void SetCallback(Action<TypeItem> whenUserSelectCardCallback) => 
             _whenUserSelectCardCallback = whenUserSelectCardCallback;
 
-        public void SpawnStorageElement(Storage storage)
+        public void SpawnStorageElement(StorageHandler storage)
         {
             GameObject card;
             int price;

@@ -1,5 +1,5 @@
 ﻿using Scripts.GameMechanic.ItemSystem;
-using Scripts.SaveData.StorageData;
+using Scripts.SaveData.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;

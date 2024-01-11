@@ -1,6 +1,6 @@
 ﻿using Scripts.GameSystem.TraidingSystem.BalanceSubsystem.Handler;
 using Scripts.SaveData.Money;
-using Scripts.SaveData.StorageData;
+using Scripts.SaveData.Storage;
 using Scripts.StaticData.GameConfig.TradingStaticData.GoodForSaleData;
 using System;
 using System.Collections;
@@ -10,7 +10,7 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler
 {
     public class Store : MonoBehaviour, ITradingHandler
     {
-        [SerializeField] private Storage _storage;
+        [SerializeField] private StorageHandler _storage;
         [SerializeField] private Balance _balance;
 
         [SerializeField] private AvailableGoodsForStoreStaticData _availableGoods;
@@ -64,7 +64,7 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler
             _balance.Reimburse(money);
         }
         
-        public Storage GetStorage() =>
+        public StorageHandler GetStorage() =>
             _storage;
 
         public Balance GetBalance() =>

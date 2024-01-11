@@ -1,11 +1,11 @@
 ﻿using Scripts.GameSystem.TraidingSystem.BalanceSubsystem.Handler;
-using Scripts.SaveData.StorageData;
+using Scripts.SaveData.Storage;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler
 {
     public interface ITradingHandler
     {
-        Storage GetStorage();
+        StorageHandler GetStorage();
 
         Balance GetBalance();
     }

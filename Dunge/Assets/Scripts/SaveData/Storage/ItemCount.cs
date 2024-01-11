@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace Scripts.SaveData.StorageData
+namespace Scripts.SaveData.Storage
 {
     [Serializable]
     public class ItemCount

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using System;
-using Scripts.SaveData.StorageData;
+using Scripts.SaveData.Storage;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler;
 using Scripts.GameMechanic.ItemSystem;
 

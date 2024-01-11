@@ -2,7 +2,7 @@ using Scripts.GameMechanic.ItemSystem;
 using Scripts.GameSystem.TraidingSystem.BalanceSubsystem.Handler;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler;
 using Scripts.SaveData.Money;
-using Scripts.SaveData.StorageData;
+using Scripts.SaveData.Storage;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,10 +36,10 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Logic
             AddMoneyToBalanceSalesman(command.TotalPrice, salesman.GetBalance());
         }
 
-        private void AddItemToBuyer(TypeItem typeItem, int count, Storage storage) => 
+        private void AddItemToBuyer(TypeItem typeItem, int count, StorageHandler storage) => 
             storage.AddItem(typeItem, count);
 
-        private void RemoveItemFromSalesman(TypeItem typeItem, int count, Storage storage) => 
+        private void RemoveItemFromSalesman(TypeItem typeItem, int count, StorageHandler storage) => 
             storage.TryTakeItem(typeItem, count);
 
         private void TakeMoneyFromBalanceBuyer(int totalPrice, Balance balance) => 

@@ -4,40 +4,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Scripts.SaveData.StorageData
+namespace Scripts.SaveData.Storage
 {
     [Serializable]
-    public class Storage
+    public class StorageHandler
     {
-        [SerializeField] private List<ItemCount> items = new List<ItemCount>();
+        [SerializeField] private StorageData _storageData;
 
-        /// <summary>
-        /// For Save/Load System
-        /// </summary>
-        /// <param name="storage"></param>
+        public event Action UpdateStorageDataEvent;
 
-        public Storage()
+        public StorageHandler()
         {
-            if (items != null)
+            if (_storageData != null)
                 ClearData();
             else
-                items = new List<ItemCount>();
+                _storageData = new StorageData();
         }
 
-        public Storage(Storage storage) : this()
+        public StorageHandler(StorageData storage)
         {
-            foreach (ItemCount item in storage.items)
-                items.Add(new ItemCount(item));
+            if (_storageData != null)
+                ClearData();
+            _storageData = new StorageData(storage);
         }
 
         public IEnumerator GetEnumerator()
         {
-            foreach (ItemCount item in items)
+            foreach (ItemCount item in _storageData.items)
                 yield return item;
         }
 
         public ItemCount GetItem(TypeItem itemType) =>
             Contains(itemType);
+
+        public StorageData GetStorageData() =>
+            _storageData;
 
         public void AddItem(TypeItem itemType, int count)
         {
@@ -47,6 +48,8 @@ namespace Scripts.SaveData.StorageData
                 AddCountToItem(item, count);
             else
                 CreateItem(itemType, count);
+
+            UpdateStorageDataEvent?.Invoke();
         }
         
         public void ResetItemCount(TypeItem itemType, int count)
@@ -57,6 +60,8 @@ namespace Scripts.SaveData.StorageData
                 ResetItemCount(item, count);
             else
                 CreateItem(itemType, count);
+
+            UpdateStorageDataEvent?.Invoke();
         }
 
         public bool TryTakeItem(TypeItem itemType, int count)
@@ -68,6 +73,7 @@ namespace Scripts.SaveData.StorageData
             else if (CanTakeItem(item, count))
             {
                 TakeItem(item, count);
+                UpdateStorageDataEvent?.Invoke();
                 return true;
             }
             else
@@ -76,14 +82,14 @@ namespace Scripts.SaveData.StorageData
 
         private ItemCount Contains(TypeItem itemType)
         {
-            foreach (ItemCount item in items)
+            foreach (ItemCount item in _storageData.items)
                 if (item.IsEqual(itemType))
                     return item;
             return null;
         }
 
         private void CreateItem(TypeItem itemType, int count) =>
-            items.Add(new ItemCount(itemType, count));
+            _storageData.items.Add(new ItemCount(itemType, count));
 
         private void AddCountToItem(ItemCount item, int count) =>
             item.Add(count);
@@ -99,10 +105,10 @@ namespace Scripts.SaveData.StorageData
             item.Take(count);
 
             if (item.GetItemCount() == 0)
-                items.Remove(item);
+                _storageData.items.Remove(item);
         }
 
-        public void ClearData() => 
-            items.Clear();
+        public void ClearData() =>
+            _storageData.ClearData();
     }
 }

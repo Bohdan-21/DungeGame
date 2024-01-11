@@ -2,7 +2,7 @@ using Scripts.SaveData.Experience;
 using Scripts.SaveData.Money;
 using Scripts.SaveData.SkillTree;
 using Scripts.SaveData.Stats;
-using Scripts.SaveData.StorageData;
+using Scripts.SaveData.Storage;
 using System;
 
 namespace Scripts.SaveData
@@ -13,7 +13,7 @@ namespace Scripts.SaveData
         public LevelData LevelData;
         public PlayerState State;
         public MoneyData PlayerMoney;
-        public Storage Storage;
+        public StorageData StorageData;
         public PlayerSkillTreeData SkillTreeData;
         public PlayerExperienceData ExperienceData;
         public StatsContainer PlayerStatsContainer;
@@ -25,14 +25,14 @@ namespace Scripts.SaveData
             LevelData = new LevelData();
             State = new PlayerState();
             PlayerMoney = new MoneyData();
-            Storage = new Storage();
+            StorageData = new StorageData();
             SkillTreeData = new PlayerSkillTreeData();
             ExperienceData = new PlayerExperienceData();
             PlayerStatsContainer = new StatsContainer();
             ActiveQuestList = new ActiveQuestList();
         }
 
-        public PlayerProgress(LevelData levelData, PlayerState state, MoneyData playerMoney, Storage storage, PlayerSkillTreeData skillTreeData,
+        public PlayerProgress(LevelData levelData, PlayerState state, MoneyData playerMoney, StorageData storage, PlayerSkillTreeData skillTreeData,
                               StatsContainer playerStatsContainer, PlayerExperienceData experienceData)
         {
             LevelData = new LevelData(levelData.CurrentDungeLevel, levelData.MaxReachedDungeLevel);
@@ -41,7 +41,7 @@ namespace Scripts.SaveData
 
             PlayerMoney = new MoneyData(playerMoney);
 
-            Storage = new Storage(storage);
+            StorageData = new StorageData(storage);
 
             SkillTreeData = new PlayerSkillTreeData(skillTreeData);
 
@@ -54,7 +54,7 @@ namespace Scripts.SaveData
 
         public void ClearAllData()
         {
-            Storage.ClearData();
+            StorageData.ClearData();
             ActiveQuestList.Clear();
         }
     }

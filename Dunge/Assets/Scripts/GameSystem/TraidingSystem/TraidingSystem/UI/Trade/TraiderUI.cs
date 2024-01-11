@@ -2,7 +2,7 @@
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.Logic;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell;
-using Scripts.SaveData.StorageData;
+using Scripts.SaveData.Storage;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
