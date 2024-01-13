@@ -21,16 +21,101 @@ MonoBehaviour:
   PlayerMoney:
     currentMoney: 0
   StorageData:
-    items: []
+    items:
+    - _itemCountData:
+        TypeItem: 1
+        Count: 5
+    - _itemCountData:
+        TypeItem: 2
+        Count: 2
+    - _itemCountData:
+        TypeItem: 3
+        Count: 1
   SkillTreeData:
-    skills: []
-    attributes: []
+    skills:
+    - SkillType: 0
+      SkillLevel: 0
+      MaxSkillLevel: 20
+      LevelMultiplierTreshold: 2
+      Boost: 0
+    - SkillType: 1
+      SkillLevel: 0
+      MaxSkillLevel: 20
+      LevelMultiplierTreshold: 2
+      Boost: 0
+    - SkillType: 2
+      SkillLevel: 0
+      MaxSkillLevel: 20
+      LevelMultiplierTreshold: 2
+      Boost: 0
+    - SkillType: 3
+      SkillLevel: 0
+      MaxSkillLevel: 20
+      LevelMultiplierTreshold: 2
+      Boost: 0
+    attributes:
+    - AttributeType: 0
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 3
+    - AttributeType: 1
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 5
+    - AttributeType: 2
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 1
+    - AttributeType: 3
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 5
+    - AttributeType: 4
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 10
+    - AttributeType: 5
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 10
+    - AttributeType: 6
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 5
+    - AttributeType: 7
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 5
     SkillPointForUpgrate: 0
     AttributePointForUpgrate: 0
   ExperienceData:
     currentLevel: 0
     currentExp: 0
-    expNeedForLevelUp: 0
-    numberForMultiplyForUpdateExpNeedForLevelUp: 0
+    expNeedForLevelUp: 600
+    numberForMultiplyForUpdateExpNeedForLevelUp: 1.1
   PlayerStatsContainer:
-    Stats: []
+    Stats:
+    - typeStat: 0
+      baseValue: 100
+      currentValue: 0
+    - typeStat: 1
+      baseValue: 0
+      currentValue: 0
+    - typeStat: 2
+      baseValue: 8
+      currentValue: 0
+    - typeStat: 3
+      baseValue: 0
+      currentValue: 0
+    - typeStat: 4
+      baseValue: 0
+      currentValue: 0
+    - typeStat: 6
+      baseValue: 0
+      currentValue: 0
+    - typeStat: 7
+      baseValue: 0
+      currentValue: 0
+    - typeStat: 8
+      baseValue: 10
+      currentValue: 0

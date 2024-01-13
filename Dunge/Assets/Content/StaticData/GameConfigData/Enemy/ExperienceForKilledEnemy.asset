@@ -9,7 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f5809e5959d961489cbf27da29c3ffa, type: 3}
+  m_Script: {fileID: 11500000, guid: f4d543aa074d1be44a319d9ec4fa4d17, type: 3}
   m_Name: ExperienceForKilledEnemy
   m_EditorClassIdentifier: 
-  _experienceDataForKilledMonsters: []
+  _experienceDataForKilledMonsters:
+  - EnemyType: 0
+    ExperienceForBaseLevel: 30
+    ExperienceForEachNextLevel: 5
+  - EnemyType: 1
+    ExperienceForBaseLevel: 40
+    ExperienceForEachNextLevel: 6
+  - EnemyType: 2
+    ExperienceForBaseLevel: 75
+    ExperienceForEachNextLevel: 10
+  - EnemyType: 3
+    ExperienceForBaseLevel: 50
+    ExperienceForEachNextLevel: 7

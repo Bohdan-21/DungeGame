@@ -12,12 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d337c16df42914488378bf34e2c973, type: 3}
   m_Name: EnemyCharacterConfig
   m_EditorClassIdentifier: 
-  enemyPrefabs: []
+  enemyPrefabs:
+  - enemyType: 0
+    enemyPrefabReference: {fileID: 5245733245266394951, guid: 43ac6aa115f60424681aeb85f9af66ea, type: 3}
+  - enemyType: 1
+    enemyPrefabReference: {fileID: 1630731397492032407, guid: 946004062a00c2e43aae8cff6ceeb74f, type: 3}
+  - enemyType: 3
+    enemyPrefabReference: {fileID: 4570257042629010376, guid: 306309502de85ec469f9966d01317595, type: 3}
   AtackData:
-    Damage: 0
-    AttactRadius: 0
-    CooldownAtack: 0
-    AttackDistance: 0
+    Damage: 10
+    AttactRadius: 0.5
+    CooldownAtack: 3
+    AttackDistance: 0.5
   Health:
     CurrentHP: 100
     MaxHP: 100

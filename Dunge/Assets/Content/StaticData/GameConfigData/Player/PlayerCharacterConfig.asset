@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b59190af0fff84cb4b9825e3f92205, type: 3}
   m_Name: PlayerCharacterConfig
   m_EditorClassIdentifier: 
-  WalkSpeed: 0
+  WalkSpeed: 10
   Damage: 20
   AttackRadius: 1
