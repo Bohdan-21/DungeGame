@@ -3,7 +3,7 @@ using Scripts.GameSystem.QuestSystem.Channel;
 using Scripts.SaveData;
 using Scripts.SaveData.Experience;
 using Scripts.Services.PlayerProgressService;
-using Scripts.StaticData.GameStaticData;
+using Scripts.StaticData.GameConfigData.Enemy.Experience;
 using System;
 using UnityEngine;
 using Zenject;
@@ -19,11 +19,11 @@ namespace Scripts.GameSystem.ExperienceSystem.Handler
         public event Action LevelUpEvent;
         public event Action UpdateExperienceEvent;
 
-        private ExperienceForKilledMonster _experienceForKilledMonster;
+        private ExperienceForKilledEnemy _experienceForKilledMonster;
         private CombatChannel _combatChannel;
 
         [Inject]
-        private void Construct(IPlayerProgressService playerProgressService, ExperienceForKilledMonster experienceForKilledMonster,
+        private void Construct(IPlayerProgressService playerProgressService, ExperienceForKilledEnemy experienceForKilledMonster,
                                CombatChannel combatChannel)
         {
             playerProgressService.AddProgressUpdater(this);

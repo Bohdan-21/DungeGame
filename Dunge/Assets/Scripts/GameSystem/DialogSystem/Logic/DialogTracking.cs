@@ -1,6 +1,6 @@
 ﻿using Scripts.GameSystem.DialogSystem.Logic.UIController;
 using Scripts.GameSystem.QuestSystem.Factory;
-using Scripts.StaticData.Dialog;
+using Scripts.StaticData.GameConfigData.GameSystem.Dialog;
 using System;
 using UnityEngine;
 using Zenject;

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Events;
 using Zenject;
-using Scripts.StaticData.Dialog;
 using Scripts.GameSystem.DialogSystem;
 using Scripts.GameSystem.DialogSystem.Logic;
+using Scripts.StaticData.GameConfigData.GameSystem.Dialog;
 
 namespace Scripts.GameSystem.DialogSystem.Logic.UIController
 {

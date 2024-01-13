@@ -1,7 +1,7 @@
 ﻿using Scripts.SaveData;
 using Scripts.SaveData.Experience;
 using Scripts.Services.PlayerProgressService;
-using Scripts.StaticData.EnemyStaticData;
+using Scripts.StaticData.GameConfigData.Enemy;
 using System;
 using UnityEngine;
 using Zenject;
@@ -16,7 +16,7 @@ namespace Scripts.GameSystem.ExperienceSystem.Handler
 
 
         [Inject]
-        private void Construct(EnemyCharacterDeffaultSettings deffaultSettings, IPlayerProgressService playerProgressService)
+        private void Construct(DeffaultSettingsForNewEnemy deffaultSettings, IPlayerProgressService playerProgressService)
         {
             _enemyExperienceData = new EnemyExperienceData(deffaultSettings, playerProgressService.PlayerProgress.LevelData.CurrentDungeLevel);
         }

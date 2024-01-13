@@ -1,8 +1,7 @@
 ﻿using Scripts.GameSystem.DialogSystem.Logic;
 using Scripts.Logic;
 using Scripts.Services.InputService;
-using Scripts.StaticData.ControlButton;
-using Scripts.StaticData.Dialog;
+using Scripts.StaticData.SystemConfigData.ControlButton;
 using Scripts.UI.Interaction;
 using UnityEngine;
 using Zenject;

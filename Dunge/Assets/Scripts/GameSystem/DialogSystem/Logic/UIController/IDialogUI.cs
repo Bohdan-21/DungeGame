@@ -1,4 +1,4 @@
-﻿using Scripts.StaticData.Dialog;
+﻿using Scripts.StaticData.GameConfigData.GameSystem.Dialog;
 using Scripts.UI.GameUI.UIHandler;
 
 namespace Scripts.GameSystem.DialogSystem.Logic.UIController

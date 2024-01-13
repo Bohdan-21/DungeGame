@@ -1,6 +1,6 @@
 ﻿using Scripts.GameMechanic.ItemSystem;
 using Scripts.SaveData.Storage;
-using Scripts.TradingStaticData.PriceData;
+using Scripts.StaticData.GameConfigData.GameSystem.Trading.Price;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

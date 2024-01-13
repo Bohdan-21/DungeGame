@@ -3,7 +3,7 @@ using Scripts.GameSystem.StatsSystem.Type;
 using Scripts.Infrastructure.Audio;
 using Scripts.Logic;
 using Scripts.Player;
-using Scripts.StaticData.EnemyStaticData;
+using Scripts.StaticData.GameConfigData.Enemy.Config;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -39,7 +39,7 @@ namespace Scripts.Enemy
         private int _damage;
 
         [Inject]
-        private void Construct(EnemyStaticData config, PlayerBehaviour player, ISoundsGameActionPlayer soundPlayer)
+        private void Construct(EnemyCharacterConfig config, PlayerBehaviour player, ISoundsGameActionPlayer soundPlayer)
         {
             _damage = config.AtackData.Damage;
             _cooldown = config.AtackData.CooldownAtack;

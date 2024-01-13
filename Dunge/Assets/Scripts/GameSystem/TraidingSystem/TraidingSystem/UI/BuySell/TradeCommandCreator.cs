@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.Logic;
-using Scripts.TradingStaticData.PriceData;
 using Scripts.GameMechanic.ItemSystem;
+using Scripts.StaticData.GameConfigData.GameSystem.Trading.Price;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.BuySell
 {

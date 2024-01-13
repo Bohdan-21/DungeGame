@@ -1,4 +1,4 @@
-﻿using Scripts.StaticData.Audio;
+﻿using Scripts.StaticData.SystemConfigData.Audio;
 using System;
 
 namespace Scripts.Services.AudioService

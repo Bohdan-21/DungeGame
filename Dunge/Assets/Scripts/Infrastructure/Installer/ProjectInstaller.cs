@@ -5,21 +5,23 @@ using Scripts.Services.AudioService;
 using Scripts.Services.InputService;
 using Scripts.Services.PlayerProgressService;
 using Scripts.Services.SaveLoad;
-using Scripts.StaticData.Audio;
-using Scripts.StaticData.ControlButton;
-using Scripts.StaticData.EnemyStaticData;
-using Scripts.StaticData.EnumLinks;
-using Scripts.StaticData.GameStaticData;
-using Scripts.StaticData.ItemStaticData;
-using Scripts.StaticData.NPCStaticData;
-using Scripts.StaticData.PlayerStaticData;
-using Scripts.StaticData.ProjectGlobalSettings;
 using Scripts.UI.Curtain;
 using Scripts.UI.Settings;
 using System;
 using UnityEngine;
 using Zenject;
 using Scripts.LanguageLocalization.Service;
+using Scripts.StaticData.SystemConfigData.Audio;
+using Scripts.StaticData.GameConfigData.Player;
+using Scripts.StaticData.GameConfigData.Enemy;
+using Scripts.StaticData.GameConfigData.Enemy.Experience;
+using Scripts.StaticData.GameConfigData.Enemy.Config;
+using Scripts.StaticData.SystemConfigData.ControlButton;
+using Scripts.StaticData.SystemConfigData;
+using Scripts.StaticData.GameConfigData.NPC;
+using Scripts.StaticData.GameConfigData.Item;
+using Scripts.StaticData.GameConfigData.GameSystem.SkillTree.EnumLinks;
+using Scripts.StaticData;
 
 namespace Scripts.Installer
 {
@@ -39,19 +41,19 @@ namespace Scripts.Installer
         public GameStaticData GameStaticData;
         public ProjectGlobalSettings ProjectGlobalSettings;
         public PlayerCharacterConfig PlayerCharacterConfig;
-        public PlayerCharacterDeffaultSettings PlayerCharacterDefaultSettings;
+        public PlayerCharacterSettingsForNewGame PlayerCharacterDefaultSettings;
 
-        public EnemyStaticData EnemyStaticData;
-        public EnemyCharacterDeffaultSettings EnemyCharacterDeffaultSettings;
+        public EnemyCharacterConfig EnemyStaticData;
+        public DeffaultSettingsForNewEnemy EnemyCharacterDeffaultSettings;
 
         public ListEnumLinksFromStatToAttribute staticDataFromStatToAtrribute;
         public ListEnumLinksFromAttributeToSkill staticDataFromAttributeToSkill;
 
-        public NPCStaticData NPCStaticData;
+        public NPCPrefabReference NPCStaticData;
 
         public ItemCollection ItemsStaticData;
 
-        public ExperienceForKilledMonster ExperienceForKilledMonster;
+        public ExperienceForKilledEnemy ExperienceForKilledMonster;
 
         public override void InstallBindings()
         {
@@ -97,19 +99,19 @@ namespace Scripts.Installer
             Container.Bind<GameStaticData>().FromInstance(GameStaticData).AsSingle();
             Container.Bind<ProjectGlobalSettings>().FromInstance(ProjectGlobalSettings).AsSingle();
             Container.Bind<PlayerCharacterConfig>().FromInstance(PlayerCharacterConfig).AsSingle();
-            Container.Bind<PlayerCharacterDeffaultSettings>().FromInstance(PlayerCharacterDefaultSettings).AsSingle();
+            Container.Bind<PlayerCharacterSettingsForNewGame>().FromInstance(PlayerCharacterDefaultSettings).AsSingle();
 
-            Container.Bind<EnemyStaticData>().FromInstance(EnemyStaticData).AsSingle();
-            Container.Bind<EnemyCharacterDeffaultSettings>().FromInstance(EnemyCharacterDeffaultSettings).AsSingle();
+            Container.Bind<EnemyCharacterConfig>().FromInstance(EnemyStaticData).AsSingle();
+            Container.Bind<DeffaultSettingsForNewEnemy>().FromInstance(EnemyCharacterDeffaultSettings).AsSingle();
 
             Container.Bind<ListEnumLinksFromStatToAttribute>().FromInstance(staticDataFromStatToAtrribute).AsSingle();
             Container.Bind<ListEnumLinksFromAttributeToSkill>().FromInstance(staticDataFromAttributeToSkill).AsSingle();
 
-            Container.Bind<NPCStaticData>().FromInstance(NPCStaticData).AsSingle();
+            Container.Bind<NPCPrefabReference>().FromInstance(NPCStaticData).AsSingle();
 
             Container.Bind<ItemCollection>().FromInstance(ItemsStaticData).AsSingle();
 
-            Container.Bind<ExperienceForKilledMonster>().FromInstance(ExperienceForKilledMonster).AsSingle();
+            Container.Bind<ExperienceForKilledEnemy>().FromInstance(ExperienceForKilledMonster).AsSingle();
         }
 
         private void BindSceneLoader()

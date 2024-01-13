@@ -1,5 +1,5 @@
 ﻿using Scripts.LanguageLocalization.Service;
-using Scripts.StaticData.Dialog;
+using Scripts.StaticData.GameConfigData.GameSystem.Dialog;
 using Zenject;
 
 namespace Scripts.GameSystem.DialogSystem.Logic

@@ -2,7 +2,7 @@
 using Scripts.GameSystem.SkillTreeSystem.Type;
 using Scripts.GameSystem.SkillTreeSystem.UI.Card;
 using Scripts.SaveData.SkillTree;
-using Scripts.StaticData.EnumLinks;
+using Scripts.StaticData.GameConfigData.GameSystem.SkillTree.EnumLinks;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

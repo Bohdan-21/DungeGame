@@ -2,9 +2,8 @@
 using Scripts.GameSystem.QuestSystem.Factory;
 using Scripts.GameSystem.QuestSystem.Journal;
 using Scripts.GameSystem.QuestSystem.UI.QuestJournal;
-using Scripts.StaticData.QuestStaticData;
-using Scripts.StaticData.QuestStaticData.Setup;
-using System;
+using Scripts.StaticData.GameConfigData.GameSystem.QuestStaticData;
+using Scripts.StaticData.GameConfigData.GameSystem.QuestStaticData.Setup;
 using Zenject;
 
 namespace Scripts.QuestSystem

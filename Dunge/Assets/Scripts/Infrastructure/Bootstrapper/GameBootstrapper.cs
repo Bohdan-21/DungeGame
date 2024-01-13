@@ -1,11 +1,5 @@
 using Scripts.Infrastructure.Audio;
-using Scripts.Infrastructure.Factory;
 using Scripts.Infrastructure.StateMachine;
-using Scripts.Level;
-using Scripts.Player;
-using Scripts.StaticData.ProjectGlobalSettings;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 

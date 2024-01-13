@@ -1,7 +1,7 @@
 ﻿using Scripts.GameMechanic.ItemSystem;
 using Scripts.Services.InputService;
 using Scripts.Services.InteruptService;
-using Scripts.StaticData.ControlButton;
+using Scripts.StaticData.SystemConfigData.ControlButton;
 using System;
 using System.Collections.Generic;
 using System.Linq;

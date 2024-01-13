@@ -1,5 +1,5 @@
 ﻿using Scripts.Services.AudioService;
-using Scripts.StaticData.Audio;
+using Scripts.StaticData.SystemConfigData.Audio;
 using UnityEngine;
 using Zenject;
 

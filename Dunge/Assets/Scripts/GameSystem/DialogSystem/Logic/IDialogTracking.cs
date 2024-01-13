@@ -1,4 +1,4 @@
-﻿using Scripts.StaticData.Dialog;
+﻿using Scripts.StaticData.GameConfigData.GameSystem.Dialog;
 
 namespace Scripts.GameSystem.DialogSystem.Logic
 {

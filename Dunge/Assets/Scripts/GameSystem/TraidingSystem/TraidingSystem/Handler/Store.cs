@@ -1,7 +1,7 @@
 ﻿using Scripts.GameSystem.TraidingSystem.BalanceSubsystem.Handler;
 using Scripts.SaveData.Money;
 using Scripts.SaveData.Storage;
-using Scripts.StaticData.GameConfig.TradingStaticData.GoodForSaleData;
+using Scripts.StaticData.GameConfigData.GameSystem.Trading.GoodForSale;
 using System;
 using System.Collections;
 using UnityEngine;

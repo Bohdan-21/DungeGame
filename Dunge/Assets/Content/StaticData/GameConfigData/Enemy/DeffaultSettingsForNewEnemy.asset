@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230d97d6cd2f19d4c8906580eb92848a, type: 3}
+  m_Name: DeffaultSettingsForNewEnemy
+  m_EditorClassIdentifier: 
+  EnemyExperienceData:
+    _currentLevel: 0
+    _highestLimitForLevel: 5
+  EnemySkillTreeData:
+    attributes:
+    - AttributeType: 0
+      BaseSkillType: 0
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 3
+    - AttributeType: 1
+      BaseSkillType: 0
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 5
+    - AttributeType: 3
+      BaseSkillType: 0
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 5
+    - AttributeType: 5
+      BaseSkillType: 0
+      AttributeLevel: 0
+      MaxAttributeLevel: 10
+      Boost: 10
+  EnemyStatsContainer:
+    Stats:
+    - typeStat: 0
+      baseValue: 80
+      currentValue: 0
+    - typeStat: 1
+      baseValue: 0
+      currentValue: 0
+    - typeStat: 3
+      baseValue: 0
+      currentValue: 0
+    - typeStat: 8
+      baseValue: 5
+      currentValue: 0

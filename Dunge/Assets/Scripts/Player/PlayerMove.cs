@@ -1,11 +1,7 @@
 using Scripts.GameSystem.StatsSystem.Handler;
 using Scripts.GameSystem.StatsSystem.Type;
-using Scripts.Infrastructure.Audio;
 using Scripts.Services.InputService;
 using Scripts.Services.InteruptService;
-using Scripts.StaticData.PlayerStaticData;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 

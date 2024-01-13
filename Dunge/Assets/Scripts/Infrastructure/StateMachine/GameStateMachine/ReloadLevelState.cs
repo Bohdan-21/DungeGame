@@ -1,6 +1,6 @@
 ﻿using Scripts.Infrastructure.SceneLoader;
 using Scripts.Services.PlayerProgressService;
-using Scripts.StaticData.ProjectGlobalSettings;
+using Scripts.StaticData.SystemConfigData;
 using System;
 
 namespace Scripts.Infrastructure.StateMachine

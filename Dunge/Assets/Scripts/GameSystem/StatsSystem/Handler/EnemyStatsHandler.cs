@@ -3,8 +3,8 @@ using Scripts.GameSystem.SkillTreeSystem.Type;
 using Scripts.GameSystem.StatsSystem.Type;
 using Scripts.SaveData.SkillTree;
 using Scripts.SaveData.Stats;
-using Scripts.StaticData.EnemyStaticData;
-using Scripts.StaticData.EnumLinks;
+using Scripts.StaticData.GameConfigData.Enemy;
+using Scripts.StaticData.GameConfigData.GameSystem.SkillTree.EnumLinks;
 using System;
 using UnityEngine;
 using Zenject;
@@ -22,7 +22,7 @@ namespace Scripts.GameSystem.StatsSystem.Handler
 
         [Inject]
         private void Construct(ListEnumLinksFromStatToAttribute enumLinks, 
-                               EnemyCharacterDeffaultSettings deffaultSettings)
+                               DeffaultSettingsForNewEnemy deffaultSettings)
         {
             _staticDataEnumLinks = enumLinks;
             _enemyStatsContainer = new StatsContainer(deffaultSettings.EnemyStatsContainer);

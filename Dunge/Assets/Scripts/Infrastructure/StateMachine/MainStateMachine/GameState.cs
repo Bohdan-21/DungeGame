@@ -1,5 +1,5 @@
 ﻿using Scripts.Infrastructure.SceneLoader;
-using Scripts.StaticData.ProjectGlobalSettings;
+using Scripts.StaticData.SystemConfigData;
 using System;
 using Zenject;
 

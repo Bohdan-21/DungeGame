@@ -3,7 +3,7 @@ using Scripts.GameSystem.SkillTreeSystem.Type;
 using Scripts.SaveData;
 using Scripts.SaveData.SkillTree;
 using Scripts.Services.PlayerProgressService;
-using Scripts.StaticData.EnumLinks;
+using Scripts.StaticData.GameConfigData.GameSystem.SkillTree.EnumLinks;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,8 +1,8 @@
 using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.StateMachine;
 using Scripts.Infrastructure.StateMachine.MenuStateMachine;
-using Scripts.StaticData.Audio;
-using Scripts.StaticData.Audio.Setup;
+using Scripts.StaticData.SystemConfigData.Audio;
+using Scripts.StaticData.SystemConfigData.Audio.Setup;
 using Scripts.UI.License;
 using Scripts.UI.MainMenu;
 using System;

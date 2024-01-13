@@ -1,4 +1,4 @@
-﻿using Scripts.StaticData.EnemyStaticData;
+﻿using Scripts.StaticData.GameConfigData.Enemy;
 using System;
 using UnityEngine;
 using Zenject;
@@ -11,7 +11,7 @@ namespace Scripts.SaveData.Experience
         [SerializeField] private int _currentLevel;
         [SerializeField] private int _highestLimitForLevel;
 
-        public EnemyExperienceData(EnemyCharacterDeffaultSettings deffaultSettings, int currentDungeLevel)
+        public EnemyExperienceData(DeffaultSettingsForNewEnemy deffaultSettings, int currentDungeLevel)
         {
             _highestLimitForLevel = deffaultSettings.EnemyExperienceData._highestLimitForLevel;
 

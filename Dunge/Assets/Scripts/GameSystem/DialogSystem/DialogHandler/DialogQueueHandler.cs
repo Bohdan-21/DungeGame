@@ -1,7 +1,7 @@
-﻿using Scripts.StaticData.Dialog;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
+using Scripts.StaticData.GameConfigData.GameSystem.Dialog;
 
 namespace Scripts.GameSystem.DialogSystem.DialogHandler
 {

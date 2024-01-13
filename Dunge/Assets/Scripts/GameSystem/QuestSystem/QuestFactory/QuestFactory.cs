@@ -1,7 +1,7 @@
 ﻿using Scripts.GameSystem.QuestSystem.QuestVariation.BaseQuest;
 using Scripts.GameSystem.QuestSystem.QuestVariation.Data;
 using Scripts.Services.PlayerProgressService;
-using Scripts.StaticData.QuestStaticData;
+using Scripts.StaticData.GameConfigData.GameSystem.QuestStaticData;
 using UnityEngine;
 using Zenject;
 

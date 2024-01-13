@@ -1,7 +1,7 @@
 ﻿using Scripts.GameSystem.ExperienceSystem.Handler;
 using Scripts.GameSystem.SkillTreeSystem.Type;
 using Scripts.SaveData.SkillTree;
-using Scripts.StaticData.EnemyStaticData;
+using Scripts.StaticData.GameConfigData.Enemy;
 using System;
 using UnityEngine;
 using Zenject;
@@ -16,7 +16,7 @@ namespace Scripts.GameSystem.SkillTreeSystem.Handler
         public event Action UpdateAttributeLevelEvent;
 
         [Inject]
-        private void Construct(EnemyCharacterDeffaultSettings deffaultSettings)
+        private void Construct(DeffaultSettingsForNewEnemy deffaultSettings)
         {
             _enemySkillTreeData = new EnemySkillTreeData(deffaultSettings.EnemySkillTreeData);
         }

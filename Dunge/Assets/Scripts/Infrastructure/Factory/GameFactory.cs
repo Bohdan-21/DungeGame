@@ -2,9 +2,9 @@
 using Scripts.Level;
 using Scripts.NPC.Spawn;
 using Scripts.Player;
-using Scripts.StaticData.EnemyStaticData;
-using Scripts.StaticData.GameStaticData;
-using Scripts.StaticData.NPCStaticData;
+using Scripts.StaticData;
+using Scripts.StaticData.GameConfigData.Enemy.Config;
+using Scripts.StaticData.GameConfigData.NPC;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -14,13 +14,13 @@ namespace Scripts.Infrastructure.Factory
     public class GameFactory : IGameFactory
     {
         private readonly DiContainer _diContainer;
-        private readonly EnemyStaticData _enemyStaticData;
+        private readonly EnemyCharacterConfig _enemyStaticData;
         private readonly GameStaticData _gameStaticData;
         private readonly LevelSettings _levelSettings;
-        private readonly NPCStaticData _npcStaticData;
+        private readonly NPCPrefabReference _npcStaticData;
 
-        public GameFactory(DiContainer diContainer, EnemyStaticData enemyStaticData,
-            GameStaticData gameStaticData, LevelSettings levelSettings, NPCStaticData npcStaticData)
+        public GameFactory(DiContainer diContainer, EnemyCharacterConfig enemyStaticData,
+            GameStaticData gameStaticData, LevelSettings levelSettings, NPCPrefabReference npcStaticData)
         {
             _diContainer = diContainer;
             _enemyStaticData = enemyStaticData;

@@ -1,4 +1,4 @@
-﻿using Scripts.StaticData.Dialog;
+﻿using Scripts.StaticData.GameConfigData.GameSystem.Dialog;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

@@ -2,7 +2,7 @@ using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.StateMachine;
 using Scripts.Logic;
 using Scripts.Services.PlayerProgressService;
-using Scripts.StaticData.ProjectGlobalSettings;
+using Scripts.StaticData.SystemConfigData;
 using System;
 using System.Collections;
 using System.Collections.Generic;

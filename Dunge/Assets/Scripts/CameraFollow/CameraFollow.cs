@@ -1,6 +1,6 @@
 using Scripts.Player;
 using Scripts.Services.InputService;
-using Scripts.StaticData.ControlButton;
+using Scripts.StaticData.SystemConfigData.ControlButton;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
