@@ -41,7 +41,6 @@ namespace Scripts.Enemy
         [Inject]
         private void Construct(EnemyCharacterConfig config, PlayerBehaviour player, ISoundsGameActionPlayer soundPlayer)
         {
-            _damage = config.AtackData.Damage;
             _cooldown = config.AtackData.CooldownAtack;
             _attackRadius = config.AtackData.AttactRadius;
             _attackDistance = config.AtackData.AttackDistance;
@@ -63,15 +62,14 @@ namespace Scripts.Enemy
         private void OnDestroy() => 
             _enemyStatsHandler.UpdateStatsEvent -= UpdateStats;
 
-        private void UpdateStats()
-        {
-            _damage = (int)_enemyStatsHandler.GetStatDataByType(TypeStat.Damage).GetCurrentValue();
-        }
-
         private void Start()
         {
             Health.HealthChanged += HealthChanged;
+            UpdateStats();
         }
+
+        private void UpdateStats() => 
+            _damage = (int)_enemyStatsHandler.GetStatDataByType(TypeStat.Damage).GetCurrentValue();
 
 
         private void Update()

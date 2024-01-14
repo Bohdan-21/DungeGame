@@ -28,6 +28,10 @@ namespace Scripts.GameSystem.StatsSystem.Handler
             _enemyStatsContainer = new StatsContainer(deffaultSettings.EnemyStatsContainer);
         }
 
+        //TODO: fix ЭТО НУЖНО ПЕРЕПИСАТЬ
+        //это неправильно. Вообще то что это работает это чудо. А главное то что этот костиль 
+        //хрен уберешь, по этому действуем по старинке. Работает не трогай. Но это нужно переписать!
+        //ебушки воробушки какого хуя оно вообще работает, там же дальше идет вызов еще одного ивента
         private void Awake()
         {
             _enemySkillTreeHandler.UpdateAttributeLevelEvent += UpdateAttributeLevelEvent;
@@ -35,7 +39,7 @@ namespace Scripts.GameSystem.StatsSystem.Handler
 
         private void OnDestroy()
         {
-            _enemySkillTreeHandler.UpdateAttributeLevelEvent += UpdateAttributeLevelEvent;
+            _enemySkillTreeHandler.UpdateAttributeLevelEvent -= UpdateAttributeLevelEvent;
         }
 
         public StatData GetStatDataByType(TypeStat typeStat)

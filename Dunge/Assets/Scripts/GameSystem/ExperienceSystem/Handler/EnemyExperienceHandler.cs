@@ -12,8 +12,6 @@ namespace Scripts.GameSystem.ExperienceSystem.Handler
     {
         [SerializeField] private EnemyExperienceData _enemyExperienceData;
 
-        public event Action LevelUpEvent;
-
 
         [Inject]
         private void Construct(DeffaultSettingsForNewEnemy deffaultSettings, IPlayerProgressService playerProgressService)
@@ -21,18 +19,7 @@ namespace Scripts.GameSystem.ExperienceSystem.Handler
             _enemyExperienceData = new EnemyExperienceData(deffaultSettings, playerProgressService.PlayerProgress.LevelData.CurrentDungeLevel);
         }
 
-        private void Start()
-        {
-            UpLevel();
-        }
-
         public int GetCurrentLevel() => 
             _enemyExperienceData.GetCurrentLevel();
-
-        private void UpLevel()
-        {
-            for (int i = 0; i < _enemyExperienceData.GetCurrentLevel(); i++)
-                LevelUpEvent?.Invoke();
-        }
     }
 }

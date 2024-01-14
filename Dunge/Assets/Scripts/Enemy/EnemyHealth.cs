@@ -28,20 +28,18 @@ namespace Scripts.Enemy
 
 
         [Inject]
-        private void Construct(EnemyCharacterConfig config, ISoundsGameActionPlayer soundPlayer)
-        {
-            MaxHP = config.Health.MaxHP;
-            CurrentHP = config.Health.CurrentHP;
-
+        private void Construct(ISoundsGameActionPlayer soundPlayer) => 
             _soundPlayer = soundPlayer;
-        }
 
+        //TODO:это нужно править смотреть как происходит вызов этого ивента
         private void Awake() => 
             _enemyStatsHandler.UpdateStatsEvent += UpdateStats;
 
         private void OnDestroy() => 
-            _enemyStatsHandler.UpdateStatsEvent += UpdateStats;
+            _enemyStatsHandler.UpdateStatsEvent -= UpdateStats;
 
+        private void Start() => 
+            UpdateStats();
 
         private void UpdateStats()
         {

@@ -15,9 +15,6 @@ namespace Scripts.StaticData.GameConfigData.Enemy.Config
 
         public AtackData AtackData;
 
-        //TODO: fix this why PlayerState
-        public PlayerState Health;
-
         public GameObject GetEnemyPrefabByType(EnemyType enemyType)
         {
             foreach (EnemyPrefab enemyPrefab in enemyPrefabs)

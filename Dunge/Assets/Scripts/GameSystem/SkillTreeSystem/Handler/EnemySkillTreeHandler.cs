@@ -21,18 +21,14 @@ namespace Scripts.GameSystem.SkillTreeSystem.Handler
             _enemySkillTreeData = new EnemySkillTreeData(deffaultSettings.EnemySkillTreeData);
         }
 
-        private void Awake()
+        private void Start()
         {
-            _enemyExperienceHandler.LevelUpEvent += LevelUpEvent;
-        }
-
-        private void OnDestroy()
-        {
-            _enemyExperienceHandler.LevelUpEvent -= LevelUpEvent;            
+            for (int i = 0; i < _enemyExperienceHandler.GetCurrentLevel(); i++)
+                LevelUp();
         }
 
 
-        private void LevelUpEvent()
+        private void LevelUp()
         {
             int indexAttribute = GetRandomIndex();
 
@@ -44,7 +40,7 @@ namespace Scripts.GameSystem.SkillTreeSystem.Handler
                 UpdateAttributeLevelEvent?.Invoke();
             }
             else
-                LevelUpEvent();
+                LevelUp();
         }
 
         private int GetRandomIndex() => 
