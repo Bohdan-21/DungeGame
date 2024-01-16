@@ -8,7 +8,6 @@ using UnityEngine;
 namespace Scripts.StaticData.GameConfigData.Enemy.Config
 {
     [CreateAssetMenu(fileName = "EnemyCharacterConfig", menuName = "StaticData/GameConfigData/Enemy/EnemyCharacterConfig")]
-    //TODO:эту часть нужно переделать чтобы у каждого моба были свои индивидуальные настрой силы атаки, скорости и т.д.
     public class EnemyCharacterConfig : ScriptableObject
     {
         [SerializeField] private List<EnemyPrefab> enemyPrefabs;
