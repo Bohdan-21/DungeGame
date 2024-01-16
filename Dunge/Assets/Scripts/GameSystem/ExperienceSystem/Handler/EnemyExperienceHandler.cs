@@ -1,5 +1,5 @@
-﻿using Scripts.SaveData;
-using Scripts.SaveData.Experience;
+﻿using Scripts.GameSystem.ExperienceSystem.Data;
+using Scripts.SaveData;
 using Scripts.Services.PlayerProgressService;
 using Scripts.StaticData.GameConfigData.Enemy;
 using System;

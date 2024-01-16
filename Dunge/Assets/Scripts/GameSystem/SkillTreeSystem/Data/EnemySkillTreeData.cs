@@ -1,14 +1,15 @@
-﻿using System;
+﻿using Scripts.SaveData.SkillTree;
+using System;
 using System.Collections.Generic;
 
-namespace Scripts.SaveData.SkillTree
+namespace Scripts.GameSystem.SkillTreeSystem.Data
 {
     [Serializable]
     public class EnemySkillTreeData
     {
         public List<AttributeData> attributes;
 
-        public EnemySkillTreeData() => 
+        public EnemySkillTreeData() =>
             attributes = new List<AttributeData>();
 
         public EnemySkillTreeData(EnemySkillTreeData enemySkillTreeData)

@@ -37,22 +37,18 @@ MonoBehaviour:
       SkillLevel: 0
       MaxSkillLevel: 20
       LevelMultiplierTreshold: 2
-      Boost: 0
     - SkillType: 1
       SkillLevel: 0
       MaxSkillLevel: 20
       LevelMultiplierTreshold: 2
-      Boost: 0
     - SkillType: 2
       SkillLevel: 0
       MaxSkillLevel: 20
       LevelMultiplierTreshold: 2
-      Boost: 0
     - SkillType: 3
       SkillLevel: 0
       MaxSkillLevel: 20
       LevelMultiplierTreshold: 2
-      Boost: 0
     attributes:
     - AttributeType: 0
       AttributeLevel: 0
@@ -97,13 +93,13 @@ MonoBehaviour:
     Stats:
     - typeStat: 0
       baseValue: 100
-      currentValue: 0
+      currentValue: 100
     - typeStat: 1
       baseValue: 0
       currentValue: 0
     - typeStat: 2
       baseValue: 8
-      currentValue: 0
+      currentValue: 8
     - typeStat: 3
       baseValue: 0
       currentValue: 0
@@ -118,4 +114,4 @@ MonoBehaviour:
       currentValue: 0
     - typeStat: 8
       baseValue: 10
-      currentValue: 0
+      currentValue: 10

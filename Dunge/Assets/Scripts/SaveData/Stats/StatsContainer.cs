@@ -14,10 +14,8 @@ namespace Scripts.SaveData.Stats
             Stats = new List<StatData>();
         }
 
-        public StatsContainer(StatsContainer playerStatsContainer)
+        public StatsContainer(StatsContainer playerStatsContainer) : this()
         {
-            Stats = new List<StatData>();
-
             foreach (StatData statData in playerStatsContainer.Stats)
                 Stats.Add(new StatData(statData));
         }

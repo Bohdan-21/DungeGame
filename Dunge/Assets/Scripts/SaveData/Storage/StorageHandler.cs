@@ -15,16 +15,11 @@ namespace Scripts.SaveData.Storage
 
         public StorageHandler()
         {
-            if (_storageData != null)
-                ClearData();
-            else
-                _storageData = new StorageData();
+            _storageData = new StorageData();
         }
 
         public StorageHandler(StorageData storage)
         {
-            if (_storageData != null)
-                ClearData();
             _storageData = new StorageData(storage);
         }
 

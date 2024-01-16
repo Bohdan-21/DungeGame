@@ -1,5 +1,5 @@
-﻿using Scripts.SaveData.Experience;
-using Scripts.SaveData.SkillTree;
+﻿using Scripts.GameSystem.ExperienceSystem.Data;
+using Scripts.GameSystem.SkillTreeSystem.Data;
 using Scripts.SaveData.Stats;
 using System;
 using UnityEngine;

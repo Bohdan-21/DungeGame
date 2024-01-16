@@ -14,11 +14,8 @@ namespace Scripts.SaveData.Storage
             _itemCountData = new ItemCountData(itemType, count);
         }
 
-        public ItemCount(ItemCount itemCount)
-        {
-            _itemCountData = new ItemCountData(itemCount._itemCountData.TypeItem,
-                                               itemCount._itemCountData.Count);
-        }
+        public ItemCount(ItemCount itemCount) : 
+            this(itemCount._itemCountData.TypeItem, itemCount._itemCountData.Count) { }
 
         public TypeItem GetItemType() =>
             _itemCountData.TypeItem;

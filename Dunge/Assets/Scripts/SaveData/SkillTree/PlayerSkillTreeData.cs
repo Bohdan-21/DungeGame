@@ -21,14 +21,10 @@ namespace Scripts.SaveData.SkillTree
             SkillPointForUpgrate = AttributePointForUpgrate = 0;
         }
 
-        public PlayerSkillTreeData(PlayerSkillTreeData skillTreeData)
-        {
-            skills = new List<SkillData>();
-
+        public PlayerSkillTreeData(PlayerSkillTreeData skillTreeData) : this()
+        {            
             foreach (SkillData skillData in skillTreeData.skills)
                 skills.Add(new SkillData(skillData));
-
-            attributes = new List<AttributeData>();
 
             foreach (AttributeData attributeData in skillTreeData.attributes)
                 attributes.Add(new AttributeData(attributeData));

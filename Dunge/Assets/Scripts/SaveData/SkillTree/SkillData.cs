@@ -15,14 +15,10 @@ namespace Scripts.SaveData.SkillTree
         public int MaxSkillLevel = 20;
         public int LevelMultiplierTreshold = 2;
 
-        [Header("Boost Data")]
-        public float Boost = 0;
-
         public SkillData()
         {
             SkillType = SkillType.Strength;
             SkillLevel = MaxSkillLevel = LevelMultiplierTreshold = 0;
-            Boost = 0;
         }
 
         public SkillData(SkillData skillData)
@@ -31,7 +27,6 @@ namespace Scripts.SaveData.SkillTree
             SkillLevel = skillData.SkillLevel;
             MaxSkillLevel = skillData.MaxSkillLevel;
             LevelMultiplierTreshold = skillData.LevelMultiplierTreshold;
-            Boost = skillData.Boost;
         }
 
         public SkillType GetSkillType() => SkillType;
@@ -44,9 +39,6 @@ namespace Scripts.SaveData.SkillTree
 
         public bool CanUpgrateAttribute(AttributeData attributeData) =>
             SkillLevel > attributeData.GetAttributeLevel() * LevelMultiplierTreshold && attributeData.CanUpgrateLevel();
-
-        public float GetCurrentBoost() =>
-            SkillLevel * Boost;
 
         public void UpLevel() =>
             SkillLevel++;

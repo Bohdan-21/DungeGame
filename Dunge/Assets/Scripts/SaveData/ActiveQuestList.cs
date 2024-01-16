@@ -8,11 +8,11 @@ namespace Scripts.SaveData
     public class ActiveQuestList
     {
         public QuestData ActiveQuest;
-        public List<QuestData> QuestDataList = new List<QuestData>();
+        public List<QuestData> QuestDataList;
 
         public ActiveQuestList()
         {
-            QuestDataList = new List<QuestData>();
+                QuestDataList = new List<QuestData>();
         }
 
         public void Clear()

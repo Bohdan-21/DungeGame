@@ -10,10 +10,7 @@ namespace Scripts.SaveData.Storage
         
         public StorageData()
         {
-            if (items != null)
-                ClearData();
-            else
-                items = new List<ItemCount>();
+            items = new List<ItemCount>();
         }
 
         public StorageData(StorageData storage) : this()

@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using Zenject;
 
-namespace Scripts.SaveData.Experience
+namespace Scripts.GameSystem.ExperienceSystem.Data
 {
     [Serializable]
     public class EnemyExperienceData
