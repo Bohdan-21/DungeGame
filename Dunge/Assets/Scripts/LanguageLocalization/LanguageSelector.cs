@@ -1,4 +1,5 @@
-﻿using Scripts.LanguageLocalization;
+﻿using Scripts.Infrastructure.Audio;
+using Scripts.LanguageLocalization;
 using Scripts.LanguageLocalization.Service;
 using System;
 using System.Collections.Generic;
@@ -13,10 +14,14 @@ namespace Assets.Scripts.LanguageLocalization
     class LanguageSelector : MonoBehaviour
     {
         private ILanguageSettings _languageSettings;
+        private ISoundsButtonActionPlayer _soundsButtonActionPlayer;
 
         [Inject]
-        private void Construct(ILanguageSettings languageSettings) =>
+        private void Construct(ILanguageSettings languageSettings, ISoundsButtonActionPlayer soundsButtonActionPlayer)
+        {
             _languageSettings = languageSettings;
+            _soundsButtonActionPlayer = soundsButtonActionPlayer;
+        }
 
         public void UpdateLanguage(string language)
         {
@@ -24,6 +29,10 @@ namespace Assets.Scripts.LanguageLocalization
                 _languageSettings.UpdateLanguage(Language.RU);
             else if (language == Language.ENG.ToString())
                 _languageSettings.UpdateLanguage(Language.ENG);
+            PlaySoundButtonPress();
         }
+
+        private void PlaySoundButtonPress() =>
+            _soundsButtonActionPlayer.PlayButtonPressSound();
     }
 }
