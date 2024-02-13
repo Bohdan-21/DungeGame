@@ -77,7 +77,8 @@ public class GameInstaller : MonoInstaller
         Container.Bind<QuestList>().FromInstance(questSetup.questList).AsSingle();
         Container.Bind<IQuestJournal>().FromComponentInNewPrefab(questSetup.questJournal).AsSingle();
         Container.Bind<IQuestJournalUI>().FromComponentInNewPrefab(questSetup.questJournalUI).AsSingle().NonLazy();
-        Container.Bind<IQuestTracker>().FromComponentInNewPrefab(questSetup.questTrackerUI).AsSingle().NonLazy();
+        //Container.Bind<IQuestTracker>().FromComponentInNewPrefab(questSetup.questTrackerUI).AsSingle().NonLazy();
+        //TODO: for activate QUEST_TRACKER uncomment this
 
         Container.Bind<QuestChannel>().FromNew().AsSingle();
         Container.Bind<CombatChannel>().FromNew().AsSingle();

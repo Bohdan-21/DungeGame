@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using Scripts.SaveData.Stats;
 using Scripts.GameSystem.StatsSystem.Handler;
+using Zenject;
+using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForStat;
+using Scripts.LanguageLocalization.Service;
 
 namespace Scripts.GameSystem.StatsSystem.UI
 {
@@ -12,13 +15,27 @@ namespace Scripts.GameSystem.StatsSystem.UI
 
         private List<GameObject> _spawnedCard = new List<GameObject>();
 
+        private LocalizationForStatType _localizationForStatType;
+        private ILanguageSettings _languageSettings;
+
+        [Inject]
+        private void Construct(LocalizationForStatType localizationForStatType, ILanguageSettings languageSettings)
+        {
+            _localizationForStatType = localizationForStatType;
+            _languageSettings = languageSettings;
+        }
+
         public void SpawnCard(PlayerStatsHandler cardData)
         {
+            string localizationText;
+
             foreach (StatData statData in cardData)
             {
                 GameObject card = Instantiate(_statCardUIPrefab, Content);
 
-                card.GetComponent<StatCardUI>().ShowStat(statData);
+                localizationText = _localizationForStatType.GetLocalizationText(statData.typeStat, _languageSettings.Language);
+
+                card.GetComponent<StatCardUI>().ShowStat(statData, localizationText);
 
                 _spawnedCard.Add(card);
             }

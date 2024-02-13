@@ -93,3 +93,7 @@ MonoBehaviour:
   NPCStaticData: {fileID: 11400000, guid: 4357c7234dd97a543b84caf2e674cabf, type: 2}
   ItemsStaticData: {fileID: 11400000, guid: 10c7f18aa59ce054a9e5d072a45ce02e, type: 2}
   ExperienceForKilledMonster: {fileID: 11400000, guid: 95caaf0e00d9a344d9410bcae5fd893e, type: 2}
+  LocalizationForItemType: {fileID: 11400000, guid: 1249e0af9be24954285d7a614c169f62, type: 2}
+  LocalizationForStatType: {fileID: 11400000, guid: 4aef5c69ce6327d44bd6d64e474d33ed, type: 2}
+  LocalizationForSkillType: {fileID: 11400000, guid: e71ca63da93ea6b4194d9ca630b9680d, type: 2}
+  LocalizationForAttributeType: {fileID: 11400000, guid: 29be6371f8085f948944bd698d02034c, type: 2}

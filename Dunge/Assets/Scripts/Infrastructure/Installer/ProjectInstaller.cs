@@ -22,6 +22,9 @@ using Scripts.StaticData.GameConfigData.NPC;
 using Scripts.StaticData.GameConfigData.Item;
 using Scripts.StaticData.GameConfigData.GameSystem.SkillTree.EnumLinks;
 using Scripts.StaticData;
+using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForItem;
+using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForSkillTree;
+using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForStat;
 
 namespace Scripts.Installer
 {
@@ -54,6 +57,11 @@ namespace Scripts.Installer
         public ItemCollection ItemsStaticData;
 
         public ExperienceForKilledEnemy ExperienceForKilledMonster;
+
+        public LocalizationForItemType LocalizationForItemType;
+        public LocalizationForStatType LocalizationForStatType;
+        public LocalizationForSkillType LocalizationForSkillType;
+        public LocalizationForAttributeType LocalizationForAttributeType;
 
         public override void InstallBindings()
         {
@@ -112,6 +120,11 @@ namespace Scripts.Installer
             Container.Bind<ItemCollection>().FromInstance(ItemsStaticData).AsSingle();
 
             Container.Bind<ExperienceForKilledEnemy>().FromInstance(ExperienceForKilledMonster).AsSingle();
+
+            Container.Bind<LocalizationForItemType>().FromInstance(LocalizationForItemType).AsSingle();
+            Container.Bind<LocalizationForStatType>().FromInstance(LocalizationForStatType).AsSingle();
+            Container.Bind<LocalizationForSkillType>().FromInstance(LocalizationForSkillType).AsSingle();
+            Container.Bind<LocalizationForAttributeType>().FromInstance(LocalizationForAttributeType).AsSingle();
         }
 
         private void BindSceneLoader()

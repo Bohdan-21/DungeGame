@@ -18,13 +18,13 @@ namespace Scripts.GameSystem.SkillTreeSystem.UI.Card
         private PlayerSkillTreeHandler _skillTreeData;
         private Action _refreshEvent;
 
-        public void Initialize(SkillData skillData, PlayerSkillTreeHandler skillTreeData, Action refreshEvent)
+        public void Initialize(SkillData skillData, string localizationText, PlayerSkillTreeHandler skillTreeData, Action refreshEvent)
         {
             _skillType = skillData.GetSkillType();
             _skillTreeData = skillTreeData;
             _refreshEvent = refreshEvent;
 
-            SkillName.text = skillData.GetSkillType().ToString();
+            SkillName.text = localizationText;
             SkillLevel.text = skillData.GetSkillLevel().ToString();
 
             SkillLevelUpButton.interactable = _skillTreeData.CanUpgrateSkill(_skillType);

@@ -14,11 +14,11 @@ namespace Scripts.GameSystem.StatsSystem.UI
         [SerializeField] private TextMeshProUGUI BaseValueText;
         [SerializeField] private TextMeshProUGUI CurrentValueText;
 
-        public void ShowStat(StatData statData)
+        public void ShowStat(StatData statData, string localizationText)
         {
             _typeStat = statData.typeStat;
 
-            TypeStatText.text = statData.typeStat.ToString();
+            TypeStatText.text = localizationText;
             BaseValueText.text = statData.baseValue.ToString();
             CurrentValueText.text = statData.currentValue.ToString();
         }

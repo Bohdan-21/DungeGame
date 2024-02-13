@@ -19,15 +19,15 @@ namespace Scripts.GameSystem.SkillTreeSystem.UI.Card
         private PlayerSkillTreeHandler _skillTreeData;
         private Action _refreshEvent;
 
-        public void Initialize(AttributeData attributeData, SkillType baseSkillTypeAttribute, PlayerSkillTreeHandler skillTreeData, 
-                               Action refreshEvent)
+        public void Initialize(AttributeData attributeData, PlayerSkillTreeHandler skillTreeData,
+                               string localizationTextForSkill, string localizationTextForAttibute, Action refreshEvent)
         {
             _attributeType = attributeData.GetAttributeType();
             _skillTreeData = skillTreeData;
             _refreshEvent = refreshEvent;
 
-            AttributeName.text = attributeData.GetAttributeType().ToString();
-            AttributeBaseSkillName.text = baseSkillTypeAttribute.ToString();
+            AttributeName.text = localizationTextForAttibute;
+            AttributeBaseSkillName.text = localizationTextForSkill;
             AttributeLevel.text = attributeData.GetAttributeLevel().ToString();
 
             AttributeLevelUpButton.interactable = _skillTreeData.CanUpgrateAttribute(_attributeType);

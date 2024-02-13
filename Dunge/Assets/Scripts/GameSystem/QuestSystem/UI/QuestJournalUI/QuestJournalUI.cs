@@ -29,16 +29,16 @@ namespace Scripts.GameSystem.QuestSystem.UI.QuestJournal
 
             _questJournal.QuestJournalRefreshEvent += QuestJournalRefresh;
         }
-
+        //TODO:for activate QUEST_SYSTEM uncomment this
         private void Update()
         {
-            if (Input.GetKeyDown(QuestJournalUIButton))
-            {
-                if (_isShow)
-                    Hide();
-                else
-                    Show();
-            }
+            //if (Input.GetKeyDown(QuestJournalUIButton))
+            //{
+            //    if (_isShow)
+            //        Hide();
+            //    else
+            //        Show();
+            //}
         }
 
         public void Show()
