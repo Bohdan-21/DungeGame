@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterController: {fileID: 4750217481742948329}
-  Inventory: {fileID: 0}
+  Inventory: {fileID: 6525228412005272768}
 --- !u!114 &6938020302638326640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,8 +683,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerBehaviour: {fileID: 6938020302638326640}
-  _storage:
-    items: []
+  _storageHandler:
+    _storageData:
+      items: []
 --- !u!114 &6357488984022323064
 MonoBehaviour:
   m_ObjectHideFlags: 0

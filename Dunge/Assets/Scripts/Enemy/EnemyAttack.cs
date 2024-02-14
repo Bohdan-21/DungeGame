@@ -112,6 +112,11 @@ namespace Scripts.Enemy
         private void HealthChanged()
         {
             if (IsCooldownIsEnd())
+            {
+                EndAttack();
+                //_isAttacking = false; 
+            }
+            else
                 _isAttacking = false;
         }
 
