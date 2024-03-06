@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chunksList:
   - TypeChunkConnection: 0
-    ChunkPrefab: {fileID: 2729134763484522927, guid: 88d532c13820a1244bbaf5fa35a068b2, type: 3}
+    ChunkPrefab: {fileID: 875933479886598811, guid: 328a5f383f385314798a6ba9d7f6a3d5, type: 3}
   - TypeChunkConnection: 2
-    ChunkPrefab: {fileID: 7638281349073349010, guid: c21a3a26f7ab26747b5aab64b3531b14, type: 3}
+    ChunkPrefab: {fileID: 6613257066150849582, guid: a0bc97878c159d443be706361bd88dab, type: 3}
   - TypeChunkConnection: 3
-    ChunkPrefab: {fileID: 2729134763484522927, guid: dd8ac4cd7563b3e46bd4b2b552692207, type: 3}
+    ChunkPrefab: {fileID: 1316517566719668853, guid: 0531daebf97d3ac4690659b7dc1c866b, type: 3}
   - TypeChunkConnection: 1
-    ChunkPrefab: {fileID: 4248053138279217422, guid: 2f947f9116b71ef45a98598ca6676e2e, type: 3}
+    ChunkPrefab: {fileID: 4879719889134076270, guid: e744204e5865c3c488f00358503f5861, type: 3}
   - TypeChunkConnection: 4
-    ChunkPrefab: {fileID: 1311683803879238432, guid: 92f5efc61cb0a6b4eb76b0e470ddf9b9, type: 3}
+    ChunkPrefab: {fileID: 5959252361173927586, guid: 2a2884aab7643b94ea7b19d59be8af32, type: 3}
   - TypeChunkConnection: 5
-    ChunkPrefab: {fileID: 1311683803879238432, guid: ab50182fed7b1ec47b864978be657b2c, type: 3}
+    ChunkPrefab: {fileID: 1584803466157814687, guid: 7383f15f0ceb4fb4697fcf9b15ac2d4e, type: 3}

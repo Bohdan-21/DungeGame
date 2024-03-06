@@ -18,7 +18,7 @@ namespace Scripts.Player
         private IInputService _inputService;
         private IInteruptService _interuptService;
 
-        private float _walkSpeed;
+        [SerializeField] private float _walkSpeed;
         private bool _isInterupt;
 
         [Inject]
