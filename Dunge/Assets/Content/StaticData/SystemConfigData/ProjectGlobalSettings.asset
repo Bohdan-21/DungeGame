@@ -14,6 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartRoom: Village
   DungeLevels:
-  - DungeLevel1
-  - DungeLevel2
-  - DungeLevel3
+  - DungeLevelGeneration

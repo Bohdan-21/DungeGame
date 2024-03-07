@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Scripts.Infrastructure
 {
-    public class GameBootstrapper : MonoBehaviour
+    public class GameBootstrapperForPreparedScene : MonoBehaviour
     {
         private GameStateMachine _gameStateMachine;
         private IBackgroundAudioPlayer _audioPlayer;

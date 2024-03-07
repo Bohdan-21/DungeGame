@@ -181,7 +181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 482489878}
-  - component: {fileID: 482489877}
+  - component: {fileID: 482489880}
   - component: {fileID: 482489879}
   m_Layer: 0
   m_Name: GameBootstrapper
@@ -190,18 +190,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &482489877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482489876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3190cca7133a4024a9491dcaa1e0cb71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &482489878
 Transform:
   m_ObjectHideFlags: 0
@@ -232,6 +220,18 @@ MonoBehaviour:
   TimeBeforeStartGenerateLevel: 3
   levelGeneretion: {fileID: 913182889}
   levelBaker: {fileID: 913182888}
+--- !u!114 &482489880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482489876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dfcdfa36b66bb24db8c68f7dd83aa5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &686914778
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 686914778}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b695daf12cc031542a675606f0491402, type: 3}
+  m_Script: {fileID: 11500000, guid: 5879e1ba8f15c5243964ca5945b24452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioSetupForGame: {fileID: 11400000, guid: 1bcf065aebe364943a27740619a12ac4, type: 2}

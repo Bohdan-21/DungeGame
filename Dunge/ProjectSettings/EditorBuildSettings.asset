@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DungeLevel3.unity
     guid: d0bf0fed35343884ca374ce32b1aeff8
+  - enabled: 1
+    path: Assets/Scenes/DungeLevelGeneration.unity
+    guid: 0228186ed863e0849afa14ceca8ed15a
   m_configObjects: {}

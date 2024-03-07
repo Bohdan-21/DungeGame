@@ -1,10 +1,9 @@
-using Scripts.GameSystem.DialogSystem.Logic;
+﻿using Scripts.GameSystem.DialogSystem.Logic;
 using Scripts.GameSystem.DialogSystem.Logic.UIController;
 using Scripts.GameSystem.QuestSystem.Channel;
 using Scripts.GameSystem.QuestSystem.Factory;
 using Scripts.GameSystem.QuestSystem.Journal;
 using Scripts.GameSystem.QuestSystem.UI.QuestJournal;
-using Scripts.GameSystem.QuestSystem.UI.Tracker;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.Logic;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
 using Scripts.Infrastructure.Audio;
@@ -22,7 +21,7 @@ using Scripts.UI.NameLocation;
 using UnityEngine;
 using Zenject;
 
-public class GameInstaller : MonoInstaller
+public class GameInstallerForGeneratedScene : MonoInstaller
 {
     public AudioSetupForGame audioSetupForGame;
     public DialogSetupSystem dialogSetupSystem;
@@ -34,7 +33,7 @@ public class GameInstaller : MonoInstaller
 
     public LevelSettings LevelSettings;
 
-    
+
     public override void InstallBindings()
     {
         BindAudioSetup();
@@ -123,5 +122,7 @@ public class GameInstaller : MonoInstaller
         Container.Bind<DeathState>().AsSingle();
         Container.Bind<QuitState>().AsSingle();
         Container.Bind<WinState>().AsSingle();
+
+        Container.Bind<GenerateLevelState>().AsSingle();
     }
 }
