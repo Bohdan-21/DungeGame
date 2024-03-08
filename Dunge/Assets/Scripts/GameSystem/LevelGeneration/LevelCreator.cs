@@ -6,23 +6,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Scripts.Infrastructure.Bootstrapper
+namespace Scripts.GameSystem.LevelGeneration
 {
-    public class LevelCreator : MonoBehaviour
+    public class LevelCreator : MonoBehaviour, ILevelCreator
     {
         public LevelGeneretion levelGeneretion;
         public LevelBaker levelBaker;
 
-        private void Start()
+        public event Action CompleteCreateLevelEvent;
+
+        public void CreateLevel()
         {
-            DelayGenerationLevel();
+            StartCoroutine(DelayCreateLevel());
         }
 
-        private void DelayGenerationLevel()
+        private IEnumerator DelayCreateLevel()
         {
             Debug.Log("Start Generate Level");
 
-            StartCoroutine(levelGeneretion.GenerateLevel());
+            yield return levelGeneretion.GenerateLevel();
 
             Debug.Log("End Generate Level");
 
@@ -31,6 +33,8 @@ namespace Scripts.Infrastructure.Bootstrapper
             levelBaker.BakeLevel();
 
             Debug.Log("End Bake Level");
+
+            CompleteCreateLevelEvent?.Invoke();
         }
 
         private void Update()

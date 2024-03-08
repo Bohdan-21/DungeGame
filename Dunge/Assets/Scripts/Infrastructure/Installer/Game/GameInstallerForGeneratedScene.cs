@@ -1,11 +1,11 @@
-﻿using Scripts.GameSystem.LevelGeneration.Baker;
+﻿using Scripts.GameSystem.LevelGeneration;
 using Scripts.Infrastructure.StateMachine;
 
 namespace Scripts.Infrastructure.Installer.Game
 {
     public class GameInstallerForGeneratedScene : GameInstaller
     {
-        public LevelBaker levelBaker;
+        public LevelCreator levelCreator;
 
         public override void InstallBindings()
         {
@@ -13,7 +13,7 @@ namespace Scripts.Infrastructure.Installer.Game
 
             BindSpecialState();
 
-            Container.Bind<ILevelBaker>().FromInstance(levelBaker).AsSingle();
+            Container.Bind<ILevelCreator>().FromInstance(levelCreator).AsSingle();
         }
 
         private void BindSpecialState()
