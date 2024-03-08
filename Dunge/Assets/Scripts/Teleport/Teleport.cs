@@ -80,6 +80,9 @@ namespace Scripts.GameMechanic.Teleport
 
         private bool IsCurrentLevelMaxLevelDunge()
         {
+            Debug.Log("Current:" + _progressService.PlayerProgress.LevelData.CurrentDungeLevel.ToString());
+            Debug.Log("Maximum:" + _globalSettings.DungeLevels.Count.ToString());
+
             return _progressService.PlayerProgress.LevelData.CurrentDungeLevel + 1 == _globalSettings.DungeLevels.Count;
         }
     }

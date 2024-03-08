@@ -26,7 +26,7 @@ using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForItem;
 using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForSkillTree;
 using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForStat;
 
-namespace Scripts.Installer
+namespace Scripts.Infrastructure.Installer
 {
     public class ProjectInstaller : MonoInstaller
     {
@@ -130,7 +130,7 @@ namespace Scripts.Installer
         private void BindSceneLoader()
         {
             Container.Bind<ICurtain>().To<Curtain>().FromComponentInNewPrefab(CurtainPrefab).AsSingle();
-            Container.Bind<ISceneLoader>().To<SceneLoader>().FromComponentInNewPrefab(SceneLoaderPrefab).AsSingle();
+            Container.Bind<ISceneLoader>().To<SceneLoader.SceneLoader>().FromComponentInNewPrefab(SceneLoaderPrefab).AsSingle();
         }
 
         private void BindAudioService()

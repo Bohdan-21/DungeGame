@@ -761,7 +761,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa0da5df853cae46ad67c33a7d5875b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelCells: []
+  _levelCells:
+  - Row: 0
+    Column: 0
+    LevelPrefabData: {fileID: 848845873}
   _chunkSetup: {fileID: 11400000, guid: c91684a5d71e4da40aa4ffcc1446da04, type: 2}
   currentSpawnedChunk: 1
 --- !u!4 &1551382432

@@ -9,29 +9,32 @@ using System;
 using UnityEngine;
 using Zenject;
 
-public class MainMenuInstaller : MonoInstaller
+namespace Scripts.Infrastructure.Installer
 {
-    public AudioSetupForMainMenu audioSetupForMainMenu;
-
-    public GameObject MainMenuPrefab;
-    public GameObject LicenseUI;
-
-    public override void InstallBindings()
+    public class MainMenuInstaller : MonoInstaller
     {
-        BindAudioSetup();
+        public AudioSetupForMainMenu audioSetupForMainMenu;
 
-        Container.Bind<MainMenu>().FromComponentInNewPrefab(MainMenuPrefab).AsSingle();
-        Container.Bind<ILicenseUI>().FromComponentInNewPrefab(LicenseUI).AsSingle();
+        public GameObject MainMenuPrefab;
+        public GameObject LicenseUI;
 
-        Container.Bind<MenuStateMachine>().AsSingle();
-        Container.Bind<StartMenuState>().AsSingle();
-        Container.Bind<CreateNewPlayerProgressState>().AsSingle();
-        Container.Bind<LoadPlayerProgressState>().AsSingle();
-    }
+        public override void InstallBindings()
+        {
+            BindAudioSetup();
 
-    private void BindAudioSetup()
-    {
-        Container.Bind<PlayList>().FromInstance(audioSetupForMainMenu.PlayList).AsSingle();
-        Container.Bind<IBackgroundAudioPlayer>().FromComponentInNewPrefab(audioSetupForMainMenu.BackGroundAudioPlayer).AsSingle();
+            Container.Bind<MainMenu>().FromComponentInNewPrefab(MainMenuPrefab).AsSingle();
+            Container.Bind<ILicenseUI>().FromComponentInNewPrefab(LicenseUI).AsSingle();
+
+            Container.Bind<MenuStateMachine>().AsSingle();
+            Container.Bind<StartMenuState>().AsSingle();
+            Container.Bind<CreateNewPlayerProgressState>().AsSingle();
+            Container.Bind<LoadPlayerProgressState>().AsSingle();
+        }
+
+        private void BindAudioSetup()
+        {
+            Container.Bind<PlayList>().FromInstance(audioSetupForMainMenu.PlayList).AsSingle();
+            Container.Bind<IBackgroundAudioPlayer>().FromComponentInNewPrefab(audioSetupForMainMenu.BackGroundAudioPlayer).AsSingle();
+        }
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace Scripts.Infrastructure.StateMachine
+﻿using System.Collections;
+using UnityEngine;
+
+namespace Scripts.Infrastructure.StateMachine
 {
     public class GenerateLevelState : IState
     {
@@ -11,8 +14,14 @@
 
         public void Enter()
         {
-            _levelStateMachine.Enter<InitializeLevelState>();
+
+            CompleteGenerateLevel();
             //throw new System.NotImplementedException();
+        }
+
+        private void CompleteGenerateLevel()
+        {
+            _levelStateMachine.Enter<InitializeLevelState>();
         }
 
         public void Exit()
