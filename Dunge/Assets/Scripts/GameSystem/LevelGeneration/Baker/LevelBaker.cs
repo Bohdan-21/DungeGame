@@ -4,13 +4,12 @@ using UnityEngine.AI;
 
 namespace Scripts.GameSystem.LevelGeneration.Baker
 {
-    public class LevelBaker : MonoBehaviour
+    public class LevelBaker : MonoBehaviour, ILevelBaker
     {
         public NavMeshSurface navMeshSurface;
 
-        public IEnumerator BakeLevel()
+        public void BakeLevel()
         {
-            yield return null;
             navMeshSurface.BuildNavMesh();
         }
     }

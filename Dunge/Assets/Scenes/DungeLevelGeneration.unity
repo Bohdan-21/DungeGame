@@ -217,9 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 804c89aa2b29d9d409cb562a1cff9241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBeforeStartGenerateLevel: 3
   levelGeneretion: {fileID: 913182889}
-  levelBaker: {fileID: 913182888}
+  levelBaker: {fileID: 1998161342}
 --- !u!114 &482489880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +314,7 @@ MonoBehaviour:
   TradingSystemUI: {fileID: 7647462791770371591, guid: fe7f28bb314c8f44fb75314860a7fb13, type: 3}
   LocationNameUI: {fileID: 2850048649309516018, guid: 577afe1f7b651f0438d4e114d3b012db, type: 3}
   LevelSettings: {fileID: 24411614}
+  levelBaker: {fileID: 1998161342}
 --- !u!1 &749025030
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +522,6 @@ GameObject:
   m_Component:
   - component: {fileID: 913182890}
   - component: {fileID: 913182889}
-  - component: {fileID: 913182888}
   - component: {fileID: 913182887}
   m_Layer: 0
   m_Name: LevelGenerator
@@ -544,19 +543,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartLevelPrefabData: {fileID: 848845873}
---- !u!114 &913182888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913182886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3a1a058bb85e4749956ebcd07a688c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navMeshSurface: {fileID: 1998161340}
 --- !u!114 &913182889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -792,8 +778,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1998161341}
   - component: {fileID: 1998161340}
+  - component: {fileID: 1998161342}
   m_Layer: 0
-  m_Name: Surface
+  m_Name: LevelBaker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -843,6 +830,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1998161342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998161339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a1a058bb85e4749956ebcd07a688c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navMeshSurface: {fileID: 1998161340}
 --- !u!1 &2123002551
 GameObject:
   m_ObjectHideFlags: 0

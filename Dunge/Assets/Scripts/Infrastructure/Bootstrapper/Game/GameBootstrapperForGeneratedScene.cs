@@ -31,9 +31,9 @@ namespace Scripts.Infrastructure
 
         private void Awake()
         {
-            _gameStateMachine.Enter<GenerateLevelState>();
-
             _audioPlayer.PlayBackgroundMusic();
+
+            _gameStateMachine.Enter<GenerateLevelState>();
         }
     }
 }

@@ -8,31 +8,27 @@ using UnityEngine.SceneManagement;
 
 namespace Scripts.Infrastructure.Bootstrapper
 {
-    public class LevelGenerationBootstrapper : MonoBehaviour
+    public class LevelCreator : MonoBehaviour
     {
-        public float TimeBeforeStartGenerateLevel = 3f;
-
         public LevelGeneretion levelGeneretion;
         public LevelBaker levelBaker;
 
         private void Start()
         {
-            StartCoroutine(DelayGenerationLevel());
+            DelayGenerationLevel();
         }
 
-        private IEnumerator DelayGenerationLevel()
+        private void DelayGenerationLevel()
         {
-            yield return new WaitForSeconds(TimeBeforeStartGenerateLevel);
-
             Debug.Log("Start Generate Level");
 
-            yield return levelGeneretion.GenerateLevel();
+            StartCoroutine(levelGeneretion.GenerateLevel());
 
             Debug.Log("End Generate Level");
 
             Debug.Log("Start Bake Level");
 
-            yield return levelBaker.BakeLevel();
+            levelBaker.BakeLevel();
 
             Debug.Log("End Bake Level");
         }

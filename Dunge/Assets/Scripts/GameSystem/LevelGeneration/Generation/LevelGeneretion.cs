@@ -81,7 +81,7 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
                             DestroyCreatedChunk();
                         }
 
-                        yield return new WaitForSeconds(0);
+                        yield return null;
                     }
                 }
             }
