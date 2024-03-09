@@ -39,8 +39,6 @@ namespace Scripts.Infrastructure.SceneLoader
             onLoaded?.Invoke();
 
             yield return new WaitForSeconds(WaitingTime);
-
-            _curtain.Hide();
         }
     }
 }
