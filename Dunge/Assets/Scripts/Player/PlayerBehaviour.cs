@@ -24,9 +24,11 @@ namespace Scripts.Player
         public PlayerInventory Inventory;
 
         [Inject]
-        private void Construct(LevelSettings levelSettings)
+        private void Construct(LevelSettings levelSettings, ICameraFollow cameraFollow)
         {
             transform.position = levelSettings.PlayerSpawnPoint.position;
+
+            cameraFollow.SetTarget(gameObject.transform);
         }
     }
 }

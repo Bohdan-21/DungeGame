@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c11f9d4328706a4083b4df374476f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCamera: {fileID: 4196711485318404590, guid: 0c24fd3a1662088488c09dae4a908e19, type: 3}
   CurtainPrefab: {fileID: 7101906623869289560, guid: e078092e35890f54f86b5f7762126cbf, type: 3}
   SettingsUIPrefab: {fileID: 4100678517899180949, guid: 70316a76f4bd2ff4eb07b32ea1f9f502, type: 3}
   SceneLoaderPrefab: {fileID: 3842421171574591101, guid: 0611a0e4cf7d6db4ab02f7c59ecf47b0, type: 3}

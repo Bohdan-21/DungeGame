@@ -1,17 +1,16 @@
-using Scripts.Player;
 using Scripts.Services.InputService;
 using Scripts.StaticData.SystemConfigData.ControlButton;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class CameraFollow : MonoBehaviour
+public class CameraFollow : MonoBehaviour, ICameraFollow
 {
     private KeyCode ZoomOutButton;
     private KeyCode ZoomInButton;
     private KeyCode RotateToLeftButton;
     private KeyCode RotateToRightButton;
+
+    [SerializeField] private Vector3 _baseCameraRotation;
 
     [SerializeField] private float _rotationAngleX;
     [SerializeField] private float _rotationAngleY;
@@ -27,9 +26,8 @@ public class CameraFollow : MonoBehaviour
     private IInputService _inputService;
 
     [Inject]
-    private void Construct(PlayerBehaviour player, IInputService inputService, ControlButtons controlButtons)
+    private void Construct(IInputService inputService, ControlButtons controlButtons)
     {
-        _target = player.transform;
         _inputService = inputService;
 
         ZoomInButton = controlButtons.CameraControlButtons.ZoomInButton;
@@ -39,16 +37,27 @@ public class CameraFollow : MonoBehaviour
         RotateToRightButton = controlButtons.CameraControlButtons.RotateToRightButton;
     }
 
+    public void SetTarget(Transform target)
+    {
+        gameObject.transform.position = Vector3.zero;
+        gameObject.transform.rotation = Quaternion.Euler(_baseCameraRotation);
+
+        _target = target;
+    }
+
     private void Update()
     {
-        if (_inputService.IsPress(ZoomOutButton) && _distance < _maxDistance)
-            _distance++;
-        else if (_inputService.IsPress(ZoomInButton) && _distance > _minDistance)
-            _distance--;
-        else if (_inputService.IsPress(RotateToLeftButton))
-            _rotationAngleY -= _speedRotateYAxis;
-        else if(_inputService.IsPress(RotateToRightButton))
-            _rotationAngleY += _speedRotateYAxis;
+        if (_target != null)
+        {
+            if (_inputService.IsPress(ZoomOutButton) && _distance < _maxDistance)
+                _distance++;
+            else if (_inputService.IsPress(ZoomInButton) && _distance > _minDistance)
+                _distance--;
+            else if (_inputService.IsPress(RotateToLeftButton))
+                _rotationAngleY -= _speedRotateYAxis;
+            else if (_inputService.IsPress(RotateToRightButton))
+                _rotationAngleY += _speedRotateYAxis;
+        }
     }
 
     private void LateUpdate()

@@ -32,7 +32,6 @@ namespace Scripts.Infrastructure.Factory
         public void CreateLevel()
         {
             CreatePlayer();
-            CreateGameCamera();
             CreateGUI();
             CreateMonster();
             CreateNPC();
@@ -47,9 +46,6 @@ namespace Scripts.Infrastructure.Factory
 
         private void CreatePlayer() =>
             _diContainer.Bind<PlayerBehaviour>().FromComponentInNewPrefab(_gameStaticData.PlayerPrefab).AsSingle();
-
-        private void CreateGameCamera() =>
-            Instantiate(_gameStaticData.GameCamera);
 
         private void CreateGUI()
         {

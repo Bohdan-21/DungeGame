@@ -30,6 +30,7 @@ namespace Scripts.Infrastructure.Installer
 {
     public class ProjectInstaller : MonoInstaller
     {
+        public GameObject gameCamera;
         public GameObject CurtainPrefab;
         public GameObject SettingsUIPrefab;
         public GameObject SceneLoaderPrefab;
@@ -69,6 +70,8 @@ namespace Scripts.Infrastructure.Installer
 
             BindSettingsUI();
 
+            BindGameCamera();
+
             BindStaticData();
 
             BindSceneLoader();
@@ -94,6 +97,11 @@ namespace Scripts.Infrastructure.Installer
         private void BindSettingsUI()
         {
             Container.Bind<ISettingsUI>().FromComponentInNewPrefab(SettingsUIPrefab).AsSingle();
+        }
+
+        private void BindGameCamera()
+        {
+            Container.Bind<ICameraFollow>().To<CameraFollow>().FromComponentInNewPrefab(gameCamera).AsSingle().NonLazy();
         }
 
         private void BindStaticData()
