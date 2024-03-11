@@ -9,9 +9,9 @@ using UnityEngine;
 
 namespace Scripts.GameSystem.LevelGeneration.ConnectionStrategies
 {
-    public class ConnectionStrategyFactory : MonoBehaviour
+    public class ConnectionStrategyFactory
     {
-        public List<ConnectionStrategy> strategies;
+        private List<ConnectionStrategy> strategies = new List<ConnectionStrategy>();
 
         public List<TypeChunkConnection> GetTypeChunkConnection(TypeConnectionForCell typeConnectionForCell)
         {
@@ -25,6 +25,11 @@ namespace Scripts.GameSystem.LevelGeneration.ConnectionStrategies
             if (connections.Count != 0)
                 return connections;
             return null;
+        }
+
+        public void AddConnectionStrategy(ConnectionStrategy strategy)
+        {
+            strategies.Add(strategy);
         }
     }
 }

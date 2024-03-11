@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 namespace Scripts.GameSystem.LevelGeneration.Baker
 {
-    public class LevelBaker : MonoBehaviour, ILevelBaker
+    public class LevelBaker : MonoBehaviour
     {
         public NavMeshSurface navMeshSurface;
 

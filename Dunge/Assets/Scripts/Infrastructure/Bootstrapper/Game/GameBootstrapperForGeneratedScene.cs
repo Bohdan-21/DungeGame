@@ -1,4 +1,5 @@
-﻿using Scripts.Infrastructure.Audio;
+﻿using Scripts.GameSystem.LevelGeneration.ConnectionStrategies;
+using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.StateMachine;
 using UnityEngine;
 using Zenject;
@@ -13,7 +14,10 @@ namespace Scripts.Infrastructure
         [Inject]
         private void Construct(GameStateMachine gameStateMachine, ReloadLevelState enterLevelState,
             InitializeLevelState initializeLevelState, GameLoopState gameLoopState, DeathState deathState,
-            QuitState quitState, WinState winState, IBackgroundAudioPlayer audioPlayer, GenerateLevelState generateLevelState)
+            QuitState quitState, WinState winState, IBackgroundAudioPlayer audioPlayer, GenerateLevelState generateLevelState,
+            ConnectionStrategyFactory strategyFactory, ForwardConnectionStrategy forwardConnection, 
+            TurnableConnectionStrategy turnableConnection, ForkThreePointConnectionStrategy forkThreePointConnection, 
+            ForkFourPointConnectionStrategy forkFourPointConnection, DeadEndConnectionStrategy deadEndConnection)
         {
             _gameStateMachine = gameStateMachine;
 
@@ -27,6 +31,12 @@ namespace Scripts.Infrastructure
             _gameStateMachine.AddState(generateLevelState);
 
             _audioPlayer = audioPlayer;
+
+            strategyFactory.AddConnectionStrategy(forwardConnection);
+            strategyFactory.AddConnectionStrategy(turnableConnection);
+            strategyFactory.AddConnectionStrategy(forkThreePointConnection);
+            strategyFactory.AddConnectionStrategy(forkFourPointConnection);
+            strategyFactory.AddConnectionStrategy(deadEndConnection);
         }
 
         private void Awake()

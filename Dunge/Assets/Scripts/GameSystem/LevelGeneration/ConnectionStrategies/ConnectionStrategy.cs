@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Scripts.GameSystem.LevelGeneration.ConnectionStrategies
 {
-    public abstract class ConnectionStrategy : MonoBehaviour
+    public abstract class ConnectionStrategy
     {
-        public TypeChunkConnection TypeChunkConnection;
+        public TypeChunkConnection TypeChunkConnection { get; protected set; }
 
         public abstract bool CanConnect(TypeConnectionForCell typeConnectionForCell);
 

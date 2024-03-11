@@ -4,6 +4,11 @@ namespace Scripts.GameSystem.LevelGeneration.ConnectionStrategies
 {
     public class TurnableConnectionStrategy : ConnectionStrategy
     {
+        public TurnableConnectionStrategy()
+        {
+            TypeChunkConnection = DataChunk.TypeChunkConnection.TurnableConnection;
+        }
+
         public override bool CanConnect(TypeConnectionForCell typeConnectionForCell)
         {
             if (typeConnectionForCell.NeedConnectCount == 1 && !IsNeedConnect(typeConnectionForCell.ForwardConnection))

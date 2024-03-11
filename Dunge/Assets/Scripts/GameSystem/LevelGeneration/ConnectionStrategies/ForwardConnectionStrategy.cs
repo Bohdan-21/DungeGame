@@ -4,6 +4,11 @@ namespace Scripts.GameSystem.LevelGeneration.ConnectionStrategies
 {
     public class ForwardConnectionStrategy : ConnectionStrategy
     {
+        public ForwardConnectionStrategy()
+        {
+            TypeChunkConnection = DataChunk.TypeChunkConnection.ForwardConnection;
+        }
+
         public override bool CanConnect(TypeConnectionForCell typeConnectionForCell)
         {
             if (typeConnectionForCell.NeedConnectCount == 1 && IsNeedConnect(typeConnectionForCell.ForwardConnection))

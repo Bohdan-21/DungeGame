@@ -4,6 +4,11 @@ namespace Scripts.GameSystem.LevelGeneration.ConnectionStrategies
 {
     public class ForkFourPointConnectionStrategy : ConnectionStrategy
     {
+        public ForkFourPointConnectionStrategy()
+        {
+            TypeChunkConnection = DataChunk.TypeChunkConnection.ForkConnectionFourPoint;
+        }
+
         public override bool CanConnect(TypeConnectionForCell typeConnectionForCell)
         {
             if (typeConnectionForCell.NeedConnectCount == 3)

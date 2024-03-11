@@ -12,7 +12,9 @@ namespace Scripts.GameSystem.LevelGeneration.Level
         [SerializeField] private ChunkSetup _chunkSetup;
         
         public int currentSpawnedChunk = 1;
-        
+
+        public List<LevelCell> LevelCells => _levelCells;
+
         public TypeConnectionForCell DetectTypeConnection(Vector3 prevChunkRootPoint, Vector3 connectPointPrevChunk)
         {
             Vector3 direction = Calculate.CalculateDirection(connectPointPrevChunk, prevChunkRootPoint);

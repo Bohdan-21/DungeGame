@@ -1,5 +1,5 @@
 ﻿using Scripts.Enemy;
-using Scripts.Level;
+using Scripts.GameSystem.LevelGeneration.Settings;
 using Scripts.NPC.Spawn;
 using Scripts.Player;
 using Scripts.StaticData;

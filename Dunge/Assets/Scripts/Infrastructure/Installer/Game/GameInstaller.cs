@@ -1,5 +1,6 @@
 ﻿using Scripts.GameSystem.DialogSystem.Logic;
 using Scripts.GameSystem.DialogSystem.Logic.UIController;
+using Scripts.GameSystem.LevelGeneration.Settings;
 using Scripts.GameSystem.QuestSystem.Channel;
 using Scripts.GameSystem.QuestSystem.Factory;
 using Scripts.GameSystem.QuestSystem.Journal;
@@ -9,7 +10,6 @@ using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
 using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.Factory;
 using Scripts.Infrastructure.StateMachine;
-using Scripts.Level;
 using Scripts.Services.InteruptService;
 using Scripts.StaticData.GameConfigData.GameSystem.Dialog.Setup;
 using Scripts.StaticData.GameConfigData.GameSystem.QuestStaticData;

@@ -4,6 +4,11 @@ namespace Scripts.GameSystem.LevelGeneration.ConnectionStrategies
 {
     public class DeadEndConnectionStrategy : ConnectionStrategy
     {
+        public DeadEndConnectionStrategy()
+        {
+            TypeChunkConnection = DataChunk.TypeChunkConnection.DeadEndConnection;
+        }
+
         public override bool CanConnect(TypeConnectionForCell typeConnectionForCell)
         {
             if (typeConnectionForCell.NeedConnectCount == 0)

@@ -7,6 +7,7 @@ using Scripts.GameSystem.LevelGeneration.DataChunk;
 using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration;
 using Scripts.GameSystem.LevelGeneration.ConnectionStrategies;
 using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration.Setup;
+using Zenject;
 
 namespace Scripts.GameSystem.LevelGeneration.Generation
 {
@@ -18,9 +19,10 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
         
         [SerializeField] private bool needSpecialDeadEndChunk = true;
 
-        [SerializeField] private ConnectionStrategyFactory connectionStrategy;
         [SerializeField] private ChunksForGenerationLevel prefabsForGenerationLevel;
 
+        private ConnectionStrategyFactory _connectionStrategy;
+        
         private GameObject createdChunk;
 
         private TypeConnectionForCell typeConnection;
@@ -31,6 +33,12 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
         private List<ChunkData> currentPointForGenerateLevel = new List<ChunkData>();
         private List<GameObject> createdChunksList = new List<GameObject>();
         private List<TypeChunkConnection> typeChunkConnection;
+
+        [Inject]
+        private void Construct(ConnectionStrategyFactory connectionStrategy)
+        {
+            _connectionStrategy = connectionStrategy;
+        }
 
         public IEnumerator GenerateLevel()
         {
@@ -132,7 +140,7 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
 
         private bool IsFailedDetectTypesChunkConnections()
         {
-            typeChunkConnection = connectionStrategy.GetTypeChunkConnection(typeConnection);
+            typeChunkConnection = _connectionStrategy.GetTypeChunkConnection(typeConnection);
 
             if (typeChunkConnection == null)
                 return true;
