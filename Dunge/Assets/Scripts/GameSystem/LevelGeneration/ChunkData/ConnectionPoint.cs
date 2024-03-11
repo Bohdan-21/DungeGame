@@ -4,9 +4,15 @@ using UnityEngine;
 namespace Scripts.GameSystem.LevelGeneration.DataChunk
 {
     [Serializable]
-    public class ConnectionPoint
+    public class ConnectionPoint : MonoBehaviour
     {
-        public bool isPointConnect;
-        public Transform pointForConnect;
+        public bool IsPointConnect;
+        public Transform PointForConnect;
+
+        private void OnValidate()
+        {
+            PointForConnect = gameObject.transform;
+            IsPointConnect = false;
+        }
     }
 }

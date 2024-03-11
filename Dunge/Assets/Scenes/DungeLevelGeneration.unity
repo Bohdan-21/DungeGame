@@ -171,8 +171,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSpawnPoint: {fileID: 848845872}
   levelGrid: {fileID: 1551382431}
-  EnemySpawnPoints: []
-  NPCSpawnPoints: []
 --- !u!1 &482489876
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +662,7 @@ MonoBehaviour:
   _levelCells:
   - Row: 0
     Column: 0
-    LevelPrefabData: {fileID: 848845873}
+    chunkData: {fileID: 848845873}
   _chunkSetup: {fileID: 11400000, guid: c91684a5d71e4da40aa4ffcc1446da04, type: 2}
   currentSpawnedChunk: 1
 --- !u!4 &1551382432

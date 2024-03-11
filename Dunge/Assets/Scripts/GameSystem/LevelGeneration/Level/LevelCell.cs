@@ -9,13 +9,13 @@ namespace Scripts.GameSystem.LevelGeneration.Level
         public int Row;
         public int Column;
 
-        public ChunkData LevelPrefabData;
+        public ChunkData chunkData;
 
-        public LevelCell(int row, int column, ChunkData levelPrefabData)
+        public LevelCell(int row, int column, ChunkData prefabChunkData)
         {
             Row = row;
             Column = column;
-            LevelPrefabData = levelPrefabData;
+            chunkData = prefabChunkData;
         }
     }
 

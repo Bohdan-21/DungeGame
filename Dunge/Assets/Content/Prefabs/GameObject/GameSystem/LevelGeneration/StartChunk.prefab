@@ -457,6 +457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6438723694482164955}
+  - component: {fileID: 3417281938045506034}
   m_Layer: 0
   m_Name: ConnectPoint (5)
   m_TagString: Untagged
@@ -477,8 +478,22 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6438723694689326290}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3417281938045506034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6438723694482165028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61a5d773d26bc74a8de557897829ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsPointConnect: 0
+  PointForConnect: {fileID: 6438723694482164955}
 --- !u!1 &6438723694490348270
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,7 +824,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6438723694854665155}
   - {fileID: 6438723696181110639}
   - {fileID: 6438723694482164955}
   - {fileID: 6438723695959534005}
@@ -864,37 +878,6 @@ Transform:
   - {fileID: 8066157231999870648}
   m_Father: {fileID: 6438723695063140030}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6438723694854665164
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6438723694854665155}
-  m_Layer: 0
-  m_Name: ConnectPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6438723694854665155
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6438723694854665164}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6438723694689326290}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6438723694868421203
 GameObject:
@@ -1434,12 +1417,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RootPoint: {fileID: 6438723695322953028}
   connectionPoints:
-  - isPointConnect: 0
-    pointForConnect: {fileID: 6438723696181110639}
-  - isPointConnect: 0
-    pointForConnect: {fileID: 6438723694482164955}
-  - isPointConnect: 0
-    pointForConnect: {fileID: 6438723695959534005}
+  - {fileID: 2540275862156838734}
+  - {fileID: 3417281938045506034}
+  - {fileID: 797541809565198295}
+  EnemySpawnPoints: []
+  NPCSpawnPoints: []
 --- !u!1 &6438723695339261650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1972,6 +1954,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6438723695959534005}
+  - component: {fileID: 797541809565198295}
   m_Layer: 0
   m_Name: ConnectPoint (6)
   m_TagString: Untagged
@@ -1992,8 +1975,22 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6438723694689326290}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &797541809565198295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6438723695959534006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61a5d773d26bc74a8de557897829ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsPointConnect: 0
+  PointForConnect: {fileID: 6438723695959534005}
 --- !u!1 &6438723696115374036
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,6 +2131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6438723696181110639}
+  - component: {fileID: 2540275862156838734}
   m_Layer: 0
   m_Name: ConnectPoint (2)
   m_TagString: Untagged
@@ -2154,8 +2152,22 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6438723694689326290}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2540275862156838734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6438723696181110632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61a5d773d26bc74a8de557897829ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsPointConnect: 0
+  PointForConnect: {fileID: 6438723696181110639}
 --- !u!1001 &6438723694075008972
 PrefabInstance:
   m_ObjectHideFlags: 0

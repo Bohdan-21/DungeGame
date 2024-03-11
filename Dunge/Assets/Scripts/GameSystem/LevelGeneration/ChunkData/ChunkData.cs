@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Scripts.Enemy;
+using Scripts.NPC.Spawn;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Scripts.GameSystem.LevelGeneration.DataChunk
@@ -8,5 +10,9 @@ namespace Scripts.GameSystem.LevelGeneration.DataChunk
         public Transform RootPoint;
 
         public List<ConnectionPoint> connectionPoints;
+
+        public List<EnemySpawnPoint> EnemySpawnPoints;
+
+        public List<NPCSpawnPoint> NPCSpawnPoints;
     }
-}
+}   

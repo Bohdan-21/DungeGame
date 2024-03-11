@@ -22,6 +22,7 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
         [SerializeField] private ChunksForGenerationLevel prefabsForGenerationLevel;
 
         private ConnectionStrategyFactory _connectionStrategy;
+        private DiContainer _diContainer;
         
         private GameObject createdChunk;
 
@@ -35,9 +36,10 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
         private List<TypeChunkConnection> typeChunkConnection;
 
         [Inject]
-        private void Construct(ConnectionStrategyFactory connectionStrategy)
+        private void Construct(ConnectionStrategyFactory connectionStrategy, DiContainer diContainer)
         {
             _connectionStrategy = connectionStrategy;
+            _diContainer = diContainer;
         }
 
         public IEnumerator GenerateLevel()
@@ -127,11 +129,11 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
         }
 
         private bool IsPointAlreadyConnect(ConnectionPoint connectionPoint) =>
-            connectionPoint.isPointConnect;
+            connectionPoint.IsPointConnect;
 
         private bool IsFailedDetectTypeConnectionForCell(ChunkData chunkData, ConnectionPoint connectionPoint)
         {
-            typeConnection = LevelGrid.DetectTypeConnection(chunkData.RootPoint.position, connectionPoint.pointForConnect.position);
+            typeConnection = LevelGrid.DetectTypeConnection(chunkData.RootPoint.position, connectionPoint.PointForConnect.position);
 
             if (typeConnection == null)
                 return true;
@@ -173,7 +175,7 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
 
         private void InstantiateChunk()
         {
-            createdChunk = Instantiate(chunk.ChunkPrefab);
+            createdChunk = _diContainer.InstantiatePrefab(chunk.ChunkPrefab);
         }
 
         private void DestroyCreatedChunk()
@@ -192,7 +194,7 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
 
         private void ShowDebugInfoInConsole(ChunkData chunkData, ConnectionPoint connectionPoint)
         {
-            Vector3 direction = Calculate.CalculateDirection(chunkData.RootPoint.position, connectionPoint.pointForConnect.position);
+            Vector3 direction = Calculate.CalculateDirection(chunkData.RootPoint.position, connectionPoint.PointForConnect.position);
 
             Debug.LogError("Object name:" + createdChunk.name);
             Debug.LogWarning("Position:" + (chunkData.RootPoint.position + direction * 50f).ToString());
@@ -203,7 +205,7 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
 
         private void PositionateCreatedChunk(ChunkData chunkData, ConnectionPoint connectionPoint)
         {
-            Vector3 direction = Calculate.CalculateDirection(connectionPoint.pointForConnect.position, chunkData.RootPoint.position);
+            Vector3 direction = Calculate.CalculateDirection(connectionPoint.PointForConnect.position, chunkData.RootPoint.position);
             Vector3 rootPointForCreatedChunk = CalculateRootPoint(chunkData.RootPoint.position, direction);
 
             ConnectCreatedChunk(direction);
@@ -288,7 +290,7 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
             Vector3 rootPoint = prefabData.RootPoint.position;
 
             foreach (ConnectionPoint point in prefabData.connectionPoints)
-                directions.Add(Calculate.CalculateDirection(point.pointForConnect.position, rootPoint));
+                directions.Add(Calculate.CalculateDirection(point.PointForConnect.position, rootPoint));
 
             return directions;
         }

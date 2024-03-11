@@ -12284,6 +12284,8 @@ GameObject:
   m_Component:
   - component: {fileID: 258827773}
   - component: {fileID: 258827774}
+  - component: {fileID: 258827776}
+  - component: {fileID: 258827775}
   m_Layer: 0
   m_Name: Village
   m_TagString: Untagged
@@ -12333,12 +12335,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSpawnPoint: {fileID: 1365622271}
+  levelGrid: {fileID: 258827776}
+--- !u!114 &258827775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258827772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e4a5993a413104489a1136c8c43889f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RootPoint: {fileID: 0}
+  connectionPoints: []
   EnemySpawnPoints: []
   NPCSpawnPoints:
   - {fileID: 1794670157265216267}
   - {fileID: 276811436}
   - {fileID: 1288242092}
   - {fileID: 1683789357}
+--- !u!114 &258827776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258827772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa0da5df853cae46ad67c33a7d5875b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelCells:
+  - Row: 0
+    Column: 0
+    chunkData: {fileID: 258827775}
+  _chunkSetup: {fileID: 0}
+  currentSpawnedChunk: 1
 --- !u!1001 &258926256
 PrefabInstance:
   m_ObjectHideFlags: 0

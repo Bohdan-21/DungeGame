@@ -12,9 +12,5 @@ namespace Scripts.GameSystem.LevelGeneration.Settings
         public Transform PlayerSpawnPoint;
 
         public LevelGrid levelGrid;
-
-        public List<EnemySpawnPoint> EnemySpawnPoints;
-
-        public List<NPCSpawnPoint> NPCSpawnPoints;
     }
 }

@@ -60,13 +60,13 @@ namespace Scripts.GameSystem.LevelGeneration.Level
             if (!IsLevelCellOccupied(levelCell))
                 return TypeConnection.FreeForConnect;
 
-            ChunkData neigbourPrefabData = levelCell.LevelPrefabData;
+            ChunkData neigbourPrefabData = levelCell.chunkData;
 
             Vector3 neigbourDirection;
 
             foreach (ConnectionPoint point in neigbourPrefabData.connectionPoints)
             {
-                neigbourDirection = Calculate.CalculateDirection(point.pointForConnect.position, neigbourPrefabData.RootPoint.position);
+                neigbourDirection = Calculate.CalculateDirection(point.PointForConnect.position, neigbourPrefabData.RootPoint.position);
 
                 if (Vector3.Dot(neigbourDirection, direction) < -0.9f)
                     return TypeConnection.NeededForConnect;
@@ -100,7 +100,7 @@ namespace Scripts.GameSystem.LevelGeneration.Level
 
             foreach (ConnectionPoint point in dataAboutCreatedChunk.connectionPoints)
             {
-                directionForConnectPoint = Calculate.CalculateDirection(point.pointForConnect.position, rootPointForCreatedChunk);
+                directionForConnectPoint = Calculate.CalculateDirection(point.PointForConnect.position, rootPointForCreatedChunk);
                 neigbourRootPoint = CalculatePositionForChunk(rootPointForCreatedChunk, directionForConnectPoint);
 
                 neigbourLevelCell = GetLevelCell(neigbourRootPoint);
@@ -117,16 +117,16 @@ namespace Scripts.GameSystem.LevelGeneration.Level
             Vector3 neigbourDirection;
             ChunkData neigbourChunkData;
 
-            neigbourChunkData = neigbourLevelCell.LevelPrefabData;
+            neigbourChunkData = neigbourLevelCell.chunkData;
 
             foreach (ConnectionPoint neigbourPoint in neigbourChunkData.connectionPoints)
             {
-                neigbourDirection = Calculate.CalculateDirection(neigbourPoint.pointForConnect.position, neigbourChunkData.RootPoint.position);
+                neigbourDirection = Calculate.CalculateDirection(neigbourPoint.PointForConnect.position, neigbourChunkData.RootPoint.position);
 
                 if (Vector3.Dot(neigbourDirection, directionForConnectPoint) == -1)
                 {
-                    connectPoint.isPointConnect = true;
-                    neigbourPoint.isPointConnect = true;
+                    connectPoint.IsPointConnect = true;
+                    neigbourPoint.IsPointConnect = true;
                 }
             }
         }

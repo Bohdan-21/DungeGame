@@ -1,4 +1,5 @@
 ﻿using Scripts.Enemy;
+using Scripts.GameSystem.LevelGeneration.Level;
 using Scripts.GameSystem.LevelGeneration.Settings;
 using Scripts.NPC.Spawn;
 using Scripts.Player;
@@ -68,32 +69,44 @@ namespace Scripts.Infrastructure.Factory
         {
             GameObject enemyPrefab;
 
-            foreach (EnemySpawnPoint enemySpawnPoint in _levelSettings.EnemySpawnPoints)
+            foreach (LevelCell levelCell in _levelSettings.levelGrid.LevelCells)
             {
-                //TODO:fix this
-                enemyPrefab = _enemyStaticData.GetEnemyPrefabByType(/*enemySpawnPoint.enemyType*/EnemyType.Barbarian);
+                foreach (EnemySpawnPoint enemySpawnPoint in levelCell.chunkData.EnemySpawnPoints)
+                {
+                    //TODO:fix this
+                    enemyPrefab = _enemyStaticData.GetEnemyPrefabByType(/*enemySpawnPoint.enemyType*/EnemyType.Barbarian);
 
-                if(enemyPrefab != null)
-                    CreateNavMeshAgent(enemySpawnPoint.transform.position, enemyPrefab);
+                    if (enemyPrefab != null)
+                        CreateNavMeshAgent(enemySpawnPoint.transform.position, enemyPrefab);
+                }
             }
         }
 
         private void CreateNPC()
         {
-            foreach(NPCSpawnPoint spawnPoint in _levelSettings.NPCSpawnPoints)
+            foreach (LevelCell levelCell in _levelSettings.levelGrid.LevelCells)
             {
-                GameObject spawnedObject = _npcStaticData.GetReference(spawnPoint.NPCName);
+                foreach (NPCSpawnPoint spawnPoint in levelCell.chunkData.NPCSpawnPoints)
+                {
+                    GameObject spawnedObject = _npcStaticData.GetReference(spawnPoint.NPCName);
 
-                if (spawnedObject != null)
-                    SpawnObjectAt(spawnPoint.transform.position, spawnedObject);
+                    if (spawnedObject != null)
+                        SpawnObjectAt(spawnPoint.transform.position, spawnedObject);
+                }
             }
         }
 
         private void CreateNavMeshAgent(Vector3 at, GameObject prefabForSpawn)
         {
-            GameObject naMeshAgent = SpawnObjectAt(at, prefabForSpawn);
+            GameObject spawnedAgent = SpawnObjectAt(at, prefabForSpawn);
 
-            naMeshAgent.GetComponent<NavMeshAgent>().SetDestination(at);
+            NavMeshAgent navMeshAgent = spawnedAgent.GetComponent<NavMeshAgent>();
+
+            if (!navMeshAgent.Warp(at))
+            {
+                Debug.Log("Unsuccess warp");
+                navMeshAgent.SetDestination(at);
+            }
         }
 
         private GameObject SpawnObjectAt(Vector3 at, GameObject prefabForSpawn)
