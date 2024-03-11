@@ -43,7 +43,7 @@ namespace Scripts.Infrastructure
         {
             _audioPlayer.PlayBackgroundMusic();
 
-            _gameStateMachine.Enter<InitializeLevelState>();
+            _gameStateMachine.Enter<GenerateLevelState>();
         }
     }
 }
