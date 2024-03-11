@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.3212532, g: 0.41509432, b: 0.20128158, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.03
@@ -12348,7 +12348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4a5993a413104489a1136c8c43889f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RootPoint: {fileID: 0}
+  RootPoint: {fileID: 258827773}
   connectionPoints: []
   EnemySpawnPoints: []
   NPCSpawnPoints:
@@ -12372,7 +12372,7 @@ MonoBehaviour:
   - Row: 0
     Column: 0
     chunkData: {fileID: 258827775}
-  _chunkSetup: {fileID: 0}
+  _chunkSetup: {fileID: 11400000, guid: c91684a5d71e4da40aa4ffcc1446da04, type: 2}
   currentSpawnedChunk: 1
 --- !u!1001 &258926256
 PrefabInstance:
