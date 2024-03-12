@@ -10,7 +10,7 @@ public class CameraFollow : MonoBehaviour, ICameraFollow
     private KeyCode RotateToLeftButton;
     private KeyCode RotateToRightButton;
 
-    [SerializeField] private Vector3 _baseCameraRotation;
+    [SerializeField] private Camera _gameCamera;
 
     [SerializeField] private float _rotationAngleX;
     [SerializeField] private float _rotationAngleY;
@@ -37,11 +37,10 @@ public class CameraFollow : MonoBehaviour, ICameraFollow
         RotateToRightButton = controlButtons.CameraControlButtons.RotateToRightButton;
     }
 
+    public Camera GameCamera { get => _gameCamera; }
+
     public void SetTarget(Transform target)
     {
-        gameObject.transform.position = Vector3.zero;
-        gameObject.transform.rotation = Quaternion.Euler(_baseCameraRotation);
-
         _target = target;
     }
 

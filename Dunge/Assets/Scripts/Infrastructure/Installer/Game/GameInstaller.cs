@@ -25,6 +25,8 @@ namespace Scripts.Infrastructure.Installer.Game
 {
     public class GameInstaller : MonoInstaller
     {
+        public GameObject GameCamera;
+
         public AudioSetupForGame audioSetupForGame;
         public DialogSetupSystem dialogSetupSystem;
         public QuestSetup questSetup;
@@ -47,6 +49,8 @@ namespace Scripts.Infrastructure.Installer.Game
             BindLevelSettings();
             BindInteruptService();
             BindGameStateMachine();
+
+            Container.Bind<ICameraFollow>().To<CameraFollow>().FromComponentInNewPrefab(GameCamera).AsSingle().NonLazy();
         }
 
         private void BindAudioSetup()

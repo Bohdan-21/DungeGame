@@ -13,7 +13,7 @@ namespace Scripts.Player
         public PlayerAnimator PlayerAnimator;
         [SerializeField] private PlayerStatsHandler _statsHandler;
 
-        private Camera _camera;
+        private Camera _gameCamera;
 
         private IInputService _inputService;
         private IInteruptService _interuptService;
@@ -22,15 +22,15 @@ namespace Scripts.Player
         private bool _isInterupt;
 
         [Inject]
-        private void Construct(IInputService inputService, IInteruptService interuptService)
+        private void Construct(IInputService inputService, IInteruptService interuptService, ICameraFollow cameraFollow)
         {
             _inputService = inputService;
             _interuptService = interuptService;
+            _gameCamera = cameraFollow.GameCamera;
         }
 
         private void Start()
         {
-            _camera = Camera.main;
             _isInterupt = false;
 
             _interuptService.AddInteruptHandler(this);
@@ -59,7 +59,7 @@ namespace Scripts.Player
 
                 if (_inputService.Movement().sqrMagnitude > Constants.Epsilon)
                 {
-                    movement = _camera.transform.TransformDirection(_inputService.Movement());
+                    movement = _gameCamera.transform.TransformDirection(_inputService.Movement());
                     movement.y = 0;
                     movement.Normalize();
 

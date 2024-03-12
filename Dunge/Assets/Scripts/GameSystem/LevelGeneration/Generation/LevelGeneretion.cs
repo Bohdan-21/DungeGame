@@ -21,6 +21,7 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
 
         [SerializeField] private ChunksForGenerationLevel prefabsForGenerationLevel;
 
+        private DiContainer _diContainer;
         private ConnectionStrategyFactory _connectionStrategy;
         
         private GameObject createdChunk;
@@ -35,8 +36,9 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
         private List<TypeChunkConnection> typeChunkConnection;
 
         [Inject]
-        private void Construct(ConnectionStrategyFactory connectionStrategy)
+        private void Construct(DiContainer diContainer, ConnectionStrategyFactory connectionStrategy)
         {
+            _diContainer = diContainer;
             _connectionStrategy = connectionStrategy;
         }
 
@@ -173,7 +175,7 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
 
         private void InstantiateChunk()
         {
-            createdChunk = Instantiate(chunk.ChunkPrefab);//_diContainer.InstantiatePrefab(chunk.ChunkPrefab);
+            createdChunk = _diContainer.InstantiatePrefab(chunk.ChunkPrefab);
         }
 
         private void DestroyCreatedChunk()
