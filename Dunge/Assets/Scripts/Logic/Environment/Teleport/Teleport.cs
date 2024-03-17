@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace Scripts.GameMechanic.Teleport
+namespace Scripts.Logic.Environment.Teleport
 {
     public class Teleport : MonoBehaviour
     {

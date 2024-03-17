@@ -25,6 +25,7 @@ using Scripts.StaticData;
 using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForItem;
 using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForSkillTree;
 using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForStat;
+using Assets.Scripts.StaticData.GameConfigData.Environment;
 
 namespace Scripts.Infrastructure.Installer
 {
@@ -41,10 +42,15 @@ namespace Scripts.Infrastructure.Installer
 
         public ControlButtons ControlButtons;
 
+
         public GameStaticData GameStaticData;
+
+        public EnvironmentData EnvironmentData;
+
         public ProjectGlobalSettings ProjectGlobalSettings;
         public PlayerCharacterConfig PlayerCharacterConfig;
         public PlayerCharacterSettingsForNewGame PlayerCharacterDefaultSettings;
+
 
         public EnemyCharacterConfig EnemyStaticData;
         public DeffaultSettingsForNewEnemy EnemyCharacterDeffaultSettings;
@@ -104,10 +110,15 @@ namespace Scripts.Infrastructure.Installer
 
             Container.Bind<ControlButtons>().FromInstance(ControlButtons).AsSingle();
 
+
             Container.Bind<GameStaticData>().FromInstance(GameStaticData).AsSingle();
+
+            Container.Bind<EnvironmentData>().FromInstance(EnvironmentData).AsSingle();
+
             Container.Bind<ProjectGlobalSettings>().FromInstance(ProjectGlobalSettings).AsSingle();
             Container.Bind<PlayerCharacterConfig>().FromInstance(PlayerCharacterConfig).AsSingle();
             Container.Bind<PlayerCharacterSettingsForNewGame>().FromInstance(PlayerCharacterDefaultSettings).AsSingle();
+
 
             Container.Bind<EnemyCharacterConfig>().FromInstance(EnemyStaticData).AsSingle();
             Container.Bind<DeffaultSettingsForNewEnemy>().FromInstance(EnemyCharacterDeffaultSettings).AsSingle();
