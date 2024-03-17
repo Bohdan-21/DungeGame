@@ -17,9 +17,11 @@ namespace Scripts.Logic.Environment
 
         [SerializeField] private TriggerObserver _triggerObserver;
         [SerializeField] private Animator _spikesAnimator;
-        
+
         private ISoundsGameActionPlayer _soundsGame;
         private EnvironmentData _environmentData;
+
+        private int _countPersonWhoActivateTrigger = 0;
 
         [Inject]
         private void Construct(ISoundsGameActionPlayer soundsGame, EnvironmentData environmentData)
@@ -37,27 +39,35 @@ namespace Scripts.Logic.Environment
         private void OnDestroy()
         {
             _triggerObserver.TriggerEnter -= OnTriggerEnter;
-            _triggerObserver.TriggerExit -= OnTriggerExit; 
+            _triggerObserver.TriggerExit -= OnTriggerExit;
         }
 
         private void OnTriggerEnter(Collider obj)
         {
-            if(obj.gameObject.layer == LayerMask.NameToLayer("Player"))
+            if (obj.gameObject.layer == LayerMask.NameToLayer("Player") || obj.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
-                _spikesAnimator.SetBool(Hash_ShowSpikes, true);
+                if (_countPersonWhoActivateTrigger == 0)
+                {
+                    _spikesAnimator.SetBool(Hash_ShowSpikes, true);
 
-                PlayerBehaviour playerBehaviour = obj.GetComponent<PlayerBehaviour>();
+                    IHealth health = obj.gameObject.GetComponent<IHealth>();
 
-                if (playerBehaviour != null)
-                    playerBehaviour.Health.TakeDamage(_environmentData.SpikesDamage);
+                    if (health != null)
+                        health.TakeDamage(_environmentData.SpikesDamage);
+                }
+                _countPersonWhoActivateTrigger++;
             }
         }
 
         private void OnTriggerExit(Collider obj)
         {
-            if (obj.gameObject.layer == LayerMask.NameToLayer("Player"))
+            if (obj.gameObject.layer == LayerMask.NameToLayer("Player") || obj.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
-                _spikesAnimator.SetBool(Hash_ShowSpikes, false);
+                _countPersonWhoActivateTrigger--;
+                if (_countPersonWhoActivateTrigger == 0)
+                {
+                    _spikesAnimator.SetBool(Hash_ShowSpikes, false);
+                }
             }
         }
     }
