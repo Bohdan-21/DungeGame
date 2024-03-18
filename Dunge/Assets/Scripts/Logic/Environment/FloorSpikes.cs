@@ -21,7 +21,7 @@ namespace Scripts.Logic.Environment
         private ISoundsGameActionPlayer _soundsGame;
         private EnvironmentData _environmentData;
 
-        private int _countPersonWhoActivateTrigger = 0;
+        private int _countPersonWhoActivateTrigger = 0;//TODO: maybe rewrite this
 
         [Inject]
         private void Construct(ISoundsGameActionPlayer soundsGame, EnvironmentData environmentData)
