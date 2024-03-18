@@ -389,6 +389,7 @@ GameObject:
   - component: {fileID: 3425947610176197191}
   - component: {fileID: 6525228412005272768}
   - component: {fileID: 6357488984022323064}
+  - component: {fileID: -4216391727593243818}
   m_Layer: 10
   m_Name: Knight
   m_TagString: Player
@@ -453,6 +454,7 @@ MonoBehaviour:
   CharacterController: {fileID: 4750217481742948329}
   PlayerAnimator: {fileID: 2114323991174259918}
   _statsHandler: {fileID: 7251982876157547732}
+  _walkSpeed: 0
 --- !u!114 &3925449661760590967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,6 +702,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moneyData:
     currentMoney: 0
+--- !u!114 &-4216391727593243818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035191777775609837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3047a8e88dff694cb0ae25d43cdf981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1126853751888244286
 GameObject:
   m_ObjectHideFlags: 0

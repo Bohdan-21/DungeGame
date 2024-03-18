@@ -1,5 +1,5 @@
 ﻿using Scripts.GameSystem.LevelGeneration.DataChunk;
-using Scripts.GameSystem.LevelGeneration.Level;
+using Scripts.GameSystem.LevelGeneration.Grid;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -12373,7 +12373,6 @@ MonoBehaviour:
   - Row: 0
     Column: 0
     chunkData: {fileID: 258827775}
-  _chunkSetup: {fileID: 11400000, guid: c91684a5d71e4da40aa4ffcc1446da04, type: 2}
   currentSpawnedChunk: 1
 --- !u!1001 &258926256
 PrefabInstance:
@@ -83608,6 +83607,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6489104457251970009, guid: 1ec0f430fec15d54c959656adbc8508a, type: 3}
   m_PrefabInstance: {fileID: 2000725628}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2005123908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2005123910}
+  - component: {fileID: 2005123909}
+  m_Layer: 0
+  m_Name: LevelDisplayOptimization
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2005123909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005123908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f142218a782ec4398b5905994d92a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAvailableDistanceForDisplayingChunks: 1
+--- !u!4 &2005123910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005123908}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.932527, y: -2.967769, z: 0.77721477}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2005895361
 PrefabInstance:
   m_ObjectHideFlags: 0

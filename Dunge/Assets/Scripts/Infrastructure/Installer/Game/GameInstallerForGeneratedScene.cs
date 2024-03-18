@@ -1,6 +1,10 @@
 ﻿using Scripts.GameSystem.LevelGeneration;
 using Scripts.Infrastructure.StateMachine;
 using Scripts.GameSystem.LevelGeneration.ConnectionStrategies;
+using System;
+using Scripts.GameSystem.LevelGeneration.LevelOptimization;
+using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration.Setup;
+using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration;
 
 namespace Scripts.Infrastructure.Installer.Game
 {
@@ -15,7 +19,9 @@ namespace Scripts.Infrastructure.Installer.Game
             BindLevelCreator();
             BindSpecialState();
             BindConnectionStrategies();
+            BindLevelDisplayOptimization();
         }
+
 
         private void BindLevelCreator()
         {
@@ -36,6 +42,11 @@ namespace Scripts.Infrastructure.Installer.Game
             Container.Bind<ForkThreePointConnectionStrategy>().AsSingle();
             Container.Bind<ForkFourPointConnectionStrategy>().AsSingle();
             Container.Bind<DeadEndConnectionStrategy>().AsSingle();
+        }
+
+        private void BindLevelDisplayOptimization()
+        {
+            Container.Bind<LevelDisplayOptimization>().AsSingle();
         }
     }
 }

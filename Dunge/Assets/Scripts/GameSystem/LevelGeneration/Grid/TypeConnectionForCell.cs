@@ -1,4 +1,4 @@
-﻿namespace Scripts.GameSystem.LevelGeneration.Level
+﻿namespace Scripts.GameSystem.LevelGeneration.Grid
 {
     public class TypeConnectionForCell
     {

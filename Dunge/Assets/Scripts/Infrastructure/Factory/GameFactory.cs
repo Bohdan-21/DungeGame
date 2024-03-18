@@ -1,6 +1,6 @@
 ﻿using Scripts.Enemy;
-using Scripts.GameSystem.LevelGeneration.Level;
-using Scripts.GameSystem.LevelGeneration.Settings;
+using Scripts.GameSystem.LevelGeneration.Grid;
+using Scripts.GameSystem.LevelGeneration.LevelSetting;
 using Scripts.NPC.Spawn;
 using Scripts.Player;
 using Scripts.StaticData;

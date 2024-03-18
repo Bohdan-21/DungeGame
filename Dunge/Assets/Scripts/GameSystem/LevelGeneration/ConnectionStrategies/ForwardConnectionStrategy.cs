@@ -1,4 +1,4 @@
-﻿using Scripts.GameSystem.LevelGeneration.Level;
+﻿using Scripts.GameSystem.LevelGeneration.Grid;
 
 namespace Scripts.GameSystem.LevelGeneration.ConnectionStrategies
 {

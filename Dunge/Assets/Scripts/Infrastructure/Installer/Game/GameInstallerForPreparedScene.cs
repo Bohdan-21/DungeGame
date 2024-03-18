@@ -1,3 +1,5 @@
+using Scripts.GameSystem.LevelGeneration.LevelOptimization;
+
 namespace Scripts.Infrastructure.Installer.Game
 {
     public class GameInstallerForPreparedScene : GameInstaller

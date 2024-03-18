@@ -14,5 +14,15 @@ namespace Scripts.GameSystem.LevelGeneration.DataChunk
         public List<EnemySpawnPoint> EnemySpawnPoints;
 
         public List<NPCSpawnPoint> NPCSpawnPoints;
+
+        public void Show()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }   

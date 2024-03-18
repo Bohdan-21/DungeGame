@@ -1,6 +1,6 @@
 ﻿using Scripts.GameSystem.DialogSystem.Logic;
 using Scripts.GameSystem.DialogSystem.Logic.UIController;
-using Scripts.GameSystem.LevelGeneration.Settings;
+using Scripts.GameSystem.LevelGeneration.LevelSetting;
 using Scripts.GameSystem.QuestSystem.Channel;
 using Scripts.GameSystem.QuestSystem.Factory;
 using Scripts.GameSystem.QuestSystem.Journal;

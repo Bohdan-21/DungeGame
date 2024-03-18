@@ -1,8 +1,8 @@
-﻿using Scripts.GameSystem.LevelGeneration.Level;
+﻿using Scripts.GameSystem.LevelGeneration.Grid;
 using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration.Setup;
 using UnityEngine;
 
-namespace Scripts.GameSystem.LevelGeneration.Level.Gizmo
+namespace Scripts.GameSystem.LevelGeneration.Grid.Gizmo
 {
     public class LevelGridDrawer : MonoBehaviour
     {

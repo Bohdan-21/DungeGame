@@ -1,5 +1,5 @@
 ﻿using Scripts.GameSystem.ExperienceSystem.Handler;
-using Scripts.GameSystem.LevelGeneration.Settings;
+using Scripts.GameSystem.LevelGeneration.LevelSetting;
 using Scripts.GameSystem.SkillTreeSystem.Handler;
 using Scripts.GameSystem.StatsSystem.Handler;
 using Scripts.GameSystem.TraidingSystem.BalanceSubsystem.Handler;

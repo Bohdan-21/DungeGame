@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Scripts.GameSystem.LevelGeneration.Level;
+using Scripts.GameSystem.LevelGeneration.Grid;
 using Scripts.GameSystem.LevelGeneration.DataChunk;
 using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration;
 using Scripts.GameSystem.LevelGeneration.ConnectionStrategies;
@@ -15,14 +15,14 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
     {
         [SerializeField] private LevelGrid LevelGrid;
         [SerializeField] private LevelData levelData;
-        [SerializeField] private ChunkSetup chunkSetup;
         
         [SerializeField] private bool needSpecialDeadEndChunk = true;
 
-        [SerializeField] private ChunksForGenerationLevel prefabsForGenerationLevel;
-
         private DiContainer _diContainer;
         private ConnectionStrategyFactory _connectionStrategy;
+
+        private ChunkSetup _chunkSetup;
+        private ChunksForGenerationLevel _prefabsForGenerationLevel;
         
         private GameObject createdChunk;
 
@@ -36,10 +36,13 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
         private List<TypeChunkConnection> typeChunkConnection;
 
         [Inject]
-        private void Construct(DiContainer diContainer, ConnectionStrategyFactory connectionStrategy)
+        private void Construct(DiContainer diContainer, ConnectionStrategyFactory connectionStrategy, ChunkSetup chunkSetup,
+                               ChunksForGenerationLevel chunks)
         {
             _diContainer = diContainer;
             _connectionStrategy = connectionStrategy;
+            _chunkSetup = chunkSetup;
+            _prefabsForGenerationLevel = chunks;
         }
 
         public IEnumerator GenerateLevel()
@@ -155,7 +158,7 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
 
             randomTypeChunk = IsNeedSpecialChunk(randomTypeChunk);
 
-            chunk = prefabsForGenerationLevel.GetChunk(randomTypeChunk);
+            chunk = _prefabsForGenerationLevel.GetChunk(randomTypeChunk);
 
             if (chunk == null)
                 return true;
@@ -346,6 +349,6 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
             createdChunk.transform.position = rootPoint;
 
         private Vector3 CalculateRootPoint(Vector3 rootPoint, Vector3 direction) =>
-            rootPoint + direction * chunkSetup.ChunkHeightAndWidth;
+            rootPoint + direction * _chunkSetup.ChunkHeightAndWidth;
     }
 }

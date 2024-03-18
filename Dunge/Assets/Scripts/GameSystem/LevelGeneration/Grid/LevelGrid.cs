@@ -3,17 +3,25 @@ using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration.Setup;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
-namespace Scripts.GameSystem.LevelGeneration.Level
+namespace Scripts.GameSystem.LevelGeneration.Grid
 {
     public class LevelGrid : MonoBehaviour
     {
         [SerializeField] private List<LevelCell> _levelCells;
-        [SerializeField] private ChunkSetup _chunkSetup;
+        
+        private ChunkSetup _chunkSetup;
         
         public int currentSpawnedChunk = 1;
 
         public List<LevelCell> LevelCells => _levelCells;
+
+        [Inject]
+        private void Construct(ChunkSetup chunkSetup)
+        {
+            _chunkSetup = chunkSetup;
+        }
 
         public TypeConnectionForCell DetectTypeConnection(Vector3 prevChunkRootPoint, Vector3 connectPointPrevChunk)
         {
@@ -133,8 +141,8 @@ namespace Scripts.GameSystem.LevelGeneration.Level
 
         private void AddNewLevelCell(ChunkData dataAboutCreatedChunk)
         {
-            int rowCell = CalculateRow(dataAboutCreatedChunk.RootPoint.position);
-            int columnCell = CalculateColumn(dataAboutCreatedChunk.RootPoint.position);
+            int rowCell = Calculate.CalculateRow(dataAboutCreatedChunk.RootPoint.position, _chunkSetup.ChunkHeightAndWidth);
+            int columnCell = Calculate.CalculateColumn(dataAboutCreatedChunk.RootPoint.position, _chunkSetup.ChunkHeightAndWidth);
 
             _levelCells.Add(new LevelCell(rowCell, columnCell, dataAboutCreatedChunk));
 
@@ -142,25 +150,19 @@ namespace Scripts.GameSystem.LevelGeneration.Level
         }
 
 
-        private int CalculateRow(Vector3 rootPointForDetect) =>
-            (int)MathF.Round(rootPointForDetect.z / _chunkSetup.ChunkHeightAndWidth, 0);
-
-        private int CalculateColumn(Vector3 rootPointForDetect) =>
-            (int)MathF.Round(rootPointForDetect.x / _chunkSetup.ChunkHeightAndWidth, 0);
-
         private Vector3 RotateVectorToRight(Vector3 direction) => 
             Quaternion.Euler(0, 90, 0) * direction;
 
 
         private LevelCell GetLevelCell(Vector3 rootPointChunk)
         {
-            int row = CalculateRow(rootPointChunk);
-            int column = CalculateColumn(rootPointChunk);
+            int row = Calculate.CalculateRow(rootPointChunk, _chunkSetup.ChunkHeightAndWidth);
+            int column = Calculate.CalculateColumn(rootPointChunk, _chunkSetup.ChunkHeightAndWidth);
 
             return GetLevelCell(row, column);
         }
 
-        private LevelCell GetLevelCell(int row, int column)
+        public LevelCell GetLevelCell(int row, int column)
         {
             foreach (LevelCell gridCell in _levelCells)
                 if (gridCell.Row == row && gridCell.Column == column)

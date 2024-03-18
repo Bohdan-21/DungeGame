@@ -1,7 +1,7 @@
 ﻿using Scripts.GameSystem.LevelGeneration.DataChunk;
 using System;
 
-namespace Scripts.GameSystem.LevelGeneration.Level
+namespace Scripts.GameSystem.LevelGeneration.Grid
 {
     [Serializable]
     public class LevelCell

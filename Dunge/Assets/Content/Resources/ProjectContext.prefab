@@ -98,3 +98,5 @@ MonoBehaviour:
   LocalizationForStatType: {fileID: 11400000, guid: 4aef5c69ce6327d44bd6d64e474d33ed, type: 2}
   LocalizationForSkillType: {fileID: 11400000, guid: e71ca63da93ea6b4194d9ca630b9680d, type: 2}
   LocalizationForAttributeType: {fileID: 11400000, guid: 29be6371f8085f948944bd698d02034c, type: 2}
+  chunkSetup: {fileID: 11400000, guid: c91684a5d71e4da40aa4ffcc1446da04, type: 2}
+  chunks: {fileID: 11400000, guid: 644fc9b0f06502840b072d49cd342d35, type: 2}

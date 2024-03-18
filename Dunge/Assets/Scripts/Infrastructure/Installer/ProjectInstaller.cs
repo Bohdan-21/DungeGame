@@ -26,6 +26,8 @@ using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForItem;
 using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForSkillTree;
 using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForStat;
 using Assets.Scripts.StaticData.GameConfigData.Environment;
+using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration.Setup;
+using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration;
 
 namespace Scripts.Infrastructure.Installer
 {
@@ -69,10 +71,15 @@ namespace Scripts.Infrastructure.Installer
         public LocalizationForSkillType LocalizationForSkillType;
         public LocalizationForAttributeType LocalizationForAttributeType;
 
+        public ChunkSetup chunkSetup;
+        public ChunksForGenerationLevel chunks;
+
         public override void InstallBindings()
         {
             BindInput();
 
+            BindChunkData();
+            
             BindSettingsUI();
 
             BindStaticData();
@@ -92,9 +99,16 @@ namespace Scripts.Infrastructure.Installer
             BindSoundButtonActionPlayer();
         }
 
+
         private void BindInput()
         {
             Container.Bind<IInputService>().To<StandaloneInputService>().AsSingle();
+        }
+
+        private void BindChunkData()
+        {
+            Container.Bind<ChunkSetup>().FromInstance(chunkSetup).AsSingle();
+            Container.Bind<ChunksForGenerationLevel>().FromInstance(chunks).AsSingle();
         }
 
         private void BindSettingsUI()

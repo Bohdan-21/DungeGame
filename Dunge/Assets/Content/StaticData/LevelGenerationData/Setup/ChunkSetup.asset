@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ChunkSetup
   m_EditorClassIdentifier: 
   ChunkHeightAndWidth: 50
-  MaxAvailableSpawnedChunk: 1
+  MaxAvailableSpawnedChunk: 50
