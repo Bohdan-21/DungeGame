@@ -1,5 +1,7 @@
 ﻿using Scripts.GameSystem.DialogSystem.Logic;
 using Scripts.GameSystem.DialogSystem.Logic.UIController;
+using Scripts.GameSystem.LevelGeneration.Grid;
+using Scripts.GameSystem.LevelGeneration.LevelOptimization;
 using Scripts.GameSystem.LevelGeneration.LevelSetting;
 using Scripts.GameSystem.QuestSystem.Channel;
 using Scripts.GameSystem.QuestSystem.Factory;
@@ -35,21 +37,35 @@ namespace Scripts.Infrastructure.Installer.Game
 
         public GameObject LocationNameUI;
 
-        public LevelSettings LevelSettings;
+        public LevelData LevelSettings;
 
+        public LevelDisplayOptimization Optimization;
 
         public override void InstallBindings()
         {
+            BindLevelHandler();
+            BindGameCamera();
             BindAudioSetup();
             BindGameFactory();
             BindQuestSystem();
             BindDialogSetup();
             BindTradingSystem();
             BindNameLocation();
-            BindLevelSettings();
             BindInteruptService();
             BindGameStateMachine();
 
+            
+        }
+
+        private void BindLevelHandler()
+        {
+            Container.Bind<LevelData>().FromInstance(LevelSettings);
+            Container.Bind<LevelGrid>().FromNew().AsSingle();
+            Container.Bind<ILevelDisplayOptimization>().To<LevelDisplayOptimization>().FromInstance(Optimization).AsSingle();
+        }
+
+        private void BindGameCamera()
+        {
             Container.Bind<ICameraFollow>().To<CameraFollow>().FromComponentInNewPrefab(GameCamera).AsSingle().NonLazy();
         }
 
@@ -92,11 +108,6 @@ namespace Scripts.Infrastructure.Installer.Game
         private void BindInteruptService()
         {
             Container.Bind<IInteruptService>().To<InteruptService>().AsSingle();
-        }
-
-        private void BindLevelSettings()
-        {
-            Container.Bind<LevelSettings>().FromInstance(LevelSettings);
         }
 
         private void BindNameLocation()

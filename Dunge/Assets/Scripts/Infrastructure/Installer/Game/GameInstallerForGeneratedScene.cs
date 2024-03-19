@@ -2,31 +2,22 @@
 using Scripts.Infrastructure.StateMachine;
 using Scripts.GameSystem.LevelGeneration.ConnectionStrategies;
 using System;
-using Scripts.GameSystem.LevelGeneration.LevelOptimization;
-using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration.Setup;
-using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration;
+using Scripts.GameSystem.LevelGeneration.Generation;
 
 namespace Scripts.Infrastructure.Installer.Game
 {
     public class GameInstallerForGeneratedScene : GameInstaller
     {
         public LevelCreator levelCreator;
-        public LevelDisplayOptimization Optimization;
 
         public override void InstallBindings()
         {
             base.InstallBindings();
-            Container.Bind<ILevelDisplayOptimization>().To<LevelDisplayOptimization>().FromInstance(Optimization).AsCached();
-            BindLevelCreator();
+
             BindSpecialState();
             BindConnectionStrategies();
-            BindLevelDisplayOptimization();
-        }
-
-
-        private void BindLevelCreator()
-        {
-            Container.Bind<ILevelCreator>().FromInstance(levelCreator).AsSingle();
+            BindLevelGenerator();
+            BindLevelCreator();
         }
 
         private void BindSpecialState()
@@ -45,9 +36,15 @@ namespace Scripts.Infrastructure.Installer.Game
             Container.Bind<DeadEndConnectionStrategy>().AsSingle();
         }
 
-        private void BindLevelDisplayOptimization()
+        private void BindLevelGenerator()
         {
-            Container.Bind<LevelDisplayOptimization>().AsSingle();
+            Container.Bind<LevelGeneretion>().FromNew().AsSingle();
         }
+
+        private void BindLevelCreator()
+        {
+            Container.Bind<ILevelCreator>().FromInstance(levelCreator).AsSingle();
+        }
+
     }
 }

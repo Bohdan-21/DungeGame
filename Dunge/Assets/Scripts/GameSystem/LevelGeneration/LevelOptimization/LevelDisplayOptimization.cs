@@ -14,7 +14,7 @@ namespace Scripts.GameSystem.LevelGeneration.LevelOptimization
     {
         public static LevelDisplayOptimization Instance;
 
-        private LevelSettings _levelSettings;
+        private LevelGrid _levelGrid;
         private ChunkSetup _chunkSetup;
 
         private Transform _targetForOptimization;
@@ -24,9 +24,9 @@ namespace Scripts.GameSystem.LevelGeneration.LevelOptimization
         private List<LevelCell> _chunkForDisplay = new List<LevelCell>();
 
         [Inject]
-        private void Construct(LevelSettings levelSettings, ChunkSetup chunkSetup)
+        private void Construct(LevelGrid levelGrid, ChunkSetup chunkSetup)
         {
-            _levelSettings = levelSettings;
+            _levelGrid = levelGrid;
             _chunkSetup = chunkSetup;
         }
 
@@ -44,9 +44,12 @@ namespace Scripts.GameSystem.LevelGeneration.LevelOptimization
 
         private IEnumerator StartOptimization()
         {
+            //int prefRow = -1;
+            //int prefColumn = -1;
+
             yield return new WaitForSeconds(5);
 
-            if (_levelSettings.levelGrid.currentSpawnedChunk == 1)
+            if (_levelGrid.LevelCells.Count == 1)
                 yield break;
 
             while (true)
@@ -56,9 +59,15 @@ namespace Scripts.GameSystem.LevelGeneration.LevelOptimization
                 int row = Calculate.CalculateRow(_targetForOptimization.position, _chunkSetup.ChunkHeightAndWidth);
                 int column = Calculate.CalculateColumn(_targetForOptimization.position, _chunkSetup.ChunkHeightAndWidth);
 
-                RecalculateChunksForDisplay(row, column);
+                //if (prefRow != row && prefColumn != column)
+                //{
+                    RecalculateChunksForDisplay(row, column);
 
-                DisplayChunks();
+                    DisplayChunks();
+
+                //    prefRow = row;
+                //    prefColumn = column;
+                //}
 
                 yield return new WaitForSeconds(2);
             }
@@ -74,7 +83,7 @@ namespace Scripts.GameSystem.LevelGeneration.LevelOptimization
             {
                 for (int j = column - maxAvailableDistanceForDisplayingChunks; j <= column + maxAvailableDistanceForDisplayingChunks; j++)
                 {
-                    levelCell = _levelSettings.levelGrid.GetLevelCell(i, j);
+                    levelCell = _levelGrid.GetLevelCell(i, j);
 
                     if (levelCell != null)
                         _chunkForDisplay.Add(levelCell);
@@ -87,7 +96,7 @@ namespace Scripts.GameSystem.LevelGeneration.LevelOptimization
         {
             bool isDisplaying;
 
-            foreach (LevelCell levelCell in _levelSettings.levelGrid.LevelCells)
+            foreach (LevelCell levelCell in _levelGrid.LevelCells)
             {
                 isDisplaying = false;
 

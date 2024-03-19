@@ -17,16 +17,18 @@ namespace Scripts.Infrastructure.Factory
         private readonly DiContainer _diContainer;
         private readonly EnemyCharacterConfig _enemyStaticData;
         private readonly GameStaticData _gameStaticData;
-        private readonly LevelSettings _levelSettings;
+        private readonly LevelData _levelSettings;
+        private readonly LevelGrid _levelGrid;
         private readonly NPCPrefabReference _npcStaticData;
 
         public GameFactory(DiContainer diContainer, EnemyCharacterConfig enemyStaticData,
-            GameStaticData gameStaticData, LevelSettings levelSettings, NPCPrefabReference npcStaticData)
+            GameStaticData gameStaticData, LevelData levelSettings, NPCPrefabReference npcStaticData, LevelGrid levelGrid)
         {
             _diContainer = diContainer;
             _enemyStaticData = enemyStaticData;
             _gameStaticData = gameStaticData;
             _levelSettings = levelSettings;
+            _levelGrid = levelGrid;
             _npcStaticData = npcStaticData;
         }
 
@@ -70,7 +72,7 @@ namespace Scripts.Infrastructure.Factory
             GameObject enemyPrefab;
             GameObject createdEnemy;
 
-            foreach (LevelCell levelCell in _levelSettings.levelGrid.LevelCells)
+            foreach (LevelCell levelCell in _levelGrid.LevelCells)
             {
                 foreach (EnemySpawnPoint enemySpawnPoint in levelCell.chunkData.EnemySpawnPoints)
                 {
@@ -89,7 +91,7 @@ namespace Scripts.Infrastructure.Factory
 
         private void CreateNPC()
         {
-            foreach (LevelCell levelCell in _levelSettings.levelGrid.LevelCells)
+            foreach (LevelCell levelCell in _levelGrid.LevelCells)
             {
                 foreach (NPCSpawnPoint spawnPoint in levelCell.chunkData.NPCSpawnPoints)
                 {

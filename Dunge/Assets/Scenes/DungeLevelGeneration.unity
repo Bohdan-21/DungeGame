@@ -170,7 +170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSpawnPoint: {fileID: 848845872}
-  levelGrid: {fileID: 1551382431}
+  PreparedChunks:
+  - {fileID: 6438723696084724052}
 --- !u!1 &482489876
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +226,6 @@ GameObject:
   m_Component:
   - component: {fileID: 589810918}
   - component: {fileID: 589810919}
-  - component: {fileID: 589810920}
   m_Layer: 0
   m_Name: LevelCreator
   m_TagString: Untagged
@@ -245,9 +245,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 913182890}
   - {fileID: 1998161341}
-  - {fileID: 1551382432}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -263,21 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 804c89aa2b29d9d409cb562a1cff9241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelGeneretion: {fileID: 913182889}
   levelBaker: {fileID: 1998161342}
---- !u!114 &589810920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589810917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82548db635ff0094bb688a3c72f1b9b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartLevelPrefabData: {fileID: 6438723696084724052}
 --- !u!1 &686914778
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,8 +346,8 @@ MonoBehaviour:
   TradingSystemUI: {fileID: 7647462791770371591, guid: fe7f28bb314c8f44fb75314860a7fb13, type: 3}
   LocationNameUI: {fileID: 2850048649309516018, guid: 577afe1f7b651f0438d4e114d3b012db, type: 3}
   LevelSettings: {fileID: 24411614}
-  levelCreator: {fileID: 589810919}
   Optimization: {fileID: 900579732}
+  levelCreator: {fileID: 589810919}
 --- !u!4 &848845872 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8571679228138685560, guid: fb8340d38a6f33f4fa6044afe7a891d3, type: 3}
@@ -413,53 +397,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &913182886
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 913182890}
-  - component: {fileID: 913182889}
-  m_Layer: 0
-  m_Name: LevelGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &913182889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913182886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 381681cb7741b9d4a8021d05dd871558, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LevelGrid: {fileID: 1551382431}
-  levelData: {fileID: 589810920}
-  needSpecialDeadEndChunk: 1
---- !u!4 &913182890
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913182886}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 325.53348, y: -9.601489, z: 234.46072}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 589810918}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1202835236
 GameObject:
@@ -680,72 +617,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &1551382429
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1551382432}
-  - component: {fileID: 1551382431}
-  - component: {fileID: 1551382430}
-  m_Layer: 0
-  m_Name: LevelGrid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1551382430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551382429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66ffd2680f5ec6c4caa2d16a089846ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LevelGrid: {fileID: 1551382431}
-  _chunkSetup: {fileID: 11400000, guid: c91684a5d71e4da40aa4ffcc1446da04, type: 2}
-  sizeGridCell: {x: 50, y: 10, z: 50}
-  maxSizeForGizmosMap: 20
---- !u!114 &1551382431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551382429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efa0da5df853cae46ad67c33a7d5875b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levelCells:
-  - Row: 0
-    Column: 0
-    chunkData: {fileID: 6438723696084724052}
-  currentSpawnedChunk: 1
---- !u!4 &1551382432
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551382429}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 589810918}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1998161339
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +677,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 589810918}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1998161342
 MonoBehaviour:

@@ -8,22 +8,23 @@ using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration;
 using Scripts.GameSystem.LevelGeneration.ConnectionStrategies;
 using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration.Setup;
 using Zenject;
+using Scripts.GameSystem.LevelGeneration.LevelSetting;
 
 namespace Scripts.GameSystem.LevelGeneration.Generation
 {
-    public class LevelGeneretion : MonoBehaviour
+    public class LevelGeneretion
     {
-        [SerializeField] private LevelGrid LevelGrid;
-        [SerializeField] private LevelData levelData;
-        
-        [SerializeField] private bool needSpecialDeadEndChunk = true;
-
         private DiContainer _diContainer;
         private ConnectionStrategyFactory _connectionStrategy;
-
+        
         private ChunkSetup _chunkSetup;
         private ChunksForGenerationLevel _prefabsForGenerationLevel;
+
+        private LevelGrid _levelGrid;
+        private LevelData _levelData;
         
+        private bool needSpecialDeadEndChunk = true;
+
         private GameObject createdChunk;
 
         private TypeConnectionForCell typeConnection;
@@ -35,19 +36,21 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
         private List<GameObject> createdChunksList = new List<GameObject>();
         private List<TypeChunkConnection> typeChunkConnection;
 
-        [Inject]
-        private void Construct(DiContainer diContainer, ConnectionStrategyFactory connectionStrategy, ChunkSetup chunkSetup,
-                               ChunksForGenerationLevel chunks)
+        public LevelGeneretion(DiContainer diContainer, ConnectionStrategyFactory connectionStrategy, ChunkSetup chunkSetup,
+                               ChunksForGenerationLevel chunks, LevelGrid levelGrid, LevelData levelData)
         {
             _diContainer = diContainer;
             _connectionStrategy = connectionStrategy;
             _chunkSetup = chunkSetup;
             _prefabsForGenerationLevel = chunks;
+
+            _levelGrid = levelGrid;
+            _levelData = levelData;
         }
 
         public IEnumerator GenerateLevel()
         {
-            TakeChunkDataForGenerateLevel(levelData.StartLevelPrefabData);
+            TakeChunkDataForGenerateLevel(_levelData.PreparedChunks[0]);
 
             yield return GenerateLevelChunks();
         }
@@ -136,7 +139,7 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
 
         private bool IsFailedDetectTypeConnectionForCell(ChunkData chunkData, ConnectionPoint connectionPoint)
         {
-            typeConnection = LevelGrid.DetectTypeConnection(chunkData.RootPoint.position, connectionPoint.PointForConnect.position);
+            typeConnection = _levelGrid.DetectTypeConnection(chunkData.RootPoint.position, connectionPoint.PointForConnect.position);
 
             if (typeConnection == null)
                 return true;
@@ -183,7 +186,7 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
 
         private void DestroyCreatedChunk()
         {
-            Destroy(createdChunk);
+            GameObject.Destroy(createdChunk);
         }
 
 
@@ -219,7 +222,7 @@ namespace Scripts.GameSystem.LevelGeneration.Generation
         private void UpdateDataAboutCreatedChunk()
         {
             createdChunksList.Add(createdChunk);
-            LevelGrid.AddLevelCell(createdChunk);
+            _levelGrid.AddLevelCell(createdChunk);
         }
 
 

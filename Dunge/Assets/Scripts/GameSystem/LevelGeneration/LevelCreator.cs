@@ -5,15 +5,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 namespace Scripts.GameSystem.LevelGeneration
 {
     public class LevelCreator : MonoBehaviour, ILevelCreator
     {
-        public LevelGeneretion levelGeneretion;
+        private LevelGeneretion _levelGeneretion;
         public LevelBaker levelBaker;
 
         public event Action CompleteCreateLevelEvent;
+
+
+        [Inject]
+        private void Construct(LevelGeneretion levelGeneretion)
+        {
+            _levelGeneretion = levelGeneretion;
+        }
 
         public void CreateLevel()
         {
@@ -24,7 +32,7 @@ namespace Scripts.GameSystem.LevelGeneration
         {
             Debug.Log("Start Generate Level");
 
-            yield return levelGeneretion.GenerateLevel();
+            yield return _levelGeneretion.GenerateLevel();
 
             Debug.Log("End Generate Level");
 

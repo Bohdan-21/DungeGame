@@ -1,4 +1,5 @@
 ﻿using Scripts.GameSystem.LevelGeneration.DataChunk;
+using Scripts.GameSystem.LevelGeneration.LevelSetting;
 using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration.Setup;
 using System;
 using System.Collections.Generic;
@@ -7,26 +8,44 @@ using Zenject;
 
 namespace Scripts.GameSystem.LevelGeneration.Grid
 {
-    public class LevelGrid : MonoBehaviour
+    public class LevelGrid
     {
-        [SerializeField] private List<LevelCell> _levelCells;
-        
+        private List<LevelCell> _levelCells = new List<LevelCell>();
         private ChunkSetup _chunkSetup;
         
-        public int currentSpawnedChunk = 1;
+        private int _currentSpawnedChunk = 1;
+
+        public LevelGrid(ChunkSetup chunkSetup, LevelData levelData)
+        {
+            _chunkSetup = chunkSetup;
+
+            AddPreparedChunks(levelData);
+        }
 
         public List<LevelCell> LevelCells => _levelCells;
 
-        [Inject]
-        private void Construct(ChunkSetup chunkSetup)
+
+        private void AddPreparedChunks(LevelData levelData)
         {
-            _chunkSetup = chunkSetup;
+            int row;
+            int column;
+
+            foreach (ChunkData chunk in levelData.PreparedChunks)
+            {
+                row = Calculate.CalculateRow(chunk.RootPoint.position, _chunkSetup.ChunkHeightAndWidth);
+                column = Calculate.CalculateColumn(chunk.RootPoint.position, _chunkSetup.ChunkHeightAndWidth);
+
+                _levelCells.Add(new LevelCell(row, column, chunk));
+
+                _currentSpawnedChunk++;
+            }
         }
 
-        public TypeConnectionForCell DetectTypeConnection(Vector3 prevChunkRootPoint, Vector3 connectPointPrevChunk)
+
+        public TypeConnectionForCell DetectTypeConnection(Vector3 rootPointPrefChunk, Vector3 connectPointPrevChunk)
         {
-            Vector3 direction = Calculate.CalculateDirection(connectPointPrevChunk, prevChunkRootPoint);
-            Vector3 rootPointForNewChunk = CalculatePositionForChunk(prevChunkRootPoint, direction);
+            Vector3 direction = Calculate.CalculateDirection(connectPointPrevChunk, rootPointPrefChunk);
+            Vector3 rootPointForNewChunk = CalculatePositionForChunk(rootPointPrefChunk, direction);
 
             if (IsLevelCellOccupied(GetLevelCell(rootPointForNewChunk)))
                 return null;
@@ -93,7 +112,7 @@ namespace Scripts.GameSystem.LevelGeneration.Grid
         }
 
         private bool IsNeedToStopLevelGeneration(TypeConnectionForCell typeConnection) =>
-            currentSpawnedChunk > _chunkSetup.MaxAvailableSpawnedChunk && typeConnection.NeedConnectCount == 0;
+            _currentSpawnedChunk > _chunkSetup.MaxAvailableSpawnedChunk && typeConnection.NeedConnectCount == 0;
 
 
         public void AddLevelCell(GameObject createdChunk)
@@ -146,13 +165,12 @@ namespace Scripts.GameSystem.LevelGeneration.Grid
 
             _levelCells.Add(new LevelCell(rowCell, columnCell, dataAboutCreatedChunk));
 
-            currentSpawnedChunk++;
+            _currentSpawnedChunk++;
         }
 
 
         private Vector3 RotateVectorToRight(Vector3 direction) => 
             Quaternion.Euler(0, 90, 0) * direction;
-
 
         private LevelCell GetLevelCell(Vector3 rootPointChunk)
         {

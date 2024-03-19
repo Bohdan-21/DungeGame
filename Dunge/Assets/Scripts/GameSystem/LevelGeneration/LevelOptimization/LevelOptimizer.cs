@@ -5,9 +5,17 @@ namespace Scripts.GameSystem.LevelGeneration.LevelOptimization
 {
     public class LevelOptimizer : MonoBehaviour
     {
+        private ILevelDisplayOptimization _levelOptimizator;
+
+        [Inject]
+        private void Construct(ILevelDisplayOptimization levelOptimizator)
+        {
+            _levelOptimizator = levelOptimizator;
+        }
+
         private void Start()
         {
-            LevelDisplayOptimization.Instance.StartOptimization(gameObject.transform);
+            //_levelOptimizator.StartOptimization(gameObject.transform);
         }
     }
 }
