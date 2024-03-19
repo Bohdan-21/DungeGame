@@ -17,7 +17,7 @@ namespace Scripts.Infrastructure.Factory
         private readonly DiContainer _diContainer;
         private readonly EnemyCharacterConfig _enemyStaticData;
         private readonly GameStaticData _gameStaticData;
-        private readonly LevelData _levelSettings;
+        private readonly LevelData _levelData;
         private readonly LevelGrid _levelGrid;
         private readonly NPCPrefabReference _npcStaticData;
 
@@ -27,7 +27,7 @@ namespace Scripts.Infrastructure.Factory
             _diContainer = diContainer;
             _enemyStaticData = enemyStaticData;
             _gameStaticData = gameStaticData;
-            _levelSettings = levelSettings;
+            _levelData = levelSettings;
             _levelGrid = levelGrid;
             _npcStaticData = npcStaticData;
         }

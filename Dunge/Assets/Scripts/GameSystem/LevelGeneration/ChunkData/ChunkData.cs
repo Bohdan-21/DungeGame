@@ -20,6 +20,9 @@ namespace Scripts.GameSystem.LevelGeneration.DataChunk
 
         public void Show()
         {
+            if (gameObject.activeSelf)
+                return;
+
             SetActiveForCreatedCharacter(true);
 
             gameObject.SetActive(true);
@@ -27,6 +30,9 @@ namespace Scripts.GameSystem.LevelGeneration.DataChunk
 
         public void Hide()
         {
+            if (!gameObject.activeSelf)
+                return;
+
             SetActiveForCreatedCharacter(false);
 
             gameObject.SetActive(false);

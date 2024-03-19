@@ -44,9 +44,6 @@ namespace Scripts.GameSystem.LevelGeneration.LevelOptimization
 
         private IEnumerator StartOptimization()
         {
-            //int prefRow = -1;
-            //int prefColumn = -1;
-
             yield return new WaitForSeconds(5);
 
             if (_levelGrid.LevelCells.Count == 1)
@@ -59,15 +56,10 @@ namespace Scripts.GameSystem.LevelGeneration.LevelOptimization
                 int row = Calculate.CalculateRow(_targetForOptimization.position, _chunkSetup.ChunkHeightAndWidth);
                 int column = Calculate.CalculateColumn(_targetForOptimization.position, _chunkSetup.ChunkHeightAndWidth);
 
-                //if (prefRow != row && prefColumn != column)
-                //{
-                    RecalculateChunksForDisplay(row, column);
+                RecalculateChunksForDisplay(row, column);
 
-                    DisplayChunks();
+                DisplayChunks();
 
-                //    prefRow = row;
-                //    prefColumn = column;
-                //}
 
                 yield return new WaitForSeconds(2);
             }
@@ -104,8 +96,7 @@ namespace Scripts.GameSystem.LevelGeneration.LevelOptimization
                 {
                     if (levelCell.Row == cellForDisplay.Row && levelCell.Column == cellForDisplay.Column)
                     {
-                        if (!levelCell.chunkData.gameObject.activeSelf)
-                            levelCell.chunkData.Show();
+                        levelCell.chunkData.Show();
 
                         isDisplaying = true;
                     }

@@ -15,7 +15,7 @@ namespace Scripts.GameSystem.LevelGeneration.LevelOptimization
 
         private void Start()
         {
-            //_levelOptimizator.StartOptimization(gameObject.transform);
+            _levelOptimizator.StartOptimization(gameObject.transform);
         }
     }
 }
