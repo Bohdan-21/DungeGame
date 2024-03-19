@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6384987335846499993}
   - component: {fileID: 8012980925198539068}
   - component: {fileID: 5248704553534123510}
-  - component: {fileID: 1173835703856812545}
+  - component: {fileID: 7209362766524716251}
   m_Layer: 0
   m_Name: coffin_decorated
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1173835703856812545
-MeshCollider:
+--- !u!65 &7209362766524716251
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,7 +94,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7227806143429020337, guid: 70482973ab7a7e146a9875c4af4deb6c, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.9025096, z: 3}
+  m_Center: {x: 0, y: 0.45125476, z: 0}

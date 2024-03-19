@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 392662601278128975}
   - component: {fileID: 3665049505839746282}
   - component: {fileID: 1529016408793184288}
-  - component: {fileID: 5634074167886264661}
+  - component: {fileID: 2588493308737140348}
+  - component: {fileID: 3783038947673322393}
   m_Layer: 0
   m_Name: wall_Tsplit
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5634074167886264661
-MeshCollider:
+--- !u!65 &2588493308737140348
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,7 +95,19 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3883248146781487616, guid: ee608318d6670334c97ac1cd7c6ccdfa, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 4, y: 4, z: 1}
+  m_Center: {x: 0, y: 2, z: 0}
+--- !u!65 &3783038947673322393
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024802160597260789}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4, z: 1.5}
+  m_Center: {x: 0, y: 2, z: 1.25}

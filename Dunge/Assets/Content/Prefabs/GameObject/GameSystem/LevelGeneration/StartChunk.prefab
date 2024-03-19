@@ -4746,10 +4746,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: plaque (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 564520548138458783, guid: a6bed68b2cc660a488baf786907ce452, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 909239895292363813, guid: a6bed68b2cc660a488baf786907ce452, type: 3}
       propertyPath: m_RootOrder
       value: 39
@@ -6175,10 +6171,6 @@ PrefabInstance:
     - target: {fileID: 7720785514586704192, guid: 432f1bbb57458234fab4957e6024f417, type: 3}
       propertyPath: m_Name
       value: bed_frame
-      objectReference: {fileID: 0}
-    - target: {fileID: 7720785514586704192, guid: 432f1bbb57458234fab4957e6024f417, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 432f1bbb57458234fab4957e6024f417, type: 3}
@@ -8882,10 +8874,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: plate_food_A
       objectReference: {fileID: 0}
-    - target: {fileID: 7711911599328093123, guid: 26977f728ece3cf4cb649a9d649db100, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26977f728ece3cf4cb649a9d649db100, type: 3}
 --- !u!4 &3063807713517155667 stripped
@@ -9299,10 +9287,6 @@ PrefabInstance:
     - target: {fileID: 553741006849493395, guid: 56c8a7c6ec9dc94418863c8f8d11d413, type: 3}
       propertyPath: m_Name
       value: trunk_medium_B (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 553741006849493395, guid: 56c8a7c6ec9dc94418863c8f8d11d413, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 929034753198560041, guid: 56c8a7c6ec9dc94418863c8f8d11d413, type: 3}
       propertyPath: m_RootOrder
@@ -10927,10 +10911,6 @@ PrefabInstance:
     - target: {fileID: 5626295960720613949, guid: 9f83adb40cb10ca4695cf9875b1d1566, type: 3}
       propertyPath: m_Name
       value: trunk_small_B
-      objectReference: {fileID: 0}
-    - target: {fileID: 5626295960720613949, guid: 9f83adb40cb10ca4695cf9875b1d1566, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f83adb40cb10ca4695cf9875b1d1566, type: 3}
@@ -13127,10 +13107,6 @@ PrefabInstance:
     - target: {fileID: 3480690882077961682, guid: bf77c08663a42124e8dd5fe833c31f04, type: 3}
       propertyPath: m_Name
       value: shelf_small_candles
-      objectReference: {fileID: 0}
-    - target: {fileID: 3480690882077961682, guid: bf77c08663a42124e8dd5fe833c31f04, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4253145476980995944, guid: bf77c08663a42124e8dd5fe833c31f04, type: 3}
       propertyPath: m_RootOrder
@@ -16362,10 +16338,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: shelf_large
       objectReference: {fileID: 0}
-    - target: {fileID: 2455089427238754352, guid: 17b53bf33548df3498af9d6424e0ae80, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 2979670459812037258, guid: 17b53bf33548df3498af9d6424e0ae80, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -16867,10 +16839,6 @@ PrefabInstance:
     - target: {fileID: 4071591536553762636, guid: bef96bcfa7aff8a4287fae65b54c79e7, type: 3}
       propertyPath: m_Name
       value: bed_floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 4071591536553762636, guid: bef96bcfa7aff8a4287fae65b54c79e7, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bef96bcfa7aff8a4287fae65b54c79e7, type: 3}
@@ -18077,10 +18045,6 @@ PrefabInstance:
     - target: {fileID: 7229468687369073694, guid: 16750804f43762247b5d85b68c0c0e31, type: 3}
       propertyPath: m_Name
       value: bed_decorated
-      objectReference: {fileID: 0}
-    - target: {fileID: 7229468687369073694, guid: 16750804f43762247b5d85b68c0c0e31, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8007377989857783460, guid: 16750804f43762247b5d85b68c0c0e31, type: 3}
       propertyPath: m_RootOrder
@@ -19376,10 +19340,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: table_long_tablecloth_decorated_A
       objectReference: {fileID: 0}
-    - target: {fileID: 1803164757290869212, guid: c458d1ecc4c8c8d4ca05528bd3941121, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c458d1ecc4c8c8d4ca05528bd3941121, type: 3}
 --- !u!4 &6378436929304546283 stripped
@@ -19903,10 +19863,6 @@ PrefabInstance:
     - target: {fileID: 3424337746252846373, guid: 510715657ef168c40a35075ac1db99a2, type: 3}
       propertyPath: m_Name
       value: plaque_candles (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3424337746252846373, guid: 510715657ef168c40a35075ac1db99a2, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 510715657ef168c40a35075ac1db99a2, type: 3}
@@ -24480,10 +24436,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: barrel_small (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 3949806913567203424, guid: 0564a4e68c9d5284e928338d7b441d18, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 4439239548416719578, guid: 0564a4e68c9d5284e928338d7b441d18, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -24677,10 +24629,6 @@ PrefabInstance:
     - target: {fileID: 180912059941693148, guid: 59935e19e68373846aab20157f7c2413, type: 3}
       propertyPath: m_Name
       value: shrine_candles
-      objectReference: {fileID: 0}
-    - target: {fileID: 180912059941693148, guid: 59935e19e68373846aab20157f7c2413, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 705211518552702054, guid: 59935e19e68373846aab20157f7c2413, type: 3}
       propertyPath: m_RootOrder

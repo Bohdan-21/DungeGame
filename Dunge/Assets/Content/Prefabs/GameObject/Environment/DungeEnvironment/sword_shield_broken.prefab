@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7359940992436354178}
   - component: {fileID: 5876098842831500071}
   - component: {fileID: 8532332870744590317}
-  - component: {fileID: 7285298089996711932}
+  - component: {fileID: 5248812256645218338}
   m_Layer: 0
   m_Name: sword_shield_broken
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7285298089996711932
-MeshCollider:
+--- !u!65 &5248812256645218338
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,7 +94,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3140630337154722297, guid: 5ab6150c01e595e45a5509496e94b691, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.4256415, y: 1.962297, z: 0.33574232}
+  m_Center: {x: 0.045779377, y: 0.18815038, z: 0.083297595}

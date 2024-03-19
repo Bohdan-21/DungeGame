@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 3732044017487463926}
   - component: {fileID: 316722948582492755}
   - component: {fileID: 2558553241598672537}
-  - component: {fileID: 2246750588110510459}
+  - component: {fileID: 8619399206839852442}
   m_Layer: 0
   m_Name: bed_floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3732044017487463926
 Transform:
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4071591536553762636}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2246750588110510459
-MeshCollider:
+--- !u!65 &8619399206839852442
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,7 +94,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5145796331539820034, guid: 9a876ea5d5978a341b524791b14d0b17, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 0.5626321, z: 3}
+  m_Center: {x: 0, y: 0.28131604, z: 0}

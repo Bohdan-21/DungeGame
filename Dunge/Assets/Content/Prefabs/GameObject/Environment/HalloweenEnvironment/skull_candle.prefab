@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6266307052074291068}
   - component: {fileID: 7014847373086474457}
   - component: {fileID: 5097311497675486227}
-  - component: {fileID: 323764265570265579}
+  - component: {fileID: 7893817923857349430}
   m_Layer: 0
   m_Name: skull_candle
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &323764265570265579
-MeshCollider:
+--- !u!65 &7893817923857349430
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,7 +94,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 854641623058627908, guid: 45f023160def54749a3c6e7d1699b7ca, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.9175689, y: 1.1873217, z: 0.93613684}
+  m_Center: {x: -0.000007286668, y: 0.65111625, z: -0.05082655}
