@@ -1,5 +1,6 @@
 ﻿using Scripts.Enemy;
 using Scripts.NPC.Spawn;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,14 +16,31 @@ namespace Scripts.GameSystem.LevelGeneration.DataChunk
 
         public List<NPCSpawnPoint> NPCSpawnPoints;
 
+        private List<GameObject> _createdCharacter = new List<GameObject>();
+
         public void Show()
         {
+            SetActiveForCreatedCharacter(true);
+
             gameObject.SetActive(true);
         }
 
         public void Hide()
         {
+            SetActiveForCreatedCharacter(false);
+
             gameObject.SetActive(false);
+        }
+
+        public void AddCreatedCharacter(GameObject character)
+        {
+            _createdCharacter.Add(character);
+        }
+
+        private void SetActiveForCreatedCharacter(bool isActive)
+        {
+            foreach (GameObject character in _createdCharacter)
+                character.SetActive(isActive);
         }
     }
 }   

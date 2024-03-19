@@ -11,11 +11,12 @@ namespace Scripts.Infrastructure.Installer.Game
     public class GameInstallerForGeneratedScene : GameInstaller
     {
         public LevelCreator levelCreator;
+        public LevelDisplayOptimization Optimization;
 
         public override void InstallBindings()
         {
             base.InstallBindings();
-
+            Container.Bind<ILevelDisplayOptimization>().To<LevelDisplayOptimization>().FromInstance(Optimization).AsCached();
             BindLevelCreator();
             BindSpecialState();
             BindConnectionStrategies();

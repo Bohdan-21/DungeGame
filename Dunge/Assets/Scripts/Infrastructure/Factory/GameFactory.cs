@@ -68,6 +68,7 @@ namespace Scripts.Infrastructure.Factory
         private void CreateMonster()
         {
             GameObject enemyPrefab;
+            GameObject createdEnemy;
 
             foreach (LevelCell levelCell in _levelSettings.levelGrid.LevelCells)
             {
@@ -77,7 +78,11 @@ namespace Scripts.Infrastructure.Factory
                     enemyPrefab = _enemyStaticData.GetEnemyPrefabByType(/*enemySpawnPoint.enemyType*/EnemyType.Barbarian);
 
                     if (enemyPrefab != null)
-                        CreateNavMeshAgent(enemySpawnPoint.transform.position, enemyPrefab);
+                    {
+                        createdEnemy = CreateNavMeshAgent(enemySpawnPoint.transform.position, enemyPrefab);
+                        
+                        levelCell.chunkData.AddCreatedCharacter(createdEnemy);
+                    }
                 }
             }
         }
@@ -96,7 +101,7 @@ namespace Scripts.Infrastructure.Factory
             }
         }
 
-        private void CreateNavMeshAgent(Vector3 at, GameObject prefabForSpawn)
+        private GameObject CreateNavMeshAgent(Vector3 at, GameObject prefabForSpawn)
         {
             GameObject spawnedAgent = SpawnObjectAt(at, prefabForSpawn);
 
@@ -107,6 +112,8 @@ namespace Scripts.Infrastructure.Factory
                 Debug.Log("Unsuccess warp");
                 navMeshAgent.SetDestination(at);
             }
+
+            return spawnedAgent;
         }
 
         private GameObject SpawnObjectAt(Vector3 at, GameObject prefabForSpawn)
