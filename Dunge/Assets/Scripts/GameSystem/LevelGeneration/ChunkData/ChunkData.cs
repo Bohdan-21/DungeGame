@@ -18,6 +18,8 @@ namespace Scripts.GameSystem.LevelGeneration.DataChunk
 
         private List<GameObject> _createdCharacter = new List<GameObject>();
 
+        public bool IsActive { get => gameObject.activeSelf; }
+
         public void Show()
         {
             if (gameObject.activeSelf)

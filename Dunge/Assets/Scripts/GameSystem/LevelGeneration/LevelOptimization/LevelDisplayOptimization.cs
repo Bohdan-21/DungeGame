@@ -23,6 +23,9 @@ namespace Scripts.GameSystem.LevelGeneration.LevelOptimization
 
         private List<LevelCell> _chunkForDisplay = new List<LevelCell>();
 
+        private List<Vector2Int> _visibleChunks = new List<Vector2Int>();
+        private List<Vector2Int> _unvisibleChunks = new List<Vector2Int>();
+
         [Inject]
         private void Construct(LevelGrid levelGrid, ChunkSetup chunkSetup)
         {
@@ -39,7 +42,19 @@ namespace Scripts.GameSystem.LevelGeneration.LevelOptimization
         {
             _targetForOptimization = targetForOptimization;
 
+            DeactivateInvisibleChunk();
+
             StartCoroutine(StartOptimization());
+        }
+
+        private void DeactivateInvisibleChunk()
+        {
+            int row = Calculate.CalculateRow(_targetForOptimization.position, _chunkSetup.ChunkHeightAndWidth);
+            int column = Calculate.CalculateColumn(_targetForOptimization.position, _chunkSetup.ChunkHeightAndWidth);
+
+            CalculateVisibleAndUnvisibleChunks(row, column);
+
+            DeactivateAllUnvisibleChunks();
         }
 
         private IEnumerator StartOptimization()
@@ -56,55 +71,91 @@ namespace Scripts.GameSystem.LevelGeneration.LevelOptimization
                 int row = Calculate.CalculateRow(_targetForOptimization.position, _chunkSetup.ChunkHeightAndWidth);
                 int column = Calculate.CalculateColumn(_targetForOptimization.position, _chunkSetup.ChunkHeightAndWidth);
 
-                RecalculateChunksForDisplay(row, column);
+                CalculateVisibleAndUnvisibleChunks(row, column);
 
-                DisplayChunks();
+                ActivateVisibleChunks();
 
+                DeactiviteUnvisibleChunks();
 
                 yield return new WaitForSeconds(2);
             }
         }
 
-        private void RecalculateChunksForDisplay(int row, int column)
+        private void ActivateVisibleChunks()
         {
-            _chunkForDisplay.Clear();
+            for(int i = 0; i < _visibleChunks.Count; i++)
+            {
+                _levelGrid.GetLevelCell(_visibleChunks[i].x, _visibleChunks[i].y).chunkData.Show();
+            }
+        }
 
-            LevelCell levelCell;
+        private void DeactiviteUnvisibleChunks()
+        {
+            for(int i = 0; i < _unvisibleChunks.Count; i++)
+            {
+                _levelGrid.GetLevelCell(_unvisibleChunks[i].x, _unvisibleChunks[i].y).chunkData.Hide();
+            }
+        }
+
+        private void CalculateVisibleAndUnvisibleChunks(int row, int column)
+        {
+            List<Vector2Int> visibleChunks = new List<Vector2Int>();
 
             for (int i = row - maxAvailableDistanceForDisplayingChunks; i <= row + maxAvailableDistanceForDisplayingChunks; i++)
             {
                 for (int j = column - maxAvailableDistanceForDisplayingChunks; j <= column + maxAvailableDistanceForDisplayingChunks; j++)
                 {
-                    levelCell = _levelGrid.GetLevelCell(i, j);
-
-                    if (levelCell != null)
-                        _chunkForDisplay.Add(levelCell);
-
+                    if (_levelGrid.GetLevelCell(i, j) != null)
+                        visibleChunks.Add(new Vector2Int(i, j));
                 }
             }
+
+            if (_visibleChunks.Count == 0)
+            {
+                _visibleChunks = visibleChunks;
+                return;
+            }
+
+            _unvisibleChunks.Clear();
+
+            bool isNeedHide = true;
+
+            for(int i = 0; i < visibleChunks.Count;i++)
+            {
+                isNeedHide = true;
+
+                for(int j = 0; j < _visibleChunks.Count;j++)
+                {
+                    if (visibleChunks[i] == _visibleChunks[j])
+                        isNeedHide = false;
+                }
+
+                if(isNeedHide)
+                    _unvisibleChunks.Add(visibleChunks[i]);
+            }
+
+            _visibleChunks = visibleChunks;
         }
 
-        private void DisplayChunks()
+        private void DeactivateAllUnvisibleChunks()
         {
-            bool isDisplaying;
+            bool isNeedHide = true;
 
-            foreach (LevelCell levelCell in _levelGrid.LevelCells)
+            foreach (var cell in _levelGrid.LevelCells)
             {
-                isDisplaying = false;
+                isNeedHide = true;
 
-                foreach (LevelCell cellForDisplay in _chunkForDisplay)
+                foreach(var coordinate in _visibleChunks)
                 {
-                    if (levelCell.Row == cellForDisplay.Row && levelCell.Column == cellForDisplay.Column)
+                    if(cell.Row == coordinate.x && cell.Column == coordinate.y)
                     {
-                        levelCell.chunkData.Show();
-
-                        isDisplaying = true;
+                        isNeedHide = false;
                     }
+                }
 
-                    if (!isDisplaying)
-                    {
-                        levelCell.chunkData.Hide();
-                    }
+                if(isNeedHide)
+                {
+                    cell.chunkData.Hide();
                 }
             }
         }
