@@ -1,16 +1,24 @@
 ﻿using Scripts.GameSystem.LevelGeneration.Grid;
 using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration.Setup;
 using UnityEngine;
+using Zenject;
 
 namespace Scripts.GameSystem.LevelGeneration.Grid.Gizmo
 {
     public class LevelGridDrawer : MonoBehaviour
     {
-        public LevelGrid LevelGrid;
-        [SerializeField] private ChunkSetup _chunkSetup;
+        private LevelGrid _levelGrid;
+        private ChunkSetup _chunkSetup;
 
         public Vector3 sizeGridCell;
         public int maxSizeForGizmosMap;
+
+        [Inject]
+        private void Construct(LevelGrid levelGrid, ChunkSetup chunkSetup)
+        {
+            _levelGrid = levelGrid;
+            _chunkSetup = chunkSetup;
+        }
 
         private void Awake()
         {

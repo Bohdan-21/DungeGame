@@ -118,20 +118,20 @@ namespace Scripts.GameSystem.LevelGeneration.LevelOptimization
 
             _unvisibleChunks.Clear();
 
-            bool isNeedHide = true;
+            bool isNeedHide;
 
-            for(int i = 0; i < visibleChunks.Count;i++)
+            for(int i = 0; i < _visibleChunks.Count;i++)
             {
                 isNeedHide = true;
 
-                for(int j = 0; j < _visibleChunks.Count;j++)
+                for(int j = 0; j < visibleChunks.Count;j++)
                 {
-                    if (visibleChunks[i] == _visibleChunks[j])
+                    if (_visibleChunks[i] == visibleChunks[j])
                         isNeedHide = false;
                 }
 
                 if(isNeedHide)
-                    _unvisibleChunks.Add(visibleChunks[i]);
+                    _unvisibleChunks.Add(_visibleChunks[i]);
             }
 
             _visibleChunks = visibleChunks;
@@ -139,7 +139,7 @@ namespace Scripts.GameSystem.LevelGeneration.LevelOptimization
 
         private void DeactivateAllUnvisibleChunks()
         {
-            bool isNeedHide = true;
+            bool isNeedHide;
 
             foreach (var cell in _levelGrid.LevelCells)
             {
