@@ -3,7 +3,7 @@ using System;
 
 namespace Scripts.Services.AudioService
 {
-    interface IAudioService
+    public interface IAudioService
     {
         AudioSetting AudioSetting { get; }
 
