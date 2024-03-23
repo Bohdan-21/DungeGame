@@ -7,19 +7,21 @@ using Zenject;
 public class InitBootstrapper : MonoBehaviour
 {
     private MainStateMachine _mainStateMachine;
-    private GameStateMachine _levelStateMachine;
 
     [Inject]
-    private void Construct(MainStateMachine mainStateMachine, MainMenuState mainMenuState, GameState gameState)
+    private void Construct(MainStateMachine mainStateMachine, LoadSettingsState loadSettingsState, MainMenuState mainMenuState, 
+                           GameState gameState, ExitApplicationState exitApplicationState)
     {
         _mainStateMachine = mainStateMachine;
 
+        _mainStateMachine.AddState(loadSettingsState);
         _mainStateMachine.AddState(mainMenuState);
         _mainStateMachine.AddState(gameState);
+        _mainStateMachine.AddState(exitApplicationState);
     }
 
-    private void Awake()
+    private void Start()
     {
-        _mainStateMachine.Enter<MainMenuState>();
+        _mainStateMachine.Enter<LoadSettingsState>();
     }
 }

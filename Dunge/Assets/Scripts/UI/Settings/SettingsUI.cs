@@ -52,8 +52,8 @@ namespace Scripts.UI.Settings
 
         private void UpdateSlider()
         {
-            musicVolume.value = _audioService.AudioSetting.MusicVolume;
-            soundVolume.value = _audioService.AudioSetting.SoundVolume;
+            musicVolume.value = _audioService.AudioSettingData.MusicVolume;
+            soundVolume.value = _audioService.AudioSettingData.SoundVolume;
         }
     }
 }

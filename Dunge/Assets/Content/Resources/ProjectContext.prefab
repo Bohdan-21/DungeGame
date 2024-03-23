@@ -78,7 +78,7 @@ MonoBehaviour:
   SettingsUIPrefab: {fileID: 4100678517899180949, guid: 70316a76f4bd2ff4eb07b32ea1f9f502, type: 3}
   SceneLoaderPrefab: {fileID: 3842421171574591101, guid: 0611a0e4cf7d6db4ab02f7c59ecf47b0, type: 3}
   SoundButtonActionPlayerPrefab: {fileID: 1227733207998901204, guid: 972c2765eedceb842acace56cdcc67c9, type: 3}
-  AudioSetting: {fileID: 11400000, guid: 008e1ba1d623daa47a143188399f3ab9, type: 2}
+  DeffaultSettings: {fileID: 11400000, guid: 46354ab1deab9034aa0f2a7b65f8104c, type: 2}
   SoundListForGameAction: {fileID: 11400000, guid: cb5669133904dc146b6212ffbb209575, type: 2}
   SoundListForButtonAction: {fileID: 11400000, guid: 3e91fea9f034e224e9e21b821676b652, type: 2}
   ControlButtons: {fileID: 11400000, guid: d5f56116a6358024fb1389fb589d0789, type: 2}

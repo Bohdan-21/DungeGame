@@ -28,6 +28,7 @@ using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForStat;
 using Assets.Scripts.StaticData.GameConfigData.Environment;
 using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration.Setup;
 using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration;
+using Scripts.Services.SettingsService;
 
 namespace Scripts.Infrastructure.Installer
 {
@@ -38,7 +39,13 @@ namespace Scripts.Infrastructure.Installer
         public GameObject SceneLoaderPrefab;
         public GameObject SoundButtonActionPlayerPrefab;
 
-        public AudioSetting AudioSetting;
+
+        public DeffaultSettings DeffaultSettings;
+
+
+
+
+        //public AudioSetting AudioSetting;
         public SoundListForGameAction SoundListForGameAction;
         public SoundListForButtonAction SoundListForButtonAction;
 
@@ -76,6 +83,9 @@ namespace Scripts.Infrastructure.Installer
 
         public override void InstallBindings()
         {
+            BindSettings();
+
+
             BindInput();
 
             BindChunkData();
@@ -99,6 +109,16 @@ namespace Scripts.Infrastructure.Installer
             BindSoundButtonActionPlayer();
         }
 
+        private void BindSettings()
+        {
+            Container.Bind<DeffaultSettings>().FromInstance(DeffaultSettings).AsSingle();
+
+            //Container.Bind<AudioSetting>().FromInstance(AudioSetting).AsSingle();
+            Container.Bind<IAudioService>().To<AudioService>().FromNew().AsSingle();
+
+            Container.Bind<ISaveLoadSettingsService>().To<SaveLoadSettingsService>().FromNew().AsSingle();
+            Container.Bind<ISettingsServiceHandler>().To<SettingsServiceHandler>().FromNew().AsSingle();
+        }
 
         private void BindInput()
         {
@@ -118,7 +138,6 @@ namespace Scripts.Infrastructure.Installer
 
         private void BindStaticData()
         {
-            Container.Bind<AudioSetting>().FromInstance(AudioSetting).AsSingle();
             Container.Bind<SoundListForGameAction>().FromInstance(SoundListForGameAction).AsSingle();
             Container.Bind<SoundListForButtonAction>().FromInstance(SoundListForButtonAction).AsSingle();
 
@@ -160,7 +179,7 @@ namespace Scripts.Infrastructure.Installer
 
         private void BindAudioService()
         {
-            Container.Bind<IAudioService>().To<AudioService>().FromNew().AsSingle();
+            
         }
 
         private void BindPlayerProgress()
@@ -181,8 +200,11 @@ namespace Scripts.Infrastructure.Installer
         private void BindMainStateMachine()
         {
             Container.Bind<MainStateMachine>().AsSingle();
+
+            Container.Bind<LoadSettingsState>().AsSingle();
             Container.Bind<MainMenuState>().AsSingle();
             Container.Bind<GameState>().AsSingle();
+            Container.Bind<ExitApplicationState>().AsSingle();
         }
 
         private void BindSoundButtonActionPlayer()

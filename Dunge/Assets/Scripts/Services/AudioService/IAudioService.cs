@@ -1,11 +1,12 @@
-﻿using Scripts.StaticData.SystemConfigData.Audio;
+﻿using Scripts.Services.SettingsService;
+using Scripts.StaticData.SystemConfigData.Audio;
 using System;
 
 namespace Scripts.Services.AudioService
 {
     public interface IAudioService
     {
-        AudioSetting AudioSetting { get; }
+        AudioSettingData AudioSettingData { get; }
 
         event Action MusicVolumeUpdater;
         event Action SoundVolumeUpdater;

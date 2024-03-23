@@ -52,7 +52,7 @@ namespace Scripts.Infrastructure.Audio
 
         private void UpdateSoundVolume()
         {
-            _audio.volume = _audioService.AudioSetting.SoundVolume;
+            _audio.volume = _audioService.AudioSettingData.SoundVolume;
         }
     }
 }

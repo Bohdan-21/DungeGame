@@ -1,4 +1,5 @@
-﻿using Scripts.StaticData.SystemConfigData.Audio;
+﻿using Scripts.Services.SettingsService;
+using Scripts.StaticData.SystemConfigData.Audio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,30 +8,51 @@ using System.Threading.Tasks;
 
 namespace Scripts.Services.AudioService
 {
-    class AudioService : IAudioService
+    class AudioService : IAudioService, ISettingService
     {
-        public AudioSetting AudioSetting { get; private set; }
+        private ISettingsServiceHandler _settingsServiceHandler;
+
+        public AudioSettingData AudioSettingData { get; private set; } = new AudioSettingData();
 
         public event Action MusicVolumeUpdater;
         public event Action SoundVolumeUpdater;
 
-        public AudioService(AudioSetting audioSettings)
+        public AudioService(ISettingsServiceHandler settingsServiceHandler)
         {
-            AudioSetting = audioSettings;
+            _settingsServiceHandler = settingsServiceHandler;
+
+            _settingsServiceHandler.AddService(this);
+        }
+
+        ~AudioService()
+        {
+            _settingsServiceHandler.RemoveService(this);
         }
 
         public void UpdateMusicVolume(float volume)
         {
-            AudioSetting.MusicVolume = volume;
+            AudioSettingData.MusicVolume = volume;
 
             MusicVolumeUpdater?.Invoke();
         }
 
         public void UpdateSoundVolume(float volume)
         {
-            AudioSetting.SoundVolume = volume;
+            AudioSettingData.SoundVolume = volume;
 
             SoundVolumeUpdater?.Invoke();
+        }
+
+        public void LoadSettings(SettingsData settingsData)
+        {
+            AudioSettingData.MusicVolume = settingsData.AudioSettingData.MusicVolume;
+            AudioSettingData.SoundVolume = settingsData.AudioSettingData.SoundVolume;
+        }
+
+        public void UpdateSettings(SettingsData settingsData)
+        {
+            settingsData.AudioSettingData.MusicVolume = AudioSettingData.MusicVolume;
+            settingsData.AudioSettingData.SoundVolume = AudioSettingData.SoundVolume;
         }
     }
 }

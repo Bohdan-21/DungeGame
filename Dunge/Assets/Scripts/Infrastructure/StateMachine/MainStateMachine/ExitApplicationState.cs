@@ -1,15 +1,31 @@
-﻿namespace Scripts.Infrastructure.StateMachine
+﻿using Scripts.Services.SettingsService;
+using UnityEngine;
+
+namespace Scripts.Infrastructure.StateMachine
 {
     public class ExitApplicationState : IState
     {
+        private ISettingsServiceHandler _settingsServiceHandler;
+        private ISaveLoadSettingsService _saveLoadSettings;
+
+        public ExitApplicationState(ISettingsServiceHandler settingsServiceHandler, ISaveLoadSettingsService saveLoadSettings)
+        {
+            _settingsServiceHandler = settingsServiceHandler;
+            _saveLoadSettings = saveLoadSettings;
+        }
+
         public void Enter()
         {
-            throw new System.NotImplementedException();
+            _settingsServiceHandler.AllertAllUpdateSettings();
+
+            _saveLoadSettings.Save(_settingsServiceHandler.SettingsData);
+
+            Application.Quit();
         }
 
         public void Exit()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Настройки сохраненны.");
         }
     }
 }

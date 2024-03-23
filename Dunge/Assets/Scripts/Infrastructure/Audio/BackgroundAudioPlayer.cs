@@ -76,7 +76,7 @@ namespace Scripts.Infrastructure.Audio
 
         private void UpdateMusicVolume()
         {
-            _audio.volume = _audioService.AudioSetting.MusicVolume;
+            _audio.volume = _audioService.AudioSettingData.MusicVolume;
         }
     }
 }

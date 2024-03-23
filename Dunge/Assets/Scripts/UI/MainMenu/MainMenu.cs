@@ -14,16 +14,18 @@ namespace Scripts.UI.MainMenu
     {
         private ISoundsButtonActionPlayer _soundsButtonActionPlayer;
         private MenuStateMachine _menuStateMachine;
+        private MainStateMachine _mainStateMachine;
         private ISettingsUI _settingsUI;
         private ILicenseUI _licenseUI;
         public GameObject rootComponent;
 
         [Inject]
         private void Construct(ISoundsButtonActionPlayer soundsButtonActionPlayer, MenuStateMachine menuStateMachine, 
-            ISettingsUI settingsUI, ILicenseUI licenseUI)
+                               MainStateMachine mainStateMachine, ISettingsUI settingsUI, ILicenseUI licenseUI)
         {
             _soundsButtonActionPlayer = soundsButtonActionPlayer;
             _menuStateMachine = menuStateMachine;
+            _mainStateMachine = mainStateMachine;
             _settingsUI = settingsUI;
             _licenseUI = licenseUI;
         }
@@ -60,7 +62,7 @@ namespace Scripts.UI.MainMenu
         {
             PlaySoundButtonPress();
 
-            Application.Quit();
+            _mainStateMachine.Enter<ExitApplicationState>();
         }
 
         private void PlaySoundButtonPress() =>
