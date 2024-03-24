@@ -3,8 +3,8 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 using Scripts.GameSystem.SkillTreeSystem.Type;
-using Scripts.SaveData.SkillTree;
 using Scripts.GameSystem.SkillTreeSystem.Handler;
+using Scripts.SaveData.PlayerData.SkillTree;
 
 namespace Scripts.GameSystem.SkillTreeSystem.UI.Card
 {

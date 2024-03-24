@@ -1,7 +1,7 @@
 ﻿using Scripts.GameSystem.DialogSystem.Logic;
 using Scripts.Logic;
+using Scripts.Services.ControlButtonService;
 using Scripts.Services.InputService;
-using Scripts.StaticData.SystemConfigData.ControlButton;
 using Scripts.UI.Interaction;
 using UnityEngine;
 using Zenject;
@@ -23,13 +23,13 @@ namespace Scripts.GameSystem.DialogSystem.DialogHandler
 
         [Inject]
         private void Construct(IDialogInitializer dialogController, IInteractionPanel interactionPanel,
-            IInputService inputService, ControlButtons controlButtons)
+            IInputService inputService, IControlButtonService controlButtons)
         {
             _dialogController = dialogController;
             _interactionPanel = interactionPanel;
             _inputService = inputService;
 
-            InteractionButton = controlButtons.PlayerControlButtons.AnotherControlButtons.InteractButton;
+            InteractionButton = controlButtons.ControlButtons.PlayerControlButtons.AnotherControlButtons.InteractButton;
         }
 
         private void Start()

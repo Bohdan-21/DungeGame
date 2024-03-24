@@ -1,4 +1,6 @@
-﻿using Scripts.Services.SettingsService;
+﻿using Scripts.Services.SaveLoadServices.GameSettings;
+using Scripts.Services.SettingsService;
+using Scripts.StaticData.SystemConfigData.Settings;
 using UnityEngine;
 
 namespace Scripts.Infrastructure.StateMachine
@@ -7,11 +9,11 @@ namespace Scripts.Infrastructure.StateMachine
     {
         private ISettingsServiceHandler _settingsServiceHandler;
         private ISaveLoadSettingsService _saveLoadSettings;
-        private DeffaultSettings _deffaultSettings;
+        private DefaultGameSettings _deffaultSettings;
         private MainStateMachine _mainStateMachine;
 
         public LoadSettingsState(ISettingsServiceHandler settingsServiceHandler, ISaveLoadSettingsService saveLoadSettings, 
-                                 DeffaultSettings deffaultSettings, MainStateMachine mainStateMachine)
+                                 DefaultGameSettings deffaultSettings, MainStateMachine mainStateMachine)
         {
             _settingsServiceHandler = settingsServiceHandler;
             _saveLoadSettings = saveLoadSettings;

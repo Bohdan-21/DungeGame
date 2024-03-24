@@ -1,4 +1,4 @@
-﻿using Scripts.LanguageLocalization.Service;
+﻿using Scripts.Services.LanguageService;
 using Scripts.StaticData.GameConfigData.GameSystem.Dialog;
 using Zenject;
 
@@ -9,12 +9,12 @@ namespace Scripts.GameSystem.DialogSystem.Logic
     /// </summary>
     public class DialogInitializer : IDialogInitializer
     {
-        private ILanguageSettings _languageSettings;
+        private ILanguageService _languageSettings;
         private IDialogTracking _dialogTracker;
         private bool _isDialogActive = false;
 
         [Inject]
-        private void Construct(ILanguageSettings languageSettings, IDialogTracking dialogTracker)
+        private void Construct(ILanguageService languageSettings, IDialogTracking dialogTracker)
         {
             _languageSettings = languageSettings;
             _dialogTracker = dialogTracker;

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
-using Scripts.LanguageLocalization.Service;
+using Scripts.Services.LanguageService;
 
 namespace Scripts.UI.NameLocation
 {
@@ -13,10 +13,10 @@ namespace Scripts.UI.NameLocation
         [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private TextMeshProUGUI _nameLocationText;
         
-        private ILanguageSettings _languageSettings;
+        private ILanguageService _languageSettings;
 
         [Inject]
-        private void Construct(ILanguageSettings languageSettings)
+        private void Construct(ILanguageService languageSettings)
         {
             _languageSettings = languageSettings;
         }

@@ -1,8 +1,6 @@
-﻿using Scripts.SaveData.Storage;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
-using System;
 using Scripts.GameMechanic.ItemSystem;
 using Scripts.StaticData.GameConfigData.GameSystem.Trading.Price;
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using Scripts.GameSystem.StatsSystem.Type;
-using Scripts.SaveData.Stats;
+using Scripts.SaveData.PlayerData.Stats;
 
 namespace Scripts.GameSystem.StatsSystem.UI
 {

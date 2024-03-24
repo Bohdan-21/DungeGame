@@ -1,5 +1,5 @@
+using Scripts.Services.ControlButtonService;
 using Scripts.Services.InputService;
-using Scripts.StaticData.SystemConfigData.ControlButton;
 using UnityEngine;
 using Zenject;
 
@@ -26,15 +26,15 @@ public class CameraFollow : MonoBehaviour, ICameraFollow
     private IInputService _inputService;
 
     [Inject]
-    private void Construct(IInputService inputService, ControlButtons controlButtons)
+    private void Construct(IInputService inputService, IControlButtonService controlButtonService)
     {
         _inputService = inputService;
 
-        ZoomInButton = controlButtons.CameraControlButtons.ZoomInButton;
-        ZoomOutButton = controlButtons.CameraControlButtons.ZoomOutButton;
+        ZoomInButton = controlButtonService.ControlButtons.CameraControlButtons.ZoomInButton;
+        ZoomOutButton = controlButtonService.ControlButtons.CameraControlButtons.ZoomOutButton;
 
-        RotateToLeftButton = controlButtons.CameraControlButtons.RotateToLeftButton;
-        RotateToRightButton = controlButtons.CameraControlButtons.RotateToRightButton;
+        RotateToLeftButton = controlButtonService.ControlButtons.CameraControlButtons.RotateToLeftButton;
+        RotateToRightButton = controlButtonService.ControlButtons.CameraControlButtons.RotateToRightButton;
     }
 
     public Camera GameCamera { get => _gameCamera; }

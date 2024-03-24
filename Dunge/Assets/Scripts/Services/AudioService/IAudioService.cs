@@ -1,4 +1,4 @@
-﻿using Scripts.Services.SettingsService;
+﻿using Scripts.SaveData.SettingsData.Audio;
 using Scripts.StaticData.SystemConfigData.Audio;
 using System;
 

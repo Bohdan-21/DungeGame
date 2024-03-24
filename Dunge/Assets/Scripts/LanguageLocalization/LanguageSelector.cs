@@ -1,6 +1,6 @@
 ﻿using Scripts.Infrastructure.Audio;
 using Scripts.LanguageLocalization;
-using Scripts.LanguageLocalization.Service;
+using Scripts.Services.LanguageService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +13,11 @@ namespace Assets.Scripts.LanguageLocalization
 {
     class LanguageSelector : MonoBehaviour
     {
-        private ILanguageSettings _languageSettings;
+        private ILanguageService _languageSettings;
         private ISoundsButtonActionPlayer _soundsButtonActionPlayer;
 
         [Inject]
-        private void Construct(ILanguageSettings languageSettings, ISoundsButtonActionPlayer soundsButtonActionPlayer)
+        private void Construct(ILanguageService languageSettings, ISoundsButtonActionPlayer soundsButtonActionPlayer)
         {
             _languageSettings = languageSettings;
             _soundsButtonActionPlayer = soundsButtonActionPlayer;

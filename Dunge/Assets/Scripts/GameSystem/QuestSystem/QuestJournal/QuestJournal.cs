@@ -1,6 +1,6 @@
 ﻿using Scripts.GameSystem.QuestSystem.Channel;
 using Scripts.GameSystem.QuestSystem.QuestVariation.BaseQuest;
-using Scripts.SaveData;
+using Scripts.SaveData.PlayerData;
 using Scripts.Services.PlayerProgressService;
 using System;
 using System.Collections.Generic;

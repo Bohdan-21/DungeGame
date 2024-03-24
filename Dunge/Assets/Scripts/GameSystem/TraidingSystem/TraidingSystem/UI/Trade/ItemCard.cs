@@ -1,8 +1,8 @@
-﻿using Scripts.SaveData.Storage;
-using System;
+﻿using System;
 using UnityEngine;
 using TMPro;
 using Scripts.GameMechanic.ItemSystem;
+using Scripts.SaveData.PlayerData.Storage;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade
 {

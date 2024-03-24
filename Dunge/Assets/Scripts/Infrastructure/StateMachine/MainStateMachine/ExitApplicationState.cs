@@ -1,4 +1,5 @@
-﻿using Scripts.Services.SettingsService;
+﻿using Scripts.Services.SaveLoadServices.GameSettings;
+using Scripts.Services.SettingsService;
 using UnityEngine;
 
 namespace Scripts.Infrastructure.StateMachine

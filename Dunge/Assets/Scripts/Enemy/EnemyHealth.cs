@@ -2,8 +2,6 @@
 using Scripts.GameSystem.StatsSystem.Type;
 using Scripts.Infrastructure.Audio;
 using Scripts.Logic;
-using Scripts.SaveData.Stats;
-using Scripts.StaticData.GameConfigData.Enemy.Config;
 using System;
 using UnityEngine;
 using Zenject;

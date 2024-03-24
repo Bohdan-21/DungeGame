@@ -1,12 +1,4 @@
-﻿using Scripts.GameSystem.StatsSystem.Handler;
-using Scripts.GameSystem.StatsSystem.Type;
-using Scripts.Player;
-using Scripts.SaveData.Stats;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Scripts.Player;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;

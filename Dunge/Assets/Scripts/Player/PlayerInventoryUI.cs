@@ -1,12 +1,8 @@
 ﻿using Scripts.GameMechanic.ItemSystem;
+using Scripts.Services.ControlButtonService;
 using Scripts.Services.InputService;
 using Scripts.Services.InteruptService;
-using Scripts.StaticData.SystemConfigData.ControlButton;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
@@ -32,15 +28,15 @@ namespace Scripts.Player
         
         [Inject]
         private void Construct(PlayerBehaviour playerBehaviour, IInputService inputService, IInteruptService interuptService,
-                               ControlButtons controlButtons)
+                               IControlButtonService controlButtons)
         {
             _inventory = playerBehaviour.Inventory;
             _inputService = inputService;
             _interuptService = interuptService;
 
-            UseFirstItemButton = controlButtons.PlayerControlButtons.InventoryControlButtons.UseFirstItemButton;
-            UseSecondItemButton = controlButtons.PlayerControlButtons.InventoryControlButtons.UseSecondItemButton;
-            UseThirdItemButton = controlButtons.PlayerControlButtons.InventoryControlButtons.UseThirdItemButton;
+            UseFirstItemButton = controlButtons.ControlButtons.PlayerControlButtons.InventoryControlButtons.UseFirstItemButton;
+            UseSecondItemButton = controlButtons.ControlButtons.PlayerControlButtons.InventoryControlButtons.UseSecondItemButton;
+            UseThirdItemButton = controlButtons.ControlButtons.PlayerControlButtons.InventoryControlButtons.UseThirdItemButton;
         }
         
         private void Start()

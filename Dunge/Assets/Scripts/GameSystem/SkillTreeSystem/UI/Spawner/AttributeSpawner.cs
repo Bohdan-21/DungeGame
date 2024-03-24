@@ -1,8 +1,8 @@
 ﻿using Scripts.GameSystem.SkillTreeSystem.Handler;
 using Scripts.GameSystem.SkillTreeSystem.Type;
 using Scripts.GameSystem.SkillTreeSystem.UI.Card;
-using Scripts.LanguageLocalization.Service;
-using Scripts.SaveData.SkillTree;
+using Scripts.SaveData.PlayerData.SkillTree;
+using Scripts.Services.LanguageService;
 using Scripts.StaticData.GameConfigData.GameSystem.SkillTree.EnumLinks;
 using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForSkillTree;
 using System;
@@ -19,13 +19,13 @@ namespace Scripts.GameSystem.SkillTreeSystem.UI.Spawner
 
         private List<GameObject> _attributeCards = new List<GameObject>();
         private ListEnumLinksFromAttributeToSkill _enumLinks;
-        private ILanguageSettings _languageSettings;
+        private ILanguageService _languageSettings;
         private LocalizationForSkillType _localizationForSkillType;
         private LocalizationForAttributeType _localizationForAttributeType;
 
         [Inject]
         private void Construct(ListEnumLinksFromAttributeToSkill enumLinks, LocalizationForAttributeType localizationForAttributeType, 
-                               LocalizationForSkillType localizationForSkillType, ILanguageSettings languageSettings)
+                               LocalizationForSkillType localizationForSkillType, ILanguageService languageSettings)
         {
             _enumLinks = enumLinks;
             _languageSettings = languageSettings;

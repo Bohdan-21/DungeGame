@@ -1,6 +1,6 @@
-﻿using Scripts.SaveData;
+﻿using Scripts.SaveData.PlayerData;
 using Scripts.Services.PlayerProgressService;
-using Scripts.Services.SaveLoad;
+using Scripts.Services.SaveLoadServices.Player;
 using Scripts.StaticData.GameConfigData.Player;
 using System;
 
@@ -10,10 +10,10 @@ namespace Scripts.Infrastructure.StateMachine.MenuStateMachine
     {
         MainStateMachine _mainStateMachine;
         private readonly IPlayerProgressService _playerProgressService;
-        private readonly ISaveLoadService _saveLoadService;
+        private readonly IPlayerProgressSaveLoadService _saveLoadService;
         PlayerCharacterSettingsForNewGame _playerCharacterDeffaultSettings;
 
-        public LoadPlayerProgressState(MainStateMachine mainStateMachine, ISaveLoadService saveLoadService,
+        public LoadPlayerProgressState(MainStateMachine mainStateMachine, IPlayerProgressSaveLoadService saveLoadService,
             IPlayerProgressService playerProgressService, PlayerCharacterSettingsForNewGame playerCharacterDeffaultSettings)
         {
             _mainStateMachine = mainStateMachine;

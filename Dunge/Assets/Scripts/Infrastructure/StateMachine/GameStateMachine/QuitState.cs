@@ -1,6 +1,6 @@
 ﻿using Scripts.Infrastructure.Factory;
 using Scripts.Services.PlayerProgressService;
-using Scripts.Services.SaveLoad;
+using Scripts.Services.SaveLoadServices.Player;
 using UnityEngine;
 
 namespace Scripts.Infrastructure.StateMachine
@@ -8,10 +8,10 @@ namespace Scripts.Infrastructure.StateMachine
     public class QuitState : IState
     {
         private MainStateMachine _mainStateMachine;
-        private readonly ISaveLoadService _saveLoadService;
+        private readonly IPlayerProgressSaveLoadService _saveLoadService;
         private readonly IPlayerProgressService _playerProgressService;
 
-        public QuitState(MainStateMachine mainStateMachine, ISaveLoadService saveLoadService, 
+        public QuitState(MainStateMachine mainStateMachine, IPlayerProgressSaveLoadService saveLoadService, 
             IPlayerProgressService playerProgressService)
         {
             _mainStateMachine = mainStateMachine;

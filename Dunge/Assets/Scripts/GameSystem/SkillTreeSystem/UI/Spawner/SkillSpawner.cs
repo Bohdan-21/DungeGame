@@ -1,7 +1,7 @@
 ﻿using Scripts.GameSystem.SkillTreeSystem.Handler;
 using Scripts.GameSystem.SkillTreeSystem.UI.Card;
-using Scripts.LanguageLocalization.Service;
-using Scripts.SaveData.SkillTree;
+using Scripts.SaveData.PlayerData.SkillTree;
+using Scripts.Services.LanguageService;
 using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForSkillTree;
 using System;
 using System.Collections.Generic;
@@ -17,10 +17,10 @@ namespace Scripts.GameSystem.SkillTreeSystem.UI.Spawner
 
         private List<GameObject> _skillCards = new List<GameObject>();
         private LocalizationForSkillType _localizationForSkillType;
-        private ILanguageSettings _languageSettings;
+        private ILanguageService _languageSettings;
 
         [Inject]
-        private void Construct(LocalizationForSkillType localizationForSkillType, ILanguageSettings languageSettings)
+        private void Construct(LocalizationForSkillType localizationForSkillType, ILanguageService languageSettings)
         {
             _localizationForSkillType = localizationForSkillType;
             _languageSettings = languageSettings;

@@ -1,6 +1,6 @@
 ﻿using Scripts.GameSystem.ExperienceSystem.Data;
 using Scripts.GameSystem.SkillTreeSystem.Data;
-using Scripts.SaveData.Stats;
+using Scripts.SaveData.PlayerData.Stats;
 using System;
 using UnityEngine;
 

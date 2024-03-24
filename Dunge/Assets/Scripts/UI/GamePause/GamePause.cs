@@ -1,8 +1,8 @@
 ﻿using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.StateMachine;
+using Scripts.Services.ControlButtonService;
 using Scripts.Services.InputService;
 using Scripts.Services.InteruptService;
-using Scripts.StaticData.SystemConfigData.ControlButton;
 using Scripts.UI.Settings;
 using UnityEngine;
 using Zenject;
@@ -24,7 +24,7 @@ namespace Scripts.UI.GamePause
 
         [Inject]
         private void Construct(GameStateMachine gameStateMachine, IInputService inputService, IInteruptService interuptService,
-            ISettingsUI settingsUI, ISoundsButtonActionPlayer soundsButtonActionPlayer, ControlButtons contolButtons)
+            ISettingsUI settingsUI, ISoundsButtonActionPlayer soundsButtonActionPlayer, IControlButtonService contolButtons)
         {
             _gameStateMachine = gameStateMachine;
             _inputService = inputService;
@@ -32,7 +32,7 @@ namespace Scripts.UI.GamePause
             _settingsUI = settingsUI;
             _soundsButtonActionPlayer = soundsButtonActionPlayer;
 
-            PauseButton = contolButtons.SystemControlButtons.PauseButton;
+            PauseButton = contolButtons.ControlButtons.SystemControlButtons.PauseButton;
         }
 
         private void Start()

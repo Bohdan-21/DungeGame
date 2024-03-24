@@ -1,4 +1,6 @@
-﻿namespace Scripts.Services.SettingsService
+﻿using Scripts.SaveData.SettingsData;
+
+namespace Scripts.Services.SettingsService
 {
     public interface ISettingService
     {

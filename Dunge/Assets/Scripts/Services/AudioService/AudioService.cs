@@ -1,14 +1,11 @@
-﻿using Scripts.Services.SettingsService;
-using Scripts.StaticData.SystemConfigData.Audio;
+﻿using Scripts.SaveData.SettingsData;
+using Scripts.SaveData.SettingsData.Audio;
+using Scripts.Services.SettingsService;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Scripts.Services.AudioService
 {
-    class AudioService : IAudioService, ISettingService
+    public class AudioService : IAudioService, ISettingService
     {
         private ISettingsServiceHandler _settingsServiceHandler;
 
@@ -45,14 +42,12 @@ namespace Scripts.Services.AudioService
 
         public void LoadSettings(SettingsData settingsData)
         {
-            AudioSettingData.MusicVolume = settingsData.AudioSettingData.MusicVolume;
-            AudioSettingData.SoundVolume = settingsData.AudioSettingData.SoundVolume;
+            AudioSettingData = new AudioSettingData(settingsData.AudioSettingData);
         }
 
         public void UpdateSettings(SettingsData settingsData)
         {
-            settingsData.AudioSettingData.MusicVolume = AudioSettingData.MusicVolume;
-            settingsData.AudioSettingData.SoundVolume = AudioSettingData.SoundVolume;
+            settingsData.AudioSettingData = new AudioSettingData(AudioSettingData);
         }
     }
 }

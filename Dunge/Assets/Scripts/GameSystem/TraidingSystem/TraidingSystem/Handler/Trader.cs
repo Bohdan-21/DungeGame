@@ -1,7 +1,6 @@
 ﻿using Scripts.GameSystem.TraidingSystem.BalanceSubsystem.Handler;
 using Scripts.Player;
-using Scripts.SaveData.Money;
-using Scripts.SaveData.Storage;
+using Scripts.SaveData.PlayerData.Storage;
 using UnityEngine;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler

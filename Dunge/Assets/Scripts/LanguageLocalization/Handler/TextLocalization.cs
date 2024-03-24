@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using Zenject;
-using Scripts.LanguageLocalization.Service;
+using Scripts.Services.LanguageService;
 
 namespace Assets.Scripts.LanguageLocalization.Handler
 {
@@ -10,10 +10,10 @@ namespace Assets.Scripts.LanguageLocalization.Handler
         [SerializeField] private TextMeshProUGUI _textForLocalization;
         [SerializeField] private LocalizationData _localizationData;
 
-        private ILanguageSettings _languageSettings;
+        private ILanguageService _languageSettings;
 
         [Inject]
-        private void Construct(ILanguageSettings languageSettings) => 
+        private void Construct(ILanguageService languageSettings) => 
             _languageSettings = languageSettings;
 
         private void Start()

@@ -1,4 +1,4 @@
-﻿using Scripts.SaveData.Money;
+﻿using Scripts.SaveData.PlayerData.Money;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -4,19 +4,15 @@ using Scripts.Infrastructure.StateMachine;
 using Scripts.Services.AudioService;
 using Scripts.Services.InputService;
 using Scripts.Services.PlayerProgressService;
-using Scripts.Services.SaveLoad;
 using Scripts.UI.Curtain;
 using Scripts.UI.Settings;
-using System;
 using UnityEngine;
 using Zenject;
-using Scripts.LanguageLocalization.Service;
 using Scripts.StaticData.SystemConfigData.Audio;
 using Scripts.StaticData.GameConfigData.Player;
 using Scripts.StaticData.GameConfigData.Enemy;
 using Scripts.StaticData.GameConfigData.Enemy.Experience;
 using Scripts.StaticData.GameConfigData.Enemy.Config;
-using Scripts.StaticData.SystemConfigData.ControlButton;
 using Scripts.StaticData.SystemConfigData;
 using Scripts.StaticData.GameConfigData.NPC;
 using Scripts.StaticData.GameConfigData.Item;
@@ -29,6 +25,11 @@ using Assets.Scripts.StaticData.GameConfigData.Environment;
 using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration.Setup;
 using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration;
 using Scripts.Services.SettingsService;
+using Scripts.Services.ControlButtonService;
+using Scripts.Services.LanguageService;
+using Scripts.Services.SaveLoadServices.Player;
+using Scripts.Services.SaveLoadServices.GameSettings;
+using Scripts.StaticData.SystemConfigData.Settings;
 
 namespace Scripts.Infrastructure.Installer
 {
@@ -39,18 +40,10 @@ namespace Scripts.Infrastructure.Installer
         public GameObject SceneLoaderPrefab;
         public GameObject SoundButtonActionPlayerPrefab;
 
+        public DefaultGameSettings DeffaultSettings;
 
-        public DeffaultSettings DeffaultSettings;
-
-
-
-
-        //public AudioSetting AudioSetting;
         public SoundListForGameAction SoundListForGameAction;
         public SoundListForButtonAction SoundListForButtonAction;
-
-        public ControlButtons ControlButtons;
-
 
         public GameStaticData GameStaticData;
 
@@ -83,8 +76,7 @@ namespace Scripts.Infrastructure.Installer
 
         public override void InstallBindings()
         {
-            BindSettings();
-
+            BindGameSettings();
 
             BindInput();
 
@@ -96,25 +88,22 @@ namespace Scripts.Infrastructure.Installer
 
             BindSceneLoader();
 
-            BindAudioService();
-
             BindPlayerProgress();
 
             BindSaveLoadService();
-
-            BindLanguageSettings();
 
             BindMainStateMachine();
 
             BindSoundButtonActionPlayer();
         }
 
-        private void BindSettings()
+        private void BindGameSettings()
         {
-            Container.Bind<DeffaultSettings>().FromInstance(DeffaultSettings).AsSingle();
+            Container.Bind<DefaultGameSettings>().FromInstance(DeffaultSettings).AsSingle();
 
-            //Container.Bind<AudioSetting>().FromInstance(AudioSetting).AsSingle();
-            Container.Bind<IAudioService>().To<AudioService>().FromNew().AsSingle();
+            Container.Bind<IAudioService>().To<AudioService>().FromNew().AsSingle().NonLazy();
+            Container.Bind<IControlButtonService>().To<ControlButtonService>().AsSingle().NonLazy();
+            Container.Bind<ILanguageService>().To<LanguageService>().FromNew().AsSingle().NonLazy();
 
             Container.Bind<ISaveLoadSettingsService>().To<SaveLoadSettingsService>().FromNew().AsSingle();
             Container.Bind<ISettingsServiceHandler>().To<SettingsServiceHandler>().FromNew().AsSingle();
@@ -141,7 +130,6 @@ namespace Scripts.Infrastructure.Installer
             Container.Bind<SoundListForGameAction>().FromInstance(SoundListForGameAction).AsSingle();
             Container.Bind<SoundListForButtonAction>().FromInstance(SoundListForButtonAction).AsSingle();
 
-            Container.Bind<ControlButtons>().FromInstance(ControlButtons).AsSingle();
 
 
             Container.Bind<GameStaticData>().FromInstance(GameStaticData).AsSingle();
@@ -177,11 +165,6 @@ namespace Scripts.Infrastructure.Installer
             Container.Bind<ISceneLoader>().To<SceneLoader.SceneLoader>().FromComponentInNewPrefab(SceneLoaderPrefab).AsSingle();
         }
 
-        private void BindAudioService()
-        {
-            
-        }
-
         private void BindPlayerProgress()
         {
             Container.Bind<IPlayerProgressService>().To<PlayerProgressService>().AsSingle();
@@ -189,12 +172,7 @@ namespace Scripts.Infrastructure.Installer
 
         private void BindSaveLoadService()
         {
-            Container.Bind<ISaveLoadService>().To<SaveLoadService>().AsSingle();
-        }
-
-        private void BindLanguageSettings()
-        {
-            Container.Bind<ILanguageSettings>().To<LanguageSettings>().FromNew().AsSingle();
+            Container.Bind<IPlayerProgressSaveLoadService>().To<PlayerProgressSaveLoadService>().AsSingle();
         }
 
         private void BindMainStateMachine()

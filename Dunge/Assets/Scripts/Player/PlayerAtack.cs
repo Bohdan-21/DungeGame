@@ -2,11 +2,10 @@ using Scripts.GameSystem.StatsSystem.Handler;
 using Scripts.GameSystem.StatsSystem.Type;
 using Scripts.Infrastructure.Audio;
 using Scripts.Logic;
+using Scripts.Services.ControlButtonService;
 using Scripts.Services.InputService;
 using Scripts.Services.InteruptService;
 using Scripts.StaticData.GameConfigData.Player;
-using Scripts.StaticData.SystemConfigData.ControlButton;
-using System;
 using UnityEngine;
 using Zenject;
 
@@ -31,7 +30,7 @@ namespace Scripts.Player
 
         [Inject]
         private void Construct(IInputService inputService, IInteruptService interuptService, PlayerCharacterConfig config,
-                               ISoundsGameActionPlayer soundPlayer, ControlButtons controlButtons)
+                               ISoundsGameActionPlayer soundPlayer, IControlButtonService controlButtons)
         {
             _inputService = inputService;
             _interuptService = interuptService;
@@ -39,7 +38,7 @@ namespace Scripts.Player
 
             _attackRadius = config.AttackRadius;
 
-            AttackButton = controlButtons.PlayerControlButtons.AttackControlButtons.AttackButton;
+            AttackButton = controlButtons.ControlButtons.PlayerControlButtons.AttackControlButtons.AttackButton;
         }
 
         private void Awake()

@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using Scripts.SaveData.Stats;
 using Scripts.GameSystem.StatsSystem.Handler;
 using Zenject;
 using Scripts.StaticData.LanguageLocalizationConfigData.LocalizationForStat;
-using Scripts.LanguageLocalization.Service;
+using Scripts.Services.LanguageService;
+using Scripts.SaveData.PlayerData.Stats;
 
 namespace Scripts.GameSystem.StatsSystem.UI
 {
@@ -16,10 +16,10 @@ namespace Scripts.GameSystem.StatsSystem.UI
         private List<GameObject> _spawnedCard = new List<GameObject>();
 
         private LocalizationForStatType _localizationForStatType;
-        private ILanguageSettings _languageSettings;
+        private ILanguageService _languageSettings;
 
         [Inject]
-        private void Construct(LocalizationForStatType localizationForStatType, ILanguageSettings languageSettings)
+        private void Construct(LocalizationForStatType localizationForStatType, ILanguageService languageSettings)
         {
             _localizationForStatType = localizationForStatType;
             _languageSettings = languageSettings;

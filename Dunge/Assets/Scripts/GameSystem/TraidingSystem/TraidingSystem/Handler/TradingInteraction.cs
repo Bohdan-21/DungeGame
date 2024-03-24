@@ -1,7 +1,7 @@
 ﻿using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
 using Scripts.Logic;
+using Scripts.Services.ControlButtonService;
 using Scripts.Services.InputService;
-using Scripts.StaticData.SystemConfigData.ControlButton;
 using Scripts.UI.Interaction;
 using UnityEngine;
 using Zenject;
@@ -25,13 +25,13 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler
         private bool _isShow = false;
 
         [Inject]
-        private void Construct(ControlButtons controlButtons, IInputService inputService, IInteractionPanel interactionPanel,
+        private void Construct(IControlButtonService controlButtons, IInputService inputService, IInteractionPanel interactionPanel,
                                ITraiderUI traiderUI)
         {
             _traiderUI = traiderUI;
             _inputService = inputService;
             _interactionPanel = interactionPanel;
-            _interactionButton = controlButtons.PlayerControlButtons.AnotherControlButtons.InteractButton;
+            _interactionButton = controlButtons.ControlButtons.PlayerControlButtons.AnotherControlButtons.InteractButton;
         }
 
         private void Start()

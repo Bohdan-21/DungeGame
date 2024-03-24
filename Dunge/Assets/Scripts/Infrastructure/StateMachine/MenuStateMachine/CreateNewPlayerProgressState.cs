@@ -1,4 +1,5 @@
 ﻿using Scripts.SaveData;
+using Scripts.SaveData.PlayerData;
 using Scripts.Services.PlayerProgressService;
 using Scripts.StaticData.GameConfigData.Player;
 

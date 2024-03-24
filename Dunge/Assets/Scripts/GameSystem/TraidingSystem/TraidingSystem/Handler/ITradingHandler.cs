@@ -1,5 +1,5 @@
 ﻿using Scripts.GameSystem.TraidingSystem.BalanceSubsystem.Handler;
-using Scripts.SaveData.Storage;
+using Scripts.SaveData.PlayerData.Storage;
 
 namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler
 {
