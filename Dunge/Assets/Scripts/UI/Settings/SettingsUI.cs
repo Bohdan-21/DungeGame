@@ -1,5 +1,5 @@
-using Scripts.Infrastructure.Audio;
-using Scripts.Services.AudioService;
+using Scripts.Services.AudioService.SoundService;
+using Scripts.Services.AudioServices;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -11,11 +11,11 @@ namespace Scripts.UI.Settings
         [SerializeField] private Slider musicVolume;
         [SerializeField] private Slider soundVolume;
 
-        private IAudioService _audioService;
+        private IAudioSettingService _audioService;
         private ISoundsButtonActionPlayer _soundsButtonActionPlayer;
 
         [Inject]
-        private void Construct(IAudioService audioService, ISoundsButtonActionPlayer soundsButtonActionPlayer)
+        private void Construct(IAudioSettingService audioService, ISoundsButtonActionPlayer soundsButtonActionPlayer)
         {
             _audioService = audioService;
             _soundsButtonActionPlayer = soundsButtonActionPlayer;

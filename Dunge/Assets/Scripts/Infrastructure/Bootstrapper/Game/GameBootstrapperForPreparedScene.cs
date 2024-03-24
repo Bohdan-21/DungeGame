@@ -1,5 +1,5 @@
-using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.StateMachine;
+using Scripts.Services.AudioService.MusicService;
 using UnityEngine;
 using Zenject;
 
@@ -31,7 +31,7 @@ namespace Scripts.Infrastructure
         {
             _gameStateMachine.Enter<InitializeLevelState>();
 
-            _audioPlayer.PlayBackgroundMusic();
+            _audioPlayer.StartPlayBackgroundMusic();
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿using Scripts.Infrastructure.Audio;
-using Scripts.Infrastructure.Factory;
+﻿using Scripts.Infrastructure.Factory;
+using Scripts.Services.AudioService.SoundService;
 using System;
 using System.Collections;
 using UnityEngine;

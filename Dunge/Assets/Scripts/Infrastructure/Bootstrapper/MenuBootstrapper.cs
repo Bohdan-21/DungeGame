@@ -1,5 +1,5 @@
-using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.StateMachine.MenuStateMachine;
+using Scripts.Services.AudioService.MusicService;
 using UnityEngine;
 using Zenject;
 
@@ -27,6 +27,6 @@ public class MenuBootstrapper : MonoBehaviour
     {
         _menuStateMachine.Enter<StartMenuState>();
 
-        _audioPlayer.PlayBackgroundMusic();
+        _audioPlayer.StartPlayBackgroundMusic();
     }
 }

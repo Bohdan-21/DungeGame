@@ -1,4 +1,4 @@
-﻿using Scripts.Services.AudioService;
+﻿using Scripts.Services.AudioServices;
 using Scripts.StaticData.SystemConfigData.Audio;
 using System;
 using System.Collections.Generic;
@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
-namespace Scripts.Infrastructure.Audio
+namespace Scripts.Services.AudioService.SoundService
 {
     class SoundsButtonActionPlayer : MonoBehaviour, ISoundsButtonActionPlayer
     {
         [SerializeField] private AudioSource _audio;
         private SoundListForButtonAction _soundList;
-        private IAudioService _audioService;
+        private IAudioSettingService _audioService;
 
         [Inject]
-        private void Construct(SoundListForButtonAction soundList, IAudioService audioService)
+        private void Construct(SoundListForButtonAction soundList, IAudioSettingService audioService)
         {
             _soundList = soundList;
             _audioService = audioService;

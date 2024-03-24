@@ -1,8 +1,8 @@
 using Scripts.GameSystem.StatsSystem.Handler;
 using Scripts.GameSystem.StatsSystem.Type;
-using Scripts.Infrastructure.Audio;
 using Scripts.Logic;
 using Scripts.Player;
+using Scripts.Services.AudioService.SoundService;
 using Scripts.StaticData.GameConfigData.Enemy.Config;
 using System;
 using System.Collections;

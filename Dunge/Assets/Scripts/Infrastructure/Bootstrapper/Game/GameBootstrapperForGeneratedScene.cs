@@ -1,6 +1,6 @@
 ﻿using Scripts.GameSystem.LevelGeneration.ConnectionStrategies;
-using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.StateMachine;
+using Scripts.Services.AudioService.MusicService;
 using UnityEngine;
 using Zenject;
 
@@ -41,7 +41,7 @@ namespace Scripts.Infrastructure
 
         private void Awake()
         {
-            _audioPlayer.PlayBackgroundMusic();
+            _audioPlayer.StartPlayBackgroundMusic();
 
             _gameStateMachine.Enter<GenerateLevelState>();
         }

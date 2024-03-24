@@ -1,7 +1,7 @@
 using Scripts.GameSystem.StatsSystem.Handler;
 using Scripts.GameSystem.StatsSystem.Type;
-using Scripts.Infrastructure.Audio;
 using Scripts.Logic;
+using Scripts.Services.AudioService.SoundService;
 using Scripts.Services.ControlButtonService;
 using Scripts.Services.InputService;
 using Scripts.Services.InteruptService;

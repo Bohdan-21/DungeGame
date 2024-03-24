@@ -1,6 +1,6 @@
-using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.StateMachine;
 using Scripts.Logic;
+using Scripts.Services.AudioService.SoundService;
 using Scripts.Services.PlayerProgressService;
 using Scripts.StaticData.SystemConfigData;
 using System;

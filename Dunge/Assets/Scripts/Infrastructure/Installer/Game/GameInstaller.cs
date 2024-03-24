@@ -9,9 +9,9 @@ using Scripts.GameSystem.QuestSystem.Journal;
 using Scripts.GameSystem.QuestSystem.UI.QuestJournal;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.Logic;
 using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
-using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.Factory;
 using Scripts.Infrastructure.StateMachine;
+using Scripts.Services.AudioService.SoundService;
 using Scripts.Services.InteruptService;
 using Scripts.StaticData.GameConfigData.GameSystem.Dialog.Setup;
 using Scripts.StaticData.GameConfigData.GameSystem.QuestStaticData;
@@ -45,7 +45,7 @@ namespace Scripts.Infrastructure.Installer.Game
         {
             BindLevelHandler();
             BindGameCamera();
-            BindAudioSetup();
+            BindGameSound();
             BindGameFactory();
             BindQuestSystem();
             BindDialogSetup();
@@ -53,8 +53,6 @@ namespace Scripts.Infrastructure.Installer.Game
             BindNameLocation();
             BindInteruptService();
             BindGameStateMachine();
-
-            
         }
 
         private void BindLevelHandler()
@@ -69,18 +67,12 @@ namespace Scripts.Infrastructure.Installer.Game
             Container.Bind<ICameraFollow>().To<CameraFollow>().FromComponentInNewPrefab(GameCamera).AsSingle().NonLazy();
         }
 
-        private void BindAudioSetup()
+        private void BindGameSound()
         {
-            BindBackgroundAudioPlayer();
-            BindSoundGameActionPlayer();
+            Container.Bind<SoundListForGameAction>().FromInstance(audioSetupForGame.SoundList).AsSingle();
+            Container.Bind<ISoundsGameActionPlayer>().FromComponentInNewPrefab(audioSetupForGame.SoundGameActionPlayerPrefab).AsSingle();
         }
-
-        private void BindBackgroundAudioPlayer()
-        {
-            Container.Bind<PlayList>().FromInstance(audioSetupForGame.playList).AsSingle();
-            Container.Bind<IBackgroundAudioPlayer>().FromComponentInNewPrefab(audioSetupForGame.BackgroundAudioPlayer).AsSingle();
-        }
-
+        
         private void BindDialogSetup()
         {
             Container.Bind<IDialogTracking>().To<DialogTracking>().AsSingle();
@@ -127,12 +119,6 @@ namespace Scripts.Infrastructure.Installer.Game
             Container.Bind<QuestChannel>().FromNew().AsSingle();
             Container.Bind<CombatChannel>().FromNew().AsSingle();
             Container.Bind<DialogChannel>().FromNew().AsSingle();
-        }
-
-        private void BindSoundGameActionPlayer()
-        {
-            Container.Bind<SoundListForGameAction>().FromInstance(audioSetupForGame.SoundList).AsSingle();
-            Container.Bind<ISoundsGameActionPlayer>().FromComponentInNewPrefab(audioSetupForGame.SoundGameActionPlayerPrefab).AsSingle();
         }
 
         private void BindTradingSystem()

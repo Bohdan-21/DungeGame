@@ -1,6 +1,6 @@
-﻿namespace Scripts.Infrastructure.Audio
+﻿namespace Scripts.Services.AudioService.SoundService
 {
-    interface ISoundsGameActionPlayer
+    public interface ISoundsGameActionPlayer
     {
         void PlayHitPlayerSound();
         void PlayAttackPlayerSound();

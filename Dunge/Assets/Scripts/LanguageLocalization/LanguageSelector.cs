@@ -1,5 +1,5 @@
-﻿using Scripts.Infrastructure.Audio;
-using Scripts.LanguageLocalization;
+﻿using Scripts.LanguageLocalization;
+using Scripts.Services.AudioService.SoundService;
 using Scripts.Services.LanguageService;
 using System;
 using System.Collections.Generic;

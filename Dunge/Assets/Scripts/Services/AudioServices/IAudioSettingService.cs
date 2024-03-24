@@ -2,9 +2,9 @@
 using Scripts.StaticData.SystemConfigData.Audio;
 using System;
 
-namespace Scripts.Services.AudioService
+namespace Scripts.Services.AudioServices
 {
-    public interface IAudioService
+    public interface IAudioSettingService
     {
         AudioSettingData AudioSettingData { get; }
 

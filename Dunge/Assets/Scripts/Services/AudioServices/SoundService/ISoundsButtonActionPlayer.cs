@@ -1,6 +1,6 @@
-﻿namespace Scripts.Infrastructure.Audio
+﻿namespace Scripts.Services.AudioService.SoundService
 {
-    interface ISoundsButtonActionPlayer
+    public interface ISoundsButtonActionPlayer
     {
         void PlayButtonPressSound();
         void PlayPauseSound();

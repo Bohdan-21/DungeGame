@@ -1,8 +1,8 @@
 using Scripts.GameSystem.StatsSystem.Handler;
 using Scripts.GameSystem.StatsSystem.Type;
-using Scripts.Infrastructure.Audio;
 using Scripts.Logic;
 using Scripts.SaveData.PlayerData;
+using Scripts.Services.AudioService.SoundService;
 using Scripts.Services.PlayerProgressService;
 using System;
 using UnityEngine;

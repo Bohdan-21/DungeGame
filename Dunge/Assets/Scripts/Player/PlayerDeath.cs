@@ -1,5 +1,5 @@
-﻿using Scripts.Infrastructure.Audio;
-using Scripts.Infrastructure.StateMachine;
+﻿using Scripts.Infrastructure.StateMachine;
+using Scripts.Services.AudioService.SoundService;
 using System;
 using UnityEngine;
 using Zenject;

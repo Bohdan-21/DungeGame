@@ -1,5 +1,5 @@
-﻿using Scripts.Infrastructure.Audio;
-using Scripts.Infrastructure.StateMachine;
+﻿using Scripts.Infrastructure.StateMachine;
+using Scripts.Services.AudioService.SoundService;
 using Scripts.Services.ControlButtonService;
 using Scripts.Services.InputService;
 using Scripts.Services.InteruptService;

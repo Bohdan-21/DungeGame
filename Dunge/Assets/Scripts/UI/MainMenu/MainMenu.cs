@@ -1,6 +1,6 @@
-using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.StateMachine;
 using Scripts.Infrastructure.StateMachine.MenuStateMachine;
+using Scripts.Services.AudioService.SoundService;
 using Scripts.UI.License;
 using Scripts.UI.Settings;
 using System.Collections;

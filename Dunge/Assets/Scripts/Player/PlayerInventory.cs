@@ -1,7 +1,7 @@
 ﻿using Scripts.GameMechanic.ItemSystem;
-using Scripts.Infrastructure.Audio;
 using Scripts.SaveData.PlayerData;
 using Scripts.SaveData.PlayerData.Storage;
+using Scripts.Services.AudioService.SoundService;
 using Scripts.Services.PlayerProgressService;
 using Scripts.StaticData.GameConfigData.Item;
 using Scripts.StaticData.GameConfigData.Item.Interface;

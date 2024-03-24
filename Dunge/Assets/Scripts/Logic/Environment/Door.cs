@@ -1,4 +1,4 @@
-﻿using Scripts.Infrastructure.Audio;
+﻿using Scripts.Services.AudioService.SoundService;
 using UnityEngine;
 using Zenject;
 

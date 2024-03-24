@@ -3,9 +3,9 @@ using Scripts.SaveData.SettingsData.Audio;
 using Scripts.Services.SettingsService;
 using System;
 
-namespace Scripts.Services.AudioService
+namespace Scripts.Services.AudioServices
 {
-    public class AudioService : IAudioService, ISettingService
+    public class AudioSettingService : IAudioSettingService, ISettingService
     {
         private ISettingsServiceHandler _settingsServiceHandler;
 
@@ -14,14 +14,14 @@ namespace Scripts.Services.AudioService
         public event Action MusicVolumeUpdater;
         public event Action SoundVolumeUpdater;
 
-        public AudioService(ISettingsServiceHandler settingsServiceHandler)
+        public AudioSettingService(ISettingsServiceHandler settingsServiceHandler)
         {
             _settingsServiceHandler = settingsServiceHandler;
 
             _settingsServiceHandler.AddService(this);
         }
 
-        ~AudioService()
+        ~AudioSettingService()
         {
             _settingsServiceHandler.RemoveService(this);
         }

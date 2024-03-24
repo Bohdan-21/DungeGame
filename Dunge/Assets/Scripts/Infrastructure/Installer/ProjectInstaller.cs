@@ -1,7 +1,6 @@
-using Scripts.Infrastructure.Audio;
 using Scripts.Infrastructure.SceneLoader;
 using Scripts.Infrastructure.StateMachine;
-using Scripts.Services.AudioService;
+using Scripts.Services.AudioServices;
 using Scripts.Services.InputService;
 using Scripts.Services.PlayerProgressService;
 using Scripts.UI.Curtain;
@@ -30,11 +29,17 @@ using Scripts.Services.LanguageService;
 using Scripts.Services.SaveLoadServices.Player;
 using Scripts.Services.SaveLoadServices.GameSettings;
 using Scripts.StaticData.SystemConfigData.Settings;
+using Scripts.Services.AudioService.MusicService;
+using Scripts.Services.AudioService.SoundService;
 
 namespace Scripts.Infrastructure.Installer
 {
     public class ProjectInstaller : MonoInstaller
     {
+        public GamePlayList GamePlayList;
+        public MenuPlayList MenuPlayList;
+        public GameObject BackgroundAudioPlayer;
+
         public GameObject CurtainPrefab;
         public GameObject SettingsUIPrefab;
         public GameObject SceneLoaderPrefab;
@@ -76,6 +81,8 @@ namespace Scripts.Infrastructure.Installer
 
         public override void InstallBindings()
         {
+            BindMusicPlayer();
+
             BindGameSettings();
 
             BindInput();
@@ -97,11 +104,19 @@ namespace Scripts.Infrastructure.Installer
             BindSoundButtonActionPlayer();
         }
 
+        private void BindMusicPlayer()
+        {
+            Container.Bind<GamePlayList>().FromInstance(GamePlayList).AsSingle();
+            Container.Bind<MenuPlayList>().FromInstance(MenuPlayList).AsSingle();
+
+            Container.Bind<IBackgroundAudioPlayer>().FromComponentInNewPrefab(BackgroundAudioPlayer).AsSingle();
+        }
+
         private void BindGameSettings()
         {
             Container.Bind<DefaultGameSettings>().FromInstance(DeffaultSettings).AsSingle();
 
-            Container.Bind<IAudioService>().To<AudioService>().FromNew().AsSingle().NonLazy();
+            Container.Bind<IAudioSettingService>().To<AudioSettingService>().FromNew().AsSingle().NonLazy();
             Container.Bind<IControlButtonService>().To<ControlButtonService>().AsSingle().NonLazy();
             Container.Bind<ILanguageService>().To<LanguageService>().FromNew().AsSingle().NonLazy();
 

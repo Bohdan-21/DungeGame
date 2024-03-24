@@ -1,7 +1,7 @@
 ﻿using Scripts.GameSystem.StatsSystem.Handler;
 using Scripts.GameSystem.StatsSystem.Type;
-using Scripts.Infrastructure.Audio;
 using Scripts.Logic;
+using Scripts.Services.AudioService.SoundService;
 using System;
 using UnityEngine;
 using Zenject;

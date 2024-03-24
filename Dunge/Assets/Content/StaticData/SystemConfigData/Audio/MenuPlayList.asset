@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7756c5d785a5ed4782faf7fc5a02887, type: 3}
-  m_Name: PlayListForMainMenu
+  m_Script: {fileID: 11500000, guid: 43cddc1b6c2757b4fa43214e4ab5038f, type: 3}
+  m_Name: MenuPlayList
   m_EditorClassIdentifier: 
   AudioClips:
   - {fileID: 8300000, guid: e0408ec6166aac849ad94f44bea64c5e, type: 3}

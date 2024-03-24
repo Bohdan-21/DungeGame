@@ -1,5 +1,5 @@
 ﻿using Scripts.GameMechanic.ItemSystem;
-using Scripts.Infrastructure.Audio;
+using Scripts.Services.AudioService.SoundService;
 using System;
 using System.Collections.Generic;
 using System.Linq;

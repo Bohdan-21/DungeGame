@@ -1,24 +1,23 @@
-﻿using Scripts.Services.AudioService;
+﻿using Scripts.Services.AudioService.MusicService;
 using Scripts.StaticData.SystemConfigData.Audio;
 using UnityEngine;
 using Zenject;
 
-namespace Scripts.Infrastructure.Audio
+namespace Scripts.Services.AudioServices.MusicService
 {
     public class BackgroundAudioPlayer : MonoBehaviour, IBackgroundAudioPlayer
     {
         [SerializeField] private AudioSource _audio;
 
-        private PlayList _playList;
-        private IAudioService _audioService;
+        private PlayList _playList = null;
+        private IAudioSettingService _audioService;
 
         private bool _isNeedPlaying;
         private int _nextPlayingClip;
 
         [Inject]
-        private void Construct(PlayList playList, IAudioService audioService)
+        private void Construct(IAudioSettingService audioService)
         {
-            _playList = playList;
             _audioService = audioService;
         }
 
@@ -35,11 +34,27 @@ namespace Scripts.Infrastructure.Audio
             _audioService.MusicVolumeUpdater -= UpdateMusicVolume;
         }
 
-        public void PlayBackgroundMusic()
+        public void StartPlayBackgroundMusic()
         {
             UpdateMusicVolume();
 
             _isNeedPlaying = true;
+        }
+
+        public void StopPlayBackGroundMusic()
+        {
+            _audio.Stop();
+
+            _playList = null;
+
+            _isNeedPlaying = false;
+        }
+
+        public void SetPlayList(PlayList playList)
+        {
+            _playList = playList;
+
+            _nextPlayingClip = 0;
         }
 
         private void Update()
@@ -48,6 +63,8 @@ namespace Scripts.Infrastructure.Audio
             {
                 if (IsMusicStopPlaying())
                 {
+                    if (_playList == null)
+                        return;
                     StartPlayNextClip();
 
                     UpdateCounterForNextPlayingClip();
@@ -72,7 +89,6 @@ namespace Scripts.Infrastructure.Audio
             if (_nextPlayingClip >= _playList.AudioClips.Count)
                 _nextPlayingClip = 0;
         }
-
 
         private void UpdateMusicVolume()
         {
