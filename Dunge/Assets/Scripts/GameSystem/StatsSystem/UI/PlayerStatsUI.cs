@@ -2,6 +2,7 @@
 using Zenject;
 using Scripts.Player;
 using Scripts.GameSystem.StatsSystem.Handler;
+using Scripts.Services.InputBlockerService;
 
 namespace Scripts.GameSystem.StatsSystem.UI
 {
@@ -9,7 +10,8 @@ namespace Scripts.GameSystem.StatsSystem.UI
     {
         [SerializeField] private StatCardSpawner _statCardSpawner;
         [SerializeField] private PlayerStatsHandler _playerStats;
-
+        
+        private IInputBlockerService _inputBlockerService;
         private bool _isShow = false;
 
         public GameObject RootComponent;
@@ -17,9 +19,10 @@ namespace Scripts.GameSystem.StatsSystem.UI
 
 
         [Inject]
-        private void Construct(PlayerBehaviour playerBehaviour)
+        private void Construct(PlayerBehaviour playerBehaviour, IInputBlockerService inputBlockerService)
         {
             _playerStats = playerBehaviour.Stats;
+            _inputBlockerService = inputBlockerService;
         }
 
         private void Start()
@@ -52,6 +55,7 @@ namespace Scripts.GameSystem.StatsSystem.UI
             RootComponent.SetActive(_isShow);
 
             _statCardSpawner.SpawnCard(_playerStats);
+            _inputBlockerService.BlockAllInput();
         }
 
         public void Hide()
@@ -61,6 +65,7 @@ namespace Scripts.GameSystem.StatsSystem.UI
             RootComponent.SetActive(_isShow);
 
             _statCardSpawner.ClearAll();
+            _inputBlockerService.UnBlockAllInput();
         }
 
         private void UpdateStats()

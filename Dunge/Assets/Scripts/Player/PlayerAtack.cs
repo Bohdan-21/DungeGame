@@ -3,6 +3,7 @@ using Scripts.GameSystem.StatsSystem.Type;
 using Scripts.Logic;
 using Scripts.Services.AudioService.SoundService;
 using Scripts.Services.ControlButtonService;
+using Scripts.Services.InputBlockerService;
 using Scripts.Services.InputService;
 using Scripts.Services.InteruptService;
 using Scripts.StaticData.GameConfigData.Player;
@@ -11,7 +12,7 @@ using Zenject;
 
 namespace Scripts.Player
 {
-    public class PlayerAtack : MonoBehaviour, IInteruptHandler
+    public class PlayerAtack : MonoBehaviour, IInteruptHandler, IInputBlockerHandler
     {
         private KeyCode AttackButton;
 
@@ -19,20 +20,28 @@ namespace Scripts.Player
         [SerializeField] private PlayerStatsHandler _statsHandler;
 
         private Collider[] _hits = new Collider[3];
+        
         private IInputService _inputService;
+        private IInputBlockerService _inputBlockerService;
+        
         private IInteruptService _interuptService;
         private ISoundsGameActionPlayer _soundPlayer;
 
         private bool _isInterupt;
+        private bool _isInputBlock;
+
         private int _layerMask;
         private float _attackRadius = 1;
         private int _damage;
 
         [Inject]
         private void Construct(IInputService inputService, IInteruptService interuptService, PlayerCharacterConfig config,
-                               ISoundsGameActionPlayer soundPlayer, IControlButtonService controlButtons)
+                               ISoundsGameActionPlayer soundPlayer, IControlButtonService controlButtons, 
+                               IInputBlockerService inputBlockerService)
         {
             _inputService = inputService;
+            _inputBlockerService = inputBlockerService;
+
             _interuptService = interuptService;
             _soundPlayer = soundPlayer;
 
@@ -44,10 +53,11 @@ namespace Scripts.Player
         private void Awake()
         {
             _layerMask = 1 << LayerMask.NameToLayer("Enemy");
-            
-            _isInterupt = false;
+
+            _isInterupt = _isInputBlock = false;
 
             _interuptService.AddInteruptHandler(this);
+            _inputBlockerService.AddHandler(this);
         }
 
         private void Start()
@@ -60,12 +70,16 @@ namespace Scripts.Player
         private void OnDestroy()
         {
             _interuptService.RemoveInteruptHandler(this);
+            _inputBlockerService.RemoveHandler(this);
+
             _statsHandler.UpdateStatsEvent -= UpdateStats;
         }
 
 
         private void Update()
         {
+            if (_isInputBlock)
+                return;
             StartAttack();
         }
 
@@ -115,5 +129,15 @@ namespace Scripts.Player
 
         private void UpdateStats() => 
             _damage = (int)_statsHandler.GetStatDataByType(TypeStat.Damage).GetCurrentValue();
+
+        public void BlockInput()
+        {
+            _isInputBlock = true;
+        }
+
+        public void UnBlockInput()
+        {
+            _isInputBlock = false;
+        }
     }
 }

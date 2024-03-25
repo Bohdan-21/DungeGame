@@ -1,6 +1,7 @@
 ﻿using Scripts.GameSystem.SkillTreeSystem.Handler;
 using Scripts.GameSystem.SkillTreeSystem.UI.Spawner;
 using Scripts.Player;
+using Scripts.Services.InputBlockerService;
 using System;
 using UnityEngine;
 using Zenject;
@@ -12,18 +13,20 @@ namespace Scripts.GameSystem.SkillTreeSystem.UI
         public KeyCode keyCode;
 
         [SerializeField] private PlayerSkillTreeHandler _skillTreeHandler;
-
         [SerializeField] private GameObject RootComponentSkillTreeUI;
         [SerializeField] private PointDisplayer _pointDisplayer;
         [SerializeField] private SkillSpawner _skillSpawner;
         [SerializeField] private AttributeSpawner _attributeSpawner;
+        
+        private IInputBlockerService _inputBlockerService;
 
         private bool _isShow = true;
 
         [Inject]
-        private void Construct(PlayerBehaviour playerBehaviour)
+        private void Construct(PlayerBehaviour playerBehaviour, IInputBlockerService inputBlockerService)
         {
             _skillTreeHandler = playerBehaviour.SkillTreeHandler;
+            _inputBlockerService = inputBlockerService;
         }
 
         private void Start()
@@ -52,6 +55,8 @@ namespace Scripts.GameSystem.SkillTreeSystem.UI
 
             _skillSpawner.SpawnSkillCards(_skillTreeHandler, RefreshUI);
             _attributeSpawner.SpawnAttributeCards(_skillTreeHandler, RefreshUI);
+
+            _inputBlockerService.BlockAllInput();
         }
 
         public void Hide()
@@ -62,6 +67,8 @@ namespace Scripts.GameSystem.SkillTreeSystem.UI
 
             _skillSpawner.ClearAll();
             _attributeSpawner.ClearAll();
+
+            _inputBlockerService.UnBlockAllInput();
         }
 
         private void RefreshUI()

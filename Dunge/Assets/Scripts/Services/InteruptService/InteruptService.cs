@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace Scripts.Services.InteruptService
 {
+    //TODO:Если что это нужно откатить назад
     public class InteruptService : IInteruptService
     {
         private List<IInteruptHandler> _interuptHandlers = new List<IInteruptHandler>();
@@ -21,16 +22,16 @@ namespace Scripts.Services.InteruptService
         {
             Time.timeScale = 1;
 
-            foreach (IInteruptHandler handler in _interuptHandlers)
-                handler.Continue();
+            foreach (IInteruptHandler handler in _interuptHandlers) { }
+                //handler.Continue();
         }
 
         public void Pause()
         {
             Time.timeScale = 0;
 
-            foreach (IInteruptHandler handler in _interuptHandlers)
-                handler.Interupt();
+            foreach (IInteruptHandler handler in _interuptHandlers) { }
+                //handler.Interupt();
         }
     }
 }

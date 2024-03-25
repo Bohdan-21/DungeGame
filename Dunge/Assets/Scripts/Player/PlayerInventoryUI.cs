@@ -1,5 +1,6 @@
 ﻿using Scripts.GameMechanic.ItemSystem;
 using Scripts.Services.ControlButtonService;
+using Scripts.Services.InputBlockerService;
 using Scripts.Services.InputService;
 using Scripts.Services.InteruptService;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using Zenject;
 
 namespace Scripts.Player
 {
-    class PlayerInventoryUI : MonoBehaviour, IInteruptHandler
+    class PlayerInventoryUI : MonoBehaviour, IInteruptHandler, IInputBlockerHandler
     {
         private KeyCode UseFirstItemButton;
         private KeyCode UseSecondItemButton;
@@ -23,16 +24,18 @@ namespace Scripts.Player
         private PlayerInventory _inventory;
         private IInputService _inputService;
         private IInteruptService _interuptService;
-
+        private IInputBlockerService _inputBlockerService;
         private bool _isInterupt;
-        
+        private bool _isInputBlock;
+
         [Inject]
         private void Construct(PlayerBehaviour playerBehaviour, IInputService inputService, IInteruptService interuptService,
-                               IControlButtonService controlButtons)
+                               IControlButtonService controlButtons, IInputBlockerService inputBlockerService)
         {
             _inventory = playerBehaviour.Inventory;
             _inputService = inputService;
             _interuptService = interuptService;
+            _inputBlockerService = inputBlockerService;
 
             UseFirstItemButton = controlButtons.ControlButtons.PlayerControlButtons.InventoryControlButtons.UseFirstItemButton;
             UseSecondItemButton = controlButtons.ControlButtons.PlayerControlButtons.InventoryControlButtons.UseSecondItemButton;
@@ -41,10 +44,12 @@ namespace Scripts.Player
         
         private void Start()
         {
-            _isInterupt = false;
+            _isInterupt = _isInputBlock = false;
 
             _inventory.UpdateInventoryEvent += InventoryUpdateUI;
+            
             _interuptService.AddInteruptHandler(this);
+            _inputBlockerService.AddHandler(this);
 
             InventoryUpdateUI();
         }
@@ -54,6 +59,7 @@ namespace Scripts.Player
             _inventory.UpdateInventoryEvent -= InventoryUpdateUI;
 
             _interuptService.RemoveInteruptHandler(this);
+            _inputBlockerService.RemoveHandler(this);
         }
 
 
@@ -69,7 +75,7 @@ namespace Scripts.Player
 
         public void UseItem(string value)
         {
-            if (_isInterupt)
+            if (_isInterupt || _isInputBlock)
                 return;
 
             if (value == TypeItem.SMALL_HEAL.ToString())
@@ -91,6 +97,16 @@ namespace Scripts.Player
 
         public void Continue() =>
             _isInterupt = false;
+
+        public void BlockInput()
+        {
+            _isInputBlock = true;
+        }
+
+        public void UnBlockInput()
+        {
+            _isInputBlock = false;
+        }
     }
 
 }

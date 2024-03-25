@@ -12,6 +12,7 @@ using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
 using Scripts.Infrastructure.Factory;
 using Scripts.Infrastructure.StateMachine;
 using Scripts.Services.AudioService.SoundService;
+using Scripts.Services.InputBlockerService;
 using Scripts.Services.InteruptService;
 using Scripts.StaticData.GameConfigData.GameSystem.Dialog.Setup;
 using Scripts.StaticData.GameConfigData.GameSystem.QuestStaticData;
@@ -100,6 +101,7 @@ namespace Scripts.Infrastructure.Installer.Game
         private void BindInteruptService()
         {
             Container.Bind<IInteruptService>().To<InteruptService>().AsSingle();
+            Container.Bind<IInputBlockerService>().To<InputBlockerService>().AsSingle();
         }
 
         private void BindNameLocation()

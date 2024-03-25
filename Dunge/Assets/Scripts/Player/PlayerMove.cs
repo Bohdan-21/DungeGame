@@ -1,5 +1,6 @@
 using Scripts.GameSystem.StatsSystem.Handler;
 using Scripts.GameSystem.StatsSystem.Type;
+using Scripts.Services.InputBlockerService;
 using Scripts.Services.InputService;
 using Scripts.Services.InteruptService;
 using UnityEngine;
@@ -7,7 +8,7 @@ using Zenject;
 
 namespace Scripts.Player
 {
-    public class PlayerMove : MonoBehaviour, IInteruptHandler
+    public class PlayerMove : MonoBehaviour, IInteruptHandler, IInputBlockerHandler
     {
         public CharacterController CharacterController;
         public PlayerAnimator PlayerAnimator;
@@ -17,23 +18,29 @@ namespace Scripts.Player
 
         private IInputService _inputService;
         private IInteruptService _interuptService;
-
+        private IInputBlockerService _inputBlockerService;
         [SerializeField] private float _walkSpeed;
         private bool _isInterupt;
+        private bool _isInputBlock;
 
         [Inject]
-        private void Construct(IInputService inputService, IInteruptService interuptService, ICameraFollow cameraFollow)
+        private void Construct(IInputService inputService, IInteruptService interuptService, ICameraFollow cameraFollow,
+                               IInputBlockerService inputBlockerService)
         {
             _inputService = inputService;
             _interuptService = interuptService;
+            _inputBlockerService = inputBlockerService;
+
             _gameCamera = cameraFollow.GameCamera;
         }
 
         private void Start()
         {
-            _isInterupt = false;
+            _isInterupt = _isInputBlock =  false;
 
             _interuptService.AddInteruptHandler(this);
+            _inputBlockerService.AddHandler(this);
+
             _statsHandler.UpdateStatsEvent += UpdateStats;
 
             UpdateStats();
@@ -42,6 +49,8 @@ namespace Scripts.Player
         private void OnDestroy()
         {
             _interuptService.RemoveInteruptHandler(this);
+            _inputBlockerService.RemoveHandler(this);
+
             _statsHandler.UpdateStatsEvent -= UpdateStats;
         }
 
@@ -54,7 +63,7 @@ namespace Scripts.Player
         {
             Vector3 movement = Vector3.zero;
 
-            if (!PlayerAnimator.IsDie && !PlayerAnimator.isPlay && !_isInterupt)
+            if (!PlayerAnimator.IsDie && !PlayerAnimator.isPlay && !_isInterupt && !_isInputBlock)
             {
 
                 if (_inputService.Movement().sqrMagnitude > Constants.Epsilon)
@@ -76,5 +85,15 @@ namespace Scripts.Player
 
         public void Continue() =>
             _isInterupt = false;
+
+        public void BlockInput()
+        {
+            _isInputBlock = true;
+        }
+
+        public void UnBlockInput()
+        {
+            _isInputBlock = false;
+        }
     }
 }
