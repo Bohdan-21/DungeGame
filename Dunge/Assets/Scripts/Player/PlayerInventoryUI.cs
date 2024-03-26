@@ -2,14 +2,13 @@
 using Scripts.Services.ControlButtonService;
 using Scripts.Services.InputBlockerService;
 using Scripts.Services.InputService;
-using Scripts.Services.InteruptService;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
 namespace Scripts.Player
 {
-    class PlayerInventoryUI : MonoBehaviour, IInteruptHandler, IInputBlockerHandler
+    class PlayerInventoryUI : MonoBehaviour, IInputBlockerHandler
     {
         private KeyCode UseFirstItemButton;
         private KeyCode UseSecondItemButton;
@@ -23,18 +22,15 @@ namespace Scripts.Player
         
         private PlayerInventory _inventory;
         private IInputService _inputService;
-        private IInteruptService _interuptService;
         private IInputBlockerService _inputBlockerService;
-        private bool _isInterupt;
         private bool _isInputBlock;
 
         [Inject]
-        private void Construct(PlayerBehaviour playerBehaviour, IInputService inputService, IInteruptService interuptService,
+        private void Construct(PlayerBehaviour playerBehaviour, IInputService inputService,
                                IControlButtonService controlButtons, IInputBlockerService inputBlockerService)
         {
             _inventory = playerBehaviour.Inventory;
             _inputService = inputService;
-            _interuptService = interuptService;
             _inputBlockerService = inputBlockerService;
 
             UseFirstItemButton = controlButtons.ControlButtons.PlayerControlButtons.InventoryControlButtons.UseFirstItemButton;
@@ -44,13 +40,11 @@ namespace Scripts.Player
         
         private void Start()
         {
-            _isInterupt = _isInputBlock = false;
+            _isInputBlock = false;
 
             _inventory.UpdateInventoryEvent += InventoryUpdateUI;
-            
-            _interuptService.AddInteruptHandler(this);
             _inputBlockerService.AddHandler(this);
-
+            
             InventoryUpdateUI();
         }
 
@@ -58,10 +52,8 @@ namespace Scripts.Player
         {
             _inventory.UpdateInventoryEvent -= InventoryUpdateUI;
 
-            _interuptService.RemoveInteruptHandler(this);
             _inputBlockerService.RemoveHandler(this);
         }
-
 
         private void Update()
         {
@@ -75,7 +67,7 @@ namespace Scripts.Player
 
         public void UseItem(string value)
         {
-            if (_isInterupt || _isInputBlock)
+            if (_isInputBlock)
                 return;
 
             if (value == TypeItem.SMALL_HEAL.ToString())
@@ -92,12 +84,6 @@ namespace Scripts.Player
                 itemUpdater.UpdateCount(_inventory.GetItemCount(itemUpdater.TypeItem));
         }
 
-        public void Interupt() =>
-            _isInterupt = true;
-
-        public void Continue() =>
-            _isInterupt = false;
-
         public void BlockInput()
         {
             _isInputBlock = true;
@@ -108,5 +94,4 @@ namespace Scripts.Player
             _isInputBlock = false;
         }
     }
-
 }

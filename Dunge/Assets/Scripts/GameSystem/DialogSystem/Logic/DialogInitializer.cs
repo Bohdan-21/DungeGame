@@ -1,4 +1,5 @@
-﻿using Scripts.Services.LanguageService;
+﻿using Scripts.Services.InputBlockerService;
+using Scripts.Services.LanguageService;
 using Scripts.StaticData.GameConfigData.GameSystem.Dialog;
 using Zenject;
 
@@ -11,19 +12,25 @@ namespace Scripts.GameSystem.DialogSystem.Logic
     {
         private ILanguageService _languageSettings;
         private IDialogTracking _dialogTracker;
+        private IInputBlockerService _inputBlockerService;
+
         private bool _isDialogActive = false;
 
         [Inject]
-        private void Construct(ILanguageService languageSettings, IDialogTracking dialogTracker)
+        private void Construct(ILanguageService languageSettings, IDialogTracking dialogTracker, 
+                               IInputBlockerService inputBlockerService)
         {
             _languageSettings = languageSettings;
             _dialogTracker = dialogTracker;
+            _inputBlockerService = inputBlockerService;
         }
 
         public void StartDialog(DialogStaticData dialogStaticData)
         {
             if (dialogStaticData != null)
             {
+                _inputBlockerService.BlockAllInput();
+
                 DialogVariation dialog = dialogStaticData.GetDialogVariationByCurrentLanguage(_languageSettings.Language);
 
                 if (dialog != null && !_isDialogActive)
@@ -40,6 +47,8 @@ namespace Scripts.GameSystem.DialogSystem.Logic
             _isDialogActive = false;
 
             _dialogTracker.EndDialogTracking();
+
+            _inputBlockerService.UnBlockAllInput();
         }
     }
 }

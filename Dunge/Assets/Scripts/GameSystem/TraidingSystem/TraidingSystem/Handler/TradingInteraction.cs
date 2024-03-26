@@ -1,6 +1,7 @@
 ﻿using Scripts.GameSystem.TraidingSystem.TraidingSystem.UI.Trade;
 using Scripts.Logic;
 using Scripts.Services.ControlButtonService;
+using Scripts.Services.InputBlockerService;
 using Scripts.Services.InputService;
 using Scripts.UI.Interaction;
 using UnityEngine;
@@ -20,18 +21,21 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler
         private IInteractionPanel _interactionPanel;
         private IInputService _inputService;
         private ITraiderUI _traiderUI;
+        private IInputBlockerService _inputBlockerService;
 
         private KeyCode _interactionButton;
         private bool _isShow = false;
 
         [Inject]
         private void Construct(IControlButtonService controlButtons, IInputService inputService, IInteractionPanel interactionPanel,
-                               ITraiderUI traiderUI)
+                               ITraiderUI traiderUI, IInputBlockerService inputBlockerService)
         {
             _traiderUI = traiderUI;
             _inputService = inputService;
             _interactionPanel = interactionPanel;
             _interactionButton = controlButtons.ControlButtons.PlayerControlButtons.AnotherControlButtons.InteractButton;
+
+            _inputBlockerService = inputBlockerService;
         }
 
         private void Start()
@@ -74,9 +78,15 @@ namespace Scripts.GameSystem.TraidingSystem.TraidingSystem.Handler
                 _isShow = !_isShow;
 
                 if (_isShow)
+                {
                     _traiderUI.Show(_trader, _store);
+                    _inputBlockerService.BlockAllInput();
+                }
                 else
+                {
                     _traiderUI.Hide();
+                    _inputBlockerService.UnBlockAllInput();
+                }
             }
         }
     }

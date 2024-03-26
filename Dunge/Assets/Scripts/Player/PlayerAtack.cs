@@ -12,7 +12,7 @@ using Zenject;
 
 namespace Scripts.Player
 {
-    public class PlayerAtack : MonoBehaviour, IInteruptHandler, IInputBlockerHandler
+    public class PlayerAtack : MonoBehaviour, IInputBlockerHandler
     {
         private KeyCode AttackButton;
 
@@ -24,10 +24,8 @@ namespace Scripts.Player
         private IInputService _inputService;
         private IInputBlockerService _inputBlockerService;
         
-        private IInteruptService _interuptService;
         private ISoundsGameActionPlayer _soundPlayer;
 
-        private bool _isInterupt;
         private bool _isInputBlock;
 
         private int _layerMask;
@@ -35,14 +33,13 @@ namespace Scripts.Player
         private int _damage;
 
         [Inject]
-        private void Construct(IInputService inputService, IInteruptService interuptService, PlayerCharacterConfig config,
+        private void Construct(IInputService inputService, PlayerCharacterConfig config,
                                ISoundsGameActionPlayer soundPlayer, IControlButtonService controlButtons, 
                                IInputBlockerService inputBlockerService)
         {
             _inputService = inputService;
             _inputBlockerService = inputBlockerService;
 
-            _interuptService = interuptService;
             _soundPlayer = soundPlayer;
 
             _attackRadius = config.AttackRadius;
@@ -53,10 +50,8 @@ namespace Scripts.Player
         private void Awake()
         {
             _layerMask = 1 << LayerMask.NameToLayer("Enemy");
+            _isInputBlock = false;
 
-            _isInterupt = _isInputBlock = false;
-
-            _interuptService.AddInteruptHandler(this);
             _inputBlockerService.AddHandler(this);
         }
 
@@ -69,7 +64,6 @@ namespace Scripts.Player
 
         private void OnDestroy()
         {
-            _interuptService.RemoveInteruptHandler(this);
             _inputBlockerService.RemoveHandler(this);
 
             _statsHandler.UpdateStatsEvent -= UpdateStats;
@@ -85,7 +79,7 @@ namespace Scripts.Player
 
         private void StartAttack()
         {
-            if (_inputService.IsPress(AttackButton) && !_isInterupt)
+            if (_inputService.IsPress(AttackButton))
             {
                 PlayerAnimator.PlayAttack();
             }
@@ -120,12 +114,6 @@ namespace Scripts.Player
 
         private void PlaySound() => 
             _soundPlayer.PlayAttackPlayerSound();
-
-        public void Interupt() =>
-            _isInterupt = true;
-
-        public void Continue() =>
-            _isInterupt = false;
 
         private void UpdateStats() => 
             _damage = (int)_statsHandler.GetStatDataByType(TypeStat.Damage).GetCurrentValue();
