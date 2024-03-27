@@ -13,7 +13,6 @@ namespace Scripts.StaticData.SystemConfigData
     public class ProjectGlobalSettings : ScriptableObject
     {
         public string StartRoom;
-
-        public List<string> DungeLevels;
+        public string FightRoom;
     }
 }

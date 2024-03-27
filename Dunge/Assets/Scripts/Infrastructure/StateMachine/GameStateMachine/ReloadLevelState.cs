@@ -28,7 +28,7 @@ namespace Scripts.Infrastructure.StateMachine
 
         private string GetNameCurrentDungeLevel()
         {
-            return _projectGlobalSettings.DungeLevels[_progressService.PlayerProgress.LevelData.CurrentDungeLevel];
+            return "";//return _projectGlobalSettings.DungeLevels[_progressService.PlayerProgress.LevelData.CurrentDungeLevel];
         }
 
         public void Exit()
