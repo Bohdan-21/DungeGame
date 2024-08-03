@@ -1,5 +1,6 @@
 ﻿using Scripts.GameSystem.LevelGeneration.DataChunk;
 using Scripts.GameSystem.LevelGeneration.LevelSetting;
+using Scripts.Services.PlayerProgressService;
 using Scripts.StaticData.GameConfigData.GameSystem.LevelGeneration.Setup;
 using System;
 using System.Collections.Generic;
@@ -12,12 +13,14 @@ namespace Scripts.GameSystem.LevelGeneration.Grid
     {
         private List<LevelCell> _levelCells = new List<LevelCell>();
         private ChunkSetup _chunkSetup;
-        
+        private IPlayerProgressService _progressService;
+
         private int _currentSpawnedChunk = 1;
 
-        public LevelGrid(ChunkSetup chunkSetup, LevelData levelData)
+        public LevelGrid(ChunkSetup chunkSetup, LevelData levelData, IPlayerProgressService progressService)
         {
             _chunkSetup = chunkSetup;
+            _progressService = progressService;
 
             AddPreparedChunks(levelData);
         }
@@ -112,7 +115,7 @@ namespace Scripts.GameSystem.LevelGeneration.Grid
         }
 
         private bool IsNeedToStopLevelGeneration(TypeConnectionForCell typeConnection) =>
-            _currentSpawnedChunk > _chunkSetup.MaxAvailableSpawnedChunk && typeConnection.NeedConnectCount == 0;
+            _currentSpawnedChunk > _chunkSetup.MaxAvailableSpawnedChunk + _progressService.PlayerProgress.LevelData.LevelDunge && typeConnection.NeedConnectCount == 0;
 
 
         public void AddLevelCell(GameObject createdChunk)

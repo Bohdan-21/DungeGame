@@ -5,15 +5,15 @@ namespace Scripts.SaveData.PlayerData
     [Serializable]
     public class LevelData
     {
-        public int CurrentDungeLevel;
-        public int MaxReachedDungeLevel;
+        public string NextLoadRoom;
+        public int LevelDunge;
 
-        public LevelData() : this(0, 0) { }
+        public LevelData() : this("", 0) { }
 
-        public LevelData(int currentDungeLevel, int maxReachedDungeLevel)
+        public LevelData(string nextLoadRoom, int levelDunge)
         {
-            CurrentDungeLevel = currentDungeLevel;
-            MaxReachedDungeLevel = maxReachedDungeLevel;
+            NextLoadRoom = nextLoadRoom;
+            LevelDunge = levelDunge;
         }
     }
 }

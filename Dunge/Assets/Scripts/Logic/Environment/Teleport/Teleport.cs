@@ -52,38 +52,18 @@ namespace Scripts.Logic.Environment.Teleport
             _gameStateMachine.Enter<WinState>();
         }
 
-
-        /// <summary>
-        /// TODO: recheck this
-        /// </summary>
         private void UpdateDungeLevel()
         {
-            if (!IsStartLocation)
+            if (IsStartLocation)
             {
-                if (IsCurrentLevelMaxLevelDunge())
-                    ResetLevelDunge();
-                else
-                    UpdateCurrentAndMaxLevelDunge();
+                _progressService.PlayerProgress.LevelData.NextLoadRoom = _globalSettings.FightRoom;
+                _progressService.PlayerProgress.LevelData.LevelDunge = 1;
             }
-        }
-
-        private void UpdateCurrentAndMaxLevelDunge()
-        {
-            _progressService.PlayerProgress.LevelData.CurrentDungeLevel++;
-            _progressService.PlayerProgress.LevelData.MaxReachedDungeLevel++;
-        }
-
-        private void ResetLevelDunge()
-        {
-            _progressService.PlayerProgress.LevelData.CurrentDungeLevel = 0;
-        }
-
-        private bool IsCurrentLevelMaxLevelDunge()
-        {
-            Debug.Log("Current:" + _progressService.PlayerProgress.LevelData.CurrentDungeLevel.ToString());
-            //Debug.Log("Maximum:" + _globalSettings.DungeLevels.Count.ToString());
-
-            return false;//return _progressService.PlayerProgress.LevelData.CurrentDungeLevel + 1 == _globalSettings.DungeLevels.Count;
+            else
+            {
+                _progressService.PlayerProgress.LevelData.NextLoadRoom = "";
+                _progressService.PlayerProgress.LevelData.LevelDunge++;
+            }
         }
     }
 }

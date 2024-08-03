@@ -8366,6 +8366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameCamera: {fileID: 4196711485318404590, guid: 0c24fd3a1662088488c09dae4a908e19, type: 3}
+  TeleportingMenu: {fileID: 9081877732511169910, guid: 0f0744e667041504fbb9ac6d0217a346, type: 3}
   audioSetupForGame: {fileID: 11400000, guid: 1bcf065aebe364943a27740619a12ac4, type: 2}
   dialogSetupSystem: {fileID: 11400000, guid: 1a32fafad4a9bf546885c483cae2e38f, type: 2}
   questSetup: {fileID: 11400000, guid: 763e9e8446d06674f868134ed9abaf9a, type: 2}

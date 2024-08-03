@@ -16,7 +16,7 @@ namespace Scripts.GameSystem.ExperienceSystem.Handler
         [Inject]
         private void Construct(DeffaultSettingsForNewEnemy deffaultSettings, IPlayerProgressService playerProgressService)
         {
-            _enemyExperienceData = new EnemyExperienceData(deffaultSettings, playerProgressService.PlayerProgress.LevelData.CurrentDungeLevel);
+            _enemyExperienceData = new EnemyExperienceData(deffaultSettings, playerProgressService.PlayerProgress.LevelData.LevelDunge);
         }
 
         public int GetCurrentLevel() => 

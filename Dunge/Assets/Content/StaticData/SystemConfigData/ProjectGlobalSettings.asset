@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: ProjectGlobalSettings
   m_EditorClassIdentifier: 
   StartRoom: Village
-  DungeLevels:
-  - DungeLevelGeneration
+  FightRoom: DungeLevelGeneration

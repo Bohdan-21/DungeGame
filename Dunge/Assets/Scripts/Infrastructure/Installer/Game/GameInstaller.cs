@@ -21,6 +21,7 @@ using Scripts.StaticData.SystemConfigData.Audio;
 using Scripts.StaticData.SystemConfigData.Audio.Setup;
 using Scripts.UI.Interaction;
 using Scripts.UI.NameLocation;
+using Scripts.UI.TeleportingUI;
 using UnityEngine;
 using Zenject;
 
@@ -29,6 +30,8 @@ namespace Scripts.Infrastructure.Installer.Game
     public class GameInstaller : MonoInstaller
     {
         public GameObject GameCamera;
+
+        public GameObject TeleportingMenu;
 
         public AudioSetupForGame audioSetupForGame;
         public DialogSetupSystem dialogSetupSystem;
@@ -44,6 +47,8 @@ namespace Scripts.Infrastructure.Installer.Game
 
         public override void InstallBindings()
         {
+            Container.Bind<ITeleportingMenu>().FromComponentInNewPrefab(TeleportingMenu).AsSingle();
+
             BindLevelHandler();
             BindGameCamera();
             BindGameSound();

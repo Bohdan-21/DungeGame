@@ -253,9 +253,9 @@ MonoBehaviour:
   _localizationData:
     _localizations:
     - language: 0
-      text: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u044C"
+      text: "\u0418\u0434\u0442\u0438 \u0432 \u0434\u0435\u0440\u0435\u0432\u043D\u044E"
     - language: 1
-      text: Repeat
+      text: Go to Village
 --- !u!1 &9081877732717916464
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,9 +407,9 @@ MonoBehaviour:
   _localizationData:
     _localizations:
     - language: 0
-      text: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u044C"
+      text: "\u0418\u0434\u0442\u0438 \u0434\u0430\u043B\u044C\u0448\u0435"
     - language: 1
-      text: Repeat
+      text: Go Next Level
 --- !u!1 &9081877732984657781
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,9 +562,9 @@ MonoBehaviour:
   _localizationData:
     _localizations:
     - language: 0
-      text: "\u041F\u041E\u041C\u0415\u0420"
+      text: "\u041F\u041E\u0411\u0415\u0414\u0410!"
     - language: 1
-      text: YOU DIE
+      text: YOU WIN!
 --- !u!1 &9081877733589130256
 GameObject:
   m_ObjectHideFlags: 0

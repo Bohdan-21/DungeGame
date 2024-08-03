@@ -35,7 +35,7 @@ namespace Scripts.SaveData.PlayerData
         public PlayerProgress(LevelData levelData, PlayerState state, MoneyData playerMoney, StorageData storage, PlayerSkillTreeData skillTreeData,
                               StatsContainer playerStatsContainer, PlayerExperienceData experienceData)
         {
-            LevelData = new LevelData(levelData.CurrentDungeLevel, levelData.MaxReachedDungeLevel);
+            LevelData = new LevelData(levelData.NextLoadRoom, levelData.LevelDunge);
 
             State = new PlayerState(state.CurrentHP, state.MaxHP);
 
