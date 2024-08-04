@@ -27,31 +27,34 @@ namespace Scripts.GameSystem.LevelGeneration.Grid.Gizmo
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.cyan;
-            int row;
-            int column;
-
-            int halfSizeMap = maxSizeForGizmosMap / 2;
-
-            for (int i = 0; i < maxSizeForGizmosMap; i++)
+            if (Application.isPlaying)
             {
-                if (i > halfSizeMap)
-                    row = -(i % halfSizeMap);
-                else
-                    row = i;
+                Gizmos.color = Color.cyan;
+                int row;
+                int column;
 
-                for (int j = 0; j < maxSizeForGizmosMap; j++)
+                int halfSizeMap = maxSizeForGizmosMap / 2;
+
+                for (int i = 0; i < maxSizeForGizmosMap; i++)
                 {
-                    if (j > halfSizeMap)
-                        column = -(j % halfSizeMap);
+                    if (i > halfSizeMap)
+                        row = -(i % halfSizeMap);
                     else
-                        column = j;
+                        row = i;
 
-                    DrawCells(row, column);
+                    for (int j = 0; j < maxSizeForGizmosMap; j++)
+                    {
+                        if (j > halfSizeMap)
+                            column = -(j % halfSizeMap);
+                        else
+                            column = j;
+
+                        DrawCells(row, column);
+                    }
                 }
-            }
 
-            Gizmos.color = Color.white;
+                Gizmos.color = Color.white;
+            }
         }
 
         private void DrawCells(int row, int column)

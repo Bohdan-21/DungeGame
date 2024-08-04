@@ -1,6 +1,7 @@
 ﻿using System.Collections;
+using Unity.AI.Navigation;
 using UnityEngine;
-using UnityEngine.AI;
+
 
 namespace Scripts.GameSystem.LevelGeneration.Baker
 {
