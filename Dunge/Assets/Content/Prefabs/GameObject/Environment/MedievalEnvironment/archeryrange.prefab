@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3932202334442422669}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &753779032744023186
 MeshFilter:
@@ -62,12 +62,12 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 963798294112862009, guid: 2e3c321d9d53ecd4ab43834ea4412f58, type: 3}
-  - {fileID: -8848810374240701247, guid: 2e3c321d9d53ecd4ab43834ea4412f58, type: 3}
-  - {fileID: 7575915981058242857, guid: 2e3c321d9d53ecd4ab43834ea4412f58, type: 3}
-  - {fileID: -4770390735465466038, guid: 2e3c321d9d53ecd4ab43834ea4412f58, type: 3}
-  - {fileID: -382652638819485698, guid: 2e3c321d9d53ecd4ab43834ea4412f58, type: 3}
-  - {fileID: -2867747967464863736, guid: 2e3c321d9d53ecd4ab43834ea4412f58, type: 3}
+  - {fileID: 2100000, guid: 627d69d1da8a1ef44b62c2080db42fec, type: 2}
+  - {fileID: 2100000, guid: f597f4d5eb3488a498e7f905a5bc36e5, type: 2}
+  - {fileID: 2100000, guid: a10884d883cee7846bf30d315ab2cd23, type: 2}
+  - {fileID: 2100000, guid: 25cb48f60ac5c994ca2f6517de3d3781, type: 2}
+  - {fileID: 2100000, guid: 25cb48f60ac5c994ca2f6517de3d3781, type: 2}
+  - {fileID: 2100000, guid: 67ef79929af8579488293b75453968e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,9 +97,17 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3932202334442422669}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6575177401481860906, guid: 2e3c321d9d53ecd4ab43834ea4412f58, type: 3}
